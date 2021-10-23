@@ -247,7 +247,7 @@
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 120;
-                    preload = 2;
+                    preload = 0;
                     permission = 0660;
                     moduleName = "HDF_TOUCH";
                     serviceName = "hdf_input_event1";
@@ -259,7 +259,7 @@
                 device0 :: deviceNode {
                     policy = 0;
                     priority = 130;
-                    preload = 2;
+                    preload = 0;
                     permission = 0660;
                     moduleName = "HDF_TOUCH_GT911";
                     serviceName = "hdf_touch_gt911_service";
