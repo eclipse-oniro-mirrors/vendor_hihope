@@ -96,7 +96,7 @@ root {
                         chipInfo = "AAAA11222";  // 4-ProjectName, 2-TP IC, 3-TP Module
                         /* 0:i2c 1:spi*/
                         busType = 0;
-                        deviceAddr = 0x14;
+                        deviceAddr = 0x5D;
                         /* 0:None 1:Rising 2:Failing 4:High-level 8:Low-level */
                         irqFlag = 2;
                         maxSpeed = 400;
