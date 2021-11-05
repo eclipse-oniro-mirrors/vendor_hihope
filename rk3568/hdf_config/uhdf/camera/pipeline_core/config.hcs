@@ -95,11 +95,43 @@ root {
             out_port_0 :: port_spec {
                 name = "out0";
                 peer_port_name = "in0";
-                peer_port_node_name = "sink#0";
+                peer_port_node_name = "RKCodec#0";
                 direction = 1;
             }
             out_port_1 :: port_spec {
                 name = "out1";
+                peer_port_name = "in0";
+                peer_port_node_name = "RKCodec#1";
+                direction = 1;
+            }
+        }
+        RKCodec_1 :: node_spec {
+            name = "RKCodec#0";
+            status = "new";
+            in_port_0 :: port_spec {
+                name = "in0";
+                peer_port_name = "out0";
+                peer_port_node_name = "fork#0";
+                direction = 0;
+            }
+            out_port_0 :: port_spec {
+                name = "out0";
+                peer_port_name = "in0";
+                peer_port_node_name = "sink#0";
+                direction = 1;
+            }
+        }
+        RKCodec_2 :: node_spec {
+            name = "RKCodec#1";
+            status = "new";
+            in_port_0 :: port_spec {
+                name = "in0";
+                peer_port_name = "out1";
+                peer_port_node_name = "fork#0";
+                direction = 0;
+            }
+            out_port_0 :: port_spec {
+                name = "out0";
                 peer_port_name = "in0";
                 peer_port_node_name = "sink#1";
                 direction = 1;
@@ -112,7 +144,7 @@ root {
             in_port_0 :: port_spec {
                 name = "in0";
                 peer_port_name = "out0";
-                peer_port_node_name = "fork#0";
+                peer_port_node_name = "RKCodec#0";
                 direction = 0;
             }
         }
@@ -122,8 +154,8 @@ root {
             stream_type = "snapshot";
             in_port_0 :: port_spec {
                 name = "in0";
-                peer_port_name = "out1";
-                peer_port_node_name = "fork#0";
+                peer_port_name = "out0";
+                peer_port_node_name = "RKCodec#1";
                 direction = 0;
             }
         }
@@ -152,11 +184,43 @@ root {
             out_port_0 :: port_spec {
                 name = "out0";
                 peer_port_name = "in0";
-                peer_port_node_name = "sink#0";
+                peer_port_node_name = "RKCodec#0";
                 direction = 1;
             }
             out_port_1 :: port_spec {
                 name = "out1";
+                peer_port_name = "in0";
+                peer_port_node_name = "RKCodec#1";
+                direction = 1;
+            }
+        }
+        RKCodec_1 :: node_spec {
+            name = "RKCodec#0";
+            status = "new";
+            in_port_0 :: port_spec {
+                name = "in0";
+                peer_port_name = "out0";
+                peer_port_node_name = "fork#0";
+                direction = 0;
+            }
+            out_port_0 :: port_spec {
+                name = "out0";
+                peer_port_name = "in0";
+                peer_port_node_name = "sink#0";
+                direction = 1;
+            }
+        }
+        RKCodec_2 :: node_spec {
+            name = "RKCodec#1";
+            status = "new";
+            in_port_0 :: port_spec {
+                name = "in0";
+                peer_port_name = "out1";
+                peer_port_node_name = "fork#0";
+                direction = 0;
+            }
+            out_port_0 :: port_spec {
+                name = "out0";
                 peer_port_name = "in0";
                 peer_port_node_name = "sink#1";
                 direction = 1;
@@ -169,7 +233,7 @@ root {
             in_port_0 :: port_spec {
                 name = "in0";
                 peer_port_name = "out0";
-                peer_port_node_name = "fork#0";
+                peer_port_node_name = "RKCodec#0";
                 direction = 0;
             }
         }
@@ -179,8 +243,8 @@ root {
             stream_type = "video";
             in_port_0 :: port_spec {
                 name = "in0";
-                peer_port_name = "out1";
-                peer_port_node_name = "fork#0";
+                peer_port_name = "out0";
+                peer_port_node_name = "RKCodec#1";
                 direction = 0;
             }
         }
