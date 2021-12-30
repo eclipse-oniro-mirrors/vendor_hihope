@@ -29,7 +29,7 @@
                 }
             }
         }
-        platform :: host {
+        bluetooth :: host {
             hostName = "blue_host";
             priority = 50;
             bluetooth_device :: device {
