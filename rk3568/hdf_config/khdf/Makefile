@@ -15,13 +15,16 @@
 ifeq ($(LOCAL_HCS_ROOT),)
   LOCAL_HCS_ROOT := $(PRODUCT_PATH)
 endif
-
-SOURCE_ROOT:=$(abspath $(dir $(lastword $(MAKEFILE_LIST)))/../../../../../../)
-$(info SOURCE_ROOT = $(SOURCE_ROOT))
+CURRENT_DIR := $(abspath $(dir $(realpath $(lastword $(MAKEFILE_LIST)))))
+SOURCE_ROOT := $(abspath $(CURRENT_DIR)/../../../../../)
 
 HC_GEN_DIR := $(abspath $(SOURCE_ROOT)/drivers/framework/tools/hc-gen)
+ifneq ($(OUT_DIR),)
+HC_GEN := $(OUT_DIR)/kernel/OBJ/${KERNEL_VERSION}/drivers/hdf/khdf/hc_gen_build/hc-gen
+else
 HC_GEN := $(HC_GEN_DIR)/build/hc-gen
-LOCAL_HCS_ROOT := $(abspath $(dir $(realpath $(lastword $(MAKEFILE_LIST)))))
+endif
+LOCAL_HCS_ROOT := $(CURRENT_DIR)
 
 HCS_DIR := $(LOCAL_HCS_ROOT)
 
@@ -59,6 +62,6 @@ $(CONFIG_GEN_SRCS): $(CONFIG_OUT_DIR)%.c: $(HCS_DIR)/%.hcs | $(HC_GEN)
 	$(Q)$(HC_GEN) -t -o $@ $<
 
 $(HC_GEN):
-	$(HIDE)make -C $(HC_GEN_DIR)
+	$(HIDE)make -C $(HC_GEN_DIR) BUILD_DIR=$(dir $@)
 
 obj-$(CONFIG_DRIVERS_HDF) += $(HCS_OBJ)
