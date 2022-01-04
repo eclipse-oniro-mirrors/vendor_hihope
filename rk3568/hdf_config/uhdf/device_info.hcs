@@ -29,6 +29,18 @@
                 }
             }
         }
+        bluetooth :: host {
+            hostName = "blue_host";
+            priority = 50;
+            bluetooth_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libbluetooth_hdi_server.z.so";
+                    serviceName = "BtHciService";
+                }
+            }
+        }
         usbfnMaster :: host {
             hostName = "usbfnMaster_host";
             priority = 50;
