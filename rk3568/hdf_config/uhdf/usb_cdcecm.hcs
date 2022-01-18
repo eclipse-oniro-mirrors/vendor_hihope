@@ -3,7 +3,7 @@ root {
     master_config {
         match_attr = "usbfn_master_driver";
         use_hcs = 1;
-        udc_name = "100e0000.hidwc3_0";
+        udc_name = "fcc00000.dwc3";
         usb_dev_desc = "UsbDeviceDescriptor";
         usb_dev_string = "UsbDeviceStrings";
         usb_configuration = "UsbConfigs";
