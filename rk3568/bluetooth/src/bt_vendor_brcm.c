@@ -1,4 +1,4 @@
-/******************************************************************************
+134/******************************************************************************
  *
  *  Copyright (C) 2009-2012 Broadcom Corporation
  *
@@ -131,7 +131,7 @@ static int init(const bt_vendor_callbacks_t *p_cb, unsigned char *local_bdaddr)
     bt_vendor_cbacks = (bt_vendor_callbacks_t *)p_cb;
 
     /* This is handed over from the stack */
-    memcpy_s(vnd_local_bd_addr, BD_ADDR_LEN, local_bdaddr, BD_ADDR_LEN);
+    (void)memcpy_s(vnd_local_bd_addr, BD_ADDR_LEN, local_bdaddr, BD_ADDR_LEN);
 
 #if (BRCM_A2DP_OFFLOAD == TRUE)
     brcm_vnd_a2dp_init(bt_vendor_cbacks);
