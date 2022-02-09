@@ -130,14 +130,12 @@ static int init(const bt_vendor_callbacks_t *p_cb, unsigned char *local_bdaddr)
     /* store reference to user callbacks */
     bt_vendor_cbacks = (bt_vendor_callbacks_t *)p_cb;
 
-    /* This is handed over from the stack */
-    (void)memcpy_s(vnd_local_bd_addr, BD_ADDR_LEN, local_bdaddr, BD_ADDR_LEN);
-
 #if (BRCM_A2DP_OFFLOAD == TRUE)
     brcm_vnd_a2dp_init(bt_vendor_cbacks);
 #endif
 
-    return 0;
+    /* This is handed over from the stack */
+    return memcpy_s(vnd_local_bd_addr, BD_ADDR_LEN, local_bdaddr, BD_ADDR_LEN);
 }
 
 /** Requested operations */
