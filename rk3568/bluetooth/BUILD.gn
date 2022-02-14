@@ -57,6 +57,6 @@ ohos_shared_library("libbt_vendor") {
   install_enable = true
   install_images = [ "system" ]
 
-  part_name = "bluetooth_standard"
-  subsystem_name = "communication"
+  part_name = "rockchip_products"
+  subsystem_name = "rockchip_products"
 }
