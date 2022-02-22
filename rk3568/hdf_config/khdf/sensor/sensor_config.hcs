@@ -1,1 +1,2 @@
 #include "accel/bmi160_config.hcs"
+#include "accel/mxc6655xa_config.hcs"
