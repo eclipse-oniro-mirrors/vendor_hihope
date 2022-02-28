@@ -67,6 +67,7 @@
                 <filteritem type="filename" name="*.iml|*.json|*.txt" desc="desc files"/>
                 <!-- <filteritem type="filepath" name="projectroot/[a-zA-Z0-9]{20,}.sh" desc="Temp files"/> -->
                 <!-- <filteritem type="filepath" name="src/test/.*" desc="Test files"/> -->
+                 <filteritem type="filepath" name="rk3568/bluetooth/BCM4362A2.hcd" desc="AP6257S bluetooth firmware"/>
             </filefilter>
             <filefilter name="defaultPolicyFilter" desc="Filters for compatibility，license header policies">
 		    <filteritem type="filename" name="BUILD.gn" desc="Compilation scripts do not declare license"/>
