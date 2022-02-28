@@ -60,7 +60,7 @@
 
 /* Location of firmware patch files */
 #ifndef FW_PATCHFILE_LOCATION
-#define FW_PATCHFILE_LOCATION "/vendor/firmware/" /* maguro */
+#define FW_PATCHFILE_LOCATION "/vendor/etc/firmware/" /* maguro */
 #endif
 
 #ifndef UART_TARGET_BAUD_RATE

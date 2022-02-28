@@ -237,7 +237,7 @@ void upio_start_stop_timer(int action)
 *******************************************************************************/
 void upio_init(void)
 {
-    memset_s(upio_state, UPIO_UNKNOWN, UPIO_MAX_COUNT);
+    memset_s(upio_state, sizeof(upio_state), UPIO_UNKNOWN, UPIO_MAX_COUNT);
 #if (BT_WAKE_VIA_PROC == TRUE)
     memset_s(&lpm_proc_cb, sizeof(vnd_lpm_proc_cb_t), 0, sizeof(vnd_lpm_proc_cb_t));
 #endif
@@ -348,7 +348,11 @@ int upio_set_bluetooth_power(int on)
 void upio_set(uint8_t pio, uint8_t action, uint8_t polarity)
 {
     int rc;
-    
+#if (BT_WAKE_VIA_PROC == TRUE)
+    int fd = -1;
+    char buffer;
+#endif
+
     UPIODBG("%s : pio %d action %d, polarity %d", __FUNCTION__, pio, action, polarity);
     switch (pio) {
         case UPIO_LPM_MODE:
@@ -358,19 +362,144 @@ void upio_set(uint8_t pio, uint8_t action, uint8_t polarity)
             }
 
             upio_state[UPIO_LPM_MODE] = action;
+
+#if (BT_WAKE_VIA_PROC == TRUE)
+            fd = open(VENDOR_LPM_PROC_NODE, O_WRONLY);
+
+            if (fd < 0)
+            {
+                LOGE("upio_set : open(%s) for write failed: %s (%d)",
+                        VENDOR_LPM_PROC_NODE, strerror(errno), errno);
+                return;
+            }
+
+            if (action == UPIO_ASSERT)
+            {
+                buffer = '1';
+            }
+            else
+            {
+                buffer = '0';
+
+                // delete btwrite assertion holding timer
+                if (lpm_proc_cb.timer_created == TRUE)
+                {
+                    timer_delete(lpm_proc_cb.timer_id);
+                    lpm_proc_cb.timer_created = FALSE;
+                }
+            }
+
+            if (write(fd, &buffer, 1) < 0)
+            {
+                LOGE("upio_set : write(%s) failed: %s (%d)",
+                        VENDOR_LPM_PROC_NODE, strerror(errno),errno);
+            }
+#if (PROC_BTWRITE_TIMER_TIMEOUT_MS != 0)
+            else
+            {
+                if (action == UPIO_ASSERT)
+                {
+                    // create btwrite assertion holding timer
+                    if (lpm_proc_cb.timer_created == FALSE)
+                    {
+                        int status;
+                        struct sigevent se;
+
+                        se.sigev_notify = SIGEV_THREAD;
+                        se.sigev_value.sival_ptr = &lpm_proc_cb.timer_id;
+                        se.sigev_notify_function = proc_btwrite_timeout;
+                        se.sigev_notify_attributes = NULL;
+
+                        status = timer_create(CLOCK_MONOTONIC, &se,
+                                                &lpm_proc_cb.timer_id);
+
+                        if (status == 0)
+                            lpm_proc_cb.timer_created = TRUE;
+                    }
+                }
+            }
+#endif
+
+            if (fd >= 0)
+                close(fd);
+#endif
             break;
             
         case UPIO_BT_WAKE:
             if (upio_state[UPIO_BT_WAKE] == action) {
                 UPIODBG("BT_WAKE is %s already", lpm_state[action]);
+
+#if (BT_WAKE_VIA_PROC == TRUE)
+                if (lpm_proc_cb.btwrite_active == TRUE)
+                    /*
+                     * The proc btwrite node could have not been updated for
+                     * certain time already due to heavy downstream path flow.
+                     * In this case, we want to explicity touch proc btwrite
+                     * node to keep the bt_wake assertion in the LPM kernel
+                     * driver. The current kernel bluesleep LPM code starts
+                     * a 10sec internal in-activity timeout timer before it
+                     * attempts to deassert BT_WAKE line.
+                     */
+                    return;
+#else
                 return;
+#endif
             }
 
             upio_state[UPIO_BT_WAKE] = action;
 
 #if (BT_WAKE_VIA_USERIAL_IOCTL == TRUE)
-            userial_vendor_ioctl(((action == UPIO_ASSERT) ? USERIAL_OP_ASSERT_BT_WAKE : USERIAL_OP_DEASSERT_BT_WAKE),
-                                 NULL);
+
+            userial_vendor_ioctl( ( (action==UPIO_ASSERT) ? \
+                      USERIAL_OP_ASSERT_BT_WAKE : USERIAL_OP_DEASSERT_BT_WAKE),\
+                      NULL);
+
+#elif (BT_WAKE_VIA_PROC == TRUE)
+
+            /*
+             *  Kick proc btwrite node only at UPIO_ASSERT
+             */
+#if (BT_WAKE_VIA_PROC_NOTIFY_DEASSERT == FALSE)
+            if (action == UPIO_DEASSERT)
+                return;
+#endif
+            fd = open(VENDOR_BTWRITE_PROC_NODE, O_WRONLY);
+
+            if (fd < 0)
+            {
+                LOGE("upio_set : open(%s) for write failed: %s (%d)",
+                        VENDOR_BTWRITE_PROC_NODE, strerror(errno), errno);
+                return;
+            }
+#if (BT_WAKE_VIA_PROC_NOTIFY_DEASSERT == TRUE)
+            if (action == UPIO_DEASSERT)
+                buffer = '0';
+            else
+#endif
+                buffer = '1';
+
+            if (write(fd, &buffer, 1) < 0)
+            {
+                LOGE("upio_set : write(%s) failed: %s (%d)",
+                        VENDOR_BTWRITE_PROC_NODE, strerror(errno),errno);
+            }
+#if (PROC_BTWRITE_TIMER_TIMEOUT_MS != 0)
+            else
+            {
+                /* arm user space timer based on action */
+                upio_start_stop_timer(action);
+            }
+#endif
+
+#if (BT_WAKE_VIA_PROC_NOTIFY_DEASSERT == TRUE)
+            lpm_proc_cb.btwrite_active = TRUE;
+#endif
+
+            UPIODBG("%s: proc btwrite assertion, buffer: %c, timer_armed %d %d",
+                    __FUNCTION__, buffer, lpm_proc_cb.btwrite_active, lpm_proc_cb.timer_created);
+
+            if (fd >= 0)
+                close(fd);
 #endif
 
             break;
@@ -380,3 +509,5 @@ void upio_set(uint8_t pio, uint8_t action, uint8_t polarity)
             break;
     }
 }
+
+
