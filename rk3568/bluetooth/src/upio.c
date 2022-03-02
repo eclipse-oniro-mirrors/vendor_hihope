@@ -365,43 +365,33 @@ void upio_set(uint8_t pio, uint8_t action, uint8_t polarity)
 
 #if (BT_WAKE_VIA_PROC == TRUE)
             fd = open(VENDOR_LPM_PROC_NODE, O_WRONLY);
-
-            if (fd < 0)
-            {
+            if (fd < 0) {
                 LOGE("upio_set : open(%s) for write failed: %s (%d)",
-                        VENDOR_LPM_PROC_NODE, strerror(errno), errno);
+                    VENDOR_LPM_PROC_NODE, strerror(errno), errno);
                 return;
             }
 
-            if (action == UPIO_ASSERT)
-            {
+            if (action == UPIO_ASSERT) {
                 buffer = '1';
-            }
-            else
-            {
+            } else {
                 buffer = '0';
 
                 // delete btwrite assertion holding timer
-                if (lpm_proc_cb.timer_created == TRUE)
-                {
+                if (lpm_proc_cb.timer_created == TRUE) {
                     timer_delete(lpm_proc_cb.timer_id);
                     lpm_proc_cb.timer_created = FALSE;
                 }
             }
 
-            if (write(fd, &buffer, 1) < 0)
-            {
+            if (write(fd, &buffer, 1) < 0) {
                 LOGE("upio_set : write(%s) failed: %s (%d)",
-                        VENDOR_LPM_PROC_NODE, strerror(errno),errno);
+                    VENDOR_LPM_PROC_NODE, strerror(errno),errno);
             }
 #if (PROC_BTWRITE_TIMER_TIMEOUT_MS != 0)
-            else
-            {
-                if (action == UPIO_ASSERT)
-                {
+            else {
+                if (action == UPIO_ASSERT) {
                     // create btwrite assertion holding timer
-                    if (lpm_proc_cb.timer_created == FALSE)
-                    {
+                    if (lpm_proc_cb.timer_created == FALSE) {
                         int status;
                         struct sigevent se;
 
@@ -411,8 +401,7 @@ void upio_set(uint8_t pio, uint8_t action, uint8_t polarity)
                         se.sigev_notify_attributes = NULL;
 
                         status = timer_create(CLOCK_MONOTONIC, &se,
-                                                &lpm_proc_cb.timer_id);
-
+                                              &lpm_proc_cb.timer_id);
                         if (status == 0)
                             lpm_proc_cb.timer_created = TRUE;
                     }
@@ -452,7 +441,7 @@ void upio_set(uint8_t pio, uint8_t action, uint8_t polarity)
 
             userial_vendor_ioctl( ( (action==UPIO_ASSERT) ? \
                       USERIAL_OP_ASSERT_BT_WAKE : USERIAL_OP_DEASSERT_BT_WAKE),\
-                      NULL);
+                                  NULL);
 
 #elif (BT_WAKE_VIA_PROC == TRUE)
 
@@ -464,11 +453,9 @@ void upio_set(uint8_t pio, uint8_t action, uint8_t polarity)
                 return;
 #endif
             fd = open(VENDOR_BTWRITE_PROC_NODE, O_WRONLY);
-
-            if (fd < 0)
-            {
+            if (fd < 0) {
                 LOGE("upio_set : open(%s) for write failed: %s (%d)",
-                        VENDOR_BTWRITE_PROC_NODE, strerror(errno), errno);
+                    VENDOR_BTWRITE_PROC_NODE, strerror(errno), errno);
                 return;
             }
 #if (BT_WAKE_VIA_PROC_NOTIFY_DEASSERT == TRUE)
@@ -478,14 +465,12 @@ void upio_set(uint8_t pio, uint8_t action, uint8_t polarity)
 #endif
                 buffer = '1';
 
-            if (write(fd, &buffer, 1) < 0)
-            {
+            if (write(fd, &buffer, 1) < 0) {
                 LOGE("upio_set : write(%s) failed: %s (%d)",
-                        VENDOR_BTWRITE_PROC_NODE, strerror(errno),errno);
+                    VENDOR_BTWRITE_PROC_NODE, strerror(errno), errno);
             }
 #if (PROC_BTWRITE_TIMER_TIMEOUT_MS != 0)
-            else
-            {
+            else {
                 /* arm user space timer based on action */
                 upio_start_stop_timer(action);
             }
@@ -509,5 +494,3 @@ void upio_set(uint8_t pio, uint8_t action, uint8_t polarity)
             break;
     }
 }
-
-

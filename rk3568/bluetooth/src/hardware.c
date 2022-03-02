@@ -765,8 +765,7 @@ void hw_config_cback(void *p_mem)
             break;
 
         case HW_CFG_START:
-            if (UART_TARGET_BAUD_RATE > 3000000)
-            {
+            if (UART_TARGET_BAUD_RATE > 3000000) {
                 /* set UART clock to 48MHz */
                 UINT16_TO_STREAM(p, HCI_VSC_WRITE_UART_CLOCK_SETTING);
                 *p++ = 1; /* parameter length */
@@ -817,8 +816,7 @@ void hw_config_cback(void *p_mem)
 
             hw_cfg_cb.state = 0;
 
-            if (hw_cfg_cb.fw_fd != -1)
-            {
+            if (hw_cfg_cb.fw_fd != -1) {
                 close(hw_cfg_cb.fw_fd);
                 hw_cfg_cb.fw_fd = -1;
             }
@@ -831,16 +829,13 @@ void hw_config_cback(void *p_mem)
             p_tmp = (char *)(p_evt_buf + 1) +
                     HCI_EVT_CMD_CMPL_LOCAL_BDADDR_ARRAY;
             HILOGI("entering HW_CFG_READ_BD_ADDR");
-            if (memcmp(p_tmp, null_bdaddr, BD_ADDR_LEN) == 0)
-            {
+            if (memcmp(p_tmp, null_bdaddr, BD_ADDR_LEN) == 0) {
                 HILOGI("entering HW_CFG_READ_BD_ADDR");
                 // Controller does not have a valid OTP BDADDR!
                 // Set the BTIF initial BDADDR instead.
                 if ((xmit_bytes = hw_config_set_bdaddr(p_buf)) > 0)
                     break;
-            }
-            else
-            {
+            } else {
                 HILOGI("Controller OTP bdaddr %02X:%02X:%02X:%02X:%02X:%02X",
                        *(p_tmp + 5), *(p_tmp + 4), *(p_tmp + 3),
                        *(p_tmp + 2), *(p_tmp + 1), *p_tmp);
@@ -854,8 +849,7 @@ void hw_config_cback(void *p_mem)
 
             hw_cfg_cb.state = 0;
 
-            if (hw_cfg_cb.fw_fd != -1)
-            {
+            if (hw_cfg_cb.fw_fd != -1) {
                 close(hw_cfg_cb.fw_fd);
                 hw_cfg_cb.fw_fd = -1;
             }
@@ -870,19 +864,16 @@ void hw_config_cback(void *p_mem)
     // if (bt_vendor_cbacks)
     //  bt_vendor_cbacks->dealloc(p_evt_buf);
 
-    if (xmit_bytes <= 0)
-    {
+    if (xmit_bytes <= 0) {
         HILOGE("vendor lib fwcfg aborted!!!");
-        if (bt_vendor_cbacks)
-        {
+        if (bt_vendor_cbacks) {
             if (p_buf != NULL)
                 bt_vendor_cbacks->dealloc(p_buf);
 
             bt_vendor_cbacks->init_cb(BTC_OP_RESULT_FAIL);
         }
 
-        if (hw_cfg_cb.fw_fd != -1)
-        {
+        if (hw_cfg_cb.fw_fd != -1) {
             close(hw_cfg_cb.fw_fd);
             hw_cfg_cb.fw_fd = -1;
         }
@@ -1089,14 +1080,12 @@ void hw_config_start(void)
     // bt_vendor_cbacks->init_cb(BTC_OP_RESULT_SUCCESS);
     //    Start from sending HCI_RESET
 
-    if (bt_vendor_cbacks)
-    {
+    if (bt_vendor_cbacks) {
         p_buf = (HC_BT_HDR *)bt_vendor_cbacks->alloc(BT_HC_HDR_SIZE +
                                                      HCI_CMD_PREAMBLE_SIZE);
     }
 
-    if (p_buf)
-    {
+    if (p_buf) {
         p_buf->event = MSG_STACK_TO_HC_HCI_CMD;
         p_buf->offset = 0;
         p_buf->layer_specific = 0;
@@ -1108,11 +1097,8 @@ void hw_config_start(void)
 
         hw_cfg_cb.state = HW_CFG_START;
         bt_vendor_cbacks->xmit_cb(HCI_RESET, p_buf);
-    }
-    else
-    {
-        if (bt_vendor_cbacks)
-        {
+    } else {
+        if (bt_vendor_cbacks) {
             HILOGE("vendor lib fw conf aborted [no buffer]");
             bt_vendor_cbacks->init_cb(BTC_OP_RESULT_FAIL);
         }
@@ -1140,8 +1126,7 @@ uint8_t hw_lpm_enable(uint8_t turn_on)
                                                      HCI_CMD_PREAMBLE_SIZE +
                                                      LPM_CMD_PARAM_SIZE);
 
-    if (p_buf)
-    {
+    if (p_buf) {
         p_buf->event = MSG_STACK_TO_HC_HCI_CMD;
         p_buf->offset = 0;
         p_buf->layer_specific = 0;
@@ -1151,25 +1136,20 @@ uint8_t hw_lpm_enable(uint8_t turn_on)
         UINT16_TO_STREAM(p, HCI_VSC_WRITE_SLEEP_MODE);
         *p++ = LPM_CMD_PARAM_SIZE; /* parameter length */
 
-        if (turn_on)
-        {
+        if (turn_on) {
             memcpy(p, &lpm_param, LPM_CMD_PARAM_SIZE);
             upio_set(UPIO_LPM_MODE, UPIO_ASSERT, 0);
-        }
-        else
-        {
+        } else {
             memset(p, 0, LPM_CMD_PARAM_SIZE);
             upio_set(UPIO_LPM_MODE, UPIO_DEASSERT, 0);
         }
 
-        if ((ret = bt_vendor_cbacks->xmit_cb(HCI_VSC_WRITE_SLEEP_MODE, p_buf)) <= 0)
-        {
+        if ((ret = bt_vendor_cbacks->xmit_cb(HCI_VSC_WRITE_SLEEP_MODE, p_buf)) <= 0) {
             bt_vendor_cbacks->dealloc(p_buf);
         }
     }
 
-    if ((ret <= 0) && bt_vendor_cbacks)
-    {
+    if ((ret <= 0) && bt_vendor_cbacks) {
         // bt_vendor_cbacks->lpm_cb(BT_VND_OP_RESULT_FAIL);
     }
     HILOGD("hw_lpm_enable ret:%d", ret);
