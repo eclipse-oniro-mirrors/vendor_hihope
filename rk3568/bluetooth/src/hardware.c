@@ -624,16 +624,14 @@ void hw_config_cback(void *p_mem)
     if ((status == 0) && bt_vendor_cbacks)
         p_buf = (HC_BT_HDR *)bt_vendor_cbacks->alloc(BT_HC_HDR_SIZE + HCI_CMD_MAX_LEN);
 
-    if (p_buf != NULL)
-    {
+    if (p_buf != NULL) {
         p_buf->event = MSG_STACK_TO_HC_HCI_CMD;
         p_buf->offset = 0;
         p_buf->len = 0;
         p_buf->layer_specific = 0;
 
         p = (uint8_t *)(p_buf + 1);
-        switch (hw_cfg_cb.state)
-        {
+        switch (hw_cfg_cb.state) {
         case HW_CFG_SET_UART_BAUD_1:
             /* update baud rate of host's UART port */
             HILOGI("bt vendor lib: set UART baud %i", UART_TARGET_BAUD_RATE);
@@ -657,22 +655,19 @@ void hw_config_cback(void *p_mem)
             for (i = 0; (i < LOCAL_NAME_BUFFER_LEN) || (*(p_name + i) != 0); i++)
                 *(p_name + i) = toupper(*(p_name + i));
 
-            if ((p_name = strstr(p_name, "BCM")) != NULL)
-            {
+            if ((p_name = strstr(p_name, "BCM")) != NULL) {
                 strncpy(hw_cfg_cb.local_chip_name, p_name,
                         LOCAL_NAME_BUFFER_LEN - 1);
             }
 #ifdef USE_BLUETOOTH_BCM4343
-            else if ((p_name = strstr(p_tmp, "4343")) != NULL)
-            {
+            else if ((p_name = strstr(p_tmp, "4343")) != NULL) {
                 snprintf(hw_cfg_cb.local_chip_name,
                          LOCAL_NAME_BUFFER_LEN - 1, "BCM%s", p_name);
                 strncpy(p_name, hw_cfg_cb.local_chip_name,
                         LOCAL_NAME_BUFFER_LEN - 1);
             }
 #endif
-            else
-            {
+            else {
                 strncpy(hw_cfg_cb.local_chip_name, "UNKNOWN",
                         LOCAL_NAME_BUFFER_LEN - 1);
                 p_name = p_tmp;
@@ -685,12 +680,9 @@ void hw_config_cback(void *p_mem)
         {
             // /vendor/etc/firmware
             p_name = FW_PATCHFILE_LOCATION "BCM4362A2.hcd";
-            if ((hw_cfg_cb.fw_fd = open(p_name, O_RDONLY)) == -1)
-            {
+            if ((hw_cfg_cb.fw_fd = open(p_name, O_RDONLY)) == -1) {
                 HILOGE("vendor lib preload failed to open [%s]", p_name);
-            }
-            else
-            {
+            } else {
                 /* vsc_download_minidriver */
                 UINT16_TO_STREAM(p, HCI_VSC_DOWNLOAD_MINIDRV);
                 *p = 0; /* parameter length */
@@ -702,8 +694,7 @@ void hw_config_cback(void *p_mem)
             }
         }
 
-            if (xmit_bytes <= 0)
-            {
+            if (xmit_bytes <= 0) {
                 HILOGE("vendor lib preload failed to locate firmware patch file and set bdaddr");
                 xmit_bytes = hw_config_set_bdaddr(p_buf);
             }
@@ -717,15 +708,11 @@ void hw_config_cback(void *p_mem)
         case HW_CFG_DL_FW_PATCH:
             // HILOGD("HW_CFG_DL_FW_PATCH, opcode:0x%02x", opcode);
             p_buf->len = read(hw_cfg_cb.fw_fd, p, HCI_CMD_PREAMBLE_SIZE);
-            if (p_buf->len > 0)
-            {
+            if (p_buf->len > 0) {
                 if ((p_buf->len < HCI_CMD_PREAMBLE_SIZE) ||
-                    (opcode == HCI_VSC_LAUNCH_RAM))
-                {
+                    (opcode == HCI_VSC_LAUNCH_RAM)) {
                     HILOGW("firmware patch file might be altered!");
-                }
-                else
-                {
+                } else {
                     p_buf->len += read(hw_cfg_cb.fw_fd,
                                        p + HCI_CMD_PREAMBLE_SIZE,
                                        *(p + HCD_REC_PAYLOAD_LEN_BYTE));
@@ -765,7 +752,7 @@ void hw_config_cback(void *p_mem)
             break;
 
         case HW_CFG_START:
-            if (UART_TARGET_BAUD_RATE > 3000000) {
+            if (UART_TARGET_BAUD_RATE > 3000000) {  /* 3000000 */
                 /* set UART clock to 48MHz */
                 UINT16_TO_STREAM(p, HCI_VSC_WRITE_UART_CLOCK_SETTING);
                 *p++ = 1; /* parameter length */
@@ -1245,8 +1232,7 @@ void hw_sco_config(void)
         hw_sco_i2spcm_config(SCO_CODEC_NONE);
     }
 
-    if (bt_vendor_cbacks)
-    {
+    if (bt_vendor_cbacks) {
         // bt_vendor_cbacks->scocfg_cb(BT_VND_OP_RESULT_SUCCESS);
     }
 }
