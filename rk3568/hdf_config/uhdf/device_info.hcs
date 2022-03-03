@@ -225,5 +225,19 @@
                 }
             }
         }
+
+        codec :: host {
+            hostName = "codec_host";
+            priority = 50;
+            codec_omx_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 200;
+                    moduleName = "libcodec_hdi_omx_server.z.so";
+                    serviceName = "codec_hdi_omx_service";
+                    deviceMatchAttr = "codec_component_capabilities";
+                }
+            }
+        }
     }
 }
