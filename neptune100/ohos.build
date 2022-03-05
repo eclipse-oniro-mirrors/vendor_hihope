@@ -1,0 +1,10 @@
+{
+  "parts": {
+    "product_neptune100": {
+      "module_list": [
+        "//vendor/hihope/neptune100:neptune100"
+      ]
+    }
+  },
+  "subsystem": "product_neptune100"
+}
