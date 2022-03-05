@@ -9,12 +9,12 @@
     "kernel_version": "3.0.0",
     "bin_list": [
       {
-      "elf_name": "hihope",
-      "enable": "true",
-		"force_link_libs": [
+        "elf_name": "hihope",
+        "enable": "true",
+        "force_link_libs": [
           "bootstrap",
           "broadcast",
-		  "hctest",
+          "hctest",
           "module_ActsParameterTest",
           "module_ActsBootstrapTest",
           "module_ActsDfxFuncTest",
