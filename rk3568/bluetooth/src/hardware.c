@@ -660,7 +660,7 @@ void hw_config_cback(void *p_mem)
                             LOCAL_NAME_BUFFER_LEN - 1);
 #ifdef USE_BLUETOOTH_BCM4343
                 } else if ((p_name = strstr(p_tmp, "4343")) != NULL) {
-                    snprintf(hw_cfg_cb.local_chip_name,
+                    snprintf_s(hw_cfg_cb.local_chip_name,sizeof(hw_cfg_cb.local_chip_name),
                              LOCAL_NAME_BUFFER_LEN - 1, "BCM%s", p_name);
                     strncpy(p_name, hw_cfg_cb.local_chip_name,
                             LOCAL_NAME_BUFFER_LEN - 1);
@@ -1123,10 +1123,10 @@ uint8_t hw_lpm_enable(uint8_t turn_on)
         *p++ = LPM_CMD_PARAM_SIZE; /* parameter length */
 
         if (turn_on) {
-            memcpy(p, &lpm_param, LPM_CMD_PARAM_SIZE);
+            memcpy_s(p, sizeof(p), &lpm_param, LPM_CMD_PARAM_SIZE);
             upio_set(UPIO_LPM_MODE, UPIO_ASSERT, 0);
         } else {
-            memset(p, 0, LPM_CMD_PARAM_SIZE);
+            memset_s(p, sizeof(p), 0, LPM_CMD_PARAM_SIZE);
             upio_set(UPIO_LPM_MODE, UPIO_DEASSERT, 0);
         }
 
