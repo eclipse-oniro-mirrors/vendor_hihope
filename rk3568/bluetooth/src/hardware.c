@@ -632,7 +632,7 @@ void hw_config_cback(void *p_mem)
 
         p = (uint8_t *)(p_buf + 1);
         switch (hw_cfg_cb.state) {
-             case HW_CFG_SET_UART_BAUD_1:
+            case HW_CFG_SET_UART_BAUD_1:
                 /* update baud rate of host's UART port */
                 HILOGI("bt vendor lib: set UART baud %i", UART_TARGET_BAUD_RATE);
                 userial_vendor_set_baud(line_speed_to_userial_baud(UART_TARGET_BAUD_RATE));
@@ -758,20 +758,20 @@ void hw_config_cback(void *p_mem)
                     *p++ = 1; /* parameter length */
                     *p = 1;   /* (1,"UART CLOCK 48 MHz")(2,"UART CLOCK 24 MHz") */
 
-                   p_buf->len = HCI_CMD_PREAMBLE_SIZE + 1;
+                    p_buf->len = HCI_CMD_PREAMBLE_SIZE + 1;
                     hw_cfg_cb.state = HW_CFG_SET_UART_CLOCK;
 
-                   xmit_bytes = bt_vendor_cbacks->xmit_cb(HCI_VSC_WRITE_UART_CLOCK_SETTING, p_buf);
-                   break;
+                    xmit_bytes = bt_vendor_cbacks->xmit_cb(HCI_VSC_WRITE_UART_CLOCK_SETTING, p_buf);
+                    break;
                }
                 /* fall through intentionally */
             case HW_CFG_SET_UART_CLOCK:
-               /* set controller's UART baud rate to 3M */
-               UINT16_TO_STREAM(p, HCI_VSC_UPDATE_BAUDRATE);
+                /* set controller's UART baud rate to 3M */
+                UINT16_TO_STREAM(p, HCI_VSC_UPDATE_BAUDRATE);
                 *p++ = UPDATE_BAUDRATE_CMD_PARAM_SIZE; /* parameter length */
                 *p++ = 0;                              /* encoded baud rate */
                 *p++ = 0;                              /* use encoded form */
-               UINT32_TO_STREAM(p, UART_TARGET_BAUD_RATE);
+                UINT32_TO_STREAM(p, UART_TARGET_BAUD_RATE);
 
                 p_buf->len = HCI_CMD_PREAMBLE_SIZE +
                              UPDATE_BAUDRATE_CMD_PARAM_SIZE;
@@ -844,7 +844,7 @@ void hw_config_cback(void *p_mem)
                 xmit_bytes = 1;
                 break;
 #endif      // (USE_CONTROLLER_BDADDR == TRUE)
-            } // switch(hw_cfg_cb.state)
+        } // switch(hw_cfg_cb.state)
     }     // if (p_buf != NULL)
 
     /* Free the RX event buffer */
