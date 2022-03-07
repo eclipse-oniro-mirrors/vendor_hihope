@@ -658,9 +658,8 @@ void hw_config_cback(void *p_mem)
                 if ((p_name = strstr(p_name, "BCM")) != NULL) {
                     strncpy(hw_cfg_cb.local_chip_name, p_name,
                             LOCAL_NAME_BUFFER_LEN - 1);
-                }
 #ifdef USE_BLUETOOTH_BCM4343
-                else if ((p_name = strstr(p_tmp, "4343")) != NULL) {
+                } else if ((p_name = strstr(p_tmp, "4343")) != NULL) {
                     snprintf(hw_cfg_cb.local_chip_name,
                              LOCAL_NAME_BUFFER_LEN - 1, "BCM%s", p_name);
                     strncpy(p_name, hw_cfg_cb.local_chip_name,
@@ -763,7 +762,7 @@ void hw_config_cback(void *p_mem)
 
                     xmit_bytes = bt_vendor_cbacks->xmit_cb(HCI_VSC_WRITE_UART_CLOCK_SETTING, p_buf);
                     break;
-               }
+                }
                 /* fall through intentionally */
             case HW_CFG_SET_UART_CLOCK:
                 /* set controller's UART baud rate to 3M */
