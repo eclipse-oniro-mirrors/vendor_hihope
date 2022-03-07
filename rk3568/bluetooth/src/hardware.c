@@ -656,7 +656,7 @@ void hw_config_cback(void *p_mem)
                     *(p_name + i) = toupper(*(p_name + i));
 
                 if ((p_name = strstr(p_name, "BCM")) != NULL) {
-                    strncpy(hw_cfg_cb.local_chip_name, p_name,
+                    strncpy_s(hw_cfg_cb.local_chip_name, sizeof(hw_cfg_cb.local_chip_name), p_name,
                             LOCAL_NAME_BUFFER_LEN - 1);
 #ifdef USE_BLUETOOTH_BCM4343
                 } else if ((p_name = strstr(p_tmp, "4343")) != NULL) {
@@ -667,7 +667,7 @@ void hw_config_cback(void *p_mem)
                 }
 #endif
                 else {
-                    strncpy(hw_cfg_cb.local_chip_name, "UNKNOWN",
+                    strncpy_s(hw_cfg_cb.local_chip_name, sizeof(hw_cfg_cb.local_chip_name), "UNKNOWN",
                             LOCAL_NAME_BUFFER_LEN - 1);
                     p_name = p_tmp;
                 }
