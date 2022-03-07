@@ -667,7 +667,7 @@ void hw_config_cback(void *p_mem)
                 }
 #endif
                 else {
-                    strncpy_s(hw_cfg_cb.local_chip_name, sizeof(hw_cfg_cb.local_chip_name), "UNKNOWN",
+                    strncpy_s(hw_cfg_cb.local_chip_name, "UNKNOWN",
                             LOCAL_NAME_BUFFER_LEN - 1);
                     p_name = p_tmp;
                 }
