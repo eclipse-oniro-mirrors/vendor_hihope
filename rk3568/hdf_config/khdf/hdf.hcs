@@ -14,6 +14,7 @@
 #include "audio/dai_config.hcs"
 #include "audio/dma_config.hcs"
 #include "audio/dsp_config.hcs"
+#include "audio/analog_headset_config.hcs"
 #include "light/light_config.hcs"
 #include "vibrator/vibrator_config.hcs"
 #include "vibrator/linear_vibrator_config.hcs"

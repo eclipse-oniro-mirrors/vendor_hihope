@@ -368,7 +368,7 @@
         }
         audio :: host {
             hostName = "audio_host";
-            priority = 60;
+            priority = 110;
             device_dai0 :: device {
                 device0 :: deviceNode {
                     policy = 1;
@@ -470,6 +470,17 @@
                     permission = 0666;
                     moduleName = "HDF_AUDIO_CONTROL";
                     serviceName = "hdf_audio_control";
+                }
+            }
+            device_analog_headset :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 90;
+                    preload = 0;
+                    permission = 0666;
+                    moduleName = "AUDIO_ANALOG_HEADSET";
+                    serviceName = "analog_headset_service";
+                    deviceMatchAttr = "analog_headset_attr";
                 }
             }
         }
