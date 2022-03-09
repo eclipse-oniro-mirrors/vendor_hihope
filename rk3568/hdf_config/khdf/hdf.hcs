@@ -1,10 +1,10 @@
 #include "device_info/device_info.hcs"
 #include "platform/pwm_config.hcs"
-#include "platform/hi35xx_watchdog_config.hcs"
-#include "platform/hi35xx_uart_config.hcs"
+#include "platform/rk3568_watchdog_config.hcs"
+#include "platform/rk3568_uart_config.hcs"
 #include "platform/sdio_config.hcs"
 #include "platform/emmc_config.hcs"
-#include "platform/hi35xx_spi_config.hcs"
+#include "platform/rk3568_spi_config.hcs"
 #include "input/input_config.hcs"
 #include "wifi/wlan_platform.hcs"
 #include "wifi/wlan_chip_hi3881.hcs"
@@ -19,5 +19,5 @@
 #include "vibrator/linear_vibrator_config.hcs"
 
 root {
-    module = "hisilicon,hi35xx_chip";
+    module = "rockchip,rk3568_chip";
 }
