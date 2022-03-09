@@ -108,10 +108,9 @@ root {
                                 <dir> 0:input  1:output  2:no ops
                                 <delay> meanings delay xms, 20: delay 20ms
                              */
-                            powerOnSeq = [4, 0, 1, 0,
-                                         3, 0, 1, 10,
-                                         3, 1, 2, 60,
-                                         4, 2, 0, 0];
+                            powerOnSeq = [3, 0, 1, 10,
+                                         3, 1, 1, 60,
+                                         4, 2, 0, 50];
                             suspendSeq = [3, 0, 2, 10];
                             resumeSeq = [3, 1, 2, 10];
                             powerOffSeq = [3, 0, 2, 10,
