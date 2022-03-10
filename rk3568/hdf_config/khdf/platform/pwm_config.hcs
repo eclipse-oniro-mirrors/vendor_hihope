@@ -26,6 +26,11 @@ root {
                 num = 3;
                 match_attr = "linux_pwm_adapter_3";
             }
+
+            device_pwm_0x00000004 :: pwm_device {
+                num = 4;
+                match_attr = "linux_pwm_adapter_4";
+            }
         }
     }
 }
