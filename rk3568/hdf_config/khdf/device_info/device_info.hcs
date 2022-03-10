@@ -350,7 +350,28 @@
                     deviceMatchAttr = "hdf_sensor_accel_mxc6655xa_driver";
                 }
             }
-
+            device_sensor_proximity :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 110;
+                    preload = 0;
+                    permission = 0664;
+                    moduleName = "HDF_SENSOR_PROXIMITY";
+                    serviceName = "hdf_sensor_proximity";
+                    deviceMatchAttr = "hdf_sensor_proximity_driver";
+                }
+            }
+            device_sensor_apds9960 :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 120;
+                    preload = 0;
+                    permission = 0664;
+                    moduleName = "HDF_SENSOR_PROXIMITY_APDS9960";
+                    serviceName = "hdf_proximity_apds9960";
+                    deviceMatchAttr = "hdf_sensor_proximity_adps9960_driver";
+                }
+            }
         }
         usb_pnp_linux :: host {
             hostName = "usb_pnp_linux_host";
