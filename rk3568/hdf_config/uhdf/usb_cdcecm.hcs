@@ -15,8 +15,8 @@ root {
             bDeviceSubClass = 0;
             bDeviceProtocol = 0;
             bMaxPacketSize0 = 0x40;
-            idVendor = 0x12D1;
-            idProduct = 0x5000;
+            idVendor = 0x2207;
+            idProduct = 0x0018;
             bcdDevice = 0x0223;
             manufacturer = 0;
             product = 1;
