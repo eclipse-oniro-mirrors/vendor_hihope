@@ -35,8 +35,8 @@ root {
                 deviceMatchAttr = "usbhost_acm_pnp_matchAttr";
                 length = 21;
                 matchFlag = 0x0303;
-                vendorId = 0x12D1;
-                productId = 0x5000;
+                vendorId = 0x2207;
+                productId = 0x0018;
                 bcdDeviceLow = 0x0000;
                 bcdDeviceHigh = 0x0000;
                 deviceClass = 0;
@@ -53,8 +53,8 @@ root {
                 deviceMatchAttr = "usbhost_acm_rawapi_matchAttr";
                 length = 21;
                 matchFlag = 0x0303;
-                vendorId = 0x12D1;
-                productId = 0x5000;
+                vendorId = 0x2207;
+                productId = 0x0018;
                 bcdDeviceLow = 0x0000;
                 bcdDeviceHigh = 0x0000;
                 deviceClass = 0;
@@ -71,8 +71,8 @@ root {
                 deviceMatchAttr = "usbhost_ecm_pnp_matchAttr";
                 length = 21;
                 matchFlag = 0x0303;
-                vendorId = 0x12D1;
-                productId = 0x5000;
+                vendorId = 0x2207;
+                productId = 0x0018;
                 bcdDeviceLow = 0x0000;
                 bcdDeviceHigh = 0x0000;
                 deviceClass = 0;
