@@ -246,13 +246,13 @@
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 100;
-                    moduleName = "distributed_camera_host_config.z.so";
+                    moduleName = "libdistributed_camera_host_config.z.so";
                     serviceName = "distributed_camera_service";
                 }
                 device1 :: deviceNode {
                     policy = 2;
                     priority = 100;
-                    moduleName = "distributed_camera_provider_config.z.so";
+                    moduleName = "libdistributed_camera_provider_config.z.so";
                     serviceName = "distributed_camera_provider_service";
                 }
             }
