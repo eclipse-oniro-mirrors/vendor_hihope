@@ -4,6 +4,9 @@
         template host {
             hostName = "";
             priority = 100;
+            uid = "";
+            gid = "";
+            caps = [""];
             template device {
                 template deviceNode {
                     policy = 0;
@@ -19,6 +22,7 @@
         platform :: host {
             hostName = "sample_host";
             priority = 50;
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             sample_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -32,6 +36,9 @@
         bluetooth :: host {
             hostName = "blue_host";
             priority = 50;
+            uid = "root";
+            gid = "system";
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             bluetooth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -44,6 +51,9 @@
         audio_bluetooth :: host {
             hostName = "a2dp_host";
             priority = 50;
+            uid = "root";
+            gid = "system";
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             bluetooth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -57,6 +67,7 @@
          usb :: host {
             hostName = "usb_host";
             priority = 50;
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             usb_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -69,6 +80,7 @@
         usbfnMaster :: host {
             hostName = "usbfnMaster_host";
             priority = 50;
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             usb_pnp_manager_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -108,6 +120,9 @@
         power :: host {
             hostName = "power_host";
             priority = 50;
+            uid = "system";
+            gid = "system";
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             power_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -136,6 +151,7 @@
         wlan :: host {
             hostName = "wifi_host";
             priority = 50;
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             wifi_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -148,6 +164,7 @@
         audio :: host {
             hostName = "audio_hdi_server_host";
             priority = 50;
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             audio_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -160,6 +177,7 @@
         hdi_server :: host {
             hostName = "camera_host";
             priority = 50;
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             camera_device :: device {
                  device0 :: deviceNode {
                      policy = 2;
@@ -180,6 +198,7 @@
         input_hal :: host {
             hostName = "input_user_host";
             priority = 50;
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             input_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -193,6 +212,7 @@
         display_gralloc :: host {
             hostName = "disp_gralloc_host";
             priority = 40;
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             input_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -205,6 +225,7 @@
         sensor_dal :: host { 
             hostName = "sensor_dal_host"; 
             priority = 50; 
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             sensor_dal_device :: device { 
                 device0 :: deviceNode { 
                     policy = 2; 
@@ -217,6 +238,7 @@
         vibrator_dal :: host {
             hostName = "vibrator_dal_host";
             priority = 50;
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             vibrator_dal_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -229,6 +251,7 @@
         light_dal :: host {
             hostName = "light_dal_host";
             priority = 50;
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             light_dal_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -242,6 +265,7 @@
         codec :: host {
             hostName = "codec_host";
             priority = 50;
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             codec_omx_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -256,6 +280,7 @@
         distributed_camera_host :: host {
             hostName = "dcamera_host";
             priority = 50;
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             distributed_camera_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
