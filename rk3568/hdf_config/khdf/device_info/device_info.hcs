@@ -240,7 +240,26 @@
                     policy = 0;
                     priority = 100;
                     preload = 0;
-                    moduleName = "LCD_ILI9881CBOE";
+                    moduleName = "LCD_ILI9881_ST_5P5";
+                }
+            }
+            device_pwm_bl :: device {
+                device0 :: deviceNode {
+                    policy = 0;
+                    priority = 95;
+                    preload = 0;
+                    moduleName = "PWM_BL";
+                    deviceMatchAttr = "pwm_bl_dev";
+                }
+            }
+            device_backlight :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 90;
+                    preload = 0;
+                    permission = 0660;
+                    moduleName = "HDF_BL";
+                    serviceName = "hdf_bl";
                 }
             }
         }
