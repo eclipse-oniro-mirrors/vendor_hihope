@@ -333,5 +333,19 @@
                 }
             }
         }
+
+        pinauth :: host {
+            hostName = "pinauth_host";
+            priority = 50;
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
+            pinauth_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 200;
+                    moduleName = "libpinauth_driver.z.so";
+                    serviceName = "pin_auth_interface_service";
+                }
+            }
+        }
     }
 }
