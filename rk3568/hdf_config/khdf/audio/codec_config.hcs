@@ -150,7 +150,7 @@ root {
         controller_0x120c1031 :: codec_controller {
             match_attr = "hdf_codec_driver_ex";
             serviceName = "codec_service_1";
-            codecDaiName = "accessory_dai";
+            codecDaiName = "rk817_dai";
             
             
         }
