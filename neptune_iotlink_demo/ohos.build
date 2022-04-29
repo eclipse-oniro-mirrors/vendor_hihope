@@ -1,0 +1,10 @@
+{
+  "parts": {
+    "product_neptune_iotlink_demo": {
+      "module_list": [
+        "//vendor/hihope/neptune_iotlink_demo:neptune_iotlink_demo"
+      ]
+    }
+  },
+  "subsystem": "product_neptune_iotlink_demo"
+}

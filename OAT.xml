@@ -59,7 +59,8 @@
                 <policyitem type="copyright" name="Copyright 2015 Broadcom Corporation" path=".*" rule="may" group="defaultGroup" filefilter="copyrightPolicyFilter" desc=""/>
                 <policyitem type="copyright" name="Copyright 2009-2012 Broadcom Corporation" path=".*" rule="may" group="defaultGroup" filefilter="copyrightPolicyFilter" desc=""/>
                 <policyitem type="copyright" name="Copyright (C) 1999-2012 Broadcom Corporation" path=".*" rule="may" group="defaultGroup" filefilter="copyrightPolicyFilter" desc=""/>
-            </policy>
+                <policyitem type="copyright" name="WinnerMicro Co., Ltd." path=".*" rule="may" group="defaultGroup" filefilter="copyrightPolicyFilter" desc="Developed By Hihope"/>
+	    </policy>
         </policylist>
 
         <filefilterlist>
@@ -76,6 +77,7 @@
 	    <filefilter name="copyrightPolicyFilter" desc="Filters for copyright header policies">
 		    <!-- <filteritem type="filename" name="fstab" desc="This type configuration file can not declare copyright"/> -->
                 <filteritem type="filepath" name="rk3568/bluetooth/BUILD.gn" desc="Describe the reason for filtering scan results"/>
+		<filteritem type="filepath" name="neptune_iotlink_demo/ble/BUILD.gn" desc="InvalidCopyright"/> 
 	    </filefilter>
             <filefilter name="licenseFileNamePolicyFilter" desc="Filters for LICENSE file policies">
             </filefilter>
