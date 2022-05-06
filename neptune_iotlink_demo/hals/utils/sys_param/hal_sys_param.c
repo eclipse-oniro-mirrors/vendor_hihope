@@ -14,6 +14,7 @@
  */
 
 #include "hal_sys_param.h"
+#include "wm_internal_flash.h"
 
 static const char OHOS_DEVICE_TYPE[] = {"Development Board"};
 static const char OHOS_DISPLAY_VERSION[] = {"OpenHarmony-master"};
@@ -31,6 +32,24 @@ static const char OHOS_SERIAL[] = {"1234567890"};
 static const int OHOS_FIRST_API_VERSION = 1;
 
 static const char EMPTY_STR[] = {""};
+
+#define HEX_A 0xa
+#define CHAR_NUM_OFFSET 0x30
+#define CHAR_CAPITAL_OFFSET 0x37
+
+#define FLASH_UNI_ID_LEN   18
+#define SERIAL_NUM_LEN   (FLASH_UNI_ID_LEN*2+1)
+#define STR_END_FLAG '\0'
+
+static char serialNumber[SERIAL_NUM_LEN] = {0};
+static char Hex2Char(u8 hex)
+{
+    if (hex < HEX_A) {
+        return hex + CHAR_NUM_OFFSET;
+    } else {
+        return hex + CHAR_CAPITAL_OFFSET;
+    }
+}
 
 const char* HalGetDeviceType(void)
 {
@@ -79,7 +98,23 @@ const char* HalGetHardwareProfile(void)
 
 const char* HalGetSerial(void)
 {
-    return OHOS_SERIAL;
+    const char half_char = 4;
+    char flashUniqueId[FLASH_UNI_ID_LEN];
+
+    if (serialNumber[0] == STR_END_FLAG) {
+        tls_fls_read_unique_id(flashUniqueId);
+        int j = 0;
+        for (int i = 0; i < FLASH_UNI_ID_LEN; i++) {
+            u8 lowFour, highFour;
+            highFour = (flashUniqueId[i] & 0xF0) >> half_char;
+            serialNumber[j] = Hex2Char(highFour);
+            j++;
+            lowFour = flashUniqueId[i] & 0xF;
+            serialNumber[j] = Hex2Char(lowFour);
+            j++;
+        }
+    }
+    return serialNumber;
 }
 
 const char* HalGetBootloaderVersion(void)

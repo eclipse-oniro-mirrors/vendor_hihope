@@ -1,5 +1,5 @@
 {
-    "product_name": "neptune100",
+    "product_name": "neptune_iotlink_demo",
     "ohos_version": "OpenHarmony 3.1",
     "type":"mini",
     "version": "3.0",
@@ -19,7 +19,10 @@
           "module_ActsBootstrapTest",
           "module_ActsDfxFuncTest",
           "module_ActsHieventLiteTest",
-          "module_ActsSamgrTest"
+          "module_ActsSamgrTest",
+          "module_ActsUtilsFileTest",
+          "module_ActsKvStoreTest",
+          "module_ActsWifiServiceTest"
         ]
       }
     ],
@@ -84,7 +87,8 @@
             "features": [
               "enable_ohos_utils_native_lite_kv_store_use_posix_kv_api = true"
             ]
-          }
+          },
+          { "component": "file", "features":[] }
         ]
       },
       {
@@ -105,5 +109,5 @@
 
     "vendor_adapter_dir": "//device/soc/winnermicro",
     "third_party_dir": "//third_party",
-    "product_adapter_dir": "//vendor/hihope/neptune100/hals"
+    "product_adapter_dir": "//vendor/hihope/neptune_iotlink_demo/hals"
 }
