@@ -17,7 +17,7 @@ config("bt_warnings") {
 }
 
 ohos_prebuilt_etc("BCM4362A2.hcd") {
-  source = "//vendor/hihope/rk3568/bluetooth/BCM4362A2.hcd"
+  source = "//vendor/${product_company}/${product_name}/bluetooth/BCM4362A2.hcd"
   install_images = [ vendor_base_dir ]
   relative_install_dir = "firmware"
   part_name = "rockchip_products"
