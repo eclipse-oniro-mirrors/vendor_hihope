@@ -37,7 +37,7 @@ ohos_shared_library("libbt_vendor") {
   include_dirs = [
     "include",
     "//base/hiviewdfx/hilog/interfaces/native/innerkits/include",
-    "//foundation/communication/bluetooth/services/bluetooth_standard/hardware/include",
+    "//foundation/communication/bluetooth/services/bluetooth/hardware/include",
   ]
 
   cflags = [
