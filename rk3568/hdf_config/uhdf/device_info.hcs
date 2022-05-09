@@ -320,5 +320,18 @@
                 }
             }
         }
+        faceauth :: host {
+            hostName = "faceauth_host";
+            priority = 50;
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
+            faceauth_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 200;
+                    moduleName = "libfaceauth_driver.z.so";
+                    serviceName = "face_auth_interface_service";
+                }
+            }
+        }
     }
 }
