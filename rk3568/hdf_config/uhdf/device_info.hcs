@@ -293,10 +293,27 @@
             codec_omx_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
-                    priority = 200;
+                    priority = 100;
                     moduleName = "libcodec_hdi_omx_server.z.so";
                     serviceName = "codec_hdi_omx_service";
                     deviceMatchAttr = "codec_component_capabilities";
+                }
+            }
+            codec_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libcodec_server.z.so";
+                    serviceName = "codec_hdi_service";
+                }
+            }
+            codec_capablity_config ::device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libcodec_capability_config.z.so";
+                    serviceName = "codec_capability_config_service";
+                    deviceMatchAttr = "media_codec_capabilities";
                 }
             }
         }
