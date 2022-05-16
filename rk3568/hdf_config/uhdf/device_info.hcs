@@ -368,5 +368,21 @@
                 }
             }
         }
+
+        user_auth :: host {
+            hostName = "user_auth_host";
+            priority = 50;
+            uid = "useriam";
+            gid = "useriam";
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
+            user_auth_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 200;
+                    moduleName = "libuser_auth_driver.z.so";
+                    serviceName = "user_auth_interface_service";
+                }
+            }
+        }
     }
 }
