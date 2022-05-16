@@ -340,6 +340,8 @@
         faceauth :: host {
             hostName = "faceauth_host";
             priority = 50;
+            uid = "useriam";
+            gid = "useriam";
             caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             faceauth_device :: device {
                 device0 :: deviceNode {
@@ -354,6 +356,8 @@
         pinauth :: host {
             hostName = "pinauth_host";
             priority = 50;
+            uid = "useriam";
+            gid = "useriam";
             caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             pinauth_device :: device {
                 device0 :: deviceNode {
