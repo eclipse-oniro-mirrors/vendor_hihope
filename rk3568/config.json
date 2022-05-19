@@ -462,6 +462,10 @@
           "features": []
         },
         {
+          "component": "motion_device_driver",
+          "features": []
+        },
+        {
           "component": "audio_device_driver",
           "features": []
         },
@@ -499,6 +503,10 @@
         },
         {
           "component": "sensor_device_driver_interface",
+          "features": []
+        },
+        {
+          "component": "motion_device_driver_interface",
           "features": []
         },
         {
