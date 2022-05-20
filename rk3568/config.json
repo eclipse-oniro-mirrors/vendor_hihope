@@ -266,7 +266,7 @@
       ]
     },
     {
-      "subsystem": "appexecfwk",
+      "subsystem": "bundlemanager",
       "components": [
         {
           "component": "eventhandler",
