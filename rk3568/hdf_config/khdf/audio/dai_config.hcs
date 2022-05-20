@@ -29,8 +29,8 @@ root {
                      reg, rreg, shift, rshift, min, max, mask, invert value
                  */
                  ctrlParamsSeqConfig = [
-                    0x10,    0x10,    8,     8,     0x0,    0x1,    0x1,    0,    0,    // accessory enable
-                    0x10,    0x10,    0,     0,     0x0,    0x1,    0x1,    0,    0    // codec enable
+                    0x10,    0x10,    8,     8,     0x0,    0x1,    0x1,    0,    0,    // rk817 codec enable
+                    0x10,    0x10,    0,     0,     0x0,    0x1,    0x1,    0,    0    // rk809 codec enable
                  ];
 
                  controlsConfig = [
