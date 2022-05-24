@@ -305,14 +305,6 @@
                     priority = 100;
                     moduleName = "libcodec_server.z.so";
                     serviceName = "codec_hdi_service";
-                }
-            }
-            codec_capablity_config ::device {
-                device0 :: deviceNode {
-                    policy = 2;
-                    priority = 100;
-                    moduleName = "libcodec_capability_config.z.so";
-                    serviceName = "codec_capability_config_service";
                     deviceMatchAttr = "media_codec_capabilities";
                 }
             }
