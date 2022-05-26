@@ -335,33 +335,33 @@
                 }
             }
         }
-        faceauth :: host {
-            hostName = "faceauth_host";
+        face_auth :: host {
+            hostName = "face_auth_host";
             priority = 50;
             uid = "useriam";
             gid = "useriam";
             caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
-            faceauth_device :: device {
+            face_auth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 200;
-                    moduleName = "libfaceauth_driver.z.so";
+                    moduleName = "libface_auth_driver.z.so";
                     serviceName = "face_auth_interface_service";
                 }
             }
         }
 
-        pinauth :: host {
-            hostName = "pinauth_host";
+        pin_auth :: host {
+            hostName = "pin_auth_host";
             priority = 50;
             uid = "useriam";
             gid = "useriam";
             caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
-            pinauth_device :: device {
+            pin_auth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 200;
-                    moduleName = "libpinauth_driver.z.so";
+                    moduleName = "libpin_auth_driver.z.so";
                     serviceName = "pin_auth_interface_service";
                 }
             }
