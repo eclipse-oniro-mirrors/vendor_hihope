@@ -564,6 +564,14 @@
         {
           "component": "input_device_driver_interface",
           "features": []
+        },
+        {
+          "component": "memorytracker_device_driver",
+          "features": []
+        },
+        {
+          "component": "memorytracker_device_driver_interface",
+          "features": []
         }
       ]
     },
