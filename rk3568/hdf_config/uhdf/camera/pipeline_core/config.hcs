@@ -149,6 +149,22 @@ root {
             out_port_0 :: port_spec {
                 name = "out0";
                 peer_port_name = "in0";
+                peer_port_node_name = "RKExif#0";
+                direction = 1;
+            }
+        }
+        RKExif_1 :: node_spec {
+            name = "RKExif#0";
+            status = "new";
+            in_port_0 :: port_spec {
+                name = "in0";
+                peer_port_name = "out0";
+                peer_port_node_name = "RKCodec#1";
+                direction = 0;
+            }
+            out_port_0 :: port_spec {
+                name = "out0";
+                peer_port_name = "in0";
                 peer_port_node_name = "sink#1";
                 direction = 1;
             }
@@ -171,7 +187,7 @@ root {
             in_port_0 :: port_spec {
                 name = "in0";
                 peer_port_name = "out0";
-                peer_port_node_name = "RKCodec#1";
+                peer_port_node_name = "RKExif#0";
                 direction = 0;
             }
         }
