@@ -1007,6 +1007,15 @@
           "features": []
         }
       ]
+    },
+    {
+      "subsystem": "thirdparty",
+      "components": [
+        {
+          "component": "musl",
+          "features": []
+        }
+      ]
     }
   ]
 }
