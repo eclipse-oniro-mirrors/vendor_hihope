@@ -11,12 +11,6 @@
   "support_jsapi": false,
   "subsystems": [
     {
-      "subsystem": "kernel",
-      "components": [
-        { "component": "linux" }
-      ]
-    },
-    {
       "subsystem": "hdf",
       "components": [
         { "component": "device_driver_framework" }
@@ -32,7 +26,7 @@
     {
       "subsystem": "communication",
       "components": [
-        { "component": "dsoftbus_standard" },
+        { "component": "dsoftbus_standard", "features":["dsoftbus_standard_get_devicename=false"] },
         { "component": "ipc" }
       ]
     },
@@ -52,13 +46,15 @@
         { "component": "hitrace_native" },
         { "component": "hisysevent_native" },
         { "component": "hicollie_native" },
-        { "component": "faultloggerd" }
+        { "component": "faultloggerd" },
+        { "component": "hichecker_native" }
       ]
     },
     {
       "subsystem": "security",
       "components": [
         { "component": "deviceauth_standard" },
+        { "component": "access_token" },
         { "component": "huks" }
       ]
     },
