@@ -584,6 +584,30 @@
         {
           "component": "wlan_device_driver_interface",
           "features": []
+        },
+        {
+          "component": "location_agnss_device_driver_interface",
+          "features": []
+        },
+        {
+          "component": "location_geofence_device_driver_interface",
+          "features": []
+        },
+        {
+          "component": "location_gnss_device_driver_interface",
+          "features": []
+        },
+        {
+          "component": "location_agnss_device_driver",
+          "features": []
+        },
+        {
+          "component": "location_geofence_device_driver",
+          "features": []
+        },
+        {
+          "component": "location_gnss_device_driver",
+          "features": []
         }
       ]
     },

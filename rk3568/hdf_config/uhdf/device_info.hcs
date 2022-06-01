@@ -411,5 +411,35 @@
                 }
             }
         }
+
+        location :: host { 
+            hostName = "location_host"; 
+            priority = 50; 
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
+            location_gnss_device :: device { 
+                device0 :: deviceNode { 
+                    policy = 2; 
+                    priority = 100; 
+                    moduleName = "location_gnss_hdi_driver.z.so"; 
+                    serviceName = "gnss_base_service"; 
+                } 
+            }
+            location_agnss_device :: device { 
+                device0 :: deviceNode { 
+                    policy = 2; 
+                    priority = 100; 
+                    moduleName = "location_agnss_hdi_driver.z.so"; 
+                    serviceName = "agnss_base_service"; 
+                } 
+            }
+            location_geofence_device :: device { 
+                device0 :: deviceNode { 
+                    policy = 2; 
+                    priority = 100; 
+                    moduleName = "location_geofence_hdi_driver.z.so"; 
+                    serviceName = "geofence_base_service"; 
+                } 
+            }
+        }
     }
 }
