@@ -1,0 +1,87 @@
+{
+  "product_name": "rk3568_mini_system",
+  "device_company": "rockchip",
+  "device_build_path": "device/board/hihope/rk3568",
+  "target_cpu": "arm",
+  "type": "standard",
+  "version": "3.0",
+  "board": "rk3568",
+  "enable_ramdisk": false,
+  "build_selinux": false,
+  "support_jsapi": false,
+  "subsystems": [
+    {
+      "subsystem": "hdf",
+      "components": [
+        { "component": "device_driver_framework" }
+      ]
+    },
+    {
+      "subsystem": "startup",
+      "components": [
+        { "component": "init" },
+        { "component": "startup_l2" }
+      ]
+    },
+    {
+      "subsystem": "communication",
+      "components": [
+        { "component": "dsoftbus_standard", "features":["dsoftbus_standard_get_devicename=false"] },
+        { "component": "ipc" }
+      ]
+    },
+    {
+      "subsystem": "distributedschedule",
+      "components": [
+        { "component": "samgr_standard" },
+        { "component": "safwk" }
+      ]
+    },
+    {
+      "subsystem": "hiviewdfx",
+      "components": [
+        { "component": "hiviewdfx_hilog_native" },
+        { "component": "hilog_native" },
+        { "component": "hilog_service" },
+        { "component": "hitrace_native" },
+        { "component": "hisysevent_native" },
+        { "component": "hicollie_native" },
+        { "component": "faultloggerd" },
+        { "component": "hichecker_native" }
+      ]
+    },
+    {
+      "subsystem": "security",
+      "components": [
+        { "component": "deviceauth_standard" },
+        { "component": "access_token" },
+        { "component": "huks" }
+      ]
+    },
+    {
+      "subsystem": "bundlemanager",
+      "components": [
+        { "component": "eventhandler" }
+      ]
+    },
+    {
+      "subsystem": "utils",
+      "components": [
+        { "component": "utils_base" }
+      ]
+    },
+    {
+      "subsystem": "updater",
+      "components": [
+        { "component": "updater" },
+        { "component": "update_service" }
+      ]
+    },
+    {
+      "subsystem": "developtools",
+      "components": [
+        { "component": "syscap_codec" }
+      ]
+    }
+  ]
+}
