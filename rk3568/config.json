@@ -736,7 +736,7 @@
           "features": []
         },
         {
-          "component": "multimedia_media_library_standard",
+          "component": "media_library",
           "features": []
         }
       ]
