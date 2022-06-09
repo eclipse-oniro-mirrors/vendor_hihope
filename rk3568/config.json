@@ -674,7 +674,7 @@
           "features": []
         },
         {
-          "component": "user_auth",
+          "component": "user_auth_framework",
           "features": []
         },
         {
