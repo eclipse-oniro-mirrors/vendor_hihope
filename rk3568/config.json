@@ -269,10 +269,6 @@
       "subsystem": "bundlemanager",
       "components": [
         {
-          "component": "eventhandler",
-          "features": []
-        },
-        {
           "component": "bundle_framework",
           "features": []
         },
@@ -287,7 +283,7 @@
       ]
     },
     {
-      "subsystem": "aafwk",
+      "subsystem": "ability",
       "components": [
         {
           "component": "ability_runtime",
@@ -298,11 +294,11 @@
           "features": []
         },
         {
-          "component": "idl",
+          "component": "idl_tool",
           "features": []
         },
         {
-          "component": "form_runtime",
+          "component": "form_fwk",
           "features": []
         },
         {
@@ -320,6 +316,10 @@
         },
         {
           "component": "distributed_notification_service",
+          "features": []
+        },
+        {
+          "component": "eventhandler",
           "features": []
         }
       ]
@@ -586,6 +586,18 @@
           "features": []
         },
         {
+          "component": "usb_device_driver_interface",
+          "features": []
+        },
+        {
+          "component": "ril_device_driver_interface",
+          "features": []
+        },
+        {
+          "component": "display_device_driver_interface",
+          "features": []
+        },
+        {
           "component": "distributed_camera_device_driver",
           "features": []
         },
@@ -744,7 +756,7 @@
           "features": []
         },
         {
-          "component": "multimedia_media_library_standard",
+          "component": "media_library",
           "features": []
         }
       ]
