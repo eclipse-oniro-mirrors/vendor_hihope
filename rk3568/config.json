@@ -479,7 +479,9 @@
         },
         {
           "component": "audio_device_driver",
-          "features": []
+          "features": [
+            "audio_device_driver_feature_mono_to_stereo = true"
+          ]
         },
         {
           "component": "usb_device_driver",
