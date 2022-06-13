@@ -41,19 +41,9 @@
             "component": "bootstrap_lite"
           },
           {
-<<<<<<< HEAD
-<<<<<<< HEAD
             "component": "syspara_lite", "features": [] },
           {
             "component": "init_lite",
-=======
-            "component": "syspara_lite",
->>>>>>> ae1817e... 回退
-=======
-            "component": "syspara_lite", "features": [] },
-          {
-            "component": "init_lite",
->>>>>>> 43ef843... 修改json
             "features": [
               "enable_ohos_startup_init_lite_use_posix_file_api = true",
               "config_ohos_startup_init_lite_data_path = \"/data/\""
