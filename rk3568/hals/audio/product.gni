@@ -16,3 +16,4 @@ enable_hdf_proxy_stub = true
 enable_audio_hal_notsupport_pathselect = true
 enable_audio_analog_headset = true
 enable_audio_policy_config = true
+enable_audio_alsa_lib = false
