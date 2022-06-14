@@ -13,7 +13,8 @@
     {
       "subsystem": "hdf",
       "components": [
-        { "component": "device_driver_framework" }
+        { "component": "device_driver_framework" },
+        { "component": "input_device_driver_interface" }
       ]
     },
     {
@@ -80,7 +81,8 @@
     {
       "subsystem": "developtools",
       "components": [
-        { "component": "syscap_codec" }
+        { "component": "syscap_codec" },
+        { "component": "hdc" }
       ]
     }
   ]
