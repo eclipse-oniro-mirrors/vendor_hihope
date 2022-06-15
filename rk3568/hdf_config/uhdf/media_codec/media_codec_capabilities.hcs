@@ -19,128 +19,152 @@ root {
             HDF_video_hw_enc_avc_rk {
                 mime = 1;
                 type = 1;
+                name = "HDF_video_hw_enc_avc_rk";
+                supportProfiles = [0x2000, 0x2001];
                 isSoftwareCodec = false;
-                widthAlignment = 2;
-                heightAlignment = 2;
+                processModeMask = [0x01, 0x02];
+                capsMask = [0x01, 0x02, 0x04];
+                allocateMask = [0x01, 0x08];
+                minInputBufferNum = 5;
+                maxInputBufferNum = 20;
+                minOutputBufferNum = 5;
+                maxOutputBufferNum = 20;
+                minBitRate = 10000;
+                maxBitRate = 100000000;
+                bufferSize = 1024;
                 minWidth = 64;
                 minHeight = 96;
                 maxWidth = 1088;
                 maxHeight = 1920;
-                minBitRate = 10000;
-                maxBitRate = 100000000;
-                supportProfiles = [0x2000, 0x2001];
-                supportLevels = [0x1000];
+                widthAlignment = 2;
+                heightAlignment = 2;
                 supportPixelFmts = [1, 2, 4];
-                minInputBufferNum = 5;
-                minOutputBufferNum = 5;
-                allocateMask = [0x01, 0x08];
-                capsMask = [0x01, 0x02, 0x04];
             }
             HDF_video_hw_enc_hevc_rk {
                 mime = 2;
                 type = 1;
+                name = "HDF_video_hw_enc_hevc_rk";
+                supportProfiles = [0x2000, 0x2002];
                 isSoftwareCodec = false;
-                widthAlignment = 2;
-                heightAlignment = 2;
+                processModeMask = [0x02, 0x08];
+                capsMask = [0x01, 0x02, 0x04];
+                allocateMask = [0x01, 0x04, 0x08];
+                minInputBufferNum = 10;
+                maxInputBufferNum = 20;
+                minOutputBufferNum = 20;
+                maxOutputBufferNum = 40;
+                minBitRate = 10000;
+                maxBitRate = 100000000;
+                bufferSize = 2048;
                 minWidth = 64;
                 minHeight = 96;
                 maxWidth = 1088;
                 maxHeight = 1920;
-                minBitRate = 10000;
-                maxBitRate = 100000000;
-                supportProfiles = [0x1000, 0x2002];
-                supportLevels = [0, 0x1000];
+                widthAlignment = 2;
+                heightAlignment = 2;
                 supportPixelFmts = [3, 6, 9, 10];
-                minInputBufferNum = 10;
-                minOutputBufferNum = 20;
-                allocateMask = [0x01, 0x04, 0x08];
-                capsMask = [0x01, 0x02, 0x04];
             }
         }
         VideoHwDecoders {
             HDF_video_hw_dec_mjpeg_rk {
                 mime = 0;
                 type = 0;
+                name = "HDF_video_hw_dec_mjpeg_rk";
+                supportProfiles = [0x1000, 0x1002];
                 isSoftwareCodec = false;
-                widthAlignment = 2;
-                heightAlignment = 2;
+                processModeMask = [0x01, 0x08];
+                capsMask = [0x01, 0x02, 0x04];
+                allocateMask = [0x01, 0x04];
+                minInputBufferNum = 1;
+                maxInputBufferNum = 20;
+                minOutputBufferNum = 1;
+                maxOutputBufferNum = 10;
+                minBitRate = 0;
+                maxBitRate = 0;
+                bufferSize = 512;
                 minWidth = 2;
                 minHeight = 2;
                 maxWidth = 2048;
                 maxHeight = 3840;
-                minBitRate = 0;
-                maxBitRate = 0;
-                supportProfiles = [0x0, 0x3000];
-                supportLevels = [0x1000];
+                widthAlignment = 2;
+                heightAlignment = 2;
                 supportPixelFmts = [3, 6, 9, 10];
-                minInputBufferNum = 1;
-                minOutputBufferNum = 1;
-                allocateMask = [0x01, 0x04];
-                capsMask = [0x01, 0x02, 0x04];
             }
             HDF_video_hw_dec_hevc_rk {
                 mime = 2;
                 type = 1;
+                name = "HDF_video_hw_dec_hevc_rk";
+                supportProfiles = [0x1000, 0x1102];
                 isSoftwareCodec = false;
-                widthAlignment = 2;
-                heightAlignment = 2;
+                processModeMask = [0x01, 0x08];
+                capsMask = [0x01, 0x02, 0x04];
+                allocateMask = [0x01, 0x04, 0x08];
+                minInputBufferNum = 10;
+                maxInputBufferNum = 20;
+                minOutputBufferNum = 20;
+                maxOutputBufferNum = 30;
+                minBitRate = 10000;
+                maxBitRate = 100000000;
+                bufferSize = 2048;
                 minWidth = 64;
                 minHeight = 96;
                 maxWidth = 1088;
                 maxHeight = 1920;
-                minBitRate = 10000;
-                maxBitRate = 100000000;
-                supportProfiles = [0, 0x2000];
-                supportLevels = [0x1000];
+                widthAlignment = 2;
+                heightAlignment = 2;
                 supportPixelFmts = [3, 6, 9, 10];
-                minInputBufferNum = 10;
-                minOutputBufferNum = 20;
-                allocateMask = [0x01, 0x04, 0x08];
-                capsMask = [0x01, 0x02, 0x04];
             }
         }
         VideoSwEncoders {
             HDF_video_sw_enc_avc_rk {
                 mime = 1;
                 type = 1;
+                name = "HDF_video_sw_enc_avc_rk";
+                supportProfiles = [0x1010, 0x1002];
                 isSoftwareCodec = true;
-                widthAlignment = 2;
-                heightAlignment = 2;
+                processModeMask = [0x02, 0x08];
+                capsMask = [0x01, 0x02];
+                allocateMask = [0x01, 0x04];
+                minInputBufferNum = 10;
+                maxInputBufferNum = 20;
+                minOutputBufferNum = 10;
+                maxOutputBufferNum = 15;
+                minBitRate = 10000;
+                maxBitRate = 100000000;
+                bufferSize = 0;
                 minWidth = 64;
                 minHeight = 96;
                 maxWidth = 1088;
                 maxHeight = 1920;
-                minBitRate = 10000;
-                maxBitRate = 100000000;
-                supportProfiles = [0x1004, 0x2001];
-                supportLevels = [0x1000];
+                widthAlignment = 2;
+                heightAlignment = 2;
                 supportPixelFmts = [3, 6, 9, 10];
-                minInputBufferNum = 10;
-                minOutputBufferNum = 10;
-                allocateMask = [0x01, 0x04];
-                capsMask = [0x01, 0x02];
             }
         }
         VideoSwDecoders {
             HDF_video_sw_dec_avc_rk {
                 mime = 1;
                 type = 0;
+                name = "HDF_video_sw_dec_avc_rk";
+                supportProfiles = [0x1010, 0x1102];
                 isSoftwareCodec = true;
-                widthAlignment = 2;
-                heightAlignment = 2;
+                processModeMask = [0x04, 0x08];
+                capsMask = [0x02, 0x04];
+                allocateMask = [0x01, 0x08];
+                minInputBufferNum = 10;
+                maxInputBufferNum = 20;
+                minOutputBufferNum = 10;
+                maxOutputBufferNum = 15;
+                minBitRate = 10000;
+                maxBitRate = 100000000;
+                bufferSize = 1024;
                 minWidth = 64;
                 minHeight = 96;
                 maxWidth = 1088;
                 maxHeight = 1920;
-                minBitRate = 10000;
-                maxBitRate = 100000000;
-                supportProfiles = [0x2000, 0x2001];
-                supportLevels = [0x1000, 0x2000];
+                widthAlignment = 2;
+                heightAlignment = 2;
                 supportPixelFmts = [1, 2, 4];
-                minInputBufferNum = 10;
-                minOutputBufferNum = 10;
-                allocateMask = [0x01, 0x08];
-                capsMask = [0x02, 0x04];
             }
         }
         AudioHwEncoders {
@@ -151,44 +175,44 @@ root {
             HDF_audio_sw_enc_aac_ffmpeg {
                 mime = 3;
                 type = 3;
+                name = "HDF_audio_sw_enc_aac_ffmpeg";
+                supportProfiles = [0x1001, 0x2001, 0x3000];
                 isSoftwareCodec = true;
-                widthAlignment = 0;
-                heightAlignment = 0;
-                minWidth = 0;
-                minHeight = 0;
-                maxWidth = 0;
-                maxHeight = 0;
+                processModeMask = [0x01, 0x08];
+                capsMask = [0x01, 0x02, 0x04];
+                allocateMask = [0x01, 0x08];
+                minInputBufferNum = 1;
+                maxInputBufferNum = 20;
+                minOutputBufferNum = 1;
+                maxOutputBufferNum = 15;
                 minBitRate = 10000;
                 maxBitRate = 100000000;
-                supportProfiles = [0x1001, 0x2001, 0x3000];
-                supportLevels = [0x1000, 0x2001];
-                supportPixelFmts = [0];
-                minInputBufferNum = 1;
-                minOutputBufferNum = 1;
-                allocateMask = [0x01, 0x08];
-                capsMask = [0x01, 0x02, 0x04];
+                bufferSize = 1024;
+                sampleFormats = [8, 16];
+                sampleRate = [44100, 48000];
+                channelLayouts = [1, 2];
             }
         }
         AudioSwDecoders {
             HDF_audio_sw_dec_g726_ffmpeg {
                 mime = 6;
                 type = 2;
+                name = "HDF_audio_sw_dec_g726_ffmpeg";
+                supportProfiles = [0x1003, 0x2001];
                 isSoftwareCodec = true;
-                widthAlignment = 0;
-                heightAlignment = 0;
-                minWidth = 0;
-                minHeight = 0;
-                maxWidth = 0;
-                maxHeight = 0;
+                processModeMask = [0x01, 0x04];
+                capsMask = [0x01, 0x04, 0x08];
+                allocateMask = [0x08];
+                minInputBufferNum = 1;
+                maxInputBufferNum = 20;
+                minOutputBufferNum = 1;
+                maxOutputBufferNum = 15;
                 minBitRate = 10000;
                 maxBitRate = 100000000;
-                supportProfiles = [0x1003, 0x2001];
-                supportLevels = [0, 0x2000];
-                supportPixelFmts = [0];
-                minInputBufferNum = 1;
-                minOutputBufferNum = 1;
-                allocateMask = [0x08];
-                capsMask = [0x01, 0x04, 0x08];
+                bufferSize = 1024;
+                sampleFormats = [8];
+                sampleRate = [8000, 44100];
+                channelLayouts = [1, 2, 5];
             }
         }
     }
