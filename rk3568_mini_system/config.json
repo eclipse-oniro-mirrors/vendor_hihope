@@ -53,7 +53,7 @@
     {
       "subsystem": "security",
       "components": [
-        { "component": "deviceauth_standard" },
+        { "component": "device_auth" },
         { "component": "access_token" },
         { "component": "huks" }
       ]

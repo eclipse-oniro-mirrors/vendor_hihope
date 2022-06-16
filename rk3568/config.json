@@ -127,7 +127,7 @@
           "features": []
         },
         {
-          "component": "deviceauth_standard",
+          "component": "device_auth",
           "features": []
         },
         {
