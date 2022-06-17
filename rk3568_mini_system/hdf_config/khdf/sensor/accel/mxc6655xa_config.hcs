@@ -21,7 +21,7 @@ root {
             chipIdValue = 0x05;
         }
         sensorDirection {
-            direction = 0; // chip direction range of value:0-7
+            direction = 5; // chip direction range of value:0-7
             /* <sign> 1:negative  0:positive
                <map> 0:AXIS_X  1:AXIS_Y  2:AXIS_Z
             */
