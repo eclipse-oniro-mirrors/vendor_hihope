@@ -2,7 +2,7 @@
 
 ## 介绍
 
-该仓库托管HiHope产品：海王星（Neptune）系列和大禹（DAYU）系列Openharmony智能硬件。
+该仓库托管HiHope产品：海王星（Neptune）系列和大禹（DAYU）系列OpenHarmony智能硬件。
 
 ## 目录
 

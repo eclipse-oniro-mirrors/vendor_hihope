@@ -61,7 +61,7 @@ void BLE_Demo(void)
     attr.priority   = BLE_DEMO_TASK_PRIO;
 
     if (osThreadNew((osThreadFunc_t)BLE_Task_Entry, NULL, &attr) == NULL) {
-        printf("[BLEDemo] Falied to create BLE Demo Task!\n");
+        printf("[BLEDemo] Failed to create BLE Demo Task!\n");
     }
 }
 
