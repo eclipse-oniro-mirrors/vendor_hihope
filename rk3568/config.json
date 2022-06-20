@@ -111,10 +111,6 @@
       "subsystem": "security",
       "components": [
         {
-          "component": "permission_standard",
-          "features": []
-        },
-        {
           "component": "appverify",
           "features": []
         },
