@@ -89,7 +89,7 @@
 #define FW_AUTO_DETECTION FALSE
 #endif
 
-/* The Bluetooth Device Aaddress source switch:
+/* The Bluetooth Device Address source switch:
  *
  * -FALSE- (default value)
  *  Get the factory BDADDR from device's file system. Normally the BDADDR is
