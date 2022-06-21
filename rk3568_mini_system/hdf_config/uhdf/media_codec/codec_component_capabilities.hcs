@@ -31,15 +31,19 @@ root {
                 minHeight = 144;
                 maxWidth = 1920;
                 maxHeight = 1088;
-                widthAlginment = 16;
-                heightAlginment = 8;
+                widthAlignment = 16;
+                heightAlignment = 8;
                 minBlockCount = 0xFFFFFFFF;
                 maxBlockCount = 0xFFFFFFFF;
                 minBlocksPerSecond = 0xFFFFFFFF;
                 maxBlocksPerSecond = 0xFFFFFFFF;
                 blockSizeWidth = 0xFFFFFFFF;
                 blockSizeHeight = 0xFFFFFFFF;
-                supportPixelFmts = [19, 21, 23, 24, 3, 6, 7, 11, 12, 15, 16, 25, 26, 27, 28];
+                supportPixelFmts = [28, 24, 30, 22, 7, 3, 14, 13, 20, 26, 27, 12];
+                measuredFrameRate = [320, 240, 165, 165, 720, 480, 149, 149, 1280, 720, 73, 73, 1920, 1080, 18, 18];
+                bitRateMode = [1, 2];
+                minFrameRate = 0;
+                maxFrameRate = 0;
             }
         }
         VideoHwDecoders {
@@ -58,15 +62,19 @@ root {
                 minHeight = 144;
                 maxWidth = 4096;
                 maxHeight = 2160;
-                widthAlginment = 8;
-                heightAlginment = 8;
+                widthAlignment = 8;
+                heightAlignment = 8;
                 minBlockCount = 0xFFFFFFFF;
                 maxBlockCount = 0xFFFFFFFF;
                 minBlocksPerSecond = 1;
                 maxBlocksPerSecond = 244800;
                 blockSizeWidth = 16;
                 blockSizeHeight = 16;
-                supportPixelFmts = [21];
+                supportPixelFmts = [24];
+                measuredFrameRate = [320, 240, 617, 617, 720, 480, 559, 559, 1280, 720, 276, 276, 1920, 1080, 164, 164, 3840, 2160, 30, 30];
+                bitRateMode = [];
+                minFrameRate = 0;
+                maxFrameRate = 0;
             }
             HDF_video_hw_dec_mpeg2_rk {
                 role = 0xFFFFFFFF;
@@ -83,15 +91,19 @@ root {
                 minHeight = 144;
                 maxWidth = 1920;
                 maxHeight = 1088;
-                widthAlginment = 8;
-                heightAlginment = 8;
+                widthAlignment = 8;
+                heightAlignment = 8;
                 minBlockCount = 0xFFFFFFFF;
                 maxBlockCount = 0xFFFFFFFF;
                 minBlocksPerSecond = 1;
                 maxBlocksPerSecond = 244800;
                 blockSizeWidth = 16;
                 blockSizeHeight = 8;
-                supportPixelFmts = [21];
+                supportPixelFmts = [24];
+                measuredFrameRate = [];
+                bitRateMode = [];
+                minFrameRate = 0;
+                maxFrameRate = 0;
             }
             HDF_video_hw_dec_v8p_rk {
                 role = 0xFFFFFFFF;
@@ -108,15 +120,19 @@ root {
                 minHeight = 144;
                 maxWidth = 1920;
                 maxHeight = 1088;
-                widthAlginment = 8;
-                heightAlginment = 8;
+                widthAlignment = 8;
+                heightAlignment = 8;
                 minBlockCount = 0xFFFFFFFF;
                 maxBlockCount = 0xFFFFFFFF;
                 minBlocksPerSecond = 1;
                 maxBlocksPerSecond = 244800;
                 blockSizeWidth = 16;
                 blockSizeHeight = 16;
-                supportPixelFmts = [21];
+                supportPixelFmts = [24];
+                measuredFrameRate = [320, 180, 500, 500, 640, 360, 387, 387, 1280, 720, 112, 112, 1920, 1080, 77, 77];
+                bitRateMode = [];
+                minFrameRate = 0;
+                maxFrameRate = 0;
             }
             HDF_video_hw_dec_h263_rk {
                 role = 0xFFFFFFFF;
@@ -133,15 +149,19 @@ root {
                 minHeight = 144;
                 maxWidth = 1920;
                 maxHeight = 1088;
-                widthAlginment = 8;
-                heightAlginment = 8;
+                widthAlignment = 8;
+                heightAlignment = 8;
                 minBlockCount = 0xFFFFFFFF;
                 maxBlockCount = 0xFFFFFFFF;
                 minBlocksPerSecond = 1;
                 maxBlocksPerSecond = 244800;
                 blockSizeWidth = 16;
                 blockSizeHeight = 16;
-                supportPixelFmts = [21];
+                supportPixelFmts = [24];
+                measuredFrameRate = [176, 144, 600, 600, 352, 288, 600, 600];
+                bitRateMode = [];
+                minFrameRate = 0;
+                maxFrameRate = 0;
             }
             HDF_video_hw_dec_m4v_rk {
                 role = 0xFFFFFFFF;
@@ -158,15 +178,19 @@ root {
                 minHeight = 144;
                 maxWidth = 1920;
                 maxHeight = 1088;
-                widthAlginment = 8;
-                heightAlginment = 8;
+                widthAlignment = 8;
+                heightAlignment = 8;
                 minBlockCount = 0xFFFFFFFF;
                 maxBlockCount = 0xFFFFFFFF;
                 minBlocksPerSecond = 1;
                 maxBlocksPerSecond = 244800;
                 blockSizeWidth = 16;
                 blockSizeHeight = 16;
-                supportPixelFmts = [21];
+                supportPixelFmts = [24];
+                measuredFrameRate = [176, 144, 600, 600];
+                bitRateMode = [];
+                minFrameRate = 0;
+                maxFrameRate = 0;
             }
             HDF_video_hw_dec_flv_rk {
                 role = 0xFFFFFFFF;
@@ -183,15 +207,19 @@ root {
                 minHeight = 144;
                 maxWidth = 1920;
                 maxHeight = 1088;
-                widthAlginment = 8;
-                heightAlginment = 8;
+                widthAlignment = 8;
+                heightAlignment = 8;
                 minBlockCount = 0xFFFFFFFF;
                 maxBlockCount = 0xFFFFFFFF;
                 minBlocksPerSecond = 1;
                 maxBlocksPerSecond = 244800;
                 blockSizeWidth = 16;
                 blockSizeHeight = 16;
-                supportPixelFmts = [21];
+                supportPixelFmts = [24];
+                measuredFrameRate = [];
+                bitRateMode = [];
+                minFrameRate = 0;
+                maxFrameRate = 0;
             }
             HDF_video_hw_dec_mjpeg_rk {
                 role = 0;
@@ -208,15 +236,19 @@ root {
                 minHeight = 144;
                 maxWidth = 1920;
                 maxHeight = 1088;
-                widthAlginment = 8;
-                heightAlginment = 8;
+                widthAlignment = 8;
+                heightAlignment = 8;
                 minBlockCount = 0xFFFFFFFF;
                 maxBlockCount = 0xFFFFFFFF;
                 minBlocksPerSecond = 1;
                 maxBlocksPerSecond = 244800;
                 blockSizeWidth = 16;
                 blockSizeHeight = 16;
-                supportPixelFmts = [21];
+                supportPixelFmts = [24];
+                measuredFrameRate = [];
+                bitRateMode = [];
+                minFrameRate = 0;
+                maxFrameRate = 0;
             }
             HDF_video_hw_dec_hevc_rk {
                 role = 2;
@@ -233,15 +265,19 @@ root {
                 minHeight = 144;
                 maxWidth = 1920;
                 maxHeight = 1088;
-                widthAlginment = 2;
-                heightAlginment = 2;
+                widthAlignment = 2;
+                heightAlignment = 2;
                 minBlockCount = 0xFFFFFFFF;
                 maxBlockCount = 0xFFFFFFFF;
                 minBlocksPerSecond = 1;
                 maxBlocksPerSecond = 244800;
                 blockSizeWidth = 16;
                 blockSizeHeight = 16;
-                supportPixelFmts = [21];
+                supportPixelFmts = [24];
+                measuredFrameRate = [352, 288, 700, 700, 720, 480, 700, 700, 640, 360, 980, 980, 1280, 720, 600, 600, 1920, 1080, 130, 130, 3840, 2160, 130, 130];
+                bitRateMode = [];
+                minFrameRate = 0;
+                maxFrameRate = 0;
             }
         }
         VideoSwEncoders {
