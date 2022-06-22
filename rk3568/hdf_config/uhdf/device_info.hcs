@@ -330,7 +330,6 @@
         distributed_camera_host :: host {
             hostName = "dcamera_host";
             priority = 50;
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             distributed_camera_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
