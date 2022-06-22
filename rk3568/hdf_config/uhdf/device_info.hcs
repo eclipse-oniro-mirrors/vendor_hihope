@@ -218,7 +218,6 @@
         input_hal :: host {
             hostName = "input_user_host";
             priority = 50;
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             input_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
