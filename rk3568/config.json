@@ -446,7 +446,7 @@
           "features": []
         },
         {
-          "component": "input_device_driver",
+          "component": "drivers_peripheral_input",
           "features": []
         },
         {
@@ -462,11 +462,11 @@
           "features": []
         },
         {
-          "component": "sensor_device_driver",
+          "component": "drivers_peripheral_sensor",
           "features": []
         },
         {
-          "component": "motion_device_driver",
+          "component": "drivers_peripheral_motion",
           "features": []
         },
         {
@@ -484,11 +484,11 @@
           "features": []
         },
         {
-          "component": "light_device_driver",
+          "component": "drivers_peripheral_light",
           "features": []
         },
         {
-          "component": "vibrator_device_driver",
+          "component": "drivers_peripheral_vibrator",
           "features": []
         },
         {
@@ -504,19 +504,19 @@
           "features": []
         },
         {
-          "component": "sensor_device_driver_interface",
+          "component": "drivers_interface_sensor",
           "features": []
         },
         {
-          "component": "motion_device_driver_interface",
+          "component": "drivers_interface_motion",
           "features": []
         },
         {
-          "component": "light_device_driver_interface",
+          "component": "drivers_interface_light",
           "features": []
         },
         {
-          "component": "vibrator_device_driver_interface",
+          "component": "drivers_interface_vibrator",
           "features": []
         },
         {
@@ -564,7 +564,7 @@
           "features": []
         },
         {
-          "component": "input_device_driver_interface",
+          "component": "drivers_interface_input",
           "features": []
         },
         {
