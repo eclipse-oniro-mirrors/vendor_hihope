@@ -450,7 +450,7 @@
           "features": []
         },
         {
-          "component": "display_device_driver",
+          "component": "drivers_peripheral_display",
           "features": []
         },
         {
@@ -612,7 +612,7 @@
           "features": []
         },
         {
-          "component": "display_device_driver_interface",
+          "component": "drivers_peripheral_display_interface",
           "features": []
         },
         {
