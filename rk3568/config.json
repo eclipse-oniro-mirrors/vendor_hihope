@@ -584,6 +584,30 @@
           "features": []
         },
         {
+          "component": "drivers_interface_location_agnss",
+          "features": []
+        },
+        {
+          "component": "drivers_interface_location_geofence",
+          "features": []
+        },
+        {
+          "component": "drivers_interface_location_gnss",
+          "features": []
+        },
+        {
+          "component": "drivers_peripheral_location_agnss",
+          "features": []
+        },
+        {
+          "component": "drivers_peripheral_location_geofence",
+          "features": []
+        },
+        {
+          "component": "drivers_peripheral_location_gnss",
+          "features": []
+        },
+        {
           "component": "usb_device_driver_interface",
           "features": []
         },
