@@ -605,6 +605,17 @@
                     deviceMatchAttr = "hdf_linear_vibrator_driver";
                 }
             }
+            device_drv2605l_vibrator :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 105;
+                    preload = 0;
+                    permission = 0664;
+                    moduleName = "HDF_DRV2605L_VIBRATOR";
+                    serviceName = "hdf_misc_drv2605l_vibrator";
+                    deviceMatchAttr = "hdf_drv2605l_linear_vibrator_driver";
+                }
+            }
         }
         light :: host {
             hostName = "light_host";
