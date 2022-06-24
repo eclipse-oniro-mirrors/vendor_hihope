@@ -5,7 +5,7 @@
             hostName = "";
             priority = 100;
             uid = "";
-            gid = "";
+            gid = [""];
             caps = [""];
             template device {
                 template deviceNode {
@@ -22,7 +22,7 @@
         platform :: host {
             hostName = "sample_host";
             priority = 50;
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
+            gid = ["sample_host", "uhdf_driver"];
             sample_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
