@@ -480,7 +480,7 @@
           "features": []
         },
         {
-          "component": "camera_device_driver",
+          "component": "driver_peripheral_camera",
           "features": []
         },
         {
