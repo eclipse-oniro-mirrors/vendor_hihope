@@ -6,7 +6,7 @@
   "type": "standard",
   "version": "3.0",
   "board": "rk3568",
-  "enable_ramdisk": false,
+  "enable_ramdisk": true,
   "build_selinux": false,
   "support_jsapi": false,
   "subsystems": [
@@ -15,6 +15,32 @@
       "components": [
         { "component": "hdf_core" },
         { "component": "drivers_interface_input" }
+      ]
+    },
+    {
+      "subsystem": "rockchip_products",
+      "components": [
+        {
+          "component": "rockchip_products"
+        }
+      ]
+    },
+    {
+      "subsystem": "common",
+      "components": [
+        {
+          "component": "common",
+          "features": []
+        }
+      ]
+    },
+    {
+      "subsystem": "securec",
+      "components": [
+        {
+          "component": "thirdparty_bounds_checking_function",
+          "features": []
+        }
       ]
     },
     {
@@ -60,7 +86,7 @@
       ]
     },
     {
-      "subsystem": "bundlemanager",
+      "subsystem": "notification",
       "components": [
         { "component": "eventhandler" }
       ]

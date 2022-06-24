@@ -36,9 +36,7 @@
         bluetooth :: host {
             hostName = "blue_host";
             priority = 50;
-            uid = "root";
-            gid = "system";
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH", "NET_ADMIN"];
             bluetooth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -51,8 +49,6 @@
         audio_bluetooth :: host {
             hostName = "a2dp_host";
             priority = 50;
-            uid = "root";
-            gid = "system";
             caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             bluetooth_device :: device {
                 device0 :: deviceNode {
@@ -231,6 +227,14 @@
                     serviceName = "input_service";
                 }
             }
+            input_hdi_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libinput_driver.z.so";
+                    serviceName = "input_interfaces_service";
+                }
+            }
         }
 
         display_gralloc :: host {
@@ -256,6 +260,19 @@
                     priority = 100; 
                     moduleName = "libsensor_driver.z.so"; 
                     serviceName = "sensor_interface_service"; 
+                } 
+            } 
+        }
+        motion_dal :: host { 
+            hostName = "motion_dal_host"; 
+            priority = 50; 
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
+            motion_dal_device :: device { 
+                device0 :: deviceNode { 
+                    policy = 2; 
+                    priority = 100; 
+                    moduleName = "libmotion_driver.z.so"; 
+                    serviceName = "motion_interface_service"; 
                 } 
             } 
         }
@@ -305,14 +322,6 @@
                     priority = 100;
                     moduleName = "libcodec_server.z.so";
                     serviceName = "codec_hdi_service";
-                }
-            }
-            codec_capablity_config ::device {
-                device0 :: deviceNode {
-                    policy = 2;
-                    priority = 100;
-                    moduleName = "libcodec_capability_config.z.so";
-                    serviceName = "codec_capability_config_service";
                     deviceMatchAttr = "media_codec_capabilities";
                 }
             }
@@ -339,33 +348,33 @@
                 }
             }
         }
-        faceauth :: host {
-            hostName = "faceauth_host";
+        face_auth :: host {
+            hostName = "face_auth_host";
             priority = 50;
             uid = "useriam";
             gid = "useriam";
             caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
-            faceauth_device :: device {
+            face_auth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 200;
-                    moduleName = "libfaceauth_driver.z.so";
+                    moduleName = "libface_auth_driver.z.so";
                     serviceName = "face_auth_interface_service";
                 }
             }
         }
 
-        pinauth :: host {
-            hostName = "pinauth_host";
+        pin_auth :: host {
+            hostName = "pin_auth_host";
             priority = 50;
             uid = "useriam";
             gid = "useriam";
             caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
-            pinauth_device :: device {
+            pin_auth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 200;
-                    moduleName = "libpinauth_driver.z.so";
+                    moduleName = "libpin_auth_driver.z.so";
                     serviceName = "pin_auth_interface_service";
                 }
             }
@@ -383,6 +392,22 @@
                     priority = 200;
                     moduleName = "libuser_auth_driver.z.so";
                     serviceName = "user_auth_interface_service";
+                }
+            }
+        }
+
+        fingerprint_auth :: host {
+            hostName = "fingerprint_auth_host";
+            priority = 50;
+            uid = "useriam";
+            gid = "useriam";
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
+            fingerprint_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 200;
+                    moduleName = "libfingerprint_auth_driver.z.so";
+                    serviceName = "fingerprint_auth_interface_service";
                 }
             }
         }
