@@ -247,9 +247,9 @@
             }
         }
         sensor_dal :: host { 
-            hostName = "sensor_dal_host"; 
+            hostName = "sensor_host"; 
             priority = 50; 
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
+            gid = ["sensor_host", "uhdf_driver"];
             sensor_dal_device :: device { 
                 device0 :: deviceNode { 
                     policy = 2; 
@@ -260,9 +260,8 @@
             } 
         }
         vibrator_dal :: host {
-            hostName = "vibrator_dal_host";
+            hostName = "vibrator_host";
             priority = 50;
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             vibrator_dal_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -273,9 +272,8 @@
             }
         }
         light_dal :: host {
-            hostName = "light_dal_host";
+            hostName = "light_host";
             priority = 50;
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             light_dal_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
