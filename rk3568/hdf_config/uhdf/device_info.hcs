@@ -291,7 +291,6 @@
         codec :: host {
             hostName = "codec_host";
             priority = 50;
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             codec_omx_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
