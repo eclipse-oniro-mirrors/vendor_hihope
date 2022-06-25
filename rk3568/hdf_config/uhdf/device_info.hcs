@@ -160,6 +160,7 @@
         audio :: host {
             hostName = "audio_hdi_server_host";
             priority = 50;
+            gid = ["audio_hdi_server_host", "uhdf_driver"];
             audio_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -217,6 +218,7 @@
         input_hal :: host {
             hostName = "input_user_host";
             priority = 50;
+            gid = ["input_user_host", "uhdf_driver"];
             input_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
