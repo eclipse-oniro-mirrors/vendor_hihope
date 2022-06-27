@@ -201,7 +201,7 @@
         hdi_server :: host {
             hostName = "camera_host";
             priority = 50;
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
+            caps = ["DAC_OVERRIDE"];
             camera_device :: device {
                  device0 :: deviceNode {
                      policy = 2;
