@@ -147,7 +147,7 @@
         wlan :: host {
             hostName = "wifi_host";
             priority = 50;
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
+            gid = ["wifi_host", "wifi_group"];
             wifi_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
