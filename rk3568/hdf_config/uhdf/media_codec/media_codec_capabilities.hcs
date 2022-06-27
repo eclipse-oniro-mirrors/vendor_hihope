@@ -10,7 +10,7 @@ root {
         // allocateMask: 0x08, Output buffer allocated by an external user.
 
         VideoHwEncoders {
-            /* node name explaination -- HDF_video_hw_enc_avc_rk：
+            /* node name explanation -- HDF_video_hw_enc_avc_rk：
             **
             **    HDF____________video__________________hw____________________enc____________avc_______rk
             **     |               |                    |                      |              |        |
