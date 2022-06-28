@@ -417,7 +417,7 @@
             priority = 50; 
             uid = "location_host";
             gid = "location_host";
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
+            caps = [""];
             location_gnss_device :: device { 
                 device0 :: deviceNode { 
                     policy = 2; 
