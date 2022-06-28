@@ -13,7 +13,7 @@
       "subsystem": "arkui",
       "components": [
         {
-          "component": "ace_engine_standard",
+          "component": "ace_engine",
           "features": []
         },
         {
@@ -450,7 +450,7 @@
           "features": []
         },
         {
-          "component": "display_device_driver",
+          "component": "drivers_peripheral_display",
           "features": []
         },
         {
@@ -480,7 +480,7 @@
           "features": []
         },
         {
-          "component": "driver_peripheral_camera",
+          "component": "drivers_peripheral_camera",
           "features": []
         },
         {
@@ -612,7 +612,7 @@
           "features": []
         },
         {
-          "component": "display_device_driver_interface",
+          "component": "drivers_peripheral_display_interface",
           "features": []
         },
         {
