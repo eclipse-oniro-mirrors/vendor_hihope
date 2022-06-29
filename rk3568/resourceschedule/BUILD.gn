@@ -16,7 +16,7 @@ import("//build/ohos.gni")
 ohos_prebuilt_etc("res_sched_config") {
   source = "./ressched/res_sched_config.xml"
   install_enable = true
-  install_images = ["vendor"]
+  install_images = [ "vendor" ]
   module_install_dir = "etc/ressched"
   part_name = "product_rk3568"
 }
@@ -24,7 +24,7 @@ ohos_prebuilt_etc("res_sched_config") {
 ohos_prebuilt_etc("res_sched_plugin_switch") {
   source = "./ressched/res_sched_plugin_switch.xml"
   install_enable = true
-  install_images = ["vendor"]
+  install_images = [ "vendor" ]
   module_install_dir = "etc/ressched"
   part_name = "product_rk3568"
 }
@@ -32,7 +32,7 @@ ohos_prebuilt_etc("res_sched_plugin_switch") {
 ohos_prebuilt_etc("cgroup_action_config") {
   source = "./cgroup_sched/cgroup_action_config.json"
   install_enable = true
-  install_images = ["vendor"]
+  install_images = [ "vendor" ]
   module_install_dir = "etc/cgroup_sched"
   part_name = "product_rk3568"
 }
@@ -40,7 +40,7 @@ ohos_prebuilt_etc("cgroup_action_config") {
 ohos_prebuilt_etc("socperf_boost_config") {
   source = "./soc_perf/socperf_boost_config.xml"
   install_enable = true
-  install_images = ["vendor"]
+  install_images = [ "vendor" ]
   module_install_dir = "etc/soc_perf"
   part_name = "product_rk3568"
 }
@@ -48,7 +48,7 @@ ohos_prebuilt_etc("socperf_boost_config") {
 ohos_prebuilt_etc("socperf_power_config") {
   source = "./soc_perf/socperf_power_config.xml"
   install_enable = true
-  install_images = ["vendor"]
+  install_images = [ "vendor" ]
   module_install_dir = "etc/soc_perf"
   part_name = "product_rk3568"
 }
@@ -56,7 +56,7 @@ ohos_prebuilt_etc("socperf_power_config") {
 ohos_prebuilt_etc("socperf_resource_config") {
   source = "./soc_perf/socperf_resource_config.xml"
   install_enable = true
-  install_images = ["vendor"]
+  install_images = [ "vendor" ]
   module_install_dir = "etc/soc_perf"
   part_name = "product_rk3568"
 }
@@ -64,19 +64,19 @@ ohos_prebuilt_etc("socperf_resource_config") {
 ohos_prebuilt_etc("socperf_thermal_config") {
   source = "./soc_perf/socperf_thermal_config.xml"
   install_enable = true
-  install_images = ["vendor"]
+  install_images = [ "vendor" ]
   module_install_dir = "etc/soc_perf"
   part_name = "product_rk3568"
 }
 
 group("resourceschedule") {
   deps = [
-  ":res_sched_config", 
-  ":res_sched_plugin_switch", 
-  ":cgroup_action_config", 
-  ":socperf_boost_config", 
-  ":socperf_power_config", 
-  ":socperf_resource_config", 
-  ":socperf_thermal_config", 
+    ":cgroup_action_config",
+    ":res_sched_config",
+    ":res_sched_plugin_switch",
+    ":socperf_boost_config",
+    ":socperf_power_config",
+    ":socperf_resource_config",
+    ":socperf_thermal_config",
   ]
 }
