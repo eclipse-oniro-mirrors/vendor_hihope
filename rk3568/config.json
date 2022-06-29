@@ -149,7 +149,9 @@
         },
         {
           "component": "init",
-          "features": []
+          "features": [
+            "enable_ohos_startup_init_feature_loader = true"
+          ]
         }
       ]
     },
