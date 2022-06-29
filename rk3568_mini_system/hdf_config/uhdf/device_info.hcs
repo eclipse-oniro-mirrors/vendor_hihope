@@ -351,7 +351,6 @@
             priority = 50;
             uid = "useriam";
             gid = "useriam";
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             face_auth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -367,7 +366,6 @@
             priority = 50;
             uid = "useriam";
             gid = "useriam";
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             pin_auth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -383,7 +381,6 @@
             priority = 50;
             uid = "useriam";
             gid = "useriam";
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             user_auth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -399,7 +396,6 @@
             priority = 50;
             uid = "useriam";
             gid = "useriam";
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             fingerprint_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
