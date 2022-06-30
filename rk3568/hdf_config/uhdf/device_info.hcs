@@ -117,7 +117,7 @@
             hostName = "power_host";
             priority = 50;
             uid = "power_host";
-            gid = "power_host";
+            gid = ["power_host"];
             caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             power_device :: device {
                 device0 :: deviceNode {
@@ -336,7 +336,7 @@
             hostName = "face_auth_host";
             priority = 50;
             uid = "useriam";
-            gid = "useriam";
+            gid = ["useriam"];
             face_auth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -351,7 +351,7 @@
             hostName = "pin_auth_host";
             priority = 50;
             uid = "useriam";
-            gid = "useriam";
+            gid = ["useriam"];
             pin_auth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -366,7 +366,7 @@
             hostName = "user_auth_host";
             priority = 50;
             uid = "useriam";
-            gid = "useriam";
+            gid = ["useriam"];
             user_auth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -381,7 +381,7 @@
             hostName = "fingerprint_auth_host";
             priority = 50;
             uid = "useriam";
-            gid = "useriam";
+            gid = ["useriam"];
             fingerprint_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -396,7 +396,7 @@
             hostName = "location_host"; 
             priority = 50; 
             uid = "location_host";
-            gid = "location_host";
+            gid = ["location_host"];
             caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             location_gnss_device :: device { 
                 device0 :: deviceNode { 
