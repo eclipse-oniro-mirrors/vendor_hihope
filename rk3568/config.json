@@ -468,10 +468,6 @@
           "features": []
         },
         {
-          "component": "drivers_peripheral_motion",
-          "features": []
-        },
-        {
           "component": "drivers_peripheral_audio",
           "features": [
             "drivers_peripheral_audio_feature_mono_to_stereo = true"
@@ -507,10 +503,6 @@
         },
         {
           "component": "drivers_interface_sensor",
-          "features": []
-        },
-        {
-          "component": "drivers_interface_motion",
           "features": []
         },
         {
