@@ -40,7 +40,7 @@ void *BLE_Task_Entry(const char *arg)
         return NULL;
     }
 
-    /**Add BLE servcie and start Advertising*/
+    /**Add BLE service and start Advertising*/
     ble_server_demo();
 
     while (1) {
