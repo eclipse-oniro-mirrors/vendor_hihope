@@ -426,5 +426,20 @@
                 }
             }
         }
+        partitionslot :: host {
+            hostName = "partitionslot_host";
+            priority = 100;
+            uid = "useriam";
+            gid = "useriam";
+            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
+            partitionslot_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libpartitionslot_driver.z.so";
+                    serviceName = "partition_slot_service";
+                }
+            }
+        }
     }
 }
