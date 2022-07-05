@@ -9,7 +9,6 @@
   "enable_ramdisk": true,
   "build_selinux": false,
   "support_jsapi": false,
-  "inherit": [ "productdefine/common/inherit/base.json" ],
   "subsystems": [
     {
       "subsystem": "hdf",
@@ -27,9 +26,66 @@
       ]
     },
     {
+      "subsystem": "common",
+      "components": [
+        {
+          "component": "common",
+          "features": []
+        }
+      ]
+    },
+    {
+      "subsystem": "startup",
+      "components": [
+        { "component": "init" },
+        { "component": "startup_l2" }
+      ]
+    },
+    {
+      "subsystem": "communication",
+      "components": [
+        { "component": "dsoftbus", "features":["dsoftbus_get_devicename=false"] },
+        { "component": "ipc" }
+      ]
+    },
+    {
+      "subsystem": "distributedschedule",
+      "components": [
+        { "component": "samgr_standard" },
+        { "component": "safwk" }
+      ]
+    },
+    {
       "subsystem": "hiviewdfx",
       "components": [
-        { "component": "hicollie_native" }
+        { "component": "hiviewdfx_hilog_native"},
+        { "component": "hilog_native" },
+        { "component": "hilog_service" },
+        { "component": "hitrace_native" },
+        { "component": "hisysevent_native" },
+        { "component": "hicollie_native" },
+        { "component": "faultloggerd" },
+        { "component": "hichecker_native" }
+      ]
+    },
+    {
+      "subsystem": "security",
+      "components": [
+        { "component": "device_auth" },
+        { "component": "access_token" },
+        { "component": "huks" }
+      ]
+    },
+    {
+      "subsystem": "notification",
+      "components": [
+        { "component": "eventhandler" }
+      ]
+    },
+    {
+      "subsystem": "utils",
+      "components": [
+        { "component": "utils_base" }
       ]
     },
     {
@@ -37,6 +93,13 @@
       "components": [
         { "component": "updater" },
         { "component": "update_service" }
+      ]
+    },
+    {
+      "subsystem": "developtools",
+      "components": [
+        { "component": "syscap_codec" },
+        { "component": "hdc" }
       ]
     }
   ]
