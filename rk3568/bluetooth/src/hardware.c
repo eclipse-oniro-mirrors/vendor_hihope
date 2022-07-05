@@ -1502,8 +1502,8 @@ void hw_process_event(HC_BT_HDR *p_buf)
 #endif
         case HCI_READ_LOCAL_NAME:
         case HCI_VSC_DOWNLOAD_MINIDRV:
-    case HCI_VSC_WRITE_FIRMWARE:
-    case HCI_VSC_LAUNCH_RAM:
+        case HCI_VSC_WRITE_FIRMWARE:
+        case HCI_VSC_LAUNCH_RAM:
         case HCI_RESET:
         case HCI_VSC_WRITE_UART_CLOCK_SETTING:
         case HCI_VSC_UPDATE_BAUDRATE:
