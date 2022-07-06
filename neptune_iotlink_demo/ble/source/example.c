@@ -34,6 +34,7 @@ void *BLE_Task_Entry(const char *arg)
     printf("Initialize BLE stack and running server demo.\r\n");
 
     /**Enable BLE stack*/
+    /* 启用BLE堆栈 */
     rc = EnableBtStack();
     if (rc != OHOS_BT_STATUS_SUCCESS) {
         printf("ERR: enable ble stack failed, rc=%d\r\n", rc);
