@@ -238,7 +238,6 @@
         display_gralloc :: host {
             hostName = "disp_gralloc_host";
             priority = 40;
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             input_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
