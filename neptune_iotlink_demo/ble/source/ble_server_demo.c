@@ -249,6 +249,7 @@ void test_registerServerCallback(int status, int serverId, BtUuid *appUuid)
     printf("%s serverId=%d\r\n", __FUNCTION__, serverId);
 }
 
+/* 连接服务的回调 */
 void test_connectServerCallback(int connId, int serverId, BdAddr *bdAddr)
 {
     printf("%s serverId=%d\r\n", __FUNCTION__, serverId);
