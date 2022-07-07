@@ -133,7 +133,7 @@ root {
                     "OHOS_CAMERA_AE_ANTIBANDING_MODE_OFF"
                 ];
                 aeAvailableModes = ["OHOS_CAMERA_AE_MODE_OFF"];
-                availableFpsRange = [30, 30];
+                availableFpsRange = [5, 10];
                 cameraPosition = "OHOS_CAMERA_POSITION_FRONT";
                 cameraType = "OHOS_CAMERA_TYPE_WIDE_ANGLE";
                 cameraConnectionType ="OHOS_CAMERA_CONNECTION_TYPE_BUILTIN";
@@ -202,7 +202,10 @@ root {
                 ];
                 mirrorSupported = "OHOS_CAMERA_MIRROR_OFF";
                 basicAvailableConfigurations = [1, 640, 480, 4, 1280, 960];
-
+                sensorOrientationSupported = "270";
+                videoStabilizationAvailableModes = [
+                    "OHOS_CAMERA_VIDEO_STABILIZATION_OFF"
+                ];
             }
         }
     }

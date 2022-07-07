@@ -876,7 +876,7 @@ void hw_config_cback(void *p_mem)
 **
 ** Function         hw_lpm_ctrl_cback
 **
-** Description      Callback function for lpm enable/disable rquest
+** Description      Callback function for lpm enable/disable request
 **
 ** Returns          None
 **
@@ -969,7 +969,7 @@ static void hw_sco_i2spcm_proc_int_param(void)
 **
 ** Function         hw_sco_i2spcm_cfg_cback
 **
-** Description      Callback function for SCO I2S/PCM configuration rquest
+** Description      Callback function for SCO I2S/PCM configuration request
 **
 ** Returns          None
 **

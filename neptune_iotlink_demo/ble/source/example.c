@@ -34,13 +34,14 @@ void *BLE_Task_Entry(const char *arg)
     printf("Initialize BLE stack and running server demo.\r\n");
 
     /**Enable BLE stack*/
+    /* 启用BLE堆栈 */
     rc = EnableBtStack();
     if (rc != OHOS_BT_STATUS_SUCCESS) {
         printf("ERR: enable ble stack failed, rc=%d\r\n", rc);
         return NULL;
     }
 
-    /**Add BLE servcie and start Advertising*/
+    /**Add BLE service and start Advertising*/
     ble_server_demo();
 
     while (1) {
@@ -61,7 +62,7 @@ void BLE_Demo(void)
     attr.priority   = BLE_DEMO_TASK_PRIO;
 
     if (osThreadNew((osThreadFunc_t)BLE_Task_Entry, NULL, &attr) == NULL) {
-        printf("[BLEDemo] Falied to create BLE Demo Task!\n");
+        printf("[BLEDemo] Failed to create BLE Demo Task!\n");
     }
 }
 

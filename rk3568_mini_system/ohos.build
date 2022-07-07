@@ -1,0 +1,10 @@
+{
+  "parts": {
+    "product_rk3568_mini_system": {
+      "module_list": [
+        "//vendor/hihope/rk3568_mini_system:rk3568_mini_system"
+      ]
+    }
+  },
+  "subsystem": "product_hihope_mini_system"
+}

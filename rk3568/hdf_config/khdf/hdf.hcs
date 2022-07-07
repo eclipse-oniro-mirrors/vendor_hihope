@@ -18,6 +18,7 @@
 #include "light/light_config.hcs"
 #include "vibrator/vibrator_config.hcs"
 #include "vibrator/linear_vibrator_config.hcs"
+#include "vibrator/drv2605l_linear_vibrator_config.hcs"
 #include "lcd/lcd_config.hcs"
 
 root {
