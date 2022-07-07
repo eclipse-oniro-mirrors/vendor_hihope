@@ -116,8 +116,7 @@
             hostName = "power_host";
             priority = 50;
             uid = "power_host";
-            gid = ["power_host"];
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
+            gid = ["power_host", "system"];
             power_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
