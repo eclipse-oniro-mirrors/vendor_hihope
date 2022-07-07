@@ -32,11 +32,13 @@ enum BLE_GATT_ATTR_MUN {
 
 static int test_indicate(int *arg);
 
+//写数据
 int char_write(uint8_t *data, int length)
 {
     tls_bt_dump_hexstring("char_write:", data, length);
 }
 
+//读数据
 int char_read(uint8_t *data, int *length)
 {
     const int data_len = 2;
