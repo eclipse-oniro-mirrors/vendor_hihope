@@ -244,6 +244,7 @@ void test_add_service2(void)
     printf("adding service2, ret=%d, server_if=%d\r\n", ret, server_if);
 }
 
+/* 注册服务的回调 */
 void test_registerServerCallback(int status, int serverId, BtUuid *appUuid)
 {
     printf("%s serverId=%d\r\n", __FUNCTION__, serverId);
