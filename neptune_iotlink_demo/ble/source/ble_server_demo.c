@@ -68,6 +68,7 @@ void test_remove_service(int *arg)
     ble_server_start_service();
 }
 
+/*添加蓝牙服务*/
 void test_add_service3(void)
 {
     int ret, server_if;
