@@ -61,7 +61,8 @@ void BLE_Demo(void)
     attr.stack_size = BLE_DEMO_TASK_STACK_SIZE;
     attr.priority   = BLE_DEMO_TASK_PRIO;
 
-    if (osThreadNew((osThreadFunc_t)BLE_Task_Entry, NULL, &attr) == NULL) {
+    /* 创建线程监控是否创建蓝牙连接的任务 */
+	if (osThreadNew((osThreadFunc_t)BLE_Task_Entry, NULL, &attr) == NULL) {
         printf("[BLEDemo] Failed to create BLE Demo Task!\n");
     }
 }
