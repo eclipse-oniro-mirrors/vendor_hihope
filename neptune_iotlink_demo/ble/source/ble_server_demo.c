@@ -296,6 +296,7 @@ void test_serviceStopCallback(int status, int serverId, int srvcHandle)
     printf("%s serverId=%d\r\n", __FUNCTION__, serverId);
 }
 
+/* 删除服务的回调 */
 void test_serviceDeleteCallback(int status, int serverId, int srvcHandle)
 {
     printf("%s serverId=%d\r\n", __FUNCTION__, serverId);
