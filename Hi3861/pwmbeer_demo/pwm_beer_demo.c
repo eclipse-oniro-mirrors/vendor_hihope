@@ -36,7 +36,8 @@ static void *PWMBeerTask(const char *arg)
     (void)arg;
 
     printf("PWMBeerTask start!\r\n");
-    
+
+    // 主循环
     while (1) {
         if (g_beepState) {
             PwmStart(WIFI_IOT_PWM_PORT_PWM0, TWENTY*ONE_THOUSAND, FORTY*ONE_THOUSAND);
@@ -48,6 +49,7 @@ static void *PWMBeerTask(const char *arg)
     return NULL;
 }
 
+// 按钮按压事件处理
 static void OnButtonPressed(char *arg)
 {
     (void) arg;
