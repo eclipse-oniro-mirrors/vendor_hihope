@@ -42,6 +42,7 @@ void *BLE_Task_Entry(const char *arg)
     }
 
     /**Add BLE service and start Advertising*/
+    /* 添加BLE服务并开始广告 */
     ble_server_demo();
 
     while (1) {
