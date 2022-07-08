@@ -259,6 +259,7 @@ void test_disconnectServerCallback(int connId, int serverId, BdAddr *bdAddr)
     printf("%s serverId=%d\r\n", __FUNCTION__, serverId);
 }
 
+/* 添加服务的回调 */
 void test_serviceAddCallback(int status, int serverId, BtUuid *uuid, int srvcHandle)
 {
     printf("%s serverId=%d\r\n", __FUNCTION__, serverId);
