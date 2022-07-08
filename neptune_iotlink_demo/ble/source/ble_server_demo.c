@@ -313,6 +313,7 @@ void test_requestReadCallback(BtReqReadCbPara readCbPara)
     printf("%s serverId=%d\r\n", __FUNCTION__, 0);
 }
 
+/* 写数据请求的回调 */
 void test_requestWriteCallback(BtReqWriteCbPara writeCbPara)
 {
     printf("%s serverId=%d\r\n", __FUNCTION__, 0);
