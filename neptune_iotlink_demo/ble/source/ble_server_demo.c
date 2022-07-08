@@ -319,6 +319,7 @@ void test_requestWriteCallback(BtReqWriteCbPara writeCbPara)
     printf("%s serverId=%d\r\n", __FUNCTION__, 0);
 }
 
+/* 确认回复的回调 */
 void test_responseConfirmationCallback(int status, int handle)
 {
     printf("%s serverId=%d\r\n", __FUNCTION__, 0);
