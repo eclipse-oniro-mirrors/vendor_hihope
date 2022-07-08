@@ -361,6 +361,7 @@ void test_gap_adv_enable_callback(int advId, int status)
     printf("%s status=%d\r\n", __FUNCTION__, status);
 }
 
+/* 禁用广播的回调 */
 void test_gap_adv_disable_callback(int advId, int status)
 {
     (void)advId;
