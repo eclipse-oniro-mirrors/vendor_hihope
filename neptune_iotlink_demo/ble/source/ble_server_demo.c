@@ -329,6 +329,7 @@ void test_indicationSentCallback(int connId, int status)
     printf("%s connId=%d\r\n", __FUNCTION__, connId);
 }
 
+/* 修改最大传输单元的数值 */
 void test_mtuChangeCallback(int connId, int mtu)
 {
     printf("%s connId=%d\r\n", __FUNCTION__, connId);
