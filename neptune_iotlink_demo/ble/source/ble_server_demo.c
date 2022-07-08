@@ -260,6 +260,7 @@ void test_connectServerCallback(int connId, int serverId, BdAddr *bdAddr)
     printf("%s serverId=%d\r\n", __FUNCTION__, serverId);
 }
 
+/* 断开服务的回调 */
 void test_disconnectServerCallback(int connId, int serverId, BdAddr *bdAddr)
 {
     printf("%s serverId=%d\r\n", __FUNCTION__, serverId);
