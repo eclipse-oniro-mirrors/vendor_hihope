@@ -62,6 +62,7 @@ int char2_read(uint8_t *data, int *length)
     *length = data_len;
 }
 
+/* 移除蓝牙服务 */
 void test_remove_service(int *arg)
 {
     printf("Free server if=0\r\n");
