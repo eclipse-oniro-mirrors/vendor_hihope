@@ -349,6 +349,7 @@ static BtGattServerCallbacks scb = {
     test_mtuChangeCallback,
 };
 
+/* 使能广播的回调 */
 void test_gap_adv_enable_callback(int advId, int status)
 {
     (void)advId;
