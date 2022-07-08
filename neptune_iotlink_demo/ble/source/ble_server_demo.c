@@ -302,6 +302,7 @@ void test_serviceDeleteCallback(int status, int serverId, int srvcHandle)
     printf("%s serverId=%d\r\n", __FUNCTION__, serverId);
 }
 
+/* 读数据请求回调 */
 void test_requestReadCallback(BtReqReadCbPara readCbPara)
 {
     printf("%s serverId=%d\r\n", __FUNCTION__, 0);
