@@ -2,7 +2,7 @@
   "product_name": "rk3568",
   "device_company": "rockchip",
   "device_build_path": "device/board/hihope/rk3568",
-  "target_cpu": "arm",
+  "target_cpu": "arm64",
   "type": "standard",
   "version": "3.0",
   "board": "rk3568",
