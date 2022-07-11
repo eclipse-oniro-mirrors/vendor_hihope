@@ -368,6 +368,7 @@ void test_gap_adv_disable_callback(int advId, int status)
     printf("%s status=%d\r\n", __FUNCTION__, status);
 }
 
+/* 设置广播数据的回调 */
 void test_gap_adv_data_set_callback(int advId, int status)
 {
     (void)advId;
