@@ -51,6 +51,7 @@ static char Hex2Char(u8 hex)
     }
 }
 
+/* 获取设备类型 */
 const char* HalGetDeviceType(void)
 {
     return OHOS_DEVICE_TYPE;
