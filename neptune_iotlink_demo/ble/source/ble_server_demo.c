@@ -402,6 +402,7 @@ void test_gap_scan_result_callback(BtScanResultData *scanResultdata)
     printf("\r\n");
 }
 
+/* 扫描参数设置的回调测试 */
 void test_gap_scan_param_set_callback(int clientId, int status)
 {
     (void)clientId;
