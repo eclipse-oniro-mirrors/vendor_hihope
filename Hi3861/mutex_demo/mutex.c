@@ -33,6 +33,7 @@ void number_thread(int *arg)
 {
     osMutexId_t *mid = (osMutexId_t *)arg;
     while (1) {
+        // 加锁（获取互斥锁/占用互斥锁）
         if (osMutexAcquire(*mid, NUM) == osOK) {
             g_test_value++;
             if (g_test_value % NUMS == 0) {
