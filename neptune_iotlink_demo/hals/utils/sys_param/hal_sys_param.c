@@ -80,6 +80,7 @@ const char* HalGetProductSeries(void)
     return OHOS_PRODUCT_SERIES;
 }
 
+/* 获取产品型号 */
 const char* HalGetProductModel(void)
 {
     return OHOS_PRODUCT_MODEL;
