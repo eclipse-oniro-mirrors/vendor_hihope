@@ -42,6 +42,8 @@ static const char EMPTY_STR[] = {""};
 #define STR_END_FLAG '\0'
 
 static char serialNumber[SERIAL_NUM_LEN] = {0};
+
+/* 十六进制数转换为字符类型数据 */
 static char Hex2Char(u8 hex)
 {
     if (hex < HEX_A) {
