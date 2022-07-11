@@ -76,6 +76,7 @@ const char* HalGetMarketName(void)
     return OHOS_MARKET_NAME;
 }
 
+/* 获取产品系列名称 */
 const char* HalGetProductSeries(void)
 {
     return OHOS_PRODUCT_SERIES;
