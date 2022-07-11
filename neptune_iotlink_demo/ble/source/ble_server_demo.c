@@ -375,6 +375,7 @@ void test_gap_adv_data_set_callback(int advId, int status)
     printf("%s status=%d\r\n", __FUNCTION__, status);
 }
 
+/* 广播更新回调 */
 void test_gap_adv_update_callback(int advId, int status)
 {
     (void)advId;
