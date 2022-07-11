@@ -387,6 +387,7 @@ void test_gap_sec_response_callback(const BdAddr *bdAddr)
     printf("\r\n");
 }
 
+/* 扫描结果的回调 */
 void test_gap_scan_result_callback(BtScanResultData *scanResultdata)
 {
     int i;
