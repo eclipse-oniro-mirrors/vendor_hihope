@@ -65,6 +65,7 @@ const char* HalGetManufacture(void)
     return OHOS_MANUFACTURE;
 }
 
+/* 获取商标名称 */
 const char* HalGetBrand(void)
 {
     return OHOS_BRAND;
