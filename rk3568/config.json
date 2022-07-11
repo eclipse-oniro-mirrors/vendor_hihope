@@ -36,6 +36,29 @@
           "features": []
         }
       ]
+    },
+    {
+      "subsystem": "arkui",
+      "components": [
+        {
+          "component": "ace_engine",
+          "features": [
+            "ace_engine_feature_enable_accessibility = true",
+            "ace_engine_feature_enable_web = true"
+          ]
+        }
+      ]
+    },
+    {
+      "subsystem": "wpa_supplicant-2.9",
+      "components": [
+        {
+          "component": "wpa_supplicant-2.9",
+          "features": [
+            "wpa_supplicant_driver_nl80211 = true"
+          ]
+        }
+      ]
     }
   ]
 }
