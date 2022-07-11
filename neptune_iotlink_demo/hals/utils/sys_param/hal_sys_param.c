@@ -59,6 +59,7 @@ const char* HalGetDeviceType(void)
     return OHOS_DEVICE_TYPE;
 }
 
+/* 获取厂商信息 */
 const char* HalGetManufacture(void)
 {
     return OHOS_MANUFACTURE;
