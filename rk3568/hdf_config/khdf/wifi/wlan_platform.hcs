@@ -2,7 +2,7 @@ root {
     module = "wlan";
     wlan_config {
         match_attr = "hdf_wlan_driver";
-        hostChipName = "hi3516dv300";
+        hostChipName = "rk3568";
         moduleConfig {
             featureMap = 0xFFFF;
             msgName = "WalService";
@@ -65,7 +65,7 @@ root {
                }
             }
         }
-        hisi :& deviceList {
+        bdh :& deviceList {
             device0 :: deviceInst {
                 deviceInstId = 0;
                 powers {
@@ -83,7 +83,7 @@ root {
                     }
                 }
                 reset {
-                    resetType = 1; /* NotManaged(0);GPIO(1) */
+                    resetType = 0; /* NotManaged(0);GPIO(1) */
                     gpioId = 90;
                     activeLevel = 0; /* High(1); Low(0) */
                     resetHoldTime = 16; /*In ms*/
@@ -100,8 +100,8 @@ root {
         }
         chipList {
             template chipInst {
-                match_attr = "hdf_wlan_chips_hi3881";
-                driverName = "hi3881";
+                match_attr = "hdf_wlan_chips_ap6275s";
+                driverName = "ap6275s";
                 bus {
                     vendorId = 0x0296;
                     deviceId = [0x5347];
