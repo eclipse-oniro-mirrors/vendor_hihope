@@ -46,7 +46,7 @@ void *BLE_Task_Entry(const char *arg)
     ble_server_demo();
 
     while (1) {
-        osDelay(MS_1000);
+        osDelay(MS_1000); /* 延时1000ms */
     }
 }
 
@@ -59,7 +59,7 @@ void BLE_Demo(void)
     attr.cb_mem     = NULL;
     attr.cb_size    = 0U;
     attr.stack_mem  = NULL;
-    attr.stack_size = BLE_DEMO_TASK_STACK_SIZE;
+    attr.stack_size = BLE_DEMO_TASK_STACK_SIZE; /* 堆栈大小2048 */
     attr.priority   = BLE_DEMO_TASK_PRIO;
 
     /* 创建线程监控是否创建蓝牙连接的任务 */
