@@ -80,7 +80,7 @@ void rtosv2_msgq_main(int *arg)
     (int)arg;
 
     qid = osMessageQueueNew(QUEUE_SIZE, sizeof(message_entry), NULL);
-
+    // 注释系统循环
     osThreadId_t ctid1 = newThread("receiver1", receiver_thread, NULL);
     osThreadId_t ctid2 = newThread("receiver2", receiver_thread, NULL);
     osThreadId_t ptid1 = newThread("sender1", sender_thread, NULL);
