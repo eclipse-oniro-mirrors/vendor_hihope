@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (C) 2022 HiHope Open Source Organization .
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -142,7 +142,7 @@ static void WifiHotspotTask(int *arg)
     (void)arg;
     WifiErrorCode errCode;
     HotspotConfig config = {0};
-
+    // 配置作为AP热点的ssid和key
     if (strcpy_s(config.ssid, sizeof(config.ssid), "HiSpark-AP")) {
 }
     if (strcpy_s(config.preSharedKey, sizeof(config.preSharedKey), "12345678")) {
@@ -154,16 +154,18 @@ static void WifiHotspotTask(int *arg)
     osDelay(TEN);
 
     printf("starting AP ...\r\n");
+    // 开启热点
     errCode = StartHotspot(&config);
     printf("StartHotspot: %d\r\n", errCode);
-
+    //热点开启时长为60s
     int timeout = 60;
     while (timeout--) {
         printf("After %d seconds Ap will turn off!\r\n", timeout);
         osDelay(ONE_HUNDRED);
     }
-
+    // 可以通过串口工具发送 AT+PING=192.168.xxx.xxx(如手机连接到该热点后的IP) 去ping连接到该热点的设备的IP地址 
     printf("stop AP ...\r\n");
+    // 关闭热点
     StopHotspot();
     printf("stop AP ...\r\n");
 }
@@ -171,7 +173,7 @@ static void WifiHotspotTask(int *arg)
 static void WifiHotspotDemo(void)
 {
     osThreadAttr_t attr;
-
+    // 初始化相关配置
     attr.name = "WifiHotspotTask";
     attr.attr_bits = 0U;
     attr.cb_mem = NULL;
