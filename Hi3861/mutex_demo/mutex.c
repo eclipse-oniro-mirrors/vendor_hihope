@@ -65,13 +65,14 @@ void rtosv2_mutex_main(int *arg)
     (int)arg;
     osMutexAttr_t attr = {0};
 
-    osMutexId_t mid = osMutexNew(&attr);
+    osMutexId_t mid = osMutexNew(&attr); // 创建互斥锁
     if (mid == NULL) {
         printf("[Mutex Test]osMutexNew, create mutex failed.\r\n");
     } else {
         printf("[Mutex Test]osMutexNew, create mutex success.\r\n");
     }
 
+    // 创建三个线程
     osThreadId_t tid1 = newThread("Thread_1", number_thread, &mid);
     osThreadId_t tid2 = newThread("Thread_2", number_thread, &mid);
     osThreadId_t tid3 = newThread("Thread_3", number_thread, &mid);
@@ -84,7 +85,7 @@ void rtosv2_mutex_main(int *arg)
     osThreadTerminate(tid1);
     osThreadTerminate(tid2);
     osThreadTerminate(tid3);
-    osMutexDelete(mid);
+    osMutexDelete(mid); // 删除互斥锁
 }
 
 static void MutexTestTask(void)
