@@ -59,6 +59,18 @@
           ]
         }
       ]
+    },
+    {
+      "subsystem": "hdf",
+      "components": [
+        {
+          "component": "drivers_peripheral_audio",
+          "features": [
+            "drivers_peripheral_audio_hal_notsupport_pathselect = false",
+            "drivers_peripheral_audio_alsa_lib = false"
+          ]
+        }
+      ]
     }
   ]
 }
