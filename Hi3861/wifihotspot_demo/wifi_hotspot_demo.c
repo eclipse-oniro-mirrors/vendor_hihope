@@ -173,7 +173,7 @@ static void WifiHotspotTask(int *arg)
 static void WifiHotspotDemo(void)
 {
     osThreadAttr_t attr;
-    // 初始化配置
+    // 初始化相关配置
     attr.name = "WifiHotspotTask";
     attr.attr_bits = 0U;
     attr.cb_mem = NULL;
