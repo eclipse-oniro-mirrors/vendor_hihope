@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (C) 2022 HiHope Open Source Organization .
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,6 +37,7 @@
 #define ONE_HUNDRED 100
 #define TWO_HUNDRED 200
 
+// 注释：MAC
 static void PrintLinkedInfo(WifiLinkedInfo* info)
 {
     if (!info) return;
