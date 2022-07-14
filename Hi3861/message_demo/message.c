@@ -54,7 +54,7 @@ void receiver_thread(int *arg)
     (int)arg;
     message_entry rentry;
     while (NUM) {
-        osMessageQueueGet(qid, (int *)&rentry, NULL, osWaitForever);
+        osMessageQueueGet(qid, (int *)&rentry, NULL, osWaitForever);  // 从指定的消息队列中取得1条消息，如果消息队列为空，那么返回超时
         printf("[Message Test] %s get %d from %s by message queue.\r\n",
             osThreadGetName(osThreadGetId()), rentry.count, osThreadGetName(rentry.tid));
         osDelay(OS_DELAY_F);
