@@ -2,7 +2,8 @@
   "parts": {
     "product_rk3568": {
       "module_list": [
-        "//vendor/hihope/rk3568/resourceschedule:resourceschedule"
+        "//vendor/hihope/rk3568/resourceschedule:resourceschedule",
+        "//vendor/hihope/rk3568/preinstall-config:preinstall-config"
       ]
     }
   },

@@ -1,0 +1,71 @@
+[
+    {
+        "bundleName" : "com.ohos.screenshot",
+        "permissions" : [
+            {
+                "name" : "ohos.permission.MEDIA_LOCATION",
+                "userCancellable" : true
+            },
+            {
+                "name" : "ohos.permission.READ_MEDIA",
+                "userCancellable" : true
+            },
+            {
+                "name" : "ohos.permission.WRITE_MEDIA",
+                "userCancellable" : true
+            }
+        ]
+    },
+	{
+        "bundleName" : "com.ohos.medialibrary.medialibrarydata",
+        "permissions" : [
+            {
+                "name" : "ohos.permission.DISTRIBUTED_DATASYNC",
+                "userCancellable" : false
+            }
+        ]
+    },
+    {
+        "bundleName" : "com.ohos.callui",
+        "permissions" : [
+            {
+                "name" : "ohos.permission.READ_CONTACTS",
+                "userCancellable" : false
+            },
+            {
+                "name" : "ohos.permission.SEND_MESSAGES",
+                "userCancellable" : false
+            }
+        ]
+    },
+    {
+        "bundleName" : "com.ohos.mms",
+        "permissions" : [
+            {
+                "name" : "ohos.permission.READ_CONTACTS",
+                "userCancellable" : true
+            },
+            {
+                "name" : "ohos.permission.READ_MESSAGES",
+                "userCancellable" : false
+            },
+            {
+                "name" : "ohos.permission.SEND_MESSAGES",
+                "userCancellable" : false
+            },
+            {
+                "name" : "ohos.permission.RECEIVE_SMS",
+                "userCancellable" : false
+            }
+        ]
+    },
+    {
+        "bundleName": "com.ohos.systemui",
+        "permissions" : [
+            {
+                "name" : "ohos.permission.DISTRIBUTED_DATASYNC",
+                "userCancellable" : false
+            }
+        ]
+    }
+]
