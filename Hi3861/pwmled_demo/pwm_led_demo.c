@@ -34,6 +34,7 @@
 #define ATTR.STACK_SIZE 4096
 #define USLEEP 250000
 
+// 注释PWMLED演示任务
 static void PWMLedDemoTask(int *arg)
 {
     (void)arg;
