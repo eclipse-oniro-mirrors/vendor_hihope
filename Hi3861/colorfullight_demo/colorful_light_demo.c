@@ -67,6 +67,7 @@ static void CorlorfulLightTask(int *arg)
         }
     }
 
+    // GPIO10\PWM1: 红       GPIO11\PWM2: 绿      GPIO12\pwm3: 蓝
     IoSetFunc(RED_LED_PIN_NAME, WIFI_IOT_IO_FUNC_GPIO_10_PWM1_OUT);
     IoSetFunc(GREEN_LED_PIN_NAME, WIFI_IOT_IO_FUNC_GPIO_11_PWM2_OUT);
     IoSetFunc(BLUE_LED_PIN_NAME, WIFI_IOT_IO_FUNC_GPIO_12_PWM3_OUT);
@@ -75,7 +76,7 @@ static void CorlorfulLightTask(int *arg)
     PwmInit(WIFI_IOT_PWM_PORT_PWM2); // G
     PwmInit(WIFI_IOT_PWM_PORT_PWM3); // B
 
-    // use PWM control BLUE LED brightness
+    // 使用PWM控制BLUE LED亮度
     for (int i = 1; i <= ADC_RESOLUTION; i *= TWO) {
         PwmStart(WIFI_IOT_PWM_PORT_PWM3, i, PWM_FREQ_DIVITION);
         usleep(TWO_HUNDRED_AND_FIFTY_THOUSAND);
@@ -106,12 +107,12 @@ static void ColorfulLightDemo(void)
 
     GpioInit();
 
-    // set Red/Green/Blue LED pin to GPIO function
+    // 设置红/绿/蓝LED引脚为GPIO功能
     IoSetFunc(RED_LED_PIN_NAME, RED_LED_PIN_FUNCTION);
     IoSetFunc(GREEN_LED_PIN_NAME, GREEN_LED_PIN_FUNCTION);
     IoSetFunc(BLUE_LED_PIN_NAME, BLUE_LED_PIN_FUNCTION);
 
-    // set Red/Green/Blue LED pin as output
+    // 设置红/绿/蓝LED引脚为输出
     GpioSetDir(RED_LED_PIN_NAME, WIFI_IOT_GPIO_DIR_OUT);
     GpioSetDir(GREEN_LED_PIN_NAME, WIFI_IOT_GPIO_DIR_OUT);
     GpioSetDir(BLUE_LED_PIN_NAME, WIFI_IOT_GPIO_DIR_OUT);
