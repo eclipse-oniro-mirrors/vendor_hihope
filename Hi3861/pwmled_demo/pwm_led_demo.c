@@ -38,12 +38,15 @@ static void PWMLedDemoTask(int *arg)
 {
     (void)arg;
     IoSetFunc(RED_LED_PIN_NAME, WIFI_IOT_IO_FUNC_GPIO_10_PWM1_OUT);
+// PWM模块初始化
     PwmInit(WIFI_IOT_PWM_PORT_PWM1); // R
     while (NUM) {
-        // use PWM control RED LED brightness
+        // 使用PWM控制红色LED亮度
         for (int i = NUM; i <= RESOLUTION; i *= NUMBER) {
+// 开始输出PWM信号
             PwmStart(WIFI_IOT_PWM_PORT_PWM1, i, PWM_FREQ_DIVITION);
             usleep(USLEEP);
+// 停止输出PWM信号
             PwmStop(WIFI_IOT_PWM_PORT_PWM1);
         }
     }
@@ -53,7 +56,7 @@ static void PWMLedDemo(void)
 {
     osThreadAttr_t attr;
     GpioInit();
-    // set Red/Green/Blue LED pin to GPIO function
+    // 将红色/绿色/蓝色LED引脚设置为GPIO功能
     IoSetFunc(RED_LED_PIN_NAME, RED_LED_PIN_FUNCTION);
 
     attr.name = "PWMLedDemoTask";
