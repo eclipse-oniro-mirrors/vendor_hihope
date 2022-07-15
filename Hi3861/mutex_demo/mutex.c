@@ -68,7 +68,6 @@ osThreadId_t newThread(char *name, osThreadFunc_t func, int *arg)
 
 /*
  * 创建三个线程访问全局变量g_test_value ，同时创建一个互斥锁共所有线程使用
- * 
  */
 
 void rtosv2_mutex_main(int *arg)
