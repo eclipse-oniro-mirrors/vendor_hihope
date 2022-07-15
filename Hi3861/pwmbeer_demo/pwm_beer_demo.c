@@ -31,6 +31,7 @@
 
 static int g_beepState = 0;
 
+// PWM
 static void *PWMBeerTask(const char *arg)
 {
     (void)arg;
