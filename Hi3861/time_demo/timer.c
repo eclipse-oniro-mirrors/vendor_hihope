@@ -81,17 +81,17 @@ void timer_periodic(void)
 
 static void TimerTestTask(void)
 {
-    osThreadAttr_t attr;//创建新线程
+    osThreadAttr_t attr;// 创建新线程
 
-    attr.name = "timer_periodic";//设置线程名
+    attr.name = "timer_periodic";// 设置线程名
     attr.attr_bits = 0U;
-    attr.cb_mem = NULL;//文档限定为NULL
+    attr.cb_mem = NULL;// 文档限定为NULL
     attr.cb_size = 0U;
-    attr.stack_mem = NULL;//文档限定为NULL
-    attr.stack_size = ATTR.STACK_SIZE;//设置堆栈大小
-    attr.priority = osPriorityNormal;//设置线程优先级
+    attr.stack_mem = NULL;// 文档限定为NULL
+    attr.stack_size = ATTR.STACK_SIZE;// 设置堆栈大小
+    attr.priority = osPriorityNormal;// 设置线程优先级
 
-    if (osThreadNew((osThreadFunc_t)timer_periodic, NULL, &attr) == NULL) {//创建失败提示
+    if (osThreadNew((osThreadFunc_t)timer_periodic, NULL, &attr) == NULL) {// 创建失败提示
         printf("[TimerTestTask] Failed to create timer_periodic!\n");
     }
 }
