@@ -29,6 +29,10 @@
 
 static int g_test_value = 0;
 
+/*
+*全局变量g_test_value若同时被多个线程访问，会将其加1，然后判断其奇偶性，
+*并输出日志，如果没有互斥锁保护，线程会被中断导致错误，所以需要创建互斥锁来保护多线程共享区域
+*/
 void number_thread(int *arg)
 {
     osMutexId_t *mid = (osMutexId_t *)arg;
@@ -61,6 +65,9 @@ osThreadId_t newThread(char *name, osThreadFunc_t func, int *arg)
     return tid;
 }
 
+/*
+*创建三个线程访问全局变量g_test_value ，同时创建一个互斥锁共所有线程使用
+*/
 void rtosv2_mutex_main(int *arg)
 {
     (int)arg;
