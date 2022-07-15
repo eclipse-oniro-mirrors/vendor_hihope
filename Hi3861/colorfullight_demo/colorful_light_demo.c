@@ -115,7 +115,7 @@ static void ColorfulLightDemo(void)
     GpioSetDir(RED_LED_PIN_NAME, WIFI_IOT_GPIO_DIR_OUT);
     GpioSetDir(GREEN_LED_PIN_NAME, WIFI_IOT_GPIO_DIR_OUT);
     GpioSetDir(BLUE_LED_PIN_NAME, WIFI_IOT_GPIO_DIR_OUT);
-
+    // 注释彩色荧光任务
     attr.name = "CorlorfulLightTask";
     attr.attr_bits = 0U;
     attr.cb_mem = NULL;
