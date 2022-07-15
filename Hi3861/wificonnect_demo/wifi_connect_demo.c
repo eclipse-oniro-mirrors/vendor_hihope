@@ -83,6 +83,7 @@ static void WifiConnectTask(int *arg)
     int netId = -1;
 
     osDelay(TEN);
+    // 注册事件监听
     errCode = RegisterWifiEvent(&eventListener);
     printf("RegisterWifiEvent: %d\r\n", errCode);
 
@@ -98,7 +99,7 @@ static void WifiConnectTask(int *arg)
     while (1) {
         errCode = EnableWifi();
         osDelay(TEN);
-
+        // 添加热点配置，成功会通过result传出netld
         errCode = AddDeviceConfig(&apConfig, &netId);
         printf("AddDeviceConfig: %d\r\n", errCode);
 
