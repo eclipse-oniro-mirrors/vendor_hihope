@@ -206,6 +206,14 @@ root {
                 videoStabilizationAvailableModes = [
                     "OHOS_CAMERA_VIDEO_STABILIZATION_OFF"
                 ];
+                flashAvailable = "OHOS_CAMERA_FLASH_FALSE";
+                afAvailable = [
+                    "OHOS_CAMERA_AF_MODE_OFF"
+                ];
+                zoomRatioRange = [
+                    "1.0",
+                    "1.0"
+                ];
             }
         }
     }
