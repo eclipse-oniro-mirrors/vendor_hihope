@@ -77,7 +77,7 @@ void rtosv2_mutex_main(int *arg)
     osThreadId_t tid1 = newThread("Thread_1", number_thread, &mid);
     osThreadId_t tid2 = newThread("Thread_2", number_thread, &mid);
     osThreadId_t tid3 = newThread("Thread_3", number_thread, &mid);
-
+    // 注释Mutex
     osDelay(OS_DELAY_F);
     osThreadId_t tid = osMutexGetOwner(mid);
     printf("[Mutex Test]osMutexGetOwner, thread id: %p, thread name: %s.\r\n", tid, osThreadGetName(tid));
