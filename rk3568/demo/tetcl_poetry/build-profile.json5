@@ -1,0 +1,40 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "material": {
+          "certpath": "C:\\Users\\BXMing\\.ohos\\config\\openharmony\\auto_ohos_default.cer",
+          "storePassword": "0000001BF83345DB00C12355A83757DC6CD47A6405F4EED67E5C0753FC91B97E9469BE873ED65E505E1507",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B7CE5BA9579030A896AFF92A7100D8AAE554B37EDB4FAED40BF1D35BDBC95F0C52C351D683FF138",
+          "profile": "C:\\Users\\BXMing\\.ohos\\config\\openharmony\\auto_ohos_default_com.tetcl.poetry.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\BXMing\\.ohos\\config\\openharmony\\auto_ohos_default.p12"
+        }
+      }
+    ],
+    "compileSdkVersion": 8,
+    "compatibleSdkVersion": 8,
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}
