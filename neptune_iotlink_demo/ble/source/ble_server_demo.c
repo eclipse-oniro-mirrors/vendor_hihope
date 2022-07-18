@@ -32,11 +32,13 @@ enum BLE_GATT_ATTR_MUN {
 
 static int test_indicate(int *arg);
 
+/* 写数据 */
 int char_write(uint8_t *data, int length)
 {
     tls_bt_dump_hexstring("char_write:", data, length);
 }
 
+/* 读数据 */
 int char_read(uint8_t *data, int *length)
 {
     const int data_len = 2;
@@ -60,6 +62,7 @@ int char2_read(uint8_t *data, int *length)
     *length = data_len;
 }
 
+/* 移除蓝牙服务 */
 void test_remove_service(int *arg)
 {
     printf("Free server if=0\r\n");
@@ -68,6 +71,7 @@ void test_remove_service(int *arg)
     ble_server_start_service();
 }
 
+/* 添加蓝牙服务 */
 void test_add_service3(void)
 {
     int ret, server_if;
@@ -244,21 +248,25 @@ void test_add_service2(void)
     printf("adding service2, ret=%d, server_if=%d\r\n", ret, server_if);
 }
 
+/* 注册服务的回调 */
 void test_registerServerCallback(int status, int serverId, BtUuid *appUuid)
 {
     printf("%s serverId=%d\r\n", __FUNCTION__, serverId);
 }
 
+/* 连接服务的回调 */
 void test_connectServerCallback(int connId, int serverId, BdAddr *bdAddr)
 {
     printf("%s serverId=%d\r\n", __FUNCTION__, serverId);
 }
 
+/* 断开服务的回调 */
 void test_disconnectServerCallback(int connId, int serverId, BdAddr *bdAddr)
 {
     printf("%s serverId=%d\r\n", __FUNCTION__, serverId);
 }
 
+/* 添加服务的回调 */
 void test_serviceAddCallback(int status, int serverId, BtUuid *uuid, int srvcHandle)
 {
     printf("%s serverId=%d\r\n", __FUNCTION__, serverId);
@@ -281,31 +289,37 @@ void test_descriptorAddCallback(int status, int serverId, BtUuid *uuid,
     printf("%s serverId=%d\r\n", __FUNCTION__, serverId);
 }
 
+/* 启动服务的回调 */
 void test_serviceStartCallback(int status, int serverId, int srvcHandle)
 {
     printf("%s serverId=%d\r\n", __FUNCTION__, serverId);
 }
 
+/* 停止服务的回调 */
 void test_serviceStopCallback(int status, int serverId, int srvcHandle)
 {
     printf("%s serverId=%d\r\n", __FUNCTION__, serverId);
 }
 
+/* 删除服务的回调 */
 void test_serviceDeleteCallback(int status, int serverId, int srvcHandle)
 {
     printf("%s serverId=%d\r\n", __FUNCTION__, serverId);
 }
 
+/* 读数据请求回调 */
 void test_requestReadCallback(BtReqReadCbPara readCbPara)
 {
     printf("%s serverId=%d\r\n", __FUNCTION__, 0);
 }
 
+/* 写数据请求的回调 */
 void test_requestWriteCallback(BtReqWriteCbPara writeCbPara)
 {
     printf("%s serverId=%d\r\n", __FUNCTION__, 0);
 }
 
+/* 确认回复的回调 */
 void test_responseConfirmationCallback(int status, int handle)
 {
     printf("%s serverId=%d\r\n", __FUNCTION__, 0);
@@ -316,6 +330,7 @@ void test_indicationSentCallback(int connId, int status)
     printf("%s connId=%d\r\n", __FUNCTION__, connId);
 }
 
+/* 修改最大传输单元的数值 */
 void test_mtuChangeCallback(int connId, int mtu)
 {
     printf("%s connId=%d\r\n", __FUNCTION__, connId);
@@ -339,24 +354,28 @@ static BtGattServerCallbacks scb = {
     test_mtuChangeCallback,
 };
 
+/* 使能广播的回调 */
 void test_gap_adv_enable_callback(int advId, int status)
 {
     (void)advId;
     printf("%s status=%d\r\n", __FUNCTION__, status);
 }
 
+/* 禁用广播的回调 */
 void test_gap_adv_disable_callback(int advId, int status)
 {
     (void)advId;
     printf("%s status=%d\r\n", __FUNCTION__, status);
 }
 
+/* 设置广播数据的回调 */
 void test_gap_adv_data_set_callback(int advId, int status)
 {
     (void)advId;
     printf("%s status=%d\r\n", __FUNCTION__, status);
 }
 
+/* 广播更新回调 */
 void test_gap_adv_update_callback(int advId, int status)
 {
     (void)advId;
@@ -370,6 +389,7 @@ void test_gap_sec_response_callback(const BdAddr *bdAddr)
     printf("\r\n");
 }
 
+/* 扫描结果的回调 */
 void test_gap_scan_result_callback(BtScanResultData *scanResultdata)
 {
     int i;
@@ -382,6 +402,7 @@ void test_gap_scan_result_callback(BtScanResultData *scanResultdata)
     printf("\r\n");
 }
 
+/* 扫描参数设置的回调测试 */
 void test_gap_scan_param_set_callback(int clientId, int status)
 {
     (void)clientId;

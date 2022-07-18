@@ -327,7 +327,7 @@
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 200;
-                    preload = 0;
+                    preload = 2;
                     permission = 0660;
                     moduleName = "HDF_INFRARED";
                     serviceName = "hdf_input_event2";
@@ -488,7 +488,7 @@
                     deviceMatchAttr = "hdf_dai_driver";
                 }
             }
-            device_codec :: device {
+            device_codec_0 :: device {
                 device0 :: deviceNode {
                     policy = 1;
                     priority = 50;
@@ -496,10 +496,10 @@
                     permission = 0666;
                     moduleName = "CODEC_RK809";
                     serviceName = "codec_service_0";
-                    deviceMatchAttr = "hdf_codec_driver";
+                    deviceMatchAttr = "hdf_codec_driver_0";
                 }
             }
-            device_codec_ex :: device {
+            device_codec_1 :: device {
                 device0 :: deviceNode {
                     policy = 1;
                     priority = 50;
@@ -507,7 +507,7 @@
                     permission = 0666;
                     moduleName = "CODEC_RK817";
                     serviceName = "codec_service_1";
-                    deviceMatchAttr = "hdf_codec_driver_ex";
+                    deviceMatchAttr = "hdf_codec_driver_1";
                 }
             }
             device_dsp :: device {

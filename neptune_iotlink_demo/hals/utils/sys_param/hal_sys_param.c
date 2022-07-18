@@ -42,6 +42,8 @@ static const char EMPTY_STR[] = {""};
 #define STR_END_FLAG '\0'
 
 static char serialNumber[SERIAL_NUM_LEN] = {0};
+
+/* 十六进制数转换为字符类型数据 */
 static char Hex2Char(u8 hex)
 {
     if (hex < HEX_A) {
@@ -51,16 +53,19 @@ static char Hex2Char(u8 hex)
     }
 }
 
+/* 获取设备类型 */
 const char* HalGetDeviceType(void)
 {
     return OHOS_DEVICE_TYPE;
 }
 
+/* 获取厂商信息 */
 const char* HalGetManufacture(void)
 {
     return OHOS_MANUFACTURE;
 }
 
+/* 获取商标名称 */
 const char* HalGetBrand(void)
 {
     return OHOS_BRAND;
@@ -71,11 +76,13 @@ const char* HalGetMarketName(void)
     return OHOS_MARKET_NAME;
 }
 
+/* 获取产品系列名称 */
 const char* HalGetProductSeries(void)
 {
     return OHOS_PRODUCT_SERIES;
 }
 
+/* 获取产品型号 */
 const char* HalGetProductModel(void)
 {
     return OHOS_PRODUCT_MODEL;

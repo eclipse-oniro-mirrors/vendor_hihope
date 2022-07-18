@@ -116,8 +116,7 @@
             hostName = "power_host";
             priority = 50;
             uid = "power_host";
-            gid = ["power_host"];
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
+            gid = ["power_host", "system"];
             power_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -197,6 +196,7 @@
             hostName = "camera_host";
             priority = 50;
             caps = ["DAC_OVERRIDE"];
+            gid = ["camera_host", "uhdf_driver", "vendor_mpp_driver"];
             camera_device :: device {
                  device0 :: deviceNode {
                      policy = 2;
@@ -239,7 +239,6 @@
         display_gralloc :: host {
             hostName = "disp_gralloc_host";
             priority = 40;
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             input_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -249,11 +248,11 @@
                 }
             }
         }
-        sensor_dal :: host { 
+        sensor :: host { 
             hostName = "sensor_host"; 
             priority = 50; 
             gid = ["sensor_host", "uhdf_driver"];
-            sensor_dal_device :: device { 
+            sensor_device :: device { 
                 device0 :: deviceNode { 
                     policy = 2; 
                     priority = 100; 
@@ -262,10 +261,10 @@
                 } 
             } 
         }
-        vibrator_dal :: host {
+        vibrator :: host {
             hostName = "vibrator_host";
             priority = 50;
-            vibrator_dal_device :: device {
+            vibrator_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 100;
@@ -274,10 +273,10 @@
                 }
             }
         }
-        light_dal :: host {
+        light :: host {
             hostName = "light_host";
             priority = 50;
-            light_dal_device :: device {
+            light_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 100;
@@ -290,7 +289,7 @@
         codec :: host {
             hostName = "codec_host";
             priority = 50;
-            gid = ["codec_host", "uhdf_driver", "codec_service"];
+            gid = ["codec_host", "uhdf_driver", "vendor_mpp_driver"];
             codec_omx_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -396,7 +395,6 @@
             priority = 50; 
             uid = "location_host";
             gid = ["location_host"];
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             location_gnss_device :: device { 
                 device0 :: deviceNode { 
                     policy = 2; 
