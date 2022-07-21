@@ -196,6 +196,7 @@
             hostName = "camera_host";
             priority = 50;
             caps = ["DAC_OVERRIDE"];
+            gid = ["camera_host", "uhdf_driver", "vendor_mpp_driver"];
             camera_device :: device {
                  device0 :: deviceNode {
                      policy = 2;
@@ -288,7 +289,7 @@
         codec :: host {
             hostName = "codec_host";
             priority = 50;
-            gid = ["codec_host", "uhdf_driver", "codec_service"];
+            gid = ["codec_host", "uhdf_driver", "vendor_mpp_driver"];
             codec_omx_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
