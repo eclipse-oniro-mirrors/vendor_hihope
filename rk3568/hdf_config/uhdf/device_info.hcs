@@ -116,7 +116,7 @@
             hostName = "power_host";
             priority = 50;
             uid = "power_host";
-            gid = ["power_host", "system"];
+            gid = ["power_host", "system", "log"];
             power_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
