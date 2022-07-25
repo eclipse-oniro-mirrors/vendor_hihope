@@ -36,6 +36,14 @@ root {
                     moduleName = "hdf_test_helper";
                     serviceName = "hdf_test_helper";
                 }
+                device_uevent_ut :: deviceNode {
+                    policy = 2;
+                    priority = 10;
+                    preload = 0;
+                    permission = 0644;
+                    moduleName = "uevent_ut_driver";
+                    serviceName = "hdf_uevent_ut";
+                }
             }
             device_platform_test :: device {
                 gpio_tester :: deviceNode {
