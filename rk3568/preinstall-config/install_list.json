@@ -1,143 +1,143 @@
 {
     "install_list" : [
         {
-            "app_dir" : "system/app/com.ohos.systemui",
+            "app_dir" : "/system/app/com.ohos.systemui",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.launcher",
+            "app_dir" : "/system/app/com.ohos.launcher",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.settings",
+            "app_dir" : "/system/app/com.ohos.settings",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.note",
+            "app_dir" : "/system/app/com.ohos.note",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.settingsdata",
+            "app_dir" : "/system/app/com.ohos.settingsdata",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.screenshot",
+            "app_dir" : "/system/app/com.ohos.screenshot",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/ohos.samples.clock",
+            "app_dir" : "/system/app/ohos.samples.clock",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/ohos.samples.airquality",
+            "app_dir" : "/system/app/ohos.samples.airquality",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.example.distributedcalc",
+            "app_dir" : "/system/app/com.example.distributedcalc",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/ohos.samples.flashlight",
+            "app_dir" : "/system/app/ohos.samples.flashlight",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/ohos.samples.ecg",
+            "app_dir" : "/system/app/ohos.samples.ecg",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.photos",
+            "app_dir" : "/system/app/com.ohos.photos",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.distributedmusicplayer",
+            "app_dir" : "/system/app/com.ohos.distributedmusicplayer",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.camera",
+            "app_dir" : "/system/app/com.ohos.camera",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.devicemanagerui",
+            "app_dir" : "/system/app/com.ohos.devicemanagerui",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.example.kikakeyboard",
+            "app_dir" : "/system/app/com.example.kikakeyboard",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.medialibrary.medialibrarydata",
+            "app_dir" : "/system/app/com.ohos.medialibrary.MediaLibraryData",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.callui",
+            "app_dir" : "/system/app/com.ohos.callui",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.mms",
+            "app_dir" : "/system/app/com.ohos.mms",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.contacts",
+            "app_dir" : "/system/app/com.ohos.contacts",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.permissionmanager",
+            "app_dir" : "/system/app/com.ohos.permissionmanager",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.settings.faceauth",
+            "app_dir" : "/system/app/com.ohos.settings.faceauth",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.adminprovisioning",
+            "app_dir" : "/system/app/com.ohos.adminprovisioning",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.filepicker",
+            "app_dir" : "/system/app/com.ohos.filepicker",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/ohos.global.systemres",
+            "app_dir" : "/system/app/ohos.global.systemres",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.contactsdataability",
+            "app_dir" : "/system/app/com.ohos.contactsdataability",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.nweb",
+            "app_dir" : "/system/app/com.ohos.nweb",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/ohos.telephony.resources",
+            "app_dir" : "/system/app/ohos.telephony.resources",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.download",
+            "app_dir" : "/system/app/com.ohos.download",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.telephonydataability",
+            "app_dir" : "/system/app/com.ohos.telephonydataability",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.UserFile.ExternalFileManager",
+            "app_dir" : "/system/app/com.ohos.UserFile.ExternalFileManager",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.gameperceptio",
+            "app_dir" : "/system/app/com.ohos.gameperceptio",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/com.ohos.screenlock",
+            "app_dir" : "/system/app/com.ohos.screenlock",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/ohos.backgroundtaskmgr.resources",
+            "app_dir" : "/system/app/ohos.backgroundtaskmgr.resources",
             "removable" : false
         },
         {
-            "app_dir" : "system/app/ohos.sample.shopping",
+            "app_dir" : "/system/app/ohos.sample.shopping",
             "removable" : false
         }
     ]
