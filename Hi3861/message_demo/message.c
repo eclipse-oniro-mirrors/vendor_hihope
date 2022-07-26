@@ -33,7 +33,7 @@ typedef struct {
     int count;
 } message_entry;
 osMessageQueueId_t qid;
-
+// 151144
 void sender_thread(int *arg)
 {
     static int count = 0;
@@ -54,7 +54,7 @@ void receiver_thread(int *arg)
     (int)arg;
     message_entry rentry;
     while (NUM) {
-        osMessageQueueGet(qid, (int *)&rentry, NULL, osWaitForever);
+        osMessageQueueGet(qid, (int *)&rentry, NULL, osWaitForever);  // 从指定的消息队列中取得1条消息，如果消息队列为空，那么返回超时
         printf("[Message Test] %s get %d from %s by message queue.\r\n",
             osThreadGetName(osThreadGetId()), rentry.count, osThreadGetName(rentry.tid));
         osDelay(OS_DELAY_F);
@@ -80,7 +80,7 @@ void rtosv2_msgq_main(int *arg)
     (int)arg;
 
     qid = osMessageQueueNew(QUEUE_SIZE, sizeof(message_entry), NULL);
-
+    // 注释系统循环
     osThreadId_t ctid1 = newThread("receiver1", receiver_thread, NULL);
     osThreadId_t ctid2 = newThread("receiver2", receiver_thread, NULL);
     osThreadId_t ptid1 = newThread("sender1", sender_thread, NULL);

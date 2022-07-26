@@ -29,10 +29,16 @@
 
 static int g_test_value = 0;
 
+/*
+ * 全局变量g_test_value若同时被多个线程访问，会将其加1，然后判断其奇偶性，
+ * 并输出日志，如果没有互斥锁保护，线程会被中断导致错误，所以需要创建互斥锁来保护多线程共享区域
+ */
+
 void number_thread(int *arg)
 {
     osMutexId_t *mid = (osMutexId_t *)arg;
     while (1) {
+        // 加锁（获取互斥锁/占用互斥锁）
         if (osMutexAcquire(*mid, NUM) == osOK) {
             g_test_value++;
             if (g_test_value % NUMS == 0) {
@@ -60,22 +66,27 @@ osThreadId_t newThread(char *name, osThreadFunc_t func, int *arg)
     return tid;
 }
 
+/*
+ * 创建三个线程访问全局变量g_test_value ，同时创建一个互斥锁共所有线程使用
+ */
+
 void rtosv2_mutex_main(int *arg)
 {
     (int)arg;
     osMutexAttr_t attr = {0};
 
-    osMutexId_t mid = osMutexNew(&attr);
+    osMutexId_t mid = osMutexNew(&attr); // 创建互斥锁
     if (mid == NULL) {
         printf("[Mutex Test]osMutexNew, create mutex failed.\r\n");
     } else {
         printf("[Mutex Test]osMutexNew, create mutex success.\r\n");
     }
 
+    // 创建三个线程
     osThreadId_t tid1 = newThread("Thread_1", number_thread, &mid);
     osThreadId_t tid2 = newThread("Thread_2", number_thread, &mid);
     osThreadId_t tid3 = newThread("Thread_3", number_thread, &mid);
-
+    // 注释Mutex
     osDelay(OS_DELAY_F);
     osThreadId_t tid = osMutexGetOwner(mid);
     printf("[Mutex Test]osMutexGetOwner, thread id: %p, thread name: %s.\r\n", tid, osThreadGetName(tid));
@@ -84,7 +95,7 @@ void rtosv2_mutex_main(int *arg)
     osThreadTerminate(tid1);
     osThreadTerminate(tid2);
     osThreadTerminate(tid3);
-    osMutexDelete(mid);
+    osMutexDelete(mid); // 删除互斥锁
 }
 
 static void MutexTestTask(void)

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (C) 2022 HiHope Open Source Organization .
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,6 +37,7 @@
 #define ONE_HUNDRED 100
 #define TWO_HUNDRED 200
 
+// 注释：MAC
 static void PrintLinkedInfo(WifiLinkedInfo* info)
 {
     if (!info) return;
@@ -82,6 +83,7 @@ static void WifiConnectTask(int *arg)
     int netId = -1;
 
     osDelay(TEN);
+    // 注册事件监听
     errCode = RegisterWifiEvent(&eventListener);
     printf("RegisterWifiEvent: %d\r\n", errCode);
 
@@ -97,7 +99,7 @@ static void WifiConnectTask(int *arg)
     while (1) {
         errCode = EnableWifi();
         osDelay(TEN);
-
+        // 添加热点配置，成功会通过result传出netld
         errCode = AddDeviceConfig(&apConfig, &netId);
         printf("AddDeviceConfig: %d\r\n", errCode);
 

@@ -57,6 +57,7 @@ static const uint8_t g_scoreDurations[] = {
     3, 1, 3, 1, 4, 4,  3, 1, 3, 1, 4, 4,  4, 4, 8,  4, 4, 8,
 };
 
+// 注释蜂鸣器音乐任务
 static void *BeeperMusicTask(const char *arg)
 {
     (void)arg;

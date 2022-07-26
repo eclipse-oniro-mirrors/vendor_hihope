@@ -54,4 +54,18 @@
     <AudioInterruptEnable>false</AudioInterruptEnable>
     <UpdateRouteSupport>false</UpdateRouteSupport>
     <AudioLatency>50</AudioLatency>
+        <VolumeGroupConfig>
+        <groups>
+            <group name ="volume_group">
+               <module name ="Speaker"/>
+            </group>
+        </groups>
+    </VolumeGroupConfig>
+    <InterruptGroupConfig>
+        <groups>
+            <group name ="interrupt_group">
+                <module name ="Speaker"/>
+            </group>
+        </groups>
+    </InterruptGroupConfig>
 </audioPolicyConfiguration>

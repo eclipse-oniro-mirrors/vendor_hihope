@@ -31,13 +31,16 @@
 static int* GpioTask(const char* arg)
 {
     (void)arg;
-
+    // GPIO模块初始化
     GpioInit();
+    // 设置引脚功能，id参数用于指定引脚，val用于指定引脚功能
     IoSetFunc(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_IO_FUNC_GPIO_9_GPIO);
+    // 设置GPIO引脚方向，id参数用于指定引脚，dir参数用于指定输入或输出
     GpioSetDir(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_GPIO_DIR_OUT);
 
     while (NUM) {
             printf("LED_SPARK! \n");
+            // 设置GPIO引脚的输出状态，id参数用于指定引脚，val参数用于指定高电平或低电平
             GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_GPIO_VALUE0);
             osDelay(OS_DELAY);
             GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_GPIO_VALUE1);

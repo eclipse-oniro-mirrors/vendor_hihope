@@ -6,6 +6,7 @@
   "type": "standard",
   "version": "3.0",
   "board": "rk3568",
+  "api_version": 8,
   "enable_ramdisk": true,
   "build_selinux": true,
   "inherit": [ "productdefine/common/inherit/rich.json", "productdefine/common/inherit/chipset_common.json" ],
@@ -34,6 +35,29 @@
         {
           "component": "rockchip_products",
           "features": []
+        }
+      ]
+    },
+    {
+      "subsystem": "arkui",
+      "components": [
+        {
+          "component": "ace_engine",
+          "features": [
+            "ace_engine_feature_enable_accessibility = true",
+            "ace_engine_feature_enable_web = true"
+          ]
+        }
+      ]
+    },
+    {
+      "subsystem": "wpa_supplicant-2.9",
+      "components": [
+        {
+          "component": "wpa_supplicant-2.9",
+          "features": [
+            "wpa_supplicant_driver_nl80211 = true"
+          ]
         }
       ]
     }

@@ -1,0 +1,98 @@
+# Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# Author: liangkz @ https://ost.51cto.com/column/46
+# Date  : 2022.04.01
+#
+
+HDF_FRAMEWORKS = "//drivers/hdf_core/framework"
+HDF_ADAPTER = "//drivers/hdf_core/adapter"
+
+if (defined(ohos_lite)) {
+  # compile 'led_rgb' for ohos_lite(liteos_a + linux)
+  print("led_ctrl:: compile 'led_rgb' for ohos_lite(liteos_a + linux)")
+  executable("led_rgb") {
+    defines = [
+      "_GNU_SOURCE",
+      "OHOS_LITE",
+      "__USER__",
+    ]
+
+    sources = [ "led_rgb.c" ]
+    include_dirs = [
+      "$HDF_FRAMEWORKS/ability/sbuf/include",
+      "$HDF_FRAMEWORKS/core/shared/include",
+      "$HDF_FRAMEWORKS/core/host/include",
+      "$HDF_FRAMEWORKS/core/master/include",
+      "$HDF_FRAMEWORKS/include/platform",
+      "$HDF_FRAMEWORKS/include/core",
+      "$HDF_FRAMEWORKS/include/utils",
+      "$HDF_FRAMEWORKS/utils/include",
+      "$HDF_FRAMEWORKS/include/osal",
+      "//third_party/bounds_checking_function/include",
+      "$HDF_ADAPTER/uhdf/posix/include",
+      "//base/hiviewdfx/hilog_lite/interfaces/native/innerkits",
+    ]
+    public_deps = [ "//third_party/bounds_checking_function:libsec_shared" ]
+    deps = [
+      "$HDF_ADAPTER/uhdf/manager:hdf_core",
+      "$HDF_ADAPTER/uhdf/posix:hdf_posix_osal",
+      "//base/hiviewdfx/hilog_lite/frameworks/featured:hilog_shared",
+    ]
+
+    cflags = [
+      "-Wall",
+      "-Wextra",
+      "-Wno-format",
+      "-Wno-format-extra-args",
+    ]
+  }
+} else {
+  # compile 'led_rgb' for ohos_standard(linux)
+  import("//build/ohos.gni")
+  import("$HDF_ADAPTER/uhdf2/uhdf.gni")
+  print("led_ctrl:: compile 'led_rgb' for ohos_standard(linux)")
+  ohos_executable("led_rgb") {
+    defines = [ "__USER__" ]
+
+    sources = [ "led_rgb.c" ]
+
+    include_dirs = [
+      "$HDF_FRAMEWORKS/include",
+      "$HDF_FRAMEWORKS/include/core",
+      "$HDF_FRAMEWORKS/include/osal",
+      "$HDF_FRAMEWORKS/include/platform",
+      "$HDF_FRAMEWORKS/include/utils",
+      "//third_party/bounds_checking_function/include",
+      "$HDF_ADAPTER/uhdf2/ipc/include",
+      "$HDF_ADAPTER/uhdf2/osal/include",
+      "//base/hiviewdfx/hilog/interfaces/native/innerkits/include",
+    ]
+
+    deps = [
+      "$HDF_ADAPTER/uhdf2/utils:libhdf_utils",
+      "//base/hiviewdfx/hilog/interfaces/native/innerkits:libhilog",
+    ]
+
+    cflags = [
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-format",
+      "-Wno-format-extra-args",
+    ]
+
+    subsystem_name = "applications"
+    part_name = "prebuilt_hap"
+  }
+}

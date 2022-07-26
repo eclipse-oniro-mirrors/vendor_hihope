@@ -68,8 +68,8 @@
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 100;
-                    moduleName = "libusbd.z.so";
-                    serviceName = "usbd";
+                    moduleName = "libusb_driver.z.so";
+                    serviceName = "usb_interface_service";
                 }
             }
         }
@@ -250,11 +250,11 @@
                 }
             }
         }
-        sensor_dal :: host { 
+        sensor :: host { 
             hostName = "sensor_host"; 
             priority = 50; 
             gid = ["sensor_host", "uhdf_driver"];
-            sensor_dal_device :: device { 
+            sensor_device :: device { 
                 device0 :: deviceNode { 
                     policy = 2; 
                     priority = 100; 
@@ -263,11 +263,11 @@
                 } 
             } 
         }
-        motion_dal :: host { 
-            hostName = "motion_dal_host"; 
+        motion :: host { 
+            hostName = "motion_host"; 
             priority = 50; 
             caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
-            motion_dal_device :: device { 
+            motion_device :: device { 
                 device0 :: deviceNode { 
                     policy = 2; 
                     priority = 100; 
@@ -276,10 +276,10 @@
                 } 
             } 
         }
-        vibrator_dal :: host {
+        vibrator :: host {
             hostName = "vibrator_host";
             priority = 50;
-            vibrator_dal_device :: device {
+            vibrator_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 100;
@@ -288,10 +288,10 @@
                 }
             }
         }
-        light_dal :: host {
+        light :: host {
             hostName = "light_host";
             priority = 50;
-            light_dal_device :: device {
+            light_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 100;
