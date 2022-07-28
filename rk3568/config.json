@@ -60,6 +60,15 @@
           ]
         }
       ]
+    },
+    {
+      "subsystem": "hdf",
+      "components": [
+        {
+          "component": "drivers_interface_audio",
+          "features": []
+        }
+      ]
     }
   ]
 }
