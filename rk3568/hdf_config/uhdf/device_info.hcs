@@ -385,34 +385,37 @@
             }
         }
 
-        location :: host { 
-            hostName = "location_host"; 
-            priority = 50; 
+        location :: host {
+            hostName = "location_host";
+            priority = 50;
             uid = "location_host";
             gid = ["location_host"];
-            location_gnss_device :: device { 
-                device0 :: deviceNode { 
-                    policy = 2; 
-                    priority = 100; 
-                    moduleName = "liblocation_gnss_hdi_driver.z.so"; 
-                    serviceName = "gnss_interface_service"; 
-                } 
+            location_gnss_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    preload = 2;
+                    moduleName = "liblocation_gnss_hdi_driver.z.so";
+                    serviceName = "gnss_interface_service";
+                }
             }
-            location_agnss_device :: device { 
-                device0 :: deviceNode { 
-                    policy = 2; 
-                    priority = 100; 
-                    moduleName = "liblocation_agnss_hdi_driver.z.so"; 
-                    serviceName = "agnss_interface_service"; 
-                } 
+            location_agnss_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    preload = 2;
+                    moduleName = "liblocation_agnss_hdi_driver.z.so";
+                    serviceName = "agnss_interface_service";
+                }
             }
-            location_geofence_device :: device { 
-                device0 :: deviceNode { 
-                    policy = 2; 
-                    priority = 100; 
-                    moduleName = "liblocation_geofence_hdi_driver.z.so"; 
-                    serviceName = "geofence_interface_service"; 
-                } 
+            location_geofence_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    preload = 2;
+                    moduleName = "liblocation_geofence_hdi_driver.z.so";
+                    serviceName = "geofence_interface_service";
+                }
             }
         }
     }
