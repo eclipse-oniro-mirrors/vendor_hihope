@@ -9,6 +9,7 @@
   "api_version": 8,
   "enable_ramdisk": true,
   "build_selinux": true,
+  "build_seccomp": true,
   "inherit": [ "productdefine/common/inherit/rich.json", "productdefine/common/inherit/chipset_common.json" ],
   "subsystems": [
     {
