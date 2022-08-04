@@ -68,6 +68,12 @@
         {
           "component": "drivers_interface_audio",
           "features": []
+        },
+        {
+          "component": "drivers_peripheral_audio",
+          "features": [
+            "drivers_peripheral_audio_alsa_lib = false"
+          ]
         }
       ]
     }
