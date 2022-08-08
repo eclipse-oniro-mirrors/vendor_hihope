@@ -198,7 +198,6 @@
         hdi_server :: host {
             hostName = "camera_host";
             priority = 50;
-            caps = ["DAC_OVERRIDE"];
             gid = ["camera_host", "uhdf_driver", "vendor_mpp_driver"];
             camera_device :: device {
                  device0 :: deviceNode {
