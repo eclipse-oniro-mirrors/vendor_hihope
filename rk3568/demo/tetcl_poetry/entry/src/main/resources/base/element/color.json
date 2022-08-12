@@ -1,0 +1,20 @@
+{
+  "color": [
+    {
+      "name": "white",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "main_font_color",
+      "value": "#333333"
+    },
+    {
+      "name": "_font_color",
+      "value": "#666666"
+    },
+    {
+      "name": "tips_font_color",
+      "value": "#999999"
+    }
+  ]
+}
