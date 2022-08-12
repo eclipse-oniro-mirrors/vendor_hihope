@@ -5,21 +5,19 @@
 
 ## 1. 概述
 
-- 硬件平台：**润和AI_Camera_Hi3516DV300开发板 、 润和DAYU200开发板**
+- 当前已适配：**润和AI_Camera_Hi3516DV300开发板 、 润和DAYU200开发板**
 
 - 软件分支：**OpenHarmony  Master(最新2022-07-01) or v3.1 Release(2022-03-30)** 
 
-- 部署路径： **Master 分支：//drivers/hdf_core/framework/sample/** 
+- 部署路径： **vendor/hihope/rk3568/demo/led_rgb/** 
 
-  ​                    **Release分支：//drivers/framework/sample/** 
-
-- 注意：本仓库示例程序以适配Master分支最新代码为例进行部署说明，对于LTS 3.0分支、3.1 Release分支或其他分支代码，请开发者自行修改一下代码、代码路径、编译脚本的相关配置即可。
+- 注意：本示例程序以适配Master分支最新代码为例进行部署说明，对于LTS 3.0分支、3.1 Release分支或其他分支代码，请开发者自行修改一下代码、代码路径、编译脚本的相关配置即可。
 
 本示例程序用于展示OpenHarmony设备驱动开发的相关要点，通过控制GPIO接口，点亮:
 
 - Hi3516DV300开发板上的红色指示灯(R)、绿色指示灯(G)、红外补光灯(代码中标记为B)，在小型系统(适配LiteOS_A内核和Linux内核)、标准系统上都适用；
-
 - DAYU200开发板上的RGB三色灯。
+- 适配其他开发板，请自行添加 led_rgb/config/led/led_config_xxx.hcs配置文件，配置对应的LED灯的GPIO管脚编号。
 
 ## 2. 目录结构
 
@@ -49,13 +47,13 @@
 
 ### 3.1. apps/
 
-在开发板的shell上执行：
+烧录新编译的系统镜像到开发板上，在开发板的shell上执行：
 
 ```
 ./bin/led_rgb [args]
 ```
 
-args = args&0x07，按位与取参数的低3位，分别对应G-B-R三色灯；对应位为1，点亮对应颜色的灯，对应位为0，熄灭对应颜色的灯。
+args = args&0x07，按位与取参数的低3位，分别对应B-G-R三色灯；对应位为1，点亮对应颜色的灯，对应位为0，熄灭对应颜色的灯。
 
 不带 args 参数：默认依次执行7~0共计8组参数的灯控操作。
 
@@ -66,7 +64,7 @@ args = args&0x07，按位与取参数的低3位，分别对应G-B-R三色灯；�
 在最新Master分支代码中，已经没有//build/lite/components/applications.json 文件了，可以去修改 //applications/sample/camera/bundle.json文件，在"sub_component"下添加编译目标即可：
 
 ```
-"//drivers/hdf_core/framework/sample/led_rgb/apps/led_rgb:led_rgb",
+"//vendor/hihope/rk3568/demo/led_rgb/apps/led_rgb:led_rgb",
 ```
 
 
@@ -76,11 +74,11 @@ args = args&0x07，按位与取参数的低3位，分别对应G-B-R三色灯；�
 在它的"dirs"和"targets"下，分别添加下面两句语句即可：
 
           "dirs": [
-              "【示例程序部署的具体路径】/led_rgb/apps/led_rgb",
+              "vendor/hihope/rk3568/demo/led_rgb/apps/led_rgb",
               ......
           ],
           "targets": [
-              "【示例程序部署的具体路径】/led_rgb/apps/led_rgb:led_rgb",
+              "//vendor/hihope/rk3568/demo/led_rgb/apps/led_rgb:led_rgb",
               ......
           ],
           "adapted_kernel": [ "liteos_a", "linux" ],
@@ -92,8 +90,10 @@ args = args&0x07，按位与取参数的低3位，分别对应G-B-R三色灯；�
 打开 //applications/standard/hap/ohos.build 文件，在其module_list上增加下面一句语句即可：
 
 ```
-"//drivers/hdf_core/framework/sample/led_rgb/apps/led_rgb:led_rgb",
+"//vendor/hihope/rk3568/demo/led_rgb/apps/led_rgb:led_rgb",
 ```
+
+
 
 ### 3.2. config/
 
@@ -103,29 +103,51 @@ args = args&0x07，按位与取参数的低3位，分别对应G-B-R三色灯；�
 
 在//vendor/hisilicon/hispark_taurus/hdf_config/hdf.hcs文件的 include 部分增加两行代码即可：
 
-    #include "../../../../drivers/hdf_core/framework/sample/led_rgb/config/led/led_config_hi3516.hcs"
-    #include "../../../../drivers/hdf_core/framework/sample/led_rgb/config/device_info/device_info.hcs"
+    #include "../../../../vendor/hihope/rk3568/demo/led_rgb/config/led/led_config_hi3516.hcs"
+    #include "../../../../vendor/hihope/rk3568/demo/led_rgb/config/device_info/device_info.hcs"
 
 #### 	3.2.2 小型系统（Hi3516开发板+Linux内核）
 
 在//vendor/hisilicon/hispark_taurus_linux/hdf_config/hdf.hcs文件的 include 部分增加两行代码即可：
 
-    #include "../../../../drivers/hdf_core/framework/sample/led_rgb/config/led/led_config_hi3516.hcs"
-    #include "../../../../drivers/hdf_core/framework/sample/led_rgb/config/device_info/device_info.hcs"
+    #include "../../../../vendor/hihope/rk3568/demo/led_rgb/config/led/led_config_hi3516.hcs"
+    #include "../../../../vendor/hihope/rk3568/demo/led_rgb/config/device_info/device_info.hcs"
+
+注意：修改了hdf.hcs文件，建议删除//vendor/hisilicon/hispark_taurus_linux/hdf_config/hdf_test/hdf_hcs.hcb文件后再重新编译，确保上述led的配置信息能编译进内核。
 
 #### 	3.2.3 标准系统（Hi3516开发板+Linux内核）
 
 在//vendor/hisilicon/Hi3516DV300/hdf_config/khdf/hdf.hcs文件的 include 部分增加两行代码即可：
 
-    #include "../../../../../drivers/hdf_core/framework/sample/led_rgb/config/led/led_config_hi3516.hcs"
-    #include "../../../../../drivers/hdf_core/framework/sample/led_rgb/config/device_info/device_info.hcs"
+    #include "../../../../../vendor/hihope/rk3568/demo/led_rgb/config/led/led_config_hi3516.hcs"
+    #include "../../../../../vendor/hihope/rk3568/demo/led_rgb/config/device_info/device_info.hcs"
+
+注意：修改了hdf.hcs文件，建议删除下列文件：
+
+- //vendor/hisilicon/Hi3516DV300/hdf_config/khdf/hdf_test/hdf_hcs.hcb
+- //out/KERNEL_OBJ/kernel/vendor/hisilicon/hispark_taurus_standard/hdf_config/khdf/hdf_test/hdf_hcs_hex.o
+- //out/KERNEL_OBJ/kernel/OBJ/linux-5.10/arch/arm/boot/Image、uImage、zImage、zImage-dtb
+- //out/hispark_taurus/packages/phone/images/uImage、zImage-dtb
+
+再重新编译，确保上述led的配置信息能编译进内核。
 
 #### 	3.2.4 标准系统（RK3568开发板+Linux内核）
 
 ​        在//vendor/hihope/rk3568/hdf_config/khdf/hdf.hcs文件的 include 部分增加两行代码即可：
 
-    #include "../../../../../drivers/hdf_core/framework/sample/led_rgb/config/led/led_config_rk3568.hcs"
-    #include "../../../../../drivers/hdf_core/framework/sample/led_rgb/config/device_info/device_info.hcs"
+    #include "../../../../../vendor/hihope/rk3568/demo/led_rgb/config/led/led_config_rk3568.hcs"
+    #include "../../../../../vendor/hihope/rk3568/demo/led_rgb/config/device_info/device_info.hcs"
+
+注意：修改了hdf.hcs文件，建议删除下列文件：
+
+- //vendor/hihope/rk3568/hdf_config/khdf/hdf_test/hdf_hcs.hcb
+- //out/kernel/vendor/hihope/rk3568/hdf_config/khdf/hdf_test/hdf_hcs_hex.o
+- //out//kernel/OBJ/linux-5.10/arch/arm64/boot/Image、Image.lz4
+- //out/rk3568/packages/phone/images/boot_linux.img
+
+再重新编译，确保上述led的配置信息能编译进内核。
+
+
 
 ### 3.3. drv/
 
@@ -147,7 +169,9 @@ args = args&0x07，按位与取参数的低3位，分别对应G-B-R三色灯；�
 
 在//device/soc/hisilicon/common/platform/BUILD.gn文件的deps关系中，添加如下一句语句:
 
-`"//drivers/hdf_core/framework/sample/led_rgb/drv/build_liteos"`
+```
+"//vendor/hihope/rk3568/demo/led_rgb/drv/build_liteos"
+```
 
 #### 	3.3.3 drv/build_linux/
 
@@ -157,6 +181,8 @@ args = args&0x07，按位与取参数的低3位，分别对应G-B-R三色灯；�
 
 在//drivers/hdf_core/adapter/khdf/linux/Makefile文件的末尾，添加如下一句语句即可：
 
-`obj-$(CONFIG_DRIVERS_HDF) += ../../../framework/sample/led_rgb/drv/build_linux/`
+```
+obj-$(CONFIG_DRIVERS_HDF) += ../../../../../vendor/hihope/rk3568/demo/led_rgb/drv/build_linux/
+```
 
 把这个Makefile纳入khdf/linux的编译体系中。
