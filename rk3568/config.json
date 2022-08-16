@@ -72,6 +72,7 @@
         {
           "component": "drivers_peripheral_audio",
           "features": [
+            "drivers_peripheral_audio_full_test_suite = true",
             "drivers_peripheral_audio_alsa_lib = false"
           ]
         }
