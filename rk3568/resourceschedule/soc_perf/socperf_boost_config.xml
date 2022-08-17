@@ -38,7 +38,7 @@
             <lit_cpu_min_freq>1608000</lit_cpu_min_freq>
         </Action>
     </cmd>
-    <cmd id="10007" name="push_page">
+    <cmd id="10007" name="push_page_start">
         <Action>
             <duration>300</duration>
             <lit_cpu_min_freq>1608000</lit_cpu_min_freq>
@@ -60,6 +60,12 @@
         <Action>
             <duration>100</duration>
             <lit_cpu_min_freq>1608000</lit_cpu_min_freq>
+        </Action>
+    </cmd>
+    <cmd id="10011" name="push_page_complete">
+        <Action>
+            <duration>200</duration>
+            <lit_cpu_min_freq>1416000</lit_cpu_min_freq>
         </Action>
     </cmd>
 </Configs>
