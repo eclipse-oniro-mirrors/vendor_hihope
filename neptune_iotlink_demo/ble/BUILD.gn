@@ -39,7 +39,7 @@ kernel_module(module_name) {
   deps = [ "//foundation/communication/wifi_lite:wifi" ]
   visibility += [ "../../.." ]
   include_dirs = [
-    "//utils/native/lite/include",
+    "//commonlibrary/utils_lite/include",
     "//foundation/communication/bluetooth/interfaces/innerkits/native_c/include",
     "//device/soc/winnermicro/hals/communication/bt_lite/ble/source",
     "./source",
