@@ -139,6 +139,10 @@
         {
             "app_dir" : "/system/app/ohos.sample.shopping",
             "removable" : false
+        },
+        {
+            "app_dir" : "/system/app/com.ohos.wallpaper",
+            "removable" : false
         }
     ]
 }
