@@ -142,7 +142,7 @@
         },
         {
             "app_dir" : "/system/app/com.ohos.wallpaper",
-            "removable" : false
+            "removable" : true
         }
     ]
 }
