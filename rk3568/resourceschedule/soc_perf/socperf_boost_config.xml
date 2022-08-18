@@ -68,4 +68,11 @@
             <lit_cpu_min_freq>1416000</lit_cpu_min_freq>
         </Action>
     </cmd>
+    <cmd id="10012" name="web_gesture">
+        <Action>
+            <duration>800</duration>
+            <lit_cpu_min_freq>1992000</lit_cpu_min_freq>
+            <gpu_min_freq>800000000</gpu_min_freq>
+        </Action>
+    </cmd>
 </Configs>
