@@ -31,6 +31,19 @@
       ]
     },
     {
+      "subsystem": "hdf",
+      "components": [
+        {
+          "component": "drivers_interface_ril",
+          "features": []
+        },
+        {
+          "component": "drivers_peripheral_ril",
+          "features":[]
+        }
+      ]
+    },
+    {
       "subsystem": "rockchip_products",
       "components": [
         {
