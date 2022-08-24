@@ -82,17 +82,23 @@
         ]
       },
       {
-        "subsystem": "utils",
-        "components": [
-          {
-            "component": "kv_store",
-            "features": [
-              "enable_ohos_utils_native_lite_kv_store_use_posix_kv_api = true"
-            ]
-          },
-          { "component": "file", "features":[] }
-        ]
-      },
+        "components" : [
+           {
+              "component" : "file",
+              "features" : []
+           }
+        ],
+        "subsystem" : "commonlibrary"
+     },
+     {
+        "components" : [
+           {
+              "component" : "kv_store",
+              "features" : [ "enable_ohos_utils_native_lite_kv_store_use_posix_kv_api = false" ]
+           }
+        ],
+        "subsystem" : "distributeddatamgr"
+     },
       {
         "subsystem": "xts",
         "components": [
