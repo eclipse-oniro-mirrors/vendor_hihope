@@ -102,6 +102,15 @@
           ]
         }
       ]
+    },    
+    {
+    "subsystem": "ai",
+    "components": [
+        {
+          "component": "mindspore",
+          "features": []
+        }
+      ]
     }
   ]
 }
