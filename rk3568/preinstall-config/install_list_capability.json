@@ -8,7 +8,7 @@
             "runningResourcesApply": false,
             "associatedWakeUp": false,
             "app_signature" : [],
-            "allowCommontEvent": []
+            "allowCommonEvent": []
         },
         {
             "bundleName": "com.ohos.systemui",
