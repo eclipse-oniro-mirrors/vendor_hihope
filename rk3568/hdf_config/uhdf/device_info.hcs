@@ -112,6 +112,7 @@
             priority = 50;
             uid = "power_host";
             gid = ["power_host", "system", "log"];
+            caps = ["BLOCK_SUSPEND"];
             power_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
