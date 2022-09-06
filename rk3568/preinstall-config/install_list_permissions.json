@@ -90,6 +90,10 @@
                 "userCancellable" : false
             },
             {
+                "name" : "ohos.permission.WRITE_CALL_LOG",
+                "userCancellable" : false
+            },
+            {
                 "name" : "ohos.permission.MANAGE_VOICEMAIL",
                 "userCancellable" : false
             }
