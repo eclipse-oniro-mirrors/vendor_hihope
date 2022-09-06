@@ -3,7 +3,6 @@
         {
             "bundleName": "com.example.kikakeyboard",
             "singleton": true,
-            "keepAlive": true,
             "bootable": false,
             "runningResourcesApply": false,
             "associatedWakeUp": false,
