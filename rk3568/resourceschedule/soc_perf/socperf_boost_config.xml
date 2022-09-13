@@ -35,7 +35,7 @@
     <cmd id="10006" name="click_normal">
         <Action>
             <duration>250</duration>
-            <lit_cpu_min_freq>1608000</lit_cpu_min_freq>
+            <lit_cpu_min_freq>1992000</lit_cpu_min_freq>
         </Action>
     </cmd>
     <cmd id="10007" name="push_page_start">
