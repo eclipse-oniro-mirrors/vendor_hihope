@@ -22,7 +22,9 @@
     {
       "subsystem": "hdf",
       "components": [
-        { "component": "drivers_interface_input" }
+        { "component": "drivers_interface_input" },
+        { "component": "drivers_interface_usb" },
+        { "component": "drivers_peripheral_usb" }
       ]
     },
     {
