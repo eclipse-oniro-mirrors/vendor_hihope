@@ -301,6 +301,15 @@
                     deviceMatchAttr = "codec_component_capabilities";
                 }
             }
+            codec_omx_idl_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libcodec_driver.z.so";
+                    serviceName = "codec_component_manager_service";
+                    deviceMatchAttr = "codec_component_capabilities";
+                }
+            }
             codec_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
