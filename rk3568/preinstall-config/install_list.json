@@ -145,7 +145,7 @@
             "removable" : true
         },
         {
-            "app_dir" : "/system/app/com.example.inputmethodselect",
+            "app_dir" : "/system/app/cn.openharmony.inputmethodchoosedialog",
             "removable" : false
         }
     ]
