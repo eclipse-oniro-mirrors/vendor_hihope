@@ -436,6 +436,7 @@
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 100;
+                    preload = 2;
                     moduleName = "libpartitionslot_driver.z.so";
                     serviceName = "partition_slot_service";
                 }
