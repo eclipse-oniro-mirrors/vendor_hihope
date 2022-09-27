@@ -15,7 +15,7 @@
       "subsystem": "rockchip_products",
       "components": [
         {
-          "component": "rockchip_products"
+          "component": "rockchip_products", "features":[ "is_support_boot_animation = false" ]
         }
       ]
     },
@@ -43,7 +43,8 @@
       "subsystem": "hiviewdfx",
       "components": [
         { "component": "hiviewdfx_hilog_native"},
-        { "component": "hichecker_native" }
+        { "component": "hichecker_native" },
+        { "component": "hidumper"}
       ]
     },
     {

@@ -5,7 +5,7 @@ root {
                 busType = 0;    // 0:i2c 1:gpio
                 busNum = 3;
                 busAddr = 0x5a;
-                regWidth = 1;    // 1btye
+                regWidth = 1;    // 1 byte
             }
             VibratorAttr {
                 chipIdRegister = 0X00;
