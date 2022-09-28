@@ -22,7 +22,8 @@
             "bundleName": "com.ohos.callui",
             "app_signature" : ["E64B13B84E6D2167F73B46530C6E02E323DA43C9C2DA251D7C64D20E091B936F"],
             "singleton": true,
-            "keepAlive": true
+            "keepAlive": false,
+            "runningResourcesApply": true
         },
         {
             "bundleName": "com.ohos.mms",
