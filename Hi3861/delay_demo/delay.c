@@ -29,7 +29,7 @@ void rtosv2_delay_main(int *arg)
 
     printf("[Delay Test] Current system tick: %d.\r\n", osKernelGetTickCount());
     osStatus_t status = osDelay(100);
-    //函数原型：osStatus osDelay (uint32_t millisec)；参数：延时时间，如果设置为 1000，表示延时 1000ms（1s）；返回值：osStatus。
+    // 函数参数：延时时间，如果设置为1000，表示延时1000ms（1s）；返回值：osStatus。
     printf("[Delay Test] osDelay, status: %d.\r\n", status);
     printf("[Delay Test] Current system tick: %d.\r\n", osKernelGetTickCount());
 
