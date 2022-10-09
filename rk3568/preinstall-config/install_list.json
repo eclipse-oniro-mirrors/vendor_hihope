@@ -158,7 +158,7 @@
         },
         {
             "app_dir": "/system/app/com.ohos.amsdialog",
-            "removable": false
+            "removable": true
         }
     ]
 }
