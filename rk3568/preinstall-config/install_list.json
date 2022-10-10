@@ -129,10 +129,6 @@
             "removable" : false
         },
         {
-            "app_dir" : "/system/app/com.ohos.screenlock",
-            "removable" : false
-        },
-        {
             "app_dir" : "/system/app/ohos.backgroundtaskmgr.resources",
             "removable" : false
         },
