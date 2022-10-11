@@ -155,6 +155,10 @@
         {
             "app_dir": "/system/app/com.ohos.amsdialog",
             "removable": true
+        },
+        {
+            "app_dir": "/system/app/com.ohos.notificationdialog",
+            "removable": true
         }
     ]
 }
