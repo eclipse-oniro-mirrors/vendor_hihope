@@ -34,6 +34,13 @@
             priority = 50;
             device_gpio :: device {
                 device0 :: deviceNode {
+                    policy = 2;
+                    priority = 10;
+                    permission = 0644;
+                    moduleName = "HDF_PLATFORM_GPIO_MANAGER";
+                    serviceName = "HDF_PLATFORM_GPIO_MANAGER";
+                }
+                device1 :: deviceNode {
                     policy = 0;
                     priority = 10;
                     permission = 0644;
@@ -53,15 +60,14 @@
             }
            device_rtc :: device {
                 device0 :: deviceNode {
-                    policy = 1;
+                    policy = 2;
                     priority = 30;
                     permission = 0644;
                     moduleName = "HDF_PLATFORM_RTC";
                     serviceName = "HDF_PLATFORM_RTC";
-                    deviceMatchAttr = "hisilicon_hi35xx_rtc";
+                    deviceMatchAttr = "rockchip_rk3568_rtc";
                 }
             }
-
             device_uart :: device {
                 device0 :: deviceNode {
                     policy = 1;
@@ -95,6 +101,23 @@
                     permission = 0644;
                     moduleName = "linux_i2c_adapter";
                     deviceMatchAttr = "linux_i2c_adapter";
+                }
+            }
+            device_adc :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 60;
+                    permission = 0644;
+                    moduleName = "HDF_PLATFORM_ADC_MANAGER";
+                    serviceName = "HDF_PLATFORM_ADC_MANAGER";
+                    deviceMatchAttr = "hdf_platform_adc_manager";
+                }
+                device1 :: deviceNode {
+                    policy = 0;
+                    priority = 65;
+                    permission = 0644;
+                    moduleName = "linux_adc_adapter";
+                    deviceMatchAttr = "linux_adc_adapter_0";
                 }
             }
             device_spi :: device {
@@ -153,7 +176,7 @@
             }
             device_pwm :: device {
                device0 :: deviceNode {
-                    policy = 1;
+                    policy = 2;
                     priority = 80;
                     permission = 0644;
                     moduleName = "HDF_PLATFORM_PWM";

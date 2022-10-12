@@ -1,4 +1,5 @@
 #include "device_info/device_info.hcs"
+#include "platform/adc_config_linux.hcs"
 #include "platform/pwm_config.hcs"
 #include "platform/rk3568_watchdog_config.hcs"
 #include "platform/rk3568_uart_config.hcs"
