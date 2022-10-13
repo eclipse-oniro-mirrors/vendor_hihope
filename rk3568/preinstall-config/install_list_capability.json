@@ -27,7 +27,7 @@
             "bundleName": "com.ohos.mms",
             "app_signature" : ["04AC9C3F045EAB7DB992B7C4E38B59468CA3EABB7D654AE47641471B9785EA04"],
             "singleton": true,
-            "keepAlive": true
+            "keepAlive": false
         },
         {
             "bundleName": "com.ohos.settingsdata",
