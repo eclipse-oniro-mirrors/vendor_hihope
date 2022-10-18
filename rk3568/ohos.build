@@ -6,7 +6,7 @@
         "//vendor/hihope/rk3568/image_conf:custom_image_conf",
         "//vendor/hihope/rk3568/preinstall-config:preinstall-config",
         "//vendor/hihope/rk3568/resourceschedule:resourceschedule",
-        "//vendor/hihope/rk3568/etc:product_etc_conf",
+        "//vendor/hihope/rk3568/etc:product_etc_conf"
       ]
     }
   },
