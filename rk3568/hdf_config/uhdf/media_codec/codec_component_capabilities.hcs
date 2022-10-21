@@ -164,7 +164,7 @@ root {
                 maxFrameRate = 0;
             }
             HDF_video_hw_dec_m4v_rk {
-                role = 0xFFFFFFFF;
+                role = 3;
                 type = 0;
                 name = "OMX.rk.video_decoder.m4v";
                 supportProfiles = [1, 1, 1, 2, 1, 4, 1, 8, 1, 16];
