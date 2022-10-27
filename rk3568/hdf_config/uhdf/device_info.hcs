@@ -152,9 +152,9 @@
             }
         }
         audio :: host {
-            hostName = "audio_hdi_server_host";
+            hostName = "audio_host";
             priority = 50;
-            gid = ["audio_hdi_server_host", "uhdf_driver", "root", "audio"];
+            gid = ["audio_host", "uhdf_driver", "root", "audio"];
             audio_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
