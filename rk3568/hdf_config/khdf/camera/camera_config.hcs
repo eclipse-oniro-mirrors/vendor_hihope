@@ -5,7 +5,7 @@ root {
         abilityConfig {
             uvcMode = true;
             template device {
-                deviceName = "cameraDevice0";
+                deviceName = "camera0";
                 SensorConfig {
                     mode = false; /* whether sensor is supported */
                     template SensorDevice {
@@ -140,7 +140,7 @@ root {
             }
 
             camera0 :: device {
-                deviceName = "cameraDevice0";
+                deviceName = "camera0";
                 SensorConfig {
                     mode = true;
                     sensor0 :: SensorDevice {
