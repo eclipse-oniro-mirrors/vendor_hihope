@@ -38,6 +38,10 @@
             {
                 "name" : "ohos.permission.SEND_MESSAGES",
                 "userCancellable" : false
+            },
+            {
+                "name" : "ohos.permission.ANSWER_CALL",
+                "userCancellable" : false
             }
         ]
     },
