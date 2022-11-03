@@ -7,6 +7,7 @@
             uid = "";
             gid = [""];
             caps = [""];
+            critical = [];
             template device {
                 template deviceNode {
                     policy = 0;
