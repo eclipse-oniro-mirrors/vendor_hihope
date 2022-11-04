@@ -7,6 +7,7 @@
             uid = "";
             gid = [""];
             caps = [""];
+            critical = [];
             template device {
                 template deviceNode {
                     policy = 0;
@@ -152,9 +153,9 @@
             }
         }
         audio :: host {
-            hostName = "audio_hdi_server_host";
+            hostName = "audio_host";
             priority = 50;
-            gid = ["audio_hdi_server_host", "uhdf_driver", "root", "audio"];
+            gid = ["audio_host", "uhdf_driver", "root", "audio"];
             audio_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -192,7 +193,7 @@
                     policy = 2;
                     priority = 100;
                     moduleName = "libaudio_manager_service.z.so";
-                    serviceName = "idl_audio_service";
+                    serviceName = "audio_manager_service";
                 }
             }
         }
@@ -430,12 +431,13 @@
             hostName = "partitionslot_host";
             priority = 100;
             uid = "useriam";
-            gid = "useriam";
+            gid = ["useriam", "update"];
             caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             partitionslot_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 100;
+                    preload = 2;
                     moduleName = "libpartitionslot_driver.z.so";
                     serviceName = "partition_slot_service";
                 }

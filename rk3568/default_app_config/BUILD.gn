@@ -1,4 +1,4 @@
-# Copyright (C) 2022 HiHope Open Source Organization .
+# Copyright (c) 2022 Huawei Device Co., Ltd.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -11,18 +11,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-static_library("net_demo") {
-  # uncomment one of following line, to enable one test:
-  sources = [ "udp_server_test.c" ]
+import("//build/ohos.gni")
 
-  sources += [
-    "demo_entry_cmsis.c",
-    "wifi_connecter.c",
-  ]
-  include_dirs = [
-    "//commonlibrary/utils_lite/include",
-    "//kernel/liteos_m/components/cmsis/2.0",
-    "//foundation/communication/interfaces/kits/wifi_lite/wifiservice",
-    "//vendor/hisi/hi3861/hi3861/third_party/lwip_sack/include/",
-  ]
+ohos_prebuilt_etc("default_app_detail_config") {
+  source = "./default_app.json"
+  relative_install_dir = "app"
+  part_name = "product_rk3568"
+}
+
+group("default_app_config") {
+  deps = [ ":default_app_detail_config" ]
 }
