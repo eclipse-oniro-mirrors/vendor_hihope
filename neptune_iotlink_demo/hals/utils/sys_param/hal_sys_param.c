@@ -16,23 +16,6 @@
 #include "hal_sys_param.h"
 #include "wm_internal_flash.h"
 
-static const char OHOS_DEVICE_TYPE[] = {"Development Board"};
-static const char OHOS_DISPLAY_VERSION[] = {"OpenHarmony-master"};
-static const char OHOS_MANUFACTURE[] = {"winnermicro"};
-static const char OHOS_BRAND[] = {"hihope"};
-static const char OHOS_MARKET_NAME[] = {"****"};
-static const char OHOS_PRODUCT_SERIES[] = {"****"};
-static const char OHOS_PRODUCT_MODEL[] = {"****"};
-static const char OHOS_SOFTWARE_MODEL[] = {"****"};
-static const char OHOS_HARDWARE_MODEL[] = {"****"};
-static const char OHOS_HARDWARE_PROFILE[] = {"****"};
-static const char OHOS_BOOTLOADER_VERSION[] = {"bootloader"};
-static const char OHOS_ABI_LIST[] = {"****"};
-static const char OHOS_SERIAL[] = {"1234567890"};
-static const int OHOS_FIRST_API_VERSION = 1;
-
-static const char EMPTY_STR[] = {""};
-
 #define HEX_A 0xa
 #define CHAR_NUM_OFFSET 0x30
 #define CHAR_CAPITAL_OFFSET 0x37
@@ -51,56 +34,6 @@ static char Hex2Char(u8 hex)
     } else {
         return hex + CHAR_CAPITAL_OFFSET;
     }
-}
-
-/* 获取设备类型 */
-const char* HalGetDeviceType(void)
-{
-    return OHOS_DEVICE_TYPE;
-}
-
-/* 获取厂商信息 */
-const char* HalGetManufacture(void)
-{
-    return OHOS_MANUFACTURE;
-}
-
-/* 获取商标名称 */
-const char* HalGetBrand(void)
-{
-    return OHOS_BRAND;
-}
-
-const char* HalGetMarketName(void)
-{
-    return OHOS_MARKET_NAME;
-}
-
-/* 获取产品系列名称 */
-const char* HalGetProductSeries(void)
-{
-    return OHOS_PRODUCT_SERIES;
-}
-
-/* 获取产品型号 */
-const char* HalGetProductModel(void)
-{
-    return OHOS_PRODUCT_MODEL;
-}
-
-const char* HalGetSoftwareModel(void)
-{
-    return OHOS_SOFTWARE_MODEL;
-}
-
-const char* HalGetHardwareModel(void)
-{
-    return OHOS_HARDWARE_MODEL;
-}
-
-const char* HalGetHardwareProfile(void)
-{
-    return OHOS_HARDWARE_PROFILE;
 }
 
 const char* HalGetSerial(void)
@@ -122,49 +55,4 @@ const char* HalGetSerial(void)
         }
     }
     return serialNumber;
-}
-
-const char* HalGetBootloaderVersion(void)
-{
-    return OHOS_BOOTLOADER_VERSION;
-}
-
-const char* HalGetAbiList(void)
-{
-    return OHOS_ABI_LIST;
-}
-
-const char* HalGetDisplayVersion(void)
-{
-    return OHOS_DISPLAY_VERSION;
-}
-
-const char* HalGetIncrementalVersion(void)
-{
-    return INCREMENTAL_VERSION;
-}
-
-const char* HalGetBuildType(void)
-{
-    return BUILD_TYPE;
-}
-
-const char* HalGetBuildUser(void)
-{
-    return BUILD_USER;
-}
-
-const char* HalGetBuildHost(void)
-{
-    return BUILD_HOST;
-}
-
-const char* HalGetBuildTime(void)
-{
-    return BUILD_TIME;
-}
-
-int HalGetFirstApiVersion(void)
-{
-    return OHOS_FIRST_API_VERSION;
 }
