@@ -45,6 +45,35 @@ root {
                 minFrameRate = 0;
                 maxFrameRate = 0;
             }
+            HDF_video_hw_enc_hevc_rk {
+                role = 2;
+                type = 1;
+                name = "OMX.rk.video_encoder.hevc";
+                supportProfiles = [1, 4096, 2, 4096, 4096, 4096];
+                maxInst = 4;
+                isSoftwareCodec = false;
+                processModeMask = [];
+                capsMask = [0x01];
+                minBitRate = 1;
+                maxBitRate = 40000000;
+                minWidth = 176;
+                minHeight = 144;
+                maxWidth = 1920;
+                maxHeight = 1088;
+                widthAlignment = 16;
+                heightAlignment = 8;
+                minBlockCount = 0xFFFFFFFF;
+                maxBlockCount = 0xFFFFFFFF;
+                minBlocksPerSecond = 0xFFFFFFFF;
+                maxBlocksPerSecond = 0xFFFFFFFF;
+                blockSizeWidth = 0xFFFFFFFF;
+                blockSizeHeight = 0xFFFFFFFF;
+                supportPixelFmts = [28, 24, 20, 12];
+                measuredFrameRate = [320, 240, 165, 165, 720, 480, 149, 149, 1280, 720, 73, 73, 1920, 1080, 18, 18];
+                bitRateMode = [1, 2];
+                minFrameRate = 0;
+                maxFrameRate = 0;
+            }
         }
         VideoHwDecoders {
             HDF_video_hw_dec_avc_rk {
@@ -275,6 +304,35 @@ root {
                 blockSizeHeight = 16;
                 supportPixelFmts = [24];
                 measuredFrameRate = [352, 288, 700, 700, 720, 480, 700, 700, 640, 360, 980, 980, 1280, 720, 600, 600, 1920, 1080, 130, 130, 3840, 2160, 130, 130];
+                bitRateMode = [];
+                minFrameRate = 0;
+                maxFrameRate = 0;
+            }
+            HDF_video_hw_dec_vp9_rk {
+                role = 4;
+                type = 0;
+                name = "OMX.rk.video_decoder.vp9";
+                supportProfiles = [1, 1, 1, 2, 1, 4, 1, 16, 1, 32, 1, 64, 1, 256, 1, 1024, 1, 2048, 1, 4096, 1, 8192];
+                maxInst = 6;
+                isSoftwareCodec = false;
+                processModeMask = [];
+                capsMask = [0x01];
+                minBitRate = 1;
+                maxBitRate = 300000000;
+                minWidth = 96;
+                minHeight = 96;
+                maxWidth = 4096;
+                maxHeight = 2160;
+                widthAlignment = 2;
+                heightAlignment = 2;
+                minBlockCount = 0xFFFFFFFF;
+                maxBlockCount = 0xFFFFFFFF;
+                minBlocksPerSecond = 1;
+                maxBlocksPerSecond = 972000;
+                blockSizeWidth = 16;
+                blockSizeHeight = 16;
+                supportPixelFmts = [24];
+                measuredFrameRate = [320, 180, 500, 500, 640, 360, 387, 387, 1280, 720, 310, 318, 1920, 1080, 150, 200];
                 bitRateMode = [];
                 minFrameRate = 0;
                 maxFrameRate = 0;
