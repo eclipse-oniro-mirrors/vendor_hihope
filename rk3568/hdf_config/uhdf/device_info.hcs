@@ -99,6 +99,24 @@
                     deviceMatchAttr = "usbfn_cdcacm_driver";
                 }
             }
+            mtp_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 90;
+                    moduleName = "libusbfn_mtp.z.so";
+                    serviceName = "usbfn_mtp";
+                    deviceMatchAttr = "usbfn_mtp_driver";
+                }
+            }
+            ptp_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 90;
+                    moduleName = "libusbfn_mtp.z.so";
+                    serviceName = "usbfn_mtp";
+                    deviceMatchAttr = "usbfn_mtp_driver";
+                }
+            }
             usb_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
