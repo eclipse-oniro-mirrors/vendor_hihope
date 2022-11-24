@@ -91,6 +91,12 @@
           ]
         },
         {
+          "component": "drivers_peripheral_codec",
+          "features": [
+            "drivers_peripheral_codec_support_omx = true"
+          ]
+        },
+        {
           "component": "hdf_core",
           "features": [
             "hdf_core_platform_test_support = true"
