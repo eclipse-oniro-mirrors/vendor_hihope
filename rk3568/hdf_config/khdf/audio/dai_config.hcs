@@ -9,7 +9,7 @@ root {
             serviceName = "dai_service";
 
             idInfo {
-                    chipName = "rk3568";
+                    chipName = "/i2s@fe410000";
                     chipIdRegister = 0xfe410000;
                     chipIdSize = 0x1000;
                 }
@@ -59,6 +59,35 @@ root {
                      0x14,    0x14,    1,    1,    0x0,     0x1,    0x1,     0,    0x0,   // I2S_INTCR_TXUIE
                      0x14,    0x14,    0,    0,    0x0,     0x1,    0x1,     0,    0x0    // I2S_INTCR_TXEIE
                  ];
+              }
+        }
+        controller_0x120c1021 :: dai_controller {
+            match_attr = "hdf_hdmi_dai_driver";
+            serviceName = "hdmi_dai_service";
+
+            idInfo {
+                    chipName = "/i2s@fe400000";
+                    chipIdRegister = 0xfe400000;
+                    chipIdSize = 0x1000;
+                }
+            regConfig {
+
+                 /*  reg: register address
+                     rreg: register address
+                     shift: shift bits
+                     rshift: rshift bits
+                     min: min value
+                     max: max value
+                     mask: mask of value
+                     invert: enum InvertVal 0-uninvert 1-invert
+                     value: value
+
+                     reg, rreg, shift, rshift, min, max, mask, invert value
+                 */
+                 daiStartupSeqConfig = [
+                     0x00,    0x00,     0,    0,    0,    0xFFFFFFFF,   0xFFFFFFFF,    0,   0x0,   //Transmit Operation Init
+                 ];
+
               }
         }
     }
