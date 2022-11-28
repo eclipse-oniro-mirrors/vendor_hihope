@@ -64,6 +64,11 @@
             "name": "ueventd",
             "uid": "system",
             "gid": "system"
+        },
+        {
+            "name": "devattest_service",
+            "uid": "root",
+            "gid": "root"
         }
     ]
 }
