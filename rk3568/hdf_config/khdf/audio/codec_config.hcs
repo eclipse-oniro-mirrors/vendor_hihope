@@ -9,8 +9,18 @@ root {
             match_attr = "hdf_codec_driver_0";
             serviceName = "codec_service_0";
             codecDaiName = "codec_dai";
+
+            hwInfo = [
+                /*
+                    Playback/Captrue, formats, rates, rate_min, rate_max, channels_min, channels_max,
+                    buffer_bytes_max, period_bytes_min, period_bytes_max, periods_min, periods_max
+                */
+                1, 0xF, 0xFF, 8000, 96000, 1, 2, 1, 2, 3, 4, 5,
+                2, 0xF, 0xFF, 8000, 96000, 1, 2, 1, 2, 3, 4, 5,
+            ];
+
             regConfig {
-                 /* reg: register address
+                /*  reg: register address
                     rreg: register address
                     shift: shift bits
                     rshift: rshift bits
@@ -54,7 +64,6 @@ root {
                 ];
 
                 controlsConfig = [
-
                     /*array index, iface, mixer/mux, enable,*/
                     0,  2,  0,  1,
                     1,  2,  0,  1,
@@ -126,13 +135,21 @@ root {
                     28,    2,    0,    1,
                     29,    2,    0,    1
                 ];
-
             }
         }
         controller_0x120c1031 :: codec_controller {
             match_attr = "hdf_codec_driver_1";
             serviceName = "codec_service_1";
             codecDaiName = "hdmi_codec_dai";
+
+            hwInfo = [
+                /*
+                    Playback/Captrue, formats, rates, rate_min, rate_max, channels_min, channels_max,
+                    buffer_bytes_max, period_bytes_min, period_bytes_max, periods_min, periods_max
+                */
+                1, 0xF, 0xFF, 8000, 96000, 1, 2, 1, 2, 3, 4, 5
+            ];
+
             regConfig {
                  /* reg: register address
                     rreg: register address
