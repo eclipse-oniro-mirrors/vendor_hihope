@@ -124,6 +124,17 @@
           "features": []
         }
       ]
+    },
+    {
+      "subsystem": "msdp",
+      "components": [
+        {
+          "component": "device_status",
+          "features": [
+            "fusion_interaction_coordination = false"
+          ]
+        }
+      ]
     }
   ]
 }
