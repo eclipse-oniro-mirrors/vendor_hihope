@@ -76,6 +76,7 @@
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 80;
+                    preload = 2;
                     moduleName = "libusbfn_master.z.so";
                     serviceName = "usbfn_master";
                     deviceMatchAttr = "usbfn_master_driver";
@@ -85,6 +86,7 @@
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 81;
+                    preload = 2;
                     moduleName = "libusbfn_cdcecm.z.so";
                     serviceName = "usbfn_cdcecm";
                     deviceMatchAttr = "usbfn_cdcecm_driver";
@@ -94,6 +96,7 @@
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 100;
+                    preload = 2;
                     moduleName = "libusbfn_cdcacm.z.so";
                     serviceName = "usbfn_cdcacm";
                     deviceMatchAttr = "usbfn_cdcacm_driver";
@@ -103,15 +106,7 @@
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 90;
-                    moduleName = "libusbfn_mtp.z.so";
-                    serviceName = "usbfn_mtp";
-                    deviceMatchAttr = "usbfn_mtp_driver";
-                }
-            }
-            ptp_device :: device {
-                device0 :: deviceNode {
-                    policy = 2;
-                    priority = 90;
+		    preload = 2;
                     moduleName = "libusbfn_mtp.z.so";
                     serviceName = "usbfn_mtp";
                     deviceMatchAttr = "usbfn_mtp_driver";
