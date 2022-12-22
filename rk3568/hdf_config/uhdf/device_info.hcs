@@ -113,10 +113,10 @@
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 90;
-		    preload = 2;
-                    moduleName = "libusbfn_mtp.z.so";
-                    serviceName = "usbfn_mtp";
-                    deviceMatchAttr = "usbfn_mtp_driver";
+                    preload = 2;
+                    moduleName = "libusbfn_mtp_driver.z.so";
+                    serviceName = "usbfn_mtp_interface_service";
+                    deviceMatchAttr = "usbfn_mtp_interface_driver";
                 }
             }
             usb_device :: device {
