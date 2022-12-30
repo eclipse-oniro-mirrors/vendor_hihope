@@ -29,8 +29,7 @@
             "bundleName": "com.ohos.mms",
             "app_signature" : ["04AC9C3F045EAB7DB992B7C4E38B59468CA3EABB7D654AE47641471B9785EA04"],
             "singleton": true,
-            "keepAlive": false,
-            "allowAppUsePrivilegeExtension": true
+            "keepAlive": false
         },
         {
             "bundleName": "com.ohos.settingsdata",
@@ -57,12 +56,14 @@
         {
             "bundleName": "com.ohos.contactsdataability",
             "app_signature" : ["D729F438E1EF2E154994E2B077F6C0CD592BA9F9C938BB428FCDA564FF805EE4"],
-            "associatedWakeUp": true
+            "associatedWakeUp": true,
+            "allowAppUsePrivilegeExtension": true
         },
         {
             "bundleName": "com.ohos.telephonydataability",
             "app_signature" : ["1DD4750010FC31914651C514C140DA45C70BD49CDB0080D31007174FEDA587E5"],
-            "associatedWakeUp": true
+            "associatedWakeUp": true,
+            "allowAppUsePrivilegeExtension": true
         },
         {
             "bundleName": "com.huawei.ohos.hiviewx",
