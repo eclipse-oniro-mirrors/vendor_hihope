@@ -61,7 +61,7 @@
         },
         {
             "bundleName": "com.ohos.telephonydataability",
-            "app_signature" : ["1DD4750010FC31914651C514C140DA45C70BD49CDB0080D31007174FEDA587E5"],
+            "app_signature" : ["D729F438E1EF2E154994E2B077F6C0CD592BA9F9C938BB428FCDA564FF805EE4"],
             "associatedWakeUp": true,
             "allowAppUsePrivilegeExtension": true
         },
