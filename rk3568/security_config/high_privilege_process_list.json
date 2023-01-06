@@ -64,6 +64,10 @@
             "name": "ueventd",
             "uid": "system",
             "gid": "system"
+        },
+        {
+            "name": "hdcd",
+            "uid": "root"
         }
     ]
 }
