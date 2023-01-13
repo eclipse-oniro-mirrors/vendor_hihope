@@ -147,6 +147,7 @@
         {
             "bundleName": "com.ohos.nweb",
             "app_signature" : ["49D779C85200D36A00DE63E2D85AEF22FE5C72FB268BE13923E589B49BFAFFDA"],
+            "singleton": true,
             "allowAppDesktopIconHide": true
         }
     ]
