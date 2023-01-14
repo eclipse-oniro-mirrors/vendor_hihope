@@ -106,7 +106,8 @@
         {
             "bundleName": "com.ohos.medialibrary.medialibrarydata",
             "app_signature": ["F9431859ED7A3959B5D72EF36FBE8B210A00082B044063E4424F823A01B3B7CA"],
-            "allowAppUsePrivilegeExtension": true
+            "allowAppUsePrivilegeExtension": true,
+            "allowAppDesktopIconHide": true
         },
         {
             "bundleName": "com.ohos.permissionmanager",
