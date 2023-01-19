@@ -14,7 +14,6 @@ root {
                 chipIdSize = 0x1000;
             }
             regConfig {
-            
                  /*  reg: register address
                      rreg: register address
                      shift: shift bits
@@ -30,9 +29,7 @@ root {
                  daiStartupSeqConfig = [
                      0x00,    0x00,     0,    0,    0,    0xFFFFFFFF,   0xFFFFFFFF,    0,   0x0,   //Transmit Operation Init
                  ];
-
               }
-
         }
         controller_0x120c1011 :: dma_controller {
             match_attr = "hdf_hdmi_dma_driver";
@@ -44,22 +41,22 @@ root {
                 chipIdSize = 0x1000;
             }
             regConfig {
-                 /*  reg: register address
-                     rreg: register address
-                     shift: shift bits
-                     rshift: rshift bits
-                     min: min value
-                     max: max value
-                     mask: mask of value
-                     invert: enum InvertVal 0-uninvert 1-invert
-                     value: value
-            
-                     reg, rreg, shift, rshift, min, max, mask, invert value
-                 */
-                 daiStartupSeqConfig = [
-                     0x00,    0x00,     0,    0,    0,    0xFFFFFFFF,   0xFFFFFFFF,    0,   0x0,   //Transmit Operation Init
-                 ];
-              }
+                /*  reg: register address
+                    rreg: register address
+                    shift: shift bits
+                    rshift: rshift bits
+                    min: min value
+                    max: max value
+                    mask: mask of value
+                    invert: enum InvertVal 0-uninvert 1-invert
+                    value: value
+
+                    reg, rreg, shift, rshift, min, max, mask, invert value
+                */
+                daiStartupSeqConfig = [
+                    0x00,    0x00,     0,    0,    0,    0xFFFFFFFF,   0xFFFFFFFF,    0,   0x0,   //Transmit Operation Init
+                ];
+            }
         }
     }
 }
