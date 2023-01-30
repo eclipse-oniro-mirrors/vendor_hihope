@@ -84,9 +84,9 @@
                     policy = 2;
                     priority = 80;
                     preload = 2;
-                    moduleName = "libusbfn_master.z.so";
-                    serviceName = "usbfn_master";
-                    deviceMatchAttr = "usbfn_master_driver";
+                    moduleName = "libusbfn.z.so";
+                    serviceName = "usbfn";
+                    deviceMatchAttr = "usbfn_driver";
                 }
             }
             ecm_device :: device {
