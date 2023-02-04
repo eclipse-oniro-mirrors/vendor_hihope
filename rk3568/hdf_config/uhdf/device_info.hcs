@@ -212,7 +212,7 @@
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 100;
-                    moduleName = "libaudio_manager_service.z.so";
+                    moduleName = "libaudio_primary_driver.z.so";
                     serviceName = "audio_manager_service";
                 }
             }
