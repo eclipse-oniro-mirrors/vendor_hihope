@@ -73,6 +73,13 @@ root {
                     deviceMatchAttr = "I2C_TEST";
                     serviceName = "I2C_TEST";
                 }
+                i2c_dummy :: deviceNode {
+                    policy = 1;
+                    priority = 101;
+                    preload = 0;
+                    permission = 0644;
+                    moduleName = "dummy_i2c_adapter";
+                }
                 pwm_test :: deviceNode {
                     policy = 2;
                     priority = 110;
