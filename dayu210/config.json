@@ -1,0 +1,118 @@
+{
+  "product_name": "dayu210",
+  "device_company": "rockchip",
+  "device_build_path": "device/board/hihope/dayu210",
+  "target_cpu": "arm64",
+  "type": "standard",
+  "version": "3.0",
+  "board": "rk3588",
+  "api_version": 8,
+  "enable_ramdisk": true,
+  "enable_absystem": false,
+  "build_selinux": true,
+  "build_seccomp": true,
+  "inherit": [ "productdefine/common/inherit/rich.json", "productdefine/common/inherit/chipset_common.json" ],
+  "subsystems": [
+    {
+      "subsystem": "security",
+      "components": [
+        {
+          "component": "selinux",
+          "features": []
+        }
+      ]
+    },
+    {
+      "subsystem": "communication",
+      "components": [
+        {
+          "component": "netmanager_ext",
+          "features": []
+        }
+      ]
+    },
+    {
+      "subsystem": "hdf",
+      "components": [
+        {
+          "component": "drivers_interface_ril",
+          "features": []
+        },
+        {
+          "component": "drivers_peripheral_ril",
+          "features":[]
+        }
+      ]
+    },
+    {
+      "subsystem": "rockchip_products",
+      "components": [
+        {
+          "component": "rockchip_products",
+          "features": []
+        }
+      ]
+    },
+    {
+      "subsystem": "arkui",
+      "components": [
+        {
+          "component": "ace_engine",
+          "features": [
+            "ace_engine_feature_enable_accessibility = true",
+            "ace_engine_feature_enable_web = true"
+          ]
+        }
+      ]
+    },
+    {
+      "subsystem": "wpa_supplicant-2.9",
+      "components": [
+        {
+          "component": "wpa_supplicant-2.9",
+          "features": [
+            "wpa_supplicant_driver_nl80211 = true"
+          ]
+        }
+      ]
+    },
+    {
+      "subsystem": "hdf",
+      "components": [
+        {
+          "component": "drivers_interface_audio",
+          "features": []
+        },
+        {
+          "component": "drivers_peripheral_audio",
+          "features": [
+            "drivers_peripheral_audio_hal_notsupport_pathselect = true",
+            "drivers_peripheral_audio_full_test_suite = true",
+            "drivers_peripheral_audio_alsa_lib = false"
+          ]
+        }
+      ]
+    },
+    {
+      "subsystem": "startup",
+      "components": [
+        {
+          "component": "init",
+          "features": [
+            "enable_ohos_startup_init_feature_ab_partition = true",
+            "enable_ohos_startup_init_feature_loader = true"
+          ]
+        }
+      ]
+    },
+    {
+    "subsystem": "ai",
+    "components": [
+        {
+          "component": "mindspore",
+          "features": []
+        }
+      ]
+    }
+  ]
+}
