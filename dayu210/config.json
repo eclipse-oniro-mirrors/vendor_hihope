@@ -113,6 +113,28 @@
           "features": []
         }
       ]
+    },
+    {
+      "subsystem": "window",
+      "components": [
+        {
+          "component": "window_manager",
+          "features": [
+            "window_manager_dayu210_resource_config = true"
+         ]
+        }
+      ]
+    },
+    {
+      "subsystem": "multimedia",
+      "components": [
+        {
+          "component": "multimedia_player_framework",
+          "features": [
+            "multimedia_player_framework_use_codec_plugins = false"
+         ]
+        }
+      ]
     }
   ]
 }
