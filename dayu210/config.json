@@ -1,11 +1,11 @@
 {
-  "product_name": "rk3568",
+  "product_name": "dayu210",
   "device_company": "rockchip",
-  "device_build_path": "device/board/hihope/rk3568",
-  "target_cpu": "arm",
+  "device_build_path": "device/board/hihope/dayu210",
+  "target_cpu": "arm64",
   "type": "standard",
   "version": "3.0",
-  "board": "rk3568",
+  "board": "rk3588",
   "api_version": 8,
   "enable_ramdisk": true,
   "enable_absystem": false,
@@ -86,20 +86,9 @@
         {
           "component": "drivers_peripheral_audio",
           "features": [
+            "drivers_peripheral_audio_hal_notsupport_pathselect = true",
             "drivers_peripheral_audio_full_test_suite = true",
             "drivers_peripheral_audio_alsa_lib = false"
-          ]
-        },
-        {
-          "component": "drivers_peripheral_codec",
-          "features": [
-            "drivers_peripheral_codec_support_omx = true"
-          ]
-        },
-        {
-          "component": "hdf_core",
-          "features": [
-            "hdf_core_platform_test_support = true"
           ]
         }
       ]
@@ -126,13 +115,24 @@
       ]
     },
     {
-      "subsystem": "msdp",
+      "subsystem": "window",
       "components": [
         {
-          "component": "device_status",
+          "component": "window_manager",
           "features": [
-            "fusion_interaction_coordination = false"
-          ]
+            "window_manager_dayu210_resource_config = true"
+         ]
+        }
+      ]
+    },
+    {
+      "subsystem": "multimedia",
+      "components": [
+        {
+          "component": "multimedia_player_framework",
+          "features": [
+            "multimedia_player_framework_use_codec_plugins = false"
+         ]
         }
       ]
     },

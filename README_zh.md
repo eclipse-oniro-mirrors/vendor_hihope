@@ -10,7 +10,7 @@
 vendor/hihope
 ├── neptune_iotlink_demo                  # Neptune100开发板
 ├── rk3568                                # DAYU200开发板
-└── ...
+└── dayu210                               # DAYU210开发板
 ```
 
 ## 新建产品工程

@@ -65,10 +65,12 @@
 
         <filefilterlist>
             <filefilter name="defaultFilter" desc="Files not to check">
-                <filteritem type="filename" name="*.iml|*.json|*.txt" desc="desc files"/>
+                <filteritem type="filename" name="*.iml|*.json|*.txt|*.hcs" desc="desc files"/>
                 <!-- <filteritem type="filepath" name="projectroot/[a-zA-Z0-9]{20,}.sh" desc="Temp files"/> -->
                 <!-- <filteritem type="filepath" name="src/test/.*" desc="Test files"/> -->
                  <filteritem type="filepath" name="rk3568/bluetooth/BCM4362A2.hcd" desc="AP6257S bluetooth firmware"/>
+                 <filteritem type="filepath" name="dayu210/bluetooth/BCM4362A2.hcd" desc="AP6257S bluetooth firmware"/>
+                <filteritem type="filepath" name="dayu210/bluetooth/NOTICE" desc="NOTICE file"/>
             </filefilter>
             <filefilter name="defaultPolicyFilter" desc="Filters for compatibility，license header policies">
 		    <filteritem type="filename" name="BUILD.gn" desc="Compilation scripts do not declare license"/>
@@ -77,6 +79,7 @@
 	    <filefilter name="copyrightPolicyFilter" desc="Filters for copyright header policies">
 		    <!-- <filteritem type="filename" name="fstab" desc="This type configuration file can not declare copyright"/> -->
                 <filteritem type="filepath" name="rk3568/bluetooth/BUILD.gn" desc="Describe the reason for filtering scan results"/>
+                <filteritem type="filepath" name="dayu210/bluetooth/BUILD.gn" desc="Describe the reason for filtering scan results"/>
 		<filteritem type="filepath" name="neptune_iotlink_demo/ble/BUILD.gn" desc="InvalidCopyright"/> 
 	    </filefilter>
             <filefilter name="licenseFileNamePolicyFilter" desc="Filters for LICENSE file policies">

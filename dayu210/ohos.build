@@ -1,0 +1,14 @@
+{
+  "parts": {
+    "product_dayu210": {
+      "module_list": [
+        "//vendor/hihope/dayu210/default_app_config:default_app_config",
+        "//vendor/hihope/dayu210/image_conf:custom_image_conf",
+        "//vendor/hihope/dayu210/preinstall-config:preinstall-config",
+        "//vendor/hihope/dayu210/resourceschedule:resourceschedule",
+        "//vendor/hihope/dayu210/etc:product_etc_conf"
+      ]
+    }
+  },
+  "subsystem": "product_hihope"
+}
