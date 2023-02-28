@@ -216,6 +216,14 @@
                     serviceName = "audio_manager_service";
                 }
             }
+            effect_device :: device {
+                  device0 :: deviceNode {
+                      policy = 2;
+                      priority = 100;
+                      moduleName = "libeffect_model_service.z.so";
+                      serviceName = "effect_model_service";
+                }
+            }
         }
         hdi_server :: host {
             hostName = "camera_host";
