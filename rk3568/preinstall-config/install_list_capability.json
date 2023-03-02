@@ -53,7 +53,9 @@
         {
             "bundleName": "com.ohos.devicetest",
             "app_signature" : ["8E93863FC32EE238060BF69A9B37E2608FFFB21F93C862DD511CBAC9F30024B5"],
-            "runningResourcesApply": true
+            "runningResourcesApply": true,
+            "associatedWakeUp": true,
+            "allowAppUsePrivilegeExtension": true
         },
         {
             "bundleName": "com.ohos.contactsdataability",
