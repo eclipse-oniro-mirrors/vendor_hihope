@@ -13,6 +13,7 @@ config("bt_warnings") {
     "-Wno-unused-variable",
     "-Wno-implicit-function-declaration",
     "-Wno-incompatible-pointer-types",
+    "-Wno-unused-but-set-variable",
   ]
 }
 
