@@ -1,6 +1,6 @@
 {
   "product_name": "dayu210",
-  "device_company": "rockchip",
+  "device_company": "HiHope",
   "device_build_path": "device/board/hihope/dayu210",
   "target_cpu": "arm64",
   "type": "standard",
