@@ -61,6 +61,10 @@
             "ace_engine_feature_enable_accessibility = true",
             "ace_engine_feature_enable_web = true"
           ]
+        },
+        {
+          "component": "ui_appearance",
+          "features": []
         }
       ]
     },
