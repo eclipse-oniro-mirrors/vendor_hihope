@@ -26,10 +26,18 @@
             "allowAppUsePrivilegeExtension": true
         },
         {
+            "bundleName": "com.ohos.contacts",
+            "app_signature" : ["04AC9C3F045EAB7DB992B7C4E38B59468CA3EABB7D654AE47641471B9785EA04"],
+            "singleton": true,
+            "keepAlive": false,
+            "allowCommonEvent": ["usual.event.INCOMING_CALL_MISSED","contact.event.CANCEL_MISSED"]
+        },
+        {
             "bundleName": "com.ohos.mms",
             "app_signature" : ["04AC9C3F045EAB7DB992B7C4E38B59468CA3EABB7D654AE47641471B9785EA04"],
             "singleton": true,
-            "keepAlive": false
+            "keepAlive": false,
+            "allowCommonEvent": ["usual.event.SMS_RECEIVE_COMPLETED"]
         },
         {
             "bundleName": "com.ohos.settingsdata",
