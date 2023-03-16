@@ -93,7 +93,8 @@
         {
           "component": "drivers_peripheral_codec",
           "features": [
-            "drivers_peripheral_codec_support_omx = true"
+            "drivers_peripheral_codec_support_omx = true",
+            "drivers_peripheral_codec_use_omx = true"
           ]
         },
         {
