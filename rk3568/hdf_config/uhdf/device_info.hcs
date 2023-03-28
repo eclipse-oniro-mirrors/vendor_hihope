@@ -469,7 +469,6 @@
             priority = 100;
             uid = "useriam";
             gid = ["useriam", "update"];
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             partitionslot_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
