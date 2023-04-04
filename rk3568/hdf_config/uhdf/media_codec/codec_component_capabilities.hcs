@@ -99,7 +99,7 @@ root {
                 maxBlocksPerSecond = 244800;
                 blockSizeWidth = 16;
                 blockSizeHeight = 16;
-                supportPixelFmts = [24];
+                supportPixelFmts = [24, 12, 20];
                 measuredFrameRate = [320, 240, 617, 617, 720, 480, 559, 559, 1280, 720, 276, 276, 1920, 1080, 164, 164, 3840, 2160, 30, 30];
                 bitRateMode = [];
                 minFrameRate = 0;
@@ -128,7 +128,7 @@ root {
                 maxBlocksPerSecond = 244800;
                 blockSizeWidth = 16;
                 blockSizeHeight = 8;
-                supportPixelFmts = [24];
+                supportPixelFmts = [24, 12, 20];
                 measuredFrameRate = [];
                 bitRateMode = [];
                 minFrameRate = 0;
@@ -157,7 +157,7 @@ root {
                 maxBlocksPerSecond = 244800;
                 blockSizeWidth = 16;
                 blockSizeHeight = 16;
-                supportPixelFmts = [24];
+                supportPixelFmts = [24, 12, 20];
                 measuredFrameRate = [320, 180, 500, 500, 640, 360, 387, 387, 1280, 720, 112, 112, 1920, 1080, 77, 77];
                 bitRateMode = [];
                 minFrameRate = 0;
@@ -186,7 +186,7 @@ root {
                 maxBlocksPerSecond = 244800;
                 blockSizeWidth = 16;
                 blockSizeHeight = 16;
-                supportPixelFmts = [24];
+                supportPixelFmts = [24, 12, 20];
                 measuredFrameRate = [176, 144, 600, 600, 352, 288, 600, 600];
                 bitRateMode = [];
                 minFrameRate = 0;
@@ -215,7 +215,7 @@ root {
                 maxBlocksPerSecond = 244800;
                 blockSizeWidth = 16;
                 blockSizeHeight = 16;
-                supportPixelFmts = [24];
+                supportPixelFmts = [24, 12, 20];
                 measuredFrameRate = [176, 144, 600, 600];
                 bitRateMode = [];
                 minFrameRate = 0;
@@ -244,7 +244,7 @@ root {
                 maxBlocksPerSecond = 244800;
                 blockSizeWidth = 16;
                 blockSizeHeight = 16;
-                supportPixelFmts = [24];
+                supportPixelFmts = [24, 12, 20];
                 measuredFrameRate = [];
                 bitRateMode = [];
                 minFrameRate = 0;
@@ -273,7 +273,7 @@ root {
                 maxBlocksPerSecond = 244800;
                 blockSizeWidth = 16;
                 blockSizeHeight = 16;
-                supportPixelFmts = [24];
+                supportPixelFmts = [24, 12, 20];
                 measuredFrameRate = [];
                 bitRateMode = [];
                 minFrameRate = 0;
@@ -302,7 +302,7 @@ root {
                 maxBlocksPerSecond = 244800;
                 blockSizeWidth = 16;
                 blockSizeHeight = 16;
-                supportPixelFmts = [24];
+                supportPixelFmts = [24, 12, 20];
                 measuredFrameRate = [352, 288, 700, 700, 720, 480, 700, 700, 640, 360, 980, 980, 1280, 720, 600, 600, 1920, 1080, 130, 130, 3840, 2160, 130, 130];
                 bitRateMode = [];
                 minFrameRate = 0;
@@ -331,7 +331,7 @@ root {
                 maxBlocksPerSecond = 972000;
                 blockSizeWidth = 16;
                 blockSizeHeight = 16;
-                supportPixelFmts = [24];
+                supportPixelFmts = [24, 12, 20];
                 measuredFrameRate = [320, 180, 500, 500, 640, 360, 387, 387, 1280, 720, 310, 318, 1920, 1080, 150, 200];
                 bitRateMode = [];
                 minFrameRate = 0;
