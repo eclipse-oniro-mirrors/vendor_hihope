@@ -70,7 +70,7 @@
             }
             device_uart :: device {
                 device0 :: deviceNode {
-                    policy = 1;
+                    policy = 2;
                     priority = 40;
                     permission = 0644;
                     moduleName = "HDF_PLATFORM_UART";
@@ -84,6 +84,14 @@
                     moduleName = "HDF_PLATFORM_UART";
                     serviceName = "HDF_PLATFORM_UART_1";
                     deviceMatchAttr = "rockchip_rk3568_uart_1";
+                }
+                device2 :: deviceNode {
+                    policy = 2;
+                    permission = 0644;
+                    priority = 40;
+                    moduleName = "HDF_PLATFORM_UART";
+                    serviceName = "HDF_PLATFORM_UART_3";
+                    deviceMatchAttr = "rockchip_rk3568_uart_3";
                 }
             }
             device_i2c :: device {
@@ -184,7 +192,7 @@
                     deviceMatchAttr = "linux_pwm_adapter_0";
                }
                device1 :: deviceNode {
-                    policy = 1;
+                    policy = 2;
                     priority = 80;
                     permission = 0644;
                     moduleName = "HDF_PLATFORM_PWM";
@@ -192,7 +200,7 @@
                     deviceMatchAttr = "linux_pwm_adapter_1";
                }
                device2 :: deviceNode {
-                    policy = 1;
+                    policy = 2;
                     priority = 80;
                     permission = 0644;
                     moduleName = "HDF_PLATFORM_PWM";
@@ -200,7 +208,7 @@
                     deviceMatchAttr = "linux_pwm_adapter_2";
                }
                device3 :: deviceNode {
-                    policy = 1;
+                    policy = 2;
                     priority = 80;
                     permission = 0644;
                     moduleName = "HDF_PLATFORM_PWM";
@@ -208,7 +216,7 @@
                     deviceMatchAttr = "linux_pwm_adapter_3";
                }
                device4 :: deviceNode {
-                    policy = 1;
+                    policy = 2;
                     priority = 80;
                     permission = 0644;
                     moduleName = "HDF_PLATFORM_PWM";
