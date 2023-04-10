@@ -97,8 +97,8 @@
         {
           "component": "drivers_peripheral_codec",
           "features": [
-            "drivers_peripheral_codec_support_omx = true",
-            "drivers_peripheral_codec_use_omx = true"
+            "drivers_peripheral_codec_feature_support_omx_extend_test = true",
+            "drivers_peripheral_codec_feature_support_hdi_v1 = true"
           ]
         },
         {
