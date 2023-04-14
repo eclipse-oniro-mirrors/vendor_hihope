@@ -62,6 +62,10 @@
             "ace_engine_feature_enable_accessibility = true",
             "ace_engine_feature_enable_web = true"
           ]
+        },
+        {
+          "component": "ui_appearance",
+          "features": []
         }
       ]
     },
@@ -89,6 +93,18 @@
             "drivers_peripheral_audio_hal_notsupport_pathselect = true",
             "drivers_peripheral_audio_full_test_suite = true",
             "drivers_peripheral_audio_alsa_lib = false"
+          ]
+        },
+        {
+          "component": "drivers_peripheral_display",
+          "features": [
+            "drivers_peripheral_display_community = true"
+          ]
+        },
+        {
+          "component": "hdf_core",
+          "features": [
+            "hdf_core_platform_test_support = true"
           ]
         }
       ]
@@ -133,6 +149,17 @@
           "features": [
             "multimedia_player_framework_use_codec_plugins = false"
          ]
+        }
+      ]
+    },
+    {
+      "subsystem": "msdp",
+      "components": [
+        {
+          "component": "device_status",
+          "features": [
+            "fusion_interaction_coordination = false"
+          ]
         }
       ]
     },
