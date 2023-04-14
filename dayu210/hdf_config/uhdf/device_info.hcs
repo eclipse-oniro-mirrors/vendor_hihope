@@ -216,6 +216,14 @@
                     serviceName = "audio_manager_service";
                 }
             }
+            effect_device :: device {
+                  device0 :: deviceNode {
+                      policy = 2;
+                      priority = 100;
+                      moduleName = "libeffect_model_service.z.so";
+                      serviceName = "effect_model_service";
+                }
+            }
         }
         hdi_server :: host {
             hostName = "camera_host";
@@ -259,16 +267,29 @@
                 }
             }
         }
-
-        display_gralloc :: host {
-            hostName = "disp_gralloc_host";
+        display_composer :: host {
+            hostName = "composer_host";
             priority = 40;
-            input_device :: device {
+            uid = ["composer_host"];
+            gid = ["composer_host", "graphics", "vendor_mpp_driver"];
+	        composer_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 160;
-                    moduleName = "libhdi_display_gralloc_stub.z.so";
-                    serviceName = "hdi_display_gralloc_service";
+                    moduleName = "libdisplay_composer_driver_1.0.z.so";
+                    serviceName = "display_composer_service";
+                }
+            }
+        }
+        allocator :: host {
+            hostName = "allocator_host";
+            priority = 40;
+            allocator_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 160;
+                    moduleName = "liballocator_driver_1.0.z.so";
+                    serviceName = "allocator_service";
                 }
             }
         }
@@ -328,7 +349,7 @@
                     policy = 2;
                     priority = 100;
                     moduleName = "libcodec_driver.z.so";
-                    serviceName = "uservice_codec_component_manager";
+                    serviceName = "codec_component_manager_service";
                     deviceMatchAttr = "codec_component_capabilities";
                 }
             }
