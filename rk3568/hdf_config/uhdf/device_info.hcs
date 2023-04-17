@@ -362,6 +362,15 @@
                     deviceMatchAttr = "media_codec_capabilities";
                 }
             }
+            codec_image_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libcodec_jpeg_driver.z.so";
+                    serviceName = "codec_image_jpeg_service";
+                    deviceMatchAttr = "codec_image_capabilities";
+                }
+            }
         }
 
         distributed_camera_host :: host {
