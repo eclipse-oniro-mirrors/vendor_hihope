@@ -94,7 +94,7 @@ hihope
 
 至此，一个简单的产品工程搭建完成，用户可按此方法，搭建自己产品工程。
 
-详细的产品编译构建适配流程，请参考[编译构建适配流程](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/porting/porting-chip-prepare-process.md)
+详细的产品编译构建适配流程，请参考[编译构建适配流程](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/subsystems/subsys-build-product.md)
 
 ## 贡献
 
