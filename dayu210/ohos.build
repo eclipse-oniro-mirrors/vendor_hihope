@@ -6,7 +6,8 @@
         "//vendor/hihope/dayu210/image_conf:custom_image_conf",
         "//vendor/hihope/dayu210/preinstall-config:preinstall-config",
         "//vendor/hihope/dayu210/resourceschedule:resourceschedule",
-        "//vendor/hihope/dayu210/etc:product_etc_conf"
+        "//vendor/hihope/dayu210/etc:product_etc_conf",
+        "//vendor/hihope/dayu210/hdf_config/uhdf:hdf_config"
       ]
     }
   },
