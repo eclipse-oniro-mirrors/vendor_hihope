@@ -24,7 +24,14 @@
       "components": [
         { "component": "drivers_interface_input" },
         { "component": "drivers_interface_usb" },
-        { "component": "drivers_peripheral_usb" }
+        { "component": "drivers_peripheral_usb" },
+        { 
+          "component": "drivers_peripheral_wlan",
+          "features": [
+            "drivers_peripheral_wlan_feature_enable_HDF_NL80211 = true",
+            "drivers_peripheral_wlan_feature_nable_HDF_UT = false"
+          ]
+        }
       ]
     },
     {
