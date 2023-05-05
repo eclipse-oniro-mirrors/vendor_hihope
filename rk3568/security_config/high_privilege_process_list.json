@@ -1,10 +1,6 @@
 {
     "high_privilege_process_list": [
         {
-            "name": "accessibility",
-            "gid": "root"
-        },
-        {
             "name": "appspawn",
             "uid": "root",
             "gid": "root"
