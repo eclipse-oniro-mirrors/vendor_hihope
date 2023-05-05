@@ -8,6 +8,7 @@
         "//vendor/hihope/dayu210/resourceschedule:resourceschedule",
         "//vendor/hihope/dayu210/etc:product_etc_conf",
         "//vendor/hihope/dayu210/hals/audio:hdf_audio_config",
+        "//vendor/hihope/dayu210/hdf_config/uhdf:hdf_config"
       ]
     }
   },

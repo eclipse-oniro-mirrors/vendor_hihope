@@ -1,10 +1,6 @@
 {
     "high_privilege_process_list": [
         {
-            "name": "accessibility",
-            "gid": "root"
-        },
-        {
             "name": "appspawn",
             "uid": "root",
             "gid": "root"
@@ -32,11 +28,6 @@
         },
         {
             "name": "netsysnative",
-            "uid": "root",
-            "gid": "root"
-        },
-        {
-            "name": "nwebspawn",
             "uid": "root",
             "gid": "root"
         },

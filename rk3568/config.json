@@ -90,8 +90,8 @@
         {
           "component": "drivers_peripheral_audio",
           "features": [
-            "drivers_peripheral_audio_full_test_suite = true",
-            "drivers_peripheral_audio_alsa_lib = false",
+            "drivers_peripheral_audio_feature_full_test_suite = true",
+            "drivers_peripheral_audio_feature_alsa_lib = false",
             "drivers_peripheral_audio_feature_effect = true"
           ]
         },
@@ -157,6 +157,18 @@
             "wifi_feature_non_seperate_p2p = true",
             "wifi_feature_non_hdf_driver = true"
          ]
+        }
+      ]
+    },
+    {
+      "subsystem": "multimedia",
+      "components": [
+        {
+          "component": "audio_framework",
+          "features": [
+            "audio_framework_feature_dtmf_tone = true",
+            "audio_framework_feature_opensl_es = true"
+          ]
         }
       ]
     }
