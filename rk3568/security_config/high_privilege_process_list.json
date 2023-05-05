@@ -32,11 +32,6 @@
             "gid": "root"
         },
         {
-            "name": "nwebspawn",
-            "uid": "root",
-            "gid": "root"
-        },
-        {
             "name": "render_service",
             "uid": "system",
             "gid": ["root", "system"]
