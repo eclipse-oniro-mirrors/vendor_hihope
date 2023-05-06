@@ -18,8 +18,7 @@
           "module_ActsBootstrapTest",
           "module_ActsDfxFuncTest",
           "module_ActsHieventLiteTest",
-          "module_ActsSamgrTest",
-          "module_ActsUtilsFileTest"
+          "module_ActsSamgrTest"
         ]
       }
     ],
