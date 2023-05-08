@@ -216,6 +216,7 @@ root {
                     "1.0"
                 ];
                 jpegOrientation= "270";
+                jpegQuality= "2";
             }
         }
     }
