@@ -795,7 +795,6 @@ void hw_config_cback(void *p_mem)
                 /* fall through intentionally */
             case HW_CFG_SET_BD_ADDR:
                 HILOGI("vendor lib fwcfg completed");
-                bt_vendor_cbacks->dealloc(p_buf);
                 // bt_vendor_cbacks->fwcfg_cb(BT_VND_OP_RESULT_SUCCESS);
                 hw_sco_config();
                 start_fwcfg_cbtimer();
@@ -827,8 +826,7 @@ void hw_config_cback(void *p_mem)
                            *(p_tmp + 2), *(p_tmp + 1), *p_tmp);
                 }
 
-                HILOGI("vendor lib fwcfg completed");
-                bt_vendor_cbacks->dealloc(p_buf);
+                HILOGI("vendor lib fwcfg completed2");
                 // bt_vendor_cbacks->fwcfg_cb(BT_VND_OP_RESULT_SUCCESS);
                 hw_sco_config();
                 start_fwcfg_cbtimer();
@@ -844,6 +842,8 @@ void hw_config_cback(void *p_mem)
                 break;
 #endif      // (USE_CONTROLLER_BDADDR == TRUE)
         } // switch(hw_cfg_cb.state)
+
+        bt_vendor_cbacks->dealloc(p_buf);
     }     // if (p_buf != NULL)
 
     /* Free the RX event buffer */
@@ -853,9 +853,6 @@ void hw_config_cback(void *p_mem)
     if (xmit_bytes <= 0) {
         HILOGE("vendor lib fwcfg aborted!!!");
         if (bt_vendor_cbacks) {
-            if (p_buf != NULL)
-                bt_vendor_cbacks->dealloc(p_buf);
-
             bt_vendor_cbacks->init_cb(BTC_OP_RESULT_FAIL);
         }
 
@@ -923,10 +920,11 @@ static void hw_sco_i2spcm_proc_interface_param(void)
         UINT16_TO_STREAM(p, HCI_VSC_WRITE_SCO_PCM_INT_PARAM);
         *p++ = SCO_PCM_PARAM_SIZE;
         memcpy_s(p, &bt_sco_param, SCO_PCM_PARAM_SIZE);
-        if ((ret = bt_vendor_cbacks->xmit_cb(HCI_VSC_WRITE_SCO_PCM_INT_PARAM, p_buf)) == FALSE) {
-            bt_vendor_cbacks->dealloc(p_buf);
-        } else
+        ret = bt_vendor_cbacks->xmit_cb(HCI_VSC_WRITE_SCO_PCM_INT_PARAM, p_buf);
+        bt_vendor_cbacks->dealloc(p_buf);
+        if (ret) {
             return;
+        }
     }
     status = BTC_OP_RESULT_FAIL;
 
@@ -955,10 +953,11 @@ static void hw_sco_i2spcm_proc_int_param(void)
         *p++ = PCM_DATA_FORMAT_PARAM_SIZE;
         memcpy_s(p, &bt_pcm_data_fmt_param, PCM_DATA_FORMAT_PARAM_SIZE);
 
-        if ((ret = bt_vendor_cbacks->xmit_cb(HCI_VSC_WRITE_PCM_DATA_FORMAT_PARAM, p_buf)) == FALSE) {
-            bt_vendor_cbacks->dealloc(p_buf);
-        } else
+        ret = bt_vendor_cbacks->xmit_cb(HCI_VSC_WRITE_PCM_DATA_FORMAT_PARAM, p_buf);
+        bt_vendor_cbacks->dealloc(p_buf);
+        if (ret) {
             return;
+        }
     }
     status = BTC_OP_RESULT_FAIL;
     
@@ -1083,6 +1082,7 @@ void hw_config_start(void)
 
         hw_cfg_cb.state = HW_CFG_START;
         bt_vendor_cbacks->xmit_cb(HCI_RESET, p_buf);
+        bt_vendor_cbacks->dealloc(p_buf);
     } else {
         if (bt_vendor_cbacks) {
             HILOGE("vendor lib fw conf aborted [no buffer]");
@@ -1130,9 +1130,8 @@ uint8_t hw_lpm_enable(uint8_t turn_on)
             upio_set(UPIO_LPM_MODE, UPIO_DEASSERT, 0);
         }
 
-        if ((ret = bt_vendor_cbacks->xmit_cb(HCI_VSC_WRITE_SLEEP_MODE, p_buf)) <= 0) {
-            bt_vendor_cbacks->dealloc(p_buf);
-        }
+        ret = bt_vendor_cbacks->xmit_cb(HCI_VSC_WRITE_SLEEP_MODE, p_buf);
+        bt_vendor_cbacks->dealloc(p_buf);
     }
 
     if ((ret <= 0) && bt_vendor_cbacks) {
@@ -1303,11 +1302,8 @@ static void hw_sco_i2spcm_config(uint16_t codec)
             bt_sco_i2spcm_param[SCO_I2SPCM_PARAM_IF_SAMPLE_RATE],
             bt_sco_i2spcm_param[SCO_I2SPCM_PARAM_IF_CLOCK_RATE]);
 
-        if ((ret = bt_vendor_cbacks->xmit_cb(cmd_u16, p_buf)) <= 0) {
-            bt_vendor_cbacks->dealloc(p_buf);
-        } else {
-            return;
-        }
+        bt_vendor_cbacks->xmit_cb(cmd_u16, p_buf);
+        bt_vendor_cbacks->dealloc(p_buf);
     }
     // bt_vendor_cbacks->audio_state_cb(BT_VND_OP_RESULT_FAIL);
 }
@@ -1480,6 +1476,7 @@ void hw_epilog_process(void)
 
         /* Send command via HC's xmit_cb API */
         bt_vendor_cbacks->xmit_cb(HCI_RESET, p_buf);
+        bt_vendor_cbacks->dealloc(p_buf);
     } else {
         if (bt_vendor_cbacks) {
             HILOGE("vendor lib epilog process aborted [no buffer]");
