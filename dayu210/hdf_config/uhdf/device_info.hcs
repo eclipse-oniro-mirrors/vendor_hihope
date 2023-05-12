@@ -363,6 +363,15 @@
                     deviceMatchAttr = "media_codec_capabilities";
                 }
             }
+            codec_image_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libcodec_jpeg_driver.z.so";
+                    serviceName = "codec_image_jpeg_service";
+                    deviceMatchAttr = "codec_image_capabilities";
+                }
+            }
         }
 
         distributed_camera_host :: host {
@@ -385,6 +394,27 @@
                 }
             }
         }
+        distributed_audio_host :: host {
+            hostName = "daudio_host";
+            priority = 50;
+            distributed_audio_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    preload = 2;
+                    moduleName = "libdaudio_primary_driver.z.so";
+                    serviceName = "daudio_primary_service";
+                }
+                device1 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    preload = 2;
+                    moduleName = "libdaudio_ext_driver.z.so";
+                    serviceName = "daudio_ext_service";
+                }
+            }
+        }
+
         face_auth :: host {
             hostName = "face_auth_host";
             priority = 50;
