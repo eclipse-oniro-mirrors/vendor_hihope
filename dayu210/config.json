@@ -152,7 +152,7 @@
       "subsystem": "multimedia",
       "components": [
         {
-          "component": "multimedia_player_framework",
+          "component": "player_framework",
           "features": [
             "multimedia_player_framework_use_codec_plugins = false"
          ]
