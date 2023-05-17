@@ -30,6 +30,24 @@ ohos_prebuilt_etc("codec_adapter_capabilities.hcb") {
   part_name = "product_rk3568"
 }
 
+cap = "codec_component_capabilities"
+hc_gen("build_${cap}") {
+  sources = [ rebase_path("../../hdf_config/uhdf/media_codec/${cap}.hcs") ]
+}
+
+ohos_prebuilt_etc("${cap}.hcb") {
+  deps = [ ":build_${cap}" ]
+  hcs_outputs = get_target_outputs(":build_${cap}")
+  source = hcs_outputs[0]
+  relative_install_dir = "hdfconfig"
+  install_images = [ chipset_base_dir ]
+  subsystem_name = "product_hihope"
+  part_name = "product_rk3568"
+}
+
 group("hdf_codec_config") {
-  deps = [ ":codec_adapter_capabilities.hcb" ]
+  deps = [
+    ":codec_adapter_capabilities.hcb",
+    ":codec_component_capabilities.hcb",
+  ]
 }
