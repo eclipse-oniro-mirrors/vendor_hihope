@@ -419,8 +419,8 @@
         face_auth :: host {
             hostName = "face_auth_host";
             priority = 50;
-            uid = "useriam";
-            gid = ["useriam"];
+            uid = "face_auth_host";
+            gid = ["face_auth_host"];
             face_auth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -434,8 +434,8 @@
         pin_auth :: host {
             hostName = "pin_auth_host";
             priority = 50;
-            uid = "useriam";
-            gid = ["useriam"];
+            uid = "pin_auth_host";
+            gid = ["pin_auth_host"];
             pin_auth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -449,8 +449,8 @@
         user_auth :: host {
             hostName = "user_auth_host";
             priority = 50;
-            uid = "useriam";
-            gid = ["useriam"];
+            uid = "user_auth_host";
+            gid = ["user_auth_host"];
             user_auth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -464,8 +464,8 @@
         fingerprint_auth :: host {
             hostName = "fingerprint_auth_host";
             priority = 50;
-            uid = "useriam";
-            gid = ["useriam"];
+            uid = "fingerprint_auth_host";
+            gid = ["fingerprint_auth_host"];
             fingerprint_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
