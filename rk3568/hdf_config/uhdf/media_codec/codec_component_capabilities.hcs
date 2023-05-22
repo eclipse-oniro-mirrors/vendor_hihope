@@ -1,7 +1,7 @@
 root {
     module = "master";
     codec_config {
-        match_attr = "codec_component_capabilities";
+        match_attr = "media_codec_capabilities";
         use_openmax = true;
         // capsMask: 0x01, Adaptive playback; 0x02, Secure playback; 0x04, Tunnel playback.
         // allocateMask: 0x01, Input buffer allocated within the Codec module;
