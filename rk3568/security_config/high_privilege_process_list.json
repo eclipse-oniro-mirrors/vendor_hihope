@@ -6,10 +6,6 @@
             "gid": "root"
         },
         {
-            "name": "bootanimation",
-            "gid": "root"
-        },
-        {
             "name": "console",
             "uid": "root"
         },
