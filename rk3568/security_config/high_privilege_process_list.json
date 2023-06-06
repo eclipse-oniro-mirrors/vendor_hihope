@@ -53,6 +53,11 @@
             "gid": "system"
         },
         {
+            "name": "concurrent_task_service",
+            "uid": "system",
+            "gid": "system"
+        },
+        {
             "name": "hdcd",
             "uid": "root"
         }
