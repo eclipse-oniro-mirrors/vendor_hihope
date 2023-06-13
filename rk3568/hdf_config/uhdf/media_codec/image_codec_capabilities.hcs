@@ -1,7 +1,7 @@
 root {
     module = "master";
     codec_image_config {
-        match_attr = "codec_image_capabilities";
+        match_attr = "image_codec_capabilities";
 
         ImageHwEncoders {
         }
