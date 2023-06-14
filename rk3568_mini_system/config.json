@@ -49,7 +49,7 @@
       "subsystem": "hiviewdfx",
       "components": [
         { "component": "hiviewdfx_hilog_native"},
-        { "component": "hichecker_native", "features":["hichecker_support_asan=false"] },
+        { "component": "hichecker", "features":["hichecker_support_asan=false"] },
         { "component": "hidumper"}
       ]
     },
