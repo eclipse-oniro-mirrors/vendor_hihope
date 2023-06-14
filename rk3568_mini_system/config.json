@@ -34,12 +34,6 @@
       ]
     },
     {
-      "subsystem": "startup",
-      "components": [
-        { "component": "startup_l2" }
-      ]
-    },
-    {
       "subsystem": "communication",
       "components": [
         { "component": "dsoftbus", "features":["dsoftbus_get_devicename=false"] }
