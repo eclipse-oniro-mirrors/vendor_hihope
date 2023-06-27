@@ -33,17 +33,17 @@ root {
                 maxHeight = 1088;
                 widthAlignment = 16;
                 heightAlignment = 8;
-                minBlockCount = 0xFFFFFFFF;
-                maxBlockCount = 0xFFFFFFFF;
-                minBlocksPerSecond = 0xFFFFFFFF;
-                maxBlocksPerSecond = 0xFFFFFFFF;
-                blockSizeWidth = 0xFFFFFFFF;
-                blockSizeHeight = 0xFFFFFFFF;
+                minBlockCount = 99;
+                maxBlockCount = 8160;
+                minBlocksPerSecond = 99;
+                maxBlocksPerSecond = 489600;
+                blockSizeWidth = 16;
+                blockSizeHeight = 16;
                 supportPixelFmts = [28, 24, 20, 12];
                 measuredFrameRate = [320, 240, 165, 165, 720, 480, 149, 149, 1280, 720, 73, 73, 1920, 1080, 18, 18];
                 bitRateMode = [1, 2];
-                minFrameRate = 0;
-                maxFrameRate = 0;
+                minFrameRate = 1;
+                maxFrameRate = 60;
             }
             HDF_video_hw_enc_hevc_rk {
                 role = 2;
@@ -93,17 +93,17 @@ root {
                 maxHeight = 2160;
                 widthAlignment = 8;
                 heightAlignment = 8;
-                minBlockCount = 0xFFFFFFFF;
-                maxBlockCount = 0xFFFFFFFF;
-                minBlocksPerSecond = 1;
-                maxBlocksPerSecond = 244800;
+                minBlockCount = 99;
+                maxBlockCount = 34560;
+                minBlocksPerSecond = 99;
+                maxBlocksPerSecond = 2073600;
                 blockSizeWidth = 16;
                 blockSizeHeight = 16;
                 supportPixelFmts = [24, 12, 20];
                 measuredFrameRate = [320, 240, 617, 617, 720, 480, 559, 559, 1280, 720, 276, 276, 1920, 1080, 164, 164, 3840, 2160, 30, 30];
                 bitRateMode = [];
-                minFrameRate = 0;
-                maxFrameRate = 0;
+                minFrameRate = 1;
+                maxFrameRate = 60;
             }
             HDF_video_hw_dec_mpeg2_rk {
                 role = 0xFFFFFFFF;
