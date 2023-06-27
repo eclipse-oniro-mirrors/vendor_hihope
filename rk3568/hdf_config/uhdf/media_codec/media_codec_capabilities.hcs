@@ -20,7 +20,7 @@ root {
                 role = 1;
                 type = 1;
                 name = "OMX.rk.video_encoder.avc";
-                supportProfiles = [0x2000, 0x2001];
+                supportProfiles = [1, 32768, 2, 32768, 8, 32768];
                 maxInst = 4;
                 isSoftwareCodec = false;
                 processModeMask = [];
@@ -80,7 +80,7 @@ root {
                 role = 1;
                 type = 0;
                 name = "OMX.rk.video_decoder.avc";
-                supportProfiles = [0x2000, 0x2001, 0x2002];
+                supportProfiles = [1, 32768, 2, 32768, 8, 32768];
                 maxInst = 6;
                 isSoftwareCodec = false;
                 processModeMask = [];
