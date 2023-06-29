@@ -274,7 +274,6 @@
 #define SCO_I2SPCM_IF_MODE 1
 #endif
 
-/* SCO_I2SPCM_IF_ROLE - 0=Slave, 1=Master */
 #ifndef SCO_I2SPCM_IF_ROLE
 #define SCO_I2SPCM_IF_ROLE 1
 #endif
@@ -355,8 +354,6 @@
     NOTICE: in most usage cases the value will be the same as
             SCO_PCM_IF_CLOCK_MODE setting
 
-    0 : Slave
-    1 : Master
 */
 #ifndef SCO_PCM_IF_SYNC_MODE
 #define SCO_PCM_IF_SYNC_MODE 0
@@ -366,8 +363,6 @@
 
     NOTICE: suggested to be consistent with SCO_I2SPCM_IF_ROLE
 
-    0 : Slave
-    1 : Master
 */
 #ifndef SCO_PCM_IF_CLOCK_MODE
 #define SCO_PCM_IF_CLOCK_MODE 0

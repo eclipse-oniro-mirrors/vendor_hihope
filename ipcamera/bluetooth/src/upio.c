@@ -367,7 +367,7 @@ void upio_set(uint8_t pio, uint8_t action, uint8_t polarity)
             fd = open(VENDOR_LPM_PROC_NODE, O_WRONLY);
             if (fd < 0) {
                 LOGE("upio_set : open(%s) for write failed: %s (%d)",
-                VENDOR_LPM_PROC_NODE, strerror(errno), errno);
+                    VENDOR_LPM_PROC_NODE, strerror(errno), errno);
                 return;
             }
 
@@ -385,7 +385,7 @@ void upio_set(uint8_t pio, uint8_t action, uint8_t polarity)
 
             if (write(fd, &buffer, 1) < 0) {
                 LOGE("upio_set : write(%s) failed: %s (%d)",
-                VENDOR_LPM_PROC_NODE, strerror(errno),errno);
+                    VENDOR_LPM_PROC_NODE, strerror(errno), errno);
             }
 #if (PROC_BTWRITE_TIMER_TIMEOUT_MS != 0)
             else {
@@ -426,7 +426,7 @@ void upio_set(uint8_t pio, uint8_t action, uint8_t polarity)
                      * In this case, we want to explicity touch proc btwrite
                      * node to keep the bt_wake assertion in the LPM kernel
                      * driver. The current kernel bluesleep LPM code starts
-                     * a 10sec internal in-activity timeout timer before it
+                     * a 10sec internal in-activities timeout timer before it
                      * attempts to deassert BT_WAKE line.
                      */
                     return;

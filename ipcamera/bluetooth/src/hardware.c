@@ -637,44 +637,11 @@ void hw_config_cback(void *p_mem)
                 HILOGI("bt vendor lib: set UART baud %i", UART_TARGET_BAUD_RATE);
                 userial_vendor_set_baud(line_speed_to_userial_baud(UART_TARGET_BAUD_RATE));
 #if 0
-                /* read local name */
-                UINT16_TO_STREAM(p, HCI_READ_LOCAL_NAME);
-                *p = 0; /* parameter length */
 
-                p_buf->len = HCI_CMD_PREAMBLE_SIZE;
-                hw_cfg_cb.state = HW_CFG_READ_LOCAL_NAME;
-
-                xmit_bytes = bt_vendor_cbacks->xmit_cb(HCI_READ_LOCAL_NAME, p_buf);
-                break;
 #endif
             case HW_CFG_READ_LOCAL_NAME:
 #if 0
-                p_tmp = p_name = (char *)(p_evt_buf + 1) +
-                                 HCI_EVT_CMD_CMPL_LOCAL_NAME_STRING;
 
-                for (i = 0; (i < LOCAL_NAME_BUFFER_LEN) || (*(p_name + i) != 0); i++)
-                    *(p_name + i) = toupper(*(p_name + i));
-
-                if ((p_name = strstr(p_name, "BCM")) != NULL) {
-                    strncpy(hw_cfg_cb.local_chip_name, p_name,
-                            LOCAL_NAME_BUFFER_LEN - 1);
-#ifdef USE_BLUETOOTH_BCM4343
-                } else if ((p_name = strstr(p_tmp, "4343")) != NULL) {
-                    snprintf(hw_cfg_cb.local_chip_name,
-                             LOCAL_NAME_BUFFER_LEN - 1, "BCM%s", p_name);
-                    strncpy(p_name, hw_cfg_cb.local_chip_name,
-                            LOCAL_NAME_BUFFER_LEN - 1);
-                }
-#endif
-                else {
-                    strncpy(hw_cfg_cb.local_chip_name, "UNKNOWN",
-                        LOCAL_NAME_BUFFER_LEN - 1);
-                    p_name = p_tmp;
-                }
-
-                hw_cfg_cb.local_chip_name[LOCAL_NAME_BUFFER_LEN - 1] = 0;
-
-                BTHWDBG("Chipset %s", hw_cfg_cb.local_chip_name);
 #endif
             {
                 // /vendor/etc/firmware
@@ -705,7 +672,6 @@ void hw_config_cback(void *p_mem)
                 hw_cfg_cb.state = HW_CFG_DL_FW_PATCH;
                 /* fall through intentionally */
             case HW_CFG_DL_FW_PATCH:
-                // HILOGD("HW_CFG_DL_FW_PATCH, opcode:0x%02x", opcode);
                 p_buf->len = read(hw_cfg_cb.fw_fd, p, HCI_CMD_PREAMBLE_SIZE);
                 if (p_buf->len > 0) {
                     if ((p_buf->len < HCI_CMD_PREAMBLE_SIZE) ||
@@ -795,7 +761,6 @@ void hw_config_cback(void *p_mem)
                 /* fall through intentionally */
             case HW_CFG_SET_BD_ADDR:
                 HILOGI("vendor lib fwcfg completed");
-                // bt_vendor_cbacks->fwcfg_cb(BT_VND_OP_RESULT_SUCCESS);
                 hw_sco_config();
                 start_fwcfg_cbtimer();
 
@@ -827,7 +792,6 @@ void hw_config_cback(void *p_mem)
                 }
 
                 HILOGI("vendor lib fwcfg completed2");
-                // bt_vendor_cbacks->fwcfg_cb(BT_VND_OP_RESULT_SUCCESS);
                 hw_sco_config();
                 start_fwcfg_cbtimer();
 
@@ -841,14 +805,12 @@ void hw_config_cback(void *p_mem)
                 xmit_bytes = 1;
                 break;
 #endif      // (USE_CONTROLLER_BDADDR == TRUE)
-        } // switch(hw_cfg_cb.state)
+        } 
 
         bt_vendor_cbacks->dealloc(p_buf);
-    }     // if (p_buf != NULL)
+    }     
 
     /* Free the RX event buffer */
-    // if (bt_vendor_cbacks)
-    //  bt_vendor_cbacks->dealloc(p_evt_buf);
 
     if (xmit_bytes <= 0) {
         HILOGE("vendor lib fwcfg aborted!!!");
@@ -888,7 +850,7 @@ void hw_lpm_ctrl_cback(void *p_mem)
     }
 
     if (bt_vendor_cbacks) {
-        // bt_vendor_cbacks->dealloc(p_evt_buf);
+        
     }
 }
 
@@ -990,7 +952,7 @@ static void hw_sco_i2spcm_cfg_cback(void *p_mem)
 
     /* Free the RX event buffer */
     if (bt_vendor_cbacks) {
-        // bt_vendor_cbacks->dealloc(p_evt_buf);
+        
     }
 
     if (status != BTC_OP_RESULT_SUCCESS) {
@@ -1062,7 +1024,6 @@ void hw_config_start(void)
     hw_cfg_cb.fw_fd = -1;
     hw_cfg_cb.f_set_baud_2 = FALSE;
 
-    // bt_vendor_cbacks->init_cb(BTC_OP_RESULT_SUCCESS);
     //    Start from sending HCI_RESET
 
     if (bt_vendor_cbacks) {
@@ -1135,7 +1096,7 @@ uint8_t hw_lpm_enable(uint8_t turn_on)
     }
 
     if ((ret <= 0) && bt_vendor_cbacks) {
-        // bt_vendor_cbacks->lpm_cb(BT_VND_OP_RESULT_FAIL);
+
     }
     HILOGD("hw_lpm_enable ret:%d", ret);
     return ret;
@@ -1231,7 +1192,7 @@ void hw_sco_config(void)
     }
 
     if (bt_vendor_cbacks) {
-        // bt_vendor_cbacks->scocfg_cb(BT_VND_OP_RESULT_SUCCESS);
+
     }
 }
 
@@ -1242,13 +1203,13 @@ static void hw_sco_i2spcm_config_from_command(void *p_mem, uint16_t codec)
 
     /* Free the RX event buffer */
     if (bt_vendor_cbacks) {
-        // bt_vendor_cbacks->dealloc(p_evt_buf);
+
     }
 
     if (command_success) {
         hw_sco_i2spcm_config(codec);
     } else if (bt_vendor_cbacks) {
-        // bt_vendor_cbacks->audio_state_cb(BT_VND_OP_RESULT_FAIL);
+
     }
 }
 
@@ -1305,7 +1266,7 @@ static void hw_sco_i2spcm_config(uint16_t codec)
         bt_vendor_cbacks->xmit_cb(cmd_u16, p_buf);
         bt_vendor_cbacks->dealloc(p_buf);
     }
-    // bt_vendor_cbacks->audio_state_cb(BT_VND_OP_RESULT_FAIL);
+
 }
 
 /*******************************************************************************
@@ -1434,10 +1395,8 @@ void hw_epilog_cback(void *p_mem)
 
     if (bt_vendor_cbacks) {
         /* Must free the RX event buffer */
-        // bt_vendor_cbacks->dealloc(p_evt_buf);
         /* Once epilog process is done, must call epilog_cb callback
            to notify caller */
-        // bt_vendor_cbacks->epilog_cb(BT_VND_OP_RESULT_SUCCESS);
     }
 }
 
