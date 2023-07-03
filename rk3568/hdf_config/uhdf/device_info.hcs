@@ -233,6 +233,15 @@
                       serviceName = "effect_model_service";
                 }
             }
+            trigger_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libintell_voice_trigger_driver.z.so";
+                    serviceName = "intell_voice_trigger_manager_service";
+                }
+            }
+
         }
         hdi_server :: host {
             hostName = "camera_host";
@@ -529,6 +538,18 @@
                     preload = 2;
                     moduleName = "libpartitionslot_driver.z.so";
                     serviceName = "partition_slot_service";
+                }
+            }
+        }
+        intell_voice :: host {
+            hostName = "intell_voice_host";
+            priority = 100;
+            intell_voice_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libintell_voice_engine_driver.z.so";
+                    serviceName = "intell_voice_engine_manager_service";
                 }
             }
         }
