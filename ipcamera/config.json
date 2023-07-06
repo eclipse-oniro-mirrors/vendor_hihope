@@ -37,6 +37,22 @@
       ]
     },
     {
+      "subsystem": "multimodalinput",
+      "components": [
+        {
+          "component": "input",
+          "features": [
+            "input_feature_combination_key = true",
+            "input_feature_pointer_drawing = true",
+            "input_feature_interceptor = true",
+            "input_feature_monitor = true",
+            "input_feature_touchscreen = true",
+            "input_feature_input_device = true"
+          ]
+        }
+      ]
+    },
+    {
       "subsystem": "wpa_supplicant-2.9",
       "components": [
         {
