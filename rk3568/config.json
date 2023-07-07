@@ -193,6 +193,17 @@
           ]
         }
       ]
+    },
+    {
+      "subsystem": "graphic",
+      "components": [
+        {
+          "component": "graphic_2d",
+          "features": [
+            "graphic_2d_feature_rs_enable_eglimage = true"
+          ]
+        }
+      ]
     }
   ]
 }
