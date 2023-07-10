@@ -37,6 +37,15 @@
       ]
     },
     {
+      "subsystem": "multimedia",
+      "components": [
+        {
+          "component": "player_framework",
+          "features": ["multimedia_player_framework_support_screen_capture = false"]
+        }
+      ]
+    },
+    {
       "subsystem": "multimodalinput",
       "components": [
         {
