@@ -288,6 +288,9 @@
         display_composer :: host {
             hostName = "composer_host";
             priority = 40;
+            processPriority = -8;
+            threadPriority = 1;
+            caps = ["SYS_NICE"];
             uid = ["composer_host"];
             gid = ["composer_host", "graphics", "vendor_mpp_driver"];
 	        composer_device :: device {
