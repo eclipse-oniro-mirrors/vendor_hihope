@@ -14,7 +14,7 @@
 import("//build/ohos.gni")
 
 ohos_sa_profile("demo_foundation") {
-  sources = [ "foundation.xml" ]
+  sources = [ "foundation.json" ]
   part_name = "product_rk3568_mini_system"
 }
 
