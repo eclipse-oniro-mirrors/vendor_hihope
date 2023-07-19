@@ -26,10 +26,18 @@
             "allowAppUsePrivilegeExtension": true
         },
         {
+            "bundleName": "com.ohos.contacts",
+            "app_signature" : ["04AC9C3F045EAB7DB992B7C4E38B59468CA3EABB7D654AE47641471B9785EA04"],
+            "singleton": true,
+            "keepAlive": false,
+            "allowCommonEvent": ["usual.event.INCOMING_CALL_MISSED","contact.event.CANCEL_MISSED"]
+        },
+        {
             "bundleName": "com.ohos.mms",
             "app_signature" : ["04AC9C3F045EAB7DB992B7C4E38B59468CA3EABB7D654AE47641471B9785EA04"],
             "singleton": true,
-            "keepAlive": false
+            "keepAlive": false,
+            "allowCommonEvent": ["usual.event.SMS_RECEIVE_COMPLETED"]
         },
         {
             "bundleName": "com.ohos.settingsdata",
@@ -53,7 +61,9 @@
         {
             "bundleName": "com.ohos.devicetest",
             "app_signature" : ["8E93863FC32EE238060BF69A9B37E2608FFFB21F93C862DD511CBAC9F30024B5"],
-            "runningResourcesApply": true
+            "runningResourcesApply": true,
+            "associatedWakeUp": true,
+            "allowAppUsePrivilegeExtension": true
         },
         {
             "bundleName": "com.ohos.contactsdataability",
@@ -116,7 +126,7 @@
         },
         {
             "bundleName": "com.ohos.photos",
-            "app_signature": ["8E93863FC32EE238060BF69A9B37E2608FFFB21F93C862DD511CBAC9F30024B5"],
+            "app_signature": ["9AED2A79925ECA050CD2BB9D2A7F694E49E5E135D28EBDCE53836DE76B5080ED"],
             "allowAppUsePrivilegeExtension": true
         },
         {
@@ -161,11 +171,22 @@
             "allowAppDesktopIconHide": true
         },
         {
+            "bundleName": "com.ohos.useriam.authwidget",
+            "app_signature" : ["8E93863FC32EE238060BF69A9B37E2608FFFB21F93C862DD511CBAC9F30024B5"],
+            "singleton": true,
+            "allowAppDesktopIconHide": true
+        },
+        {
             "bundleName": "com.ohos.formrenderservice",
             "app_signature": ["8E93863FC32EE238060BF69A9B37E2608FFFB21F93C862DD511CBAC9F30024B5"],
             "singleton": true,
             "allowAppUsePrivilegeExtension": true,
             "allowAppDesktopIconHide": true
+        },
+        {
+            "bundleName": "com.ohos.updateapp",
+            "app_signature" : ["BA6EBDF53DD63B7D5616F3789F8C15FD4DE134B2587C577B01DA4D027B44A23C"],
+            "allowAppUsePrivilegeExtension": true
         }
     ]
 }

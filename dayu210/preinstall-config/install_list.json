@@ -89,6 +89,10 @@
             "removable" : false
         },
         {
+            "app_dir" : "/system/app/com.ohos.useriam.authwidget",
+            "removable" : false
+        },
+        {
             "app_dir" : "/system/app/com.ohos.adminprovisioning",
             "removable" : false
         },
@@ -174,6 +178,10 @@
         },
         {
             "app_dir": "/system/app/com.ohos.formrenderservice",
+            "removable": false
+        },
+        {
+            "app_dir": "/system/app/com.ohos.updateapp",
             "removable": false
         }
     ]

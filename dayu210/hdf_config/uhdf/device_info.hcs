@@ -128,6 +128,14 @@
                     deviceMatchAttr = "usb_device_interface_driver";
                 }
             }
+            ddk_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libusb_ddk_driver.z.so";
+                    serviceName = "usb_ddk_service";
+                }
+            }
         }
         power :: host {
             hostName = "power_host";
@@ -225,6 +233,15 @@
                       serviceName = "effect_model_service";
                 }
             }
+            trigger_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libintell_voice_trigger_driver.z.so";
+                    serviceName = "intell_voice_trigger_manager_service";
+                }
+            }
+
         }
         hdi_server :: host {
             hostName = "camera_host";
@@ -271,6 +288,9 @@
         display_composer :: host {
             hostName = "composer_host";
             priority = 40;
+            processPriority = -8;
+            threadPriority = 1;
+            caps = ["SYS_NICE"];
             uid = ["composer_host"];
             gid = ["composer_host", "graphics", "vendor_mpp_driver"];
 	        composer_device :: device {
@@ -342,7 +362,7 @@
                     priority = 100;
                     moduleName = "libcodec_hdi_omx_server.z.so";
                     serviceName = "codec_hdi_omx_service";
-                    deviceMatchAttr = "codec_component_capabilities";
+                    deviceMatchAttr = "media_codec_capabilities";
                 }
             }
             codec_omx_idl_device :: device {
@@ -351,7 +371,7 @@
                     priority = 100;
                     moduleName = "libcodec_driver.z.so";
                     serviceName = "codec_component_manager_service";
-                    deviceMatchAttr = "codec_component_capabilities";
+                    deviceMatchAttr = "media_codec_capabilities";
                 }
             }
             codec_device :: device {
@@ -360,7 +380,7 @@
                     priority = 100;
                     moduleName = "libcodec_server.z.so";
                     serviceName = "codec_hdi_service";
-                    deviceMatchAttr = "media_codec_capabilities";
+                    deviceMatchAttr = "codec_hdi1.0_capabilities";
                 }
             }
             codec_image_device :: device {
@@ -369,7 +389,7 @@
                     priority = 100;
                     moduleName = "libcodec_jpeg_driver.z.so";
                     serviceName = "codec_image_jpeg_service";
-                    deviceMatchAttr = "codec_image_capabilities";
+                    deviceMatchAttr = "image_codec_capabilities";
                 }
             }
         }
@@ -394,6 +414,7 @@
                 }
             }
         }
+		
         distributed_audio_host :: host {
             hostName = "daudio_host";
             priority = 50;
@@ -418,8 +439,8 @@
         face_auth :: host {
             hostName = "face_auth_host";
             priority = 50;
-            uid = "useriam";
-            gid = ["useriam"];
+            uid = "face_auth_host";
+            gid = ["face_auth_host"];
             face_auth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -433,8 +454,8 @@
         pin_auth :: host {
             hostName = "pin_auth_host";
             priority = 50;
-            uid = "useriam";
-            gid = ["useriam"];
+            uid = "pin_auth_host";
+            gid = ["pin_auth_host"];
             pin_auth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -448,8 +469,8 @@
         user_auth :: host {
             hostName = "user_auth_host";
             priority = 50;
-            uid = "useriam";
-            gid = ["useriam"];
+            uid = "user_auth_host";
+            gid = ["user_auth_host"];
             user_auth_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -463,8 +484,8 @@
         fingerprint_auth :: host {
             hostName = "fingerprint_auth_host";
             priority = 50;
-            uid = "useriam";
-            gid = ["useriam"];
+            uid = "fingerprint_auth_host";
+            gid = ["fingerprint_auth_host"];
             fingerprint_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -513,7 +534,6 @@
             priority = 100;
             uid = "useriam";
             gid = ["useriam", "update"];
-            caps = ["DAC_OVERRIDE", "DAC_READ_SEARCH"];
             partitionslot_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -521,6 +541,18 @@
                     preload = 2;
                     moduleName = "libpartitionslot_driver.z.so";
                     serviceName = "partition_slot_service";
+                }
+            }
+        }
+        intell_voice :: host {
+            hostName = "intell_voice_host";
+            priority = 100;
+            intell_voice_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libintell_voice_engine_driver.z.so";
+                    serviceName = "intell_voice_engine_manager_service";
                 }
             }
         }
