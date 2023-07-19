@@ -135,7 +135,7 @@ root {
                     deviceMatchAttr = "PLATFORM_MIPI_DSI_TEST";
                 }
                 uart_tester :: deviceNode {
-                    policy = 1;
+                    policy = 2;
                     priority = 100;
                     preload = 0;
                     permission = 0644;

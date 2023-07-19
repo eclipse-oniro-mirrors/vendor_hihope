@@ -15,6 +15,10 @@ root {
                 num = 1;
                 match_attr = "rockchip_rk3568_uart_1";
             }
+            device_uart_0x0003 :: uart_device {
+                num = 3;
+                match_attr = "rockchip_rk3568_uart_3";
+            }
         }
     }
 }

@@ -28,6 +28,10 @@
         {
           "component": "netmanager_ext",
           "features": []
+        },
+        {
+          "component": "bluetooth_service",
+          "features": []
         }
       ]
     },

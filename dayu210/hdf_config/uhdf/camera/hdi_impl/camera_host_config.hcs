@@ -207,7 +207,7 @@ root {
                 mirrorSupported = "OHOS_CAMERA_MIRROR_OFF";
                 basicAvailableConfigurations = [1, 640, 480, 4, 1280, 960];
                 extendAvailableConfigurations = [0, 0, 1, 640, 480, 0, -1, 1, 1, 640, 480, 30, -1, 2, 4, 1280, 960, 0, -1, -1];
-                sensorOrientationSupported = "270";
+                sensorOrientationSupported = "0";
                 videoStabilizationAvailableModes = [
                     "OHOS_CAMERA_VIDEO_STABILIZATION_OFF"
                 ];
@@ -219,7 +219,8 @@ root {
                     "1.0",
                     "1.0"
                 ];
-                jpegOrientation= "270";
+                jpegOrientation= "0";
+                jpegQuality= "2";
             }
         }
     }
