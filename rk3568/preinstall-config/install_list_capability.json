@@ -104,7 +104,7 @@
         },
         {
             "bundleName": "com.ohos.devicemanagerui",
-            "app_signature": ["8E93863FC32EE238060BF69A9B37E2608FFFB21F93C862DD511CBAC9F30024B5"],
+            "app_signature": ["DFBBF5BC714865FCCCACA69F30BEF951B499329F66C98523795BAD817E49D1A0"],
             "allowAppDesktopIconHide": true,
             "allowAppUsePrivilegeExtension": true
         },
