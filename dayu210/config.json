@@ -193,17 +193,6 @@
           ]
         }
       ]
-    },
-    {
-      "subsystem": "thirdparty",
-      "components": [
-        {
-          "component": "libuv",
-          "features": [
-            "use_ffrt = true"
-          ]
-        }
-      ]
     }
   ]
 }
