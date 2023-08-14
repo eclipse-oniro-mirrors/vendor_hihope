@@ -160,7 +160,10 @@
         },
         {
             "bundleName": "com.ohos.nweb",
-            "app_signature" : ["49D779C85200D36A00DE63E2D85AEF22FE5C72FB268BE13923E589B49BFAFFDA"],
+            "app_signature" : [
+                "49D779C85200D36A00DE63E2D85AEF22FE5C72FB268BE13923E589B49BFAFFDA",
+                "8AFD891FA100D478BEDB6962B157055F26CDD407ACAAD525CBA9FDE490BD23D9"
+            ],
             "singleton": true,
             "allowAppDesktopIconHide": true
         },
