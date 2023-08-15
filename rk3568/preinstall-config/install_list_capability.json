@@ -194,7 +194,6 @@
         {
             "bundleName": "com.ohos.spooler",
             "app_signature" : ["B68D7BE6599CA7ADEDBC95CD1CE176AA96D996D3F41588A487E5F5C4E5DC9427"],
-            "singleton": true,
             "allowAppDesktopIconHide": true
         }
     ]
