@@ -190,7 +190,7 @@
         },
         {
             "bundleName": "com.ohos.spooler",
-            "app_signature" : ["C8777CF9DDD1CB89507F57A0B6E8731D582EEAC4D298EEB31B3D92302C90131E"],
+            "app_signature" : ["B68D7BE6599CA7ADEDBC95CD1CE176AA96D996D3F41588A487E5F5C4E5DC9427"],
             "singleton": true,
             "allowAppDesktopIconHide": true
         }
