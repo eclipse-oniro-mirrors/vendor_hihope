@@ -190,6 +190,12 @@
             "bundleName": "com.ohos.updateapp",
             "app_signature" : ["BA6EBDF53DD63B7D5616F3789F8C15FD4DE134B2587C577B01DA4D027B44A23C"],
             "allowAppUsePrivilegeExtension": true
+        },
+        {
+            "bundleName": "com.ohos.spooler",
+            "app_signature" : ["B68D7BE6599CA7ADEDBC95CD1CE176AA96D996D3F41588A487E5F5C4E5DC9427"],
+            "singleton": true,
+            "allowAppDesktopIconHide": true
         }
     ]
 }
