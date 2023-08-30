@@ -62,6 +62,10 @@
             "bundleName": "com.ohos.devicetest",
             "app_signature" : ["8E93863FC32EE238060BF69A9B37E2608FFFB21F93C862DD511CBAC9F30024B5"],
             "runningResourcesApply": true,
+            "resourcesApply": [
+                0,
+                100
+            ],
             "associatedWakeUp": true,
             "allowAppUsePrivilegeExtension": true
         },
