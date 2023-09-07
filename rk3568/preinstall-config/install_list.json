@@ -187,6 +187,10 @@
         {
             "app_dir": "/system/app/com.ohos.spooler",
             "removable": false
+        },
+        {
+            "app_dir": "/system/app/com.ohos.calendardata",
+            "removable": false
         }
     ]
 }
