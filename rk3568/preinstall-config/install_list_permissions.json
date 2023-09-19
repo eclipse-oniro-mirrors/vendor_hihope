@@ -252,6 +252,44 @@
         ]
     },
     {
+        "bundleName": "com.ohos.dlpmanager",
+        "app_signature" : ["E3F4322139E0109BAFAD8DA4096762068E31708C3CF201780E736D377D60B639"],
+        "permissions" : [
+            {
+                "name": "ohos.permission.READ_MEDIA",
+                "userCancellable" : false
+            },
+            {
+                "name": "ohos.permission.WRITE_MEDIA",
+                "userCancellable" : false
+            },
+            {
+                "name": "ohos.permission.ACCESS_DLP_FILE",
+                "userCancellable" : false
+            },
+            {
+                "name": "ohos.permission.MANAGE_LOCAL_ACCOUNTS",
+                "userCancellable" : false
+            },
+            {
+                "name":"ohos.permission.FILE_ACCESS_MANAGER",
+                "userCancellable" : false
+            },
+            {
+                "name":"ohos.permission.START_ABILIIES_FROM_BACKGROUND",
+                "userCancellable" : false
+            },
+            {
+                "name":"ohos.permission.GET_BUNDLE_INFO_PRIVILEGED",
+                "userCancellable" : false
+            },
+            {
+                "name": "ohos.permission.MEDIA_LOCATION",
+                "userCancellable" : false
+            }
+        ]
+    },
+    {
         "bundleName": "com.ohos.useriam.authwidget",
         "app_signature" : ["8E93863FC32EE238060BF69A9B37E2608FFFB21F93C862DD511CBAC9F30024B5"],
         "permissions" : [
