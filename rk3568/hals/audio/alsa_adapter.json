@@ -2,31 +2,13 @@
     "adapters": [
         {
             "name": "primary",
-            "cardId": "rockchiprk809co",
-            "daiId": "",
-            "simple_mixer_ctl_volume": {
-                "playback": [
-                    {
-                        "name": "DACL"
-                    },
-                    {
-                        "name": "DACR"
-                    }
-                ],
-                "capture": [
-                    {
-                        "name": "DACL"
-                    },
-                    {
-                        "name": "DACR"
-                    }
-                ]
-            }
+            "cardId": 0,
+            "cardName": "rockchiprk809co"
         },
         {
             "name": "hdmi",
-            "cardId": "rockchiphdmi",
-            "daiId": ""
+            "cardId": 1,
+            "cardName": "rockchiphdmi"
         }
     ]
 }
