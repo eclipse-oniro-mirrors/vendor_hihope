@@ -203,6 +203,12 @@
             "bundleName": "com.ohos.spooler",
             "app_signature" : ["B68D7BE6599CA7ADEDBC95CD1CE176AA96D996D3F41588A487E5F5C4E5DC9427"],
             "allowAppDesktopIconHide": true
+        },
+        {
+            "bundleName": "com.ohos.calendardata",
+            "app_signature" : ["1C6905C65DE22F5160790D34ADA462EE9ED3D9EEAA4FCBD4FEC7FFEE7D1D4FD2"],
+            "allowAppDesktopIconHide": true,
+            "allowAppUsePrivilegeExtension": true
         }
     ]
 }
