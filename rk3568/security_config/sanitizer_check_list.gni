@@ -241,6 +241,10 @@ bypass_cfi_target_list = [
   "net_conn_manager",
   "napi_utils",
   "net_policy_manager",
+  "net_native_manager_if",
+  "net_stats_manager_if",
+  "net_policy_manager_if",
+  "socket_permission",
 
   # camera_framework : //foundation/multimedia/camera_framework
   "camera_video",
