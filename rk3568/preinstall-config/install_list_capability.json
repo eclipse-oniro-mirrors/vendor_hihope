@@ -213,6 +213,11 @@
             "app_signature" : ["1C6905C65DE22F5160790D34ADA462EE9ED3D9EEAA4FCBD4FEC7FFEE7D1D4FD2"],
             "allowAppDesktopIconHide": true,
             "allowAppUsePrivilegeExtension": true
+        },
+        {
+            "bundleName": "ohos.samples.distributedmusicplayer",
+            "app_signature" : ["3A73BA9F3F1037AB640D3AA7CDB878943387CEC4738CE985B2CA02422B1E02B7"],
+            "allowAppUsePrivilegeExtension": true
         }
     ]
 }
