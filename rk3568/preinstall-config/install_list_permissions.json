@@ -237,7 +237,7 @@
     },
     {
         "bundleName": "com.ohos.settings",
-        "app_signature" : ["CBB860FB39DD586583ECF66368641BB5"],
+        "app_signature" : ["411BD1E2212DB4E264934D924E5EC4D2BEEE5CF1C4BE64FD9BC6A7157A443438"],
         "permissions" : [
             {
                 "name" : "ohos.permission.GET_INSTALLED_BUNDLE_LIST",
