@@ -387,8 +387,8 @@
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 100;
-                    moduleName = "libcodec_jpeg_driver.z.so";
-                    serviceName = "codec_image_jpeg_service";
+                    moduleName = "libcodec_image_driver.z.so";
+                    serviceName = "codec_image_service";
                     deviceMatchAttr = "image_codec_capabilities";
                 }
             }

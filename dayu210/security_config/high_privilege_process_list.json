@@ -60,6 +60,11 @@
         {
             "name": "hdcd",
             "uid": "root"
+        },
+        {
+            "name": "key_enable",
+            "uid": "root",
+            "gid": "root"
         }
     ]
 }
