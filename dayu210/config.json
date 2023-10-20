@@ -49,10 +49,10 @@
       ]
     },
     {
-      "subsystem": "rockchip_products",
+      "subsystem": "device_rk3588",
       "components": [
         {
-          "component": "rockchip_products",
+          "component": "device_rk3588",
           "features": []
         }
       ]
