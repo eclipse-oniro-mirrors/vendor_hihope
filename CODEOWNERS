@@ -14,3 +14,6 @@
  */
  
  * @whoselettlelion
+
+# any change to sanitizer_check_list.gni needs to be reviewed by @hongjin-li_admin, @JerryH1011, @dcxia, @yangzhenyuan_1982
+rk3568/security_config/sanitizer_check_list.gni @hongjin-li_admin @JerryH1011 @dcxia @yangzhenyuan_1982
