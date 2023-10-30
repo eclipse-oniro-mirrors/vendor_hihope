@@ -245,6 +245,7 @@ bypass_cfi_target_list = [
   "net_stats_manager_if",
   "net_policy_manager_if",
   "socket_permission",
+  "netconn_ndk",
 
   # camera_framework : //foundation/multimedia/camera_framework
   "camera_video",
