@@ -236,7 +236,7 @@ bypass_cfi_target_list = [
   "libxtables",
   "libext4",
   "libext6",
-  "netconn_ndk",
+  "net_connection",
   "net_conn_manager_if",
   "net_conn_manager",
   "napi_utils",
