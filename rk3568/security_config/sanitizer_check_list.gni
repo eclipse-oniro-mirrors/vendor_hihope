@@ -45,6 +45,7 @@ bypass_cfi_target_list = [
   # audio_framework : //foundation/multimedia/audio_framework
   "audio_capturer_gateway",
   "oh_audio_capturer_test",
+  "oh_audio_capturer_lowlatency_test",
   "audio_opensles_player_test",
   "audio_renderer_gateway",
   "oh_audio_renderer_test",
