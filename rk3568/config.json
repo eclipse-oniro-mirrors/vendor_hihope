@@ -199,6 +199,10 @@
             "graphic_2d_feature_rs_enable_eglimage = true",
             "graphic_2d_feature_use_texgine = true"
           ]
+        },
+        {
+          "component": "graphic_surface",
+          "features": []
         }
       ]
     }
