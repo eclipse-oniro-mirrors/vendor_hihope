@@ -216,7 +216,7 @@
         },
         {
             "bundleName": "ohos.samples.distributedmusicplayer",
-            "app_signature" : ["3A73BA9F3F1037AB640D3AA7CDB878943387CEC4738CE985B2CA02422B1E02B7"],
+            "app_signature" : ["CE457F6ACB11F9406B393AF490E6DEFAA4DD1CA7AB6F694EA6119EE18DDF4BBE"],
             "allowAppUsePrivilegeExtension": true
         }
     ]
