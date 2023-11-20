@@ -264,6 +264,20 @@
                 }
             }
         }
+	clearplay :: host {
+            hostName = "clearplay_host";
+            priority = 50;
+            uid = "clearplay_host";
+            gid = ["clearplay_host"];
+            clearplay_device :: device {
+                 device0 :: deviceNode {
+                     policy = 2;
+                     priority = 100;
+                     moduleName = "libclearplay_driver.z.so";
+                     serviceName = "clearplay_service";
+                 }
+            }
+        }
         input_hal :: host {
             hostName = "input_user_host";
             priority = 50;
