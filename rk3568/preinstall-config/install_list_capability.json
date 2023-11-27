@@ -210,7 +210,7 @@
         },
         {
             "bundleName": "com.ohos.calendardata",
-            "app_signature" : ["315E95F380B6C2FF144FB447AE74AC3799660DB8CB5EA861F92E8524554E7A00"],
+            "app_signature" : ["CC249153FA175206B1427C71DB0F2232D91FA4B2ED7955AE1D6EBA4C362D359A"],
             "allowAppDesktopIconHide": true,
             "allowAppUsePrivilegeExtension": true
         },
