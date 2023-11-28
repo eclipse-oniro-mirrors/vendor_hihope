@@ -137,7 +137,7 @@
             "removable" : false
         },
         {
-            "app_dir" : "/system/app/ohos.backgroundtaskmgr.resources",
+            "app_dir" : "/system/app/com.ohos.backgroundtaskmgr.resources",
             "removable" : false
         },
         {
