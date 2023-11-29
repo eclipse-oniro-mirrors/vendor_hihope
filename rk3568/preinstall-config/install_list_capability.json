@@ -91,7 +91,7 @@
         },
         {
             "bundleName": "com.ohos.inputmethodchoosedialog",
-            "app_signature" : ["7B9E42A3A9D203D8340131AC728019D262B71981DD5954C285CB916095646320"],
+            "app_signature" : ["CE4D01EF424B829E13652BB1743E18B8E4542DD5A7BBA7D7D472F727FA6F8A9D"],
             "allowAppDesktopIconHide": true,
             "allowAppUsePrivilegeExtension": true
         },
