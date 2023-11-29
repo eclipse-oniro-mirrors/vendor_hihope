@@ -221,6 +221,7 @@ bypass_cfi_target_list = [
   "wpa_client",
   "wpa_client_updater",
   "wpa",
+  "wpa_sys",
   "wpa_updater",
 
   # netmanager_base : //foundation/communication/netmanager_base
