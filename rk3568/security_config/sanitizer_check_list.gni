@@ -319,20 +319,7 @@ bypass_cfi_target_list = [
   "wifi_sdk",
 
   # dsoftbus : //foundation/communication/dsoftbus
-  "softbus_client",
   "softbus_server",
-  "nstackx_dfile.open",
-  "FillpSo.open",
-  "softbus_adapter",
-  "softbus_utils",
-  "nstackx_ctrl",
-  "nstackx_congestion.open",
-  "nstackx_util.open",
-  "softbus_client_static",
-  "softbus_test_server",
-  "dsoftbus_app_dfile",
-  "auth_session_test",
-  "SoftBusDumpDeviceInfo",
 
   # hilog : //base/hiviewdfx/hilog
   "libhilog",
