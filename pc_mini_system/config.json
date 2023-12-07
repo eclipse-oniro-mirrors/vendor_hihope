@@ -1,0 +1,64 @@
+{
+  "product_name": "pc_mini_system",
+  "device_company": "rockchip",
+  "device_build_path": "device/board/hihope/rk3568",
+  "target_cpu": "arm",
+  "type": "standard",
+  "version": "3.0",
+  "board": "rk3568",
+  "enable_ramdisk": true,
+  "enable_absystem": false,
+  "build_selinux": true,
+  "support_jsapi": true,
+  "build_seccomp": true,
+  "build_out_path": "out/rk3568/pc_mini_system",
+  "inherit": [ "productdefine/common/inherit/pc_rk3568.json" ],
+  "subsystems": [
+	{
+      "subsystem": "hiviewdfx",
+      "components": [
+		{ "component": "hichecker" }
+      ]
+    } ,
+	{
+      "subsystem": "developtools",
+      "components": [
+		{ "component": "hiprofiler" }
+      ]
+    } ,
+   
+
+ 	
+
+	
+		{
+        "subsystem": "powermgr",
+        "components": [
+          {
+            "component": "battery_manager",
+            "features": []
+          }
+		]
+	},
+	
+	  {
+      "subsystem": "sensors",
+      "components": [
+        {
+          "component": "miscdevice",
+          "features": []
+        }
+      ]
+    }   ,
+	
+   {
+      "subsystem": "sensors",
+      "components": [ 
+        {
+          "component": "sensor",
+          "features": []
+        }
+      ]
+    }
+  ]
+}
