@@ -1,0 +1,11 @@
+{
+  "parts": {
+    "product_tablet_mini_system": {
+      "module_list": [
+        "//vendor/hihope/tablet_mini_system:tablet_mini_system",
+        "//vendor/hihope/tablet_mini_system/hdf_config/uhdf:hdf_config"
+      ]
+    }
+  },
+  "subsystem": "product_tablet_mini_system"
+}
