@@ -13,6 +13,7 @@
 
 # The list of part name that need to enable cfi and disable debug mode
 enable_cfi_part_list = [
+  # enabled in OH4.0
   "audio_framework",
   "histreamer",
   "av_session",
@@ -34,14 +35,119 @@ enable_cfi_part_list = [
   "hilog",
   "bluetooth",
   "bluetooth_service",
+
+  # enabled in OH4.1
+  "device_security_level",
+  "face_auth",
+  "fingerprint_auth",
+  "pin_auth",
+  "user_auth_framework",
+  "enterprise_device_management",
+  "wallpaper_mgr",
+  "resource_schedule_service",
+  "data_object",
+  "device_auth",
 ]
 
 # The list of part name that need to enable intsan
 enable_intsan_part_list = []
 
 # The list of build target that bypass the cfi check
-
 bypass_cfi_target_list = [
+  # device_auth : //base/security/device_auth
+  "hichainsdk",  #cfi not configured
+  "hichainsdk_static",  #cfi not configured
+  "device_auth_test_hal",  #cfi not configured
+  "deviceauth_service",
+  "deviceauth_sdk",
+
+  # data_object ： //foundation/distributeddatamgr/data_object
+  "distributeddataobject_static",
+
+  # resource_schedule_service : //foundation/resourceschedule/resource_schedule_service
+  "component_sched_plugin",  #cfi not configured
+  "device_standby_plugin",  #cfi not configured
+  "resschedsvc",
+  "ressched_test",  #cfi not configured
+  "process_proup_test",  #cfi not configured
+
+  #device_security_level : //base/security/device_security_level
+  "messenger_static",  # blocklist contains test code only
+  "utils_static",  # blocklist contains test code only
+  "DslmUnitTest",  # blocklist contains test code only
+  "dslm_extension_dfx",  # blocklist contains test code only
+  "service_common_obj",  # blocklist contains test code only
+  "service_sa_static",  # blocklist contains test code only
+  "service_dslm_obj",  # blocklist contains test code only
+  "service_dslm_test_obj",  # blocklist contains test code only
+  "service_msg_obj",  # blocklist contains test code only
+  "oem_common_obj",  # blocklist contains test code only
+  "dslm_sdk",  # blocklist contains test code only
+  "dslm_service",  # blocklist contains test code only
+  "dslm_ohos_cred_obj",  # blocklist contains test code only
+  "dslm_oem_ext",  # blocklist contains test code only
+
+  # face_auth : //base/useriam/face_auth
+  "iam_utils",
+  "faceauth",
+  "faceauth_framework",
+  "faceauth_framework_stub",
+  "faceauthservice_source_set",
+  "faceauthservice",
+  "faceauthservice_ex",
+  "faceauthservice_ex_source_set",
+  "faceauth_framework_stub_fuzzer",  #cfi not configured
+  "faceauthservice_source_set_fuzzer",  #cfi not configured
+
+  # pin_auth : //base/useriam/pin_auth
+  "iam_utils",
+  "pinauth_framework_source_set",
+  "pinauth_framework",
+  "pinauth_ipc",
+  "pinauthservice_source_set",
+  "pinauthservice",
+  "pinauth_ipc_fuzzer",  #cfi not configured
+  "pinauthservice_source_set_fuzzer",  #cfi not configured
+
+  # user_auth_framework ：//base/useriam/user_auth_framework
+  "iam_thread_pool",
+  "iam_utils",
+  "iam_test",
+  "userauthextensionability_napi",
+  "user_auth_extension",
+  "user_auth_extension_module",
+  "userauth",
+  "attributes",
+  "dfx",
+  "userauth_executors",
+  "userauth_client",
+  "userauth_client_ipc",
+  "userauth_service_ipc",
+  "userauthservice",
+  "userauth_service_core",
+  "userauth_service_base",
+  "userauth_service_context",
+  "userauth_services_ipc",
+  "attributes_fuzzer",  #cfi not configured
+  "dfx_fuzzer",  #cfi not configured
+  "userauth_client_ipc_fuzzer",  #cfi not configured
+  "userauth_service_base_fuzzer",  #cfi not configured
+  "userauth_service_core_fuzzer",  #cfi not configured
+  "userauth_service_context_fuzzer",  #cfi not configured
+  "userauth_service_ipc_fuzzer",  #cfi not configured
+  "userauth_services_ipc_fuzzer",  #cfi not configured
+  "iam_thread_pool_fuzzer",  #cfi not configured
+  "iam_utils_fuzzer",  #cfi not configured
+  "iam_test_fuzzer",  #cfi not configured
+
+  # fingerprint_auth : //base/useriam/fingerprint_auth
+  "fingerprintauthservice_source_set_fuzzer",  #cfi not configured
+
+  # wallpaper_mgr : //base/theme/wallpaper_mgr
+  "wallpapermanager",  #cfi not configured
+  "wallpapermanager_static",  #cfi not configured
+  "wallpaper_utils",  #cfi not configured
+
   # audio_framework : //foundation/multimedia/audio_framework
   "audio_capturer_gateway",
   "oh_audio_capturer_test",
@@ -165,19 +271,11 @@ bypass_cfi_target_list = [
   # huks : //base/security/huks
   "libhukssdk_static",
   "cipher_napi",
-  "huks_ndk",
   "cipher_shared",
   "huks_modify_old_version_key_util",
 
   # certificate_manager : //base/security/certificate_manager
-  "libcert_manager_common_standard_static",
-  "libcert_manager_log_mem_static",
-  "libcert_manager_service_os_dependency_standard_static",
-  "cert_manager_engine_core_standard",
-  "libcm_service_idl_standard_static",
-  "libcert_manager_hisysevent_wrapper_static",
   "libcert_manager_fuzz_test_common_static",
-  "libcert_manager_ipc_client_static",
 
   # image_framework : //foundation/multimedia/image_framework
   "pixelconvertadapter_static",
@@ -190,19 +288,7 @@ bypass_cfi_target_list = [
 
   # media_library : //foundation/multimedia/media_library
   "scanner",
-  "media_mtp",
-  "mtpservice",
   "medialibrary_data_extension",
-
-  # user_file_service : //foundation/filemanagement/user_file_service
-  "file_access_extension_ability_kit",
-  "fileaccess",
-  "fileaccessextensionability_napi",
-  "fileextensioninfo",
-  "file_access_extension_ability_module",
-  "recent",
-  "trash",
-  "file_access_service",
 
   # contacts_data_hap : //applications/standard/contacts_data
   "contactsdataability",
@@ -211,7 +297,6 @@ bypass_cfi_target_list = [
   "crypto_plugin_common",
   "crypto_framework_lib",
   "cryptoframework_napi",
-  "crypto_openssl_plugin_lib",
 
   # wpa_supplicant : //third_party/wpa_supplicant
   "wpa_cli",
@@ -230,9 +315,6 @@ bypass_cfi_target_list = [
   "net_native_parcel",
   "netsys_native_manager_static",
   "net_stats_parcel",
-  "net_policy_manager_static",
-  "net_conn_manager_static",
-  "net_stats_manager_static",
   "libip4tc",
   "libip6tc",
   "libxtables",
@@ -262,7 +344,6 @@ bypass_cfi_target_list = [
   "media_format",
   "audio_ringtone_client",
   "media_seccomp_filter",
-  "systemsoundmanager",
   "media_engine_common_avcodeclist",
   "media_engine_gst_common",
   "media_engine_gst_loader",
@@ -288,10 +369,6 @@ bypass_cfi_target_list = [
   "gst_media_common",
   "gst_codec_plugin_hdi",
   "native_avscreen_capture",
-
-  # screenlock_mgr : //base/theme/screenlock_mgr
-  "screenlock_static",
-  "screenlock_server_static",
 
   # nfc : //foundation/communication/nfc
   # wifi : //foundation/communication/wifi
