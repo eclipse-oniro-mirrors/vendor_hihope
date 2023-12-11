@@ -12,7 +12,7 @@
   "support_jsapi": true,
   "build_seccomp": true,
   "build_out_path": "out/rk3568/pc_mini_system",
-  "inherit": [ "productdefine/common/inherit/pc_rk3568.json" ],
+  "inherit": [ "productdefine/common/inherit/pc.json" ],
   "subsystems": [
 	{
       "subsystem": "hiviewdfx",
