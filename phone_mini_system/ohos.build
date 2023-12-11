@@ -1,0 +1,11 @@
+{
+  "parts": {
+    "product_phone_mini_system": {
+      "module_list": [
+        "//vendor/hihope/phone_mini_system:phone_mini_system",
+        "//vendor/hihope/phone_mini_system/hdf_config/uhdf:hdf_config"
+      ]
+    }
+  },
+  "subsystem": "product_phone_mini_system"
+}

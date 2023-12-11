@@ -1,0 +1,158 @@
+root {
+    platform {
+        template codec_controller {
+            match_attr = "";
+            serviceName = "";
+            codecDaiName = "";
+        }
+        controller_0x120c1030 :: codec_controller {
+            match_attr = "hdf_codec_driver";
+            serviceName = "codec_service_0";
+            codecDaiName = "codec_dai";
+            regConfig {
+                 /* reg: register address
+                    rreg: register address
+                    shift: shift bits
+                    rshift: rshift bits
+                    min: min value
+                    max: max value
+                    mask: mask of value
+                    invert: enum InvertVal 0-uninvert 1-invert
+                    value: value
+                */
+
+                /* reg, value */
+                initSeqConfig = [
+                    0x13,    0xf4, 
+                    0x15,    0x0f, 
+                    0x17,    0x40, 
+                    0x18,    0xc8,
+                    0x1e,    0x00,
+                    0x27,    0x70,
+                    0x29,    0x66,
+                    0x2f,    0x0f,
+                    0x30,    0x06,  
+                    0x35,    0x02, 
+                    0x38,    0x11,  
+                    0x3d,    0x80, 
+                    0x3e,    0x0f, 
+                    0x3f,    0x11, 
+                    0x40,    0xa5, 
+                    0x41,    0x7f, 
+                    0x42,    0x04,
+                    0x43,    0x58, 
+                    0x44,    0x2d, 
+                    0x45,    0x0c, 
+                    0x46,    0xa5, 
+                    0x47,    0x00, 
+                    0x48,    0x00, 
+                    0x4b,    0x0f, 
+                    0x4c,    0x20, 
+                    0x4e,    0x0f, 
+                    0x4f,    0x00,
+                ];
+
+                controlsConfig = [
+                    /*
+                        "Master Playback Volume",
+                        "Master Capture Volume",
+                        "Playback Mute",
+                        "Capture Mute",
+                        "Mic Left Gain",
+                        "Mic Right Gain",
+                        "External Codec Enable",
+                        "Internally Codec Enable",
+                        "Render Channel Mode",
+                        "Captrue Channel Mode"
+                    */
+
+                    /*
+                        iface
+                        0：virtual dac devic
+                        1：virtual adc device
+                        2：virtual adc device
+                        3：virtual mixer device
+                        4：Codec device
+                        5：PGA device
+                        6：AIAO device
+                    */
+
+                    /*array index, iface, enable*/
+                    0,  0,  1,
+                    1,  1,  1,
+                    2,  0,  1,
+                    3,  1,  1,
+                    4,  2,  1,
+                    5,  2,  1,
+                    8,  6,  0,
+                    9,  6,  0,
+                ];
+
+                /* reg, rreg, shift, rshift, min, max, mask, invert, value */
+                ctrlParamsSeqConfig = [
+                    0x31,    0x32,    0,    0,    0x00,    0xFF,   0xFF,   1,    0x00, // DACL/R Playback Volume
+                    0x1a,    0x1b,    0,    0,    0x00,    0xFF,   0xFF,   1,    0x00, // ADCL/R Capture Volume
+                    0x38,    0x38,    0,    0,    0x0,     0x1,    0x1,    0,    0x0,  // DAC Playback Mute
+                    0x18,    0x18,    7,    6,    0x0,     0x1,    0x1,    0,    0x0, // ADCL/R Capture Mute
+                    0x29,    0x29,    4,    4,    0x0,     0xF,    0xF,    0,    0x9,  // Mic Left Gain
+                    0x29,    0x29,    0,    0,    0x0,     0xF,    0xF,    0,    0x9,  // Mic Right Gain
+                    0xFF,    0xFF,    0,    0,    0x00,    0xFF,   0xFF,   0,    0x00, // Render Channel Mode
+                    0xFF,    0xFF,    0,    0,    0x00,    0xFF,   0xFF,   0,    0x00, // Captrue Channel Mode
+                ];
+
+                /* reg, rreg, shift, rshift, min, max, mask, invert, value */
+                daiStartupSeqConfig = [
+                    0x2F,    0x2F,    0,    0,    0x0,    0xFF,    0xFF,    0,    0x00, // PWD_ON
+                    0x38,    0x38,    0,    0,    0x0,    0xFF,    0xFF,    0,    0x10, 
+                ];
+
+                /* reg, rreg, shift, rshift, min, max, mask, invert, value */
+                daiParamsSeqConfig = [
+                    0x45,    0x45,    0,     0,    0x0,   0xFF,    0xFF,   0,     0x0C, // PLL_PREDIV_BIT
+                    0x35,    0x35,    0,     0,    0x0,   0x7,     0x7,    0,     0x2, // DAC_Sample_rate
+                    0x1e,    0x1e,    0,     0,    0x0,   0x7,     0x7,    0,     0x2, // ADC_Sample_rate
+                    0x4e,    0x4e,    0,     0,    0x0,   0x17,    0x1F,   0,     0x0F,  // TX_datawidth 
+                    0x4b,    0x4b,    0,     0,    0x0,   0x17,    0x1F,   0,     0x0F  // RX_datawidth 
+                ];
+
+                ctrlSapmParamsSeqConfig = [
+                    0xFF,    0xFF,    0,     0,    0x00,    0xFF,    0xFF,    0,    0x00,     //LPGA MIC 0 -- connect MIC
+                    0xFF,    0xFF,    0,     0,    0x00,    0xFF,    0xFF,    0,    0x00,     //RPGA MIC 0 -- connect MIC
+                    0xFF,    0xFF,    0,     0,    0x00,    0xFF,    0xFF,    0,    0x00,     //dacl to dacr mixer
+                    0xFF,    0xFF,    0,     0,    0x00,    0xFF,    0xFF,    0,    0x00,     //dacr to dacl mixer
+                ];
+        		/*
+                 电源管理组件配置
+                 componentName: 功能名称，{"ADCL", "ADCR", "DACL", "DACR", "LPGA", "RPGA", "SPKL", "SPKR", "MIC"} 数组索引。
+                 sapmType,compNameIndex,reg, mask,shift,invert, kcontrolNews,kcontrolsNum
+                */
+                sapmComponent = [
+                    10,    0,    0xFF,    0xFF,    0,     0,     0,     0, //ADCL
+                    10,    1,    0xFF,    0xFF,    0,     0,     0,     0, //ADCR
+                    11,    2,    0xFF,    0xFF,    0,     0,     0,     0, //DACL
+                    11,    3,    0xFF,    0xFF,    0,     0,     0,     0, //DACR
+                    15,    6,    0xFF,    0xFF,    0,     0,     0,     0, //SPKL
+                    15,    7,    0xFF,    0xFF,    0,     0,     0,     0, //SPKR
+                    0,     8,    0xFF,    0xFF,    0,     0,     0,     0  //MIC
+                ];
+
+                /*array index, iface, enable*/
+                sapmConfig = [
+                    0,    5,    1,
+                    1,    5,    1,
+                    2,    0,    1,
+                    3,    0,    1
+                ];
+
+               
+            }
+        }
+        controller_0x120c1031 :: codec_controller {
+            match_attr = "hdf_codec_driver_ex";
+            serviceName = "codec_service_1";
+            codecDaiName = "rk817_dai";
+            
+            
+        }
+    }
+}
