@@ -26,6 +26,15 @@
           ]
         }
       ]
+    },
+    {
+      "subsystem": "applications",
+      "components": [
+        {
+          "component": "prebuilt_hap",
+          "features": []
+        }
+      ]
     }
   ]
 }
