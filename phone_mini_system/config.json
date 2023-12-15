@@ -21,18 +21,6 @@
           "component": "rockchip_products", "features":[ "is_support_boot_animation = false" ]
         }
       ]
-    },
-    {
-      "subsystem": "communication",
-      "components": [
-        { "component": "dsoftbus", "features":[] }
-      ]
-    },
-    {
-      "subsystem": "developtools",
-      "components": [
-        { "component": "hdc" }
-      ]
     }
   ]
 }
