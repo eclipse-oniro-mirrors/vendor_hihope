@@ -21,6 +21,10 @@
           "component": "rockchip_products", "features":[ "is_support_boot_animation = false" ]
         }
       ]
+    },
+    {
+      "component": "prebuilt_hap",
+      "features": []
     }
   ]
 }
