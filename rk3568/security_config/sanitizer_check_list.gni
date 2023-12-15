@@ -285,6 +285,7 @@ bypass_cfi_target_list = [
   "utils_mock_static",
   "pluginmanager_static",
   "jpegplugin",
+  "textureEncoderCL",
 
   # media_library : //foundation/multimedia/media_library
   "scanner",
