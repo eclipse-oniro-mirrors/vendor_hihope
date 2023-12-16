@@ -203,6 +203,10 @@
         {
           "component": "graphic_surface",
           "features": []
+        },
+        {
+          "component": "graphic_3d",
+          "features": []
         }
       ]
     }
