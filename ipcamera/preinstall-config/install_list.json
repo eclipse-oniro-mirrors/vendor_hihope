@@ -149,7 +149,7 @@
             "removable": false
         },
         {
-            "app_dir" : "/system/app/cn.openharmony.pasteboarddialog",
+            "app_dir" : "/system/app/com.ohos.pasteboarddialog",
             "removable" : true
         },
         {
