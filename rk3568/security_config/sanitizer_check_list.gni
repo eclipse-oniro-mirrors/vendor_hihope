@@ -47,6 +47,46 @@ enable_cfi_part_list = [
   "resource_schedule_service",
   "data_object",
   "device_auth",
+  "data_share",
+  "time_service",
+  "imf",
+  "location",
+  "device_manager",
+  "distributed_audio",
+  "distributed_camera",
+  "distributed_hardware_fwk",
+  "distributed_input",
+  "distributed_screen",
+  "device_info_manager",
+  "dmsfwk",
+  "usb_manager",
+  "sensor",
+  "battery_manager",
+  "battery_statistics",
+  "display_manager",
+  "power_manager",
+  "thermal_manager",
+  "device_status",
+  "motion",
+  "spatial_awareness",
+  "algorithm",
+  "window_manager",
+  "qos_manager",
+  "call_manager",
+  "cellular_call",
+  "core_service",
+  "rill_adapter",
+  "sms_mms",
+  "state_registry",
+  "telephony_data",
+  "common_event_service",
+  "distributed_notification_service",
+  "eventhandler",
+  "os_account",
+  "access_token",
+  "dupdate_engine",
+  "input",
+  "device_attest",
 ]
 
 # The list of part name that need to enable intsan
@@ -54,6 +94,185 @@ enable_intsan_part_list = []
 
 # The list of build target that bypass the cfi check
 bypass_cfi_target_list = [
+  # data_share : //foundation/distributeddatamgr/data_share
+  "datashare_provider",  #cfi not configured
+
+  # time_service : //base/time/time_service
+  "time_system_ability",
+  "time_system_ability_static",
+
+  # location : //base/location
+  "lbsservice_gnss",
+  "lbsservice_network",
+  "lbsservice_passive",
+  "locator_sdk",
+  "geolocation",
+  "lbsservice_common",
+  "locator_agent",
+  "geolocation_static",
+  "lbsservice_geocode",
+  "geolocationmanager",
+
+  # device_manager : //foundation/distributedhardware/device_manager
+  "devicemanagersdk",  #cfi not configured
+  "devicemanagerdependency",  #cfi not configured
+  "devicemanagerradar",  #cfi not configured
+
+  # distributed_audio : //foundation/distributedhardware/distributed_audio
+  "distributed_audio_handler",  #cfi not configured
+
+  # distributed_camera : //foundation/distributedhardware/distributed_camera
+  "distributed_camera_source",
+  "distributed_camera_data_process",
+
+  # distributed_hardware_fwk : //foundation/distributedhardware/distributed_hardware_fwk
+  "hardwaremanager",  #cfi not configured
+  "distributed_av_sender",  #cfi not configured
+  "distributed_av_receiver",  #cfi not configured
+  "histreamer_ability_querier",  #cfi not configured
+  "histreamer_ability_querier_core",  #cfi not configured
+  "avtrans_input_filter",  #cfi not configured
+  "avtrans_output_filter",  #cfi not configured
+  "plugin_AVTransDaudioInput",  #cfi not configured
+  "plugin_AVTransDsoftbusInput",  #cfi not configured
+  "plugin_AVTransDscreenInput",  #cfi not configured
+  "plugin_AVTransDsoftbusInputAudio",  #cfi not configured
+  "plugin_AVTransDscreenOutput",  #cfi not configured
+  "plugin_AVTransDsoftbusOutputAudio",  #cfi not configured
+  "plugin_AVTransDaudioOutput",  #cfi not configured
+  "plugin_AVTransDsoftbusOutput",  #cfi not configured
+
+  # device_info_manager : //foundation/deviceprofile/device_info_manager
+  "distributed_device_profile_common",  #cfi not configured
+  "distributed_device_profile_sdk",  #cfi not configured
+  "distributed_device_profile_svr",  #cfi not configured
+  "deviceprofileradar",  #cfi not configured
+
+  # usb_manager : //base/use/usb_manager
+  "usbsrv_client",
+  "usb",
+  "usbmanager",
+
+  # sensor : //base/sensors/sensor
+  "sensor_rust_util_ffi",
+
+  # battery_manager : //base/powermgr/battery_manager
+  "batterysrv_client",
+  "charger",
+  "batteryinfo",
+  "batterysrv_stub",
+  "battery",
+
+  # battery_statistics ：//base/powermgr/battery_statistics
+  "batterystatistics",
+  "batterystats_client",
+  "batterystats_service",
+  "batterystats_stub",
+  "batterystats_utils",  #cfi not configured
+
+  # display_manager ：//base/powermgr/display_manager
+  "brightness",
+  "displaymgr",
+  "displaymgr_stub",
+
+  # power_manager : //base/powermgr/power_manager
+  "power-shell",
+  "power_sysparam",
+  "power_permission",
+  "power_setting",
+  "powermgr_client",  #cfi not configured
+  "power_ffrt",
+  "power_vibrator",
+  "powermgr_stub",  #cfi not configured
+  "power_utils",  #cfi not configured
+  "power",  #cfi not configured
+  "runninglock",  #cfi not configured
+
+  # thermal_manager : //base/powermgr/thermal_manager
+  "thermalservice",
+  "mock_thermalsrv_client",
+  "thermalsrv_client",
+  "thermalmgr_listener",
+  "thermal_protector",
+  "thermal",
+  "thermal_utils",
+  "thermalmgr_stub",
+  "thermalmgr_proxy",
+
+  # device_status ：//base/msdp/device_status
+  "devicestatus_mock",  #cfi not configured
+  "devicestatus_static_service",  #cfi not configured
+  "devicestatus_vdev",  #cfi not configured
+  "devicestatus_vdev_builders",  #cfi not configured
+  "vdevadm",  #cfi not configured
+
+  # window_manager : //foundation/window/window_manager
+  "setresolution_screen",  #cfi not configured
+  "libsetresolution_util",  #cfi not configured
+  "libwmutil",  #cfi not configured
+  "screensessionmanager_napi",  #cfi not configured
+  "demo_mirror_screen_listener",  #cfi not configured
+  "demo_screenshot_listener",  #cfi not configured
+  "demo_snapshot_virtual_screen",  #cfi not configured
+  "demo_system_sub_window",  #cfi not configured
+  "demo_freeze_display",  #cfi not configured
+  "demo_water_mark_listener",  #cfi not configured
+  "demo_session_manager",  #cfi not configured
+  "ws_unittest_common",  #cfi not configured
+  "utils_unittest_common",  #cfi not configured
+  "window_extension_unittest_common",  #cfi not configured
+  "dm_unittest_common",  #cfi not configured
+  "dms_systemtest_common",  #cfi not configured
+  "dmserver_unittest_common",  #cfi not configured
+  "wm_unittest_common",  #cfi not configured
+  "libtestutil",  #cfi not configured
+  "wms_systemtest_common",  #cfi not configured
+  "libwm_lite",  #cfi not configured
+
+  # core_service : //base/telephony/core_service
+  "vcard",  #cfi not configured
+  "libtel_vcard",  #cfi not configured
+
+  # common_event_service : //base/notification/common_event_service
+  "cesfwk_core",  #cfi not configured
+  "cesfwk_innerkits",
+  "cesfwk_services_static",  #cfi not configured
+  "tools_cem_source_set",  #cfi not configured
+  "actscesfwk_kits_test",  #cfi not configured
+  "cesfwk_kits_test",  #cfi not configured
+
+  # eventhandler : //base/notification/eventhandler
+  "libeventhandler",
+
+  # os_account : //base/account/os_account
+  "accountmgr",
+
+  # access_token : //base/security/access_token
+  "token_sync_manager_service",
+  "accesstoken_manager_service",
+  "privacy_manager_service",
+  "libaccesstoken_sdk",
+  "libnativetoken",
+  "libprivacy_sdk",
+  "libtoken_callback_sdk",
+  "libtokenid_sdk",
+  "libtoken_setproc",  #cfi not configured
+  "libcodesignature_analysis",
+  "atm",  #cfi not configured
+  "libabilityaccessctrl",
+  "libnapi_common",
+  "libprivacymanager",
+  "libtokensync_sdk",
+  "accesstoken_service_common",
+  "accesstoken_common_cxx",
+  "accesstoken_communication_adapter_cxx",
+  "privacy_communication_adapter_cxx",
+  "accesstoken_permission_map",
+
+  # input : //foundation/multimodalinput/input
+  "mmi_rust_key_config",  #cfi not configured
+  "mmi_rust",  #cfi not configured
+
   # device_auth : //base/security/device_auth
   "hichainsdk",  #cfi not configured
   "hichainsdk_static",  #cfi not configured
@@ -84,8 +303,8 @@ bypass_cfi_target_list = [
   "oem_common_obj",  # blocklist contains test code only
   "dslm_sdk",  # blocklist contains test code only
   "dslm_service",  # blocklist contains test code only
-  "dslm_ohos_cred_obj",  # blocklist contains test code only
   "dslm_oem_ext",  # blocklist contains test code only
+  "dslm_ohos_cred_obj",  # blocklist contains test code only
 
   # face_auth : //base/useriam/face_auth
   "iam_utils",
@@ -371,7 +590,6 @@ bypass_cfi_target_list = [
   "gst_codec_plugin_hdi",
   "native_avscreen_capture",
 
-  # nfc : //foundation/communication/nfc
   # wifi : //foundation/communication/wifi
   "crpc_client_updater",
   "WifiHalVendorTest",
