@@ -1,0 +1,11 @@
+{
+  "parts": {
+    "product_pc_mini_system": {
+      "module_list": [
+        "//vendor/hihope/pc_mini_system:pc_mini_system",
+        "//vendor/hihope/pc_mini_system/hdf_config/uhdf:hdf_config"
+      ]
+    }
+  },
+  "subsystem": "product_pc_mini_system"
+}

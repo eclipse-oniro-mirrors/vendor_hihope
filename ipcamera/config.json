@@ -11,7 +11,6 @@
   "build_selinux": true,
   "build_seccomp": true,
   "inherit": [
-    "productdefine/common/base/standard_system.json",
     "productdefine/common/inherit/ipcamera.json"
   ], 
   "subsystems": [
@@ -57,17 +56,6 @@
             "input_feature_monitor = true",
             "input_feature_touchscreen = true",
             "input_feature_input_device = true"
-          ]
-        }
-      ]
-    },
-    {
-      "subsystem": "thirdparty",
-      "components": [
-        {
-          "component": "wpa_supplicant",
-          "features": [
-            "wpa_supplicant_driver_nl80211 = true"
           ]
         }
       ]

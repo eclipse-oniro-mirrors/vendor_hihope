@@ -1,0 +1,40 @@
+{
+  "product_name": "tablet_mini_system",
+  "device_company": "rockchip",
+  "device_build_path": "device/board/hihope/rk3568",
+  "target_cpu": "arm",
+  "type": "standard",
+  "version": "3.0",
+  "board": "rk3568",
+  "enable_ramdisk": true,
+  "enable_absystem": false,
+  "build_selinux": true,
+  "support_jsapi": true,
+  "build_seccomp": true,
+  "build_out_path": "out/rk3568/tablet_mini_system",
+  "inherit": [
+    "productdefine/common/inherit/tablet.json"
+  ],
+  "subsystems": [
+    {
+      "subsystem": "rockchip_products",
+      "components": [
+        {
+          "component": "rockchip_products",
+          "features": [
+            "is_support_boot_animation = false"
+          ]
+        }
+      ]
+    },
+    {
+      "subsystem": "applications",
+      "components": [
+        {
+          "component": "prebuilt_hap",
+          "features": []
+        }
+      ]
+    }
+  ]
+}
