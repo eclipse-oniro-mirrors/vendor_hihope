@@ -195,6 +195,10 @@
         {
             "app_dir": "/system/app/com.ohos.calendardata",
             "removable": false
+        },
+        {
+            "app_dir": "/system/app/com.usb.function",
+            "removable": true
         }
     ]
 }
