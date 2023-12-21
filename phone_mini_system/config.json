@@ -23,16 +23,8 @@
       ]
     },
     {
-      "subsystem": "communication",
-      "components": [
-        { "component": "dsoftbus", "features":[] }
-      ]
-    },
-    {
-      "subsystem": "developtools",
-      "components": [
-        { "component": "hdc" }
-      ]
+      "component": "prebuilt_hap",
+      "features": []
     }
   ]
 }
