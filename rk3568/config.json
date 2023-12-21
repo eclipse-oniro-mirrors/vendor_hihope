@@ -191,6 +191,15 @@
       ]
     },
     {
+      "subsystem": "tee",
+      "components": [
+        {
+          "component": "tee_client",
+          "features": []
+        }
+      ]
+    },
+    {
       "subsystem": "graphic",
       "components": [
         {
