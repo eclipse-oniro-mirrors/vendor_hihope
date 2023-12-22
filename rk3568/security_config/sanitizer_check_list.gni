@@ -229,6 +229,8 @@ bypass_cfi_target_list = [
   "wms_systemtest_common",  #cfi not configured
   "libwm_lite",  #cfi not configured
   "libdm",  #cfi not configured
+  "libdm_lite",  #cfi not configured
+  "dm_unittest_common_lite",  #cfi not configured
 
   # core_service : //base/telephony/core_service
   "vcard",  #cfi not configured
