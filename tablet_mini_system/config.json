@@ -1,117 +1,40 @@
 {
-    "product_name": "tablet_mini_system",
-    "device_company": "rockchip",
-    "device_build_path": "device/board/hihope/rk3568",
-    "target_cpu": "arm",
-    "type": "standard",
-    "version": "3.0",
-    "board": "rk3568",
-    "enable_ramdisk": true,
-    "enable_absystem": false,
-    "build_selinux": true,
-    "support_jsapi": true,
-    "build_seccomp": true,
-    "build_out_path": "out/rk3568/tablet_mini_system",
-    "inherit": [
-      "productdefine/common/base/standard_system.json",
-      "productdefine/common/inherit/tablet.json"
-    ],
-    "subsystems": [
-      {
-        "subsystem": "telephony",
-        "components": [
+  "product_name": "tablet_mini_system",
+  "device_company": "rockchip",
+  "device_build_path": "device/board/hihope/rk3568",
+  "target_cpu": "arm",
+  "type": "standard",
+  "version": "3.0",
+  "board": "rk3568",
+  "enable_ramdisk": true,
+  "enable_absystem": false,
+  "build_selinux": true,
+  "support_jsapi": true,
+  "build_seccomp": true,
+  "build_out_path": "out/rk3568/tablet_mini_system",
+  "inherit": [
+    "productdefine/common/inherit/tablet.json"
+  ],
+  "subsystems": [
+    {
+      "subsystem": "rockchip_products",
+      "components": [
         {
-         "component": "cellular_data", "features":[]
-        },
-        {
-         "component": "core_service", "features":[]
-        },
-        {
-         "component": "telephony_data", "features":[]
-        },
-        {
-        "component": "call_manager", "features":[]
-        },
-        {
-         "component": "sms_mms", "features":[]
+          "component": "rockchip_products",
+          "features": [
+            "is_support_boot_animation = false"
+          ]
         }
-        ]
-      },
-      {
-       "subsystem": "print",
-        "components": [
-       {
-         "component": "print_fwk", "features":[]
-       }
-       ]
-      },
-      {
-        "subsystem": "developtools",
-         "components": [
+      ]
+    },
+    {
+      "subsystem": "applications",
+      "components": [
         {
-          "component": "hiprofiler", "features":[]
+          "component": "prebuilt_hap",
+          "features": []
         }
-        ]
-       },
-      {
-        "subsystem": "hiviewdfx",
-        "components": [
-          {
-            "component": "hidumper",
-            "features": []
-          },
-          {
-            "component": "hichecker",
-            "features": []
-          }
-        ]
-      },
-      {
-        "subsystem": "graphic",
-        "components": [
-          {
-            "component": "graphic_surface",
-            "features": []
-          }
-        ]
-      },
-      {
-        "subsystem": "multimedia",
-        "components": [
-          {
-            "component": "histreamer",
-            "features": []
-          }
-        ]
-      },
-      {
-        "subsystem": "deviceprofile",
-        "components": [
-          {
-            "component": "device_info_manager",
-            "features": []
-          }
-        ]
-      },
-      {
-        "subsystem": "security",
-        "components": [
-          {
-            "component": "code_signature",
-            "features": []
-          }
-        ]
-      },
-      {
-        "subsystem": "rockchip_products",
-        "components": [
-          {
-            "component": "rockchip_products",
-            "features": [
-              "is_support_boot_animation = false"
-            ]
-          }
-        ]
-      }
-    ]
-  }
+      ]
+    }
+  ]
+}

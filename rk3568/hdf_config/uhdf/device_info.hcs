@@ -290,7 +290,7 @@
         input_hal :: host {
             hostName = "input_user_host";
             priority = 50;
-            gid = ["input_user_host", "uhdf_driver"];
+            gid = ["input_user_host", "uhdf_driver", "uhid"];
             input_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -305,6 +305,14 @@
                     priority = 100;
                     moduleName = "libinput_driver.z.so";
                     serviceName = "input_interfaces_service";
+                }
+            }
+            hid_ddk_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libhid_ddk_driver.z.so";
+                    serviceName = "hid_ddk_service";
                 }
             }
         }
