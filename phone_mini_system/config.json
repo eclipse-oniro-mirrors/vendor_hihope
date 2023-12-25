@@ -25,10 +25,6 @@
     {
       "component": "prebuilt_hap",
       "features": []
-    },
-    {
-      "component": "graphic_chipsetsdk",
-      "features": []
     }
   ]
 }
