@@ -219,6 +219,12 @@
             "bundleName": "ohos.samples.distributedmusicplayer",
             "app_signature" : ["CE457F6ACB11F9406B393AF490E6DEFAA4DD1CA7AB6F694EA6119EE18DDF4BBE"],
             "allowAppUsePrivilegeExtension": true
+        },
+        {
+            "bundleName": "com.usb.function",
+            "app_signature": ["D729F438E1EF2E154994E2B077F6C0CD592BA9F9C938BB428FCDA564FF805EE4"],
+            "allowAppUsePrivilegeExtension": true,
+            "allowAppDesktopIconHide": true
         }
     ]
 }
