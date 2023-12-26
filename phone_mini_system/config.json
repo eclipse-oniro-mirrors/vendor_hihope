@@ -23,8 +23,13 @@
       ]
     },
     {
-      "component": "prebuilt_hap",
-      "features": []
+      "subsystem": "applications",
+      "components": [
+        {
+          "component": "prebuilt_hap",
+          "features": []
+        }
+      ]
     }
   ]
 }
