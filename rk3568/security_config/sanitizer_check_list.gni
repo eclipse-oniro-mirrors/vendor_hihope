@@ -1074,7 +1074,7 @@ enable_cfi_part_and_bypass_list = [
     bypass_audio_framework,
   ],
   [
-    "histreamer",
+    "media_foundation",
     bypass_histreamer,
   ],
   [
