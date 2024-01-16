@@ -614,6 +614,7 @@ bypass_telephony_data = []
 bypass_common_event_service = [
   "cesfwk_core",  #cfi not configured
   "cesfwk_innerkits",
+  "cesfwk_services",   #cfi not configured
   "cesfwk_services_static",  #cfi not configured
   "tools_cem_source_set",  #cfi not configured
   "actscesfwk_kits_test",  #cfi not configured
