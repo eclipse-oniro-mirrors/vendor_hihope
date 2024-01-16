@@ -224,6 +224,7 @@ bypass_camera_framework = [
   "camera_framework",
   "camera_napi",
   "camera_service",
+  "deferred_processing_service",
 ]
 
 # player_framework : //foundation/multimedia/player_framework
