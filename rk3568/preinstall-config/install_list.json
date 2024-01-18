@@ -199,6 +199,10 @@
         {
             "app_dir": "/system/app/com.usb.function",
             "removable": true
+        },
+        {
+            "app_dir": "/system/app/VpnDialog",
+            "removable": false
         }
     ]
 }
