@@ -15,14 +15,14 @@ import("//drivers/hdf_core/adapter/uhdf2/hcs/hcs.gni")
 
 hdf_hcb("hdf_default.hcb") {
   source = "./hdf.hcs"
-  part_name = "product_hihope_mini_system"
-  subsystem_name = "product_tablet_mini_system"
+  part_name = "product_tablet_mini_system"
+  subsystem_name = "product_hihope"
 }
 
 hdf_cfg("hdf_devhost.cfg") {
   source = "./hdf.hcs"
-  part_name = "product_hihope_mini_system"
-  subsystem_name = "product_tablet_mini_system"
+  part_name = "product_tablet_mini_system"
+  subsystem_name = "product_hihope"
 }
 
 group("hdf_config") {

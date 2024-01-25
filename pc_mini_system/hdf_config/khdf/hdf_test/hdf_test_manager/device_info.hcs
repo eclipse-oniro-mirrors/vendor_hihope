@@ -36,10 +36,27 @@ root {
                     moduleName = "hdf_test_helper";
                     serviceName = "hdf_test_helper";
                 }
+                device_uevent_ut :: deviceNode {
+                    policy = 2;
+                    priority = 10;
+                    preload = 0;
+                    permission = 0644;
+                    moduleName = "uevent_ut_driver";
+                    serviceName = "hdf_uevent_ut";
+                }
             }
             device_platform_test :: device {
+                adc_tester :: deviceNode {
+                    policy = 2;
+                    priority = 110;
+                    preload = 0;
+                    permission = 0644;
+                    moduleName = "PLATFORM_ADC_TEST";
+                    deviceMatchAttr = "ADC_TEST";
+                    serviceName = "ADC_TEST";
+                }
                 gpio_tester :: deviceNode {
-                    policy = 1;
+                    policy = 2;
                     priority = 101;
                     preload = 0;
                     permission = 0644;
@@ -56,8 +73,23 @@ root {
                     deviceMatchAttr = "I2C_TEST";
                     serviceName = "I2C_TEST";
                 }
-                pwm_test :: deviceNode {
+                i2c_dummy :: deviceNode {
                     policy = 1;
+                    priority = 101;
+                    preload = 0;
+                    permission = 0644;
+                    moduleName = "dummy_i2c_adapter";
+                }
+                pwm_virtual :: deviceNode {
+                    policy = 2;
+                    priority = 56;
+                    permission = 0644;
+                    moduleName = "virtual_pwm_driver";
+                    serviceName = "HDF_PLATFORM_PWM_10";
+                    deviceMatchAttr = "virtual_pwm";
+                }
+                pwm_test :: deviceNode {
+                    policy = 2;
                     priority = 110;
                     preload = 0;
                     permission = 0644;
@@ -111,13 +143,22 @@ root {
                     deviceMatchAttr = "PLATFORM_MIPI_DSI_TEST";
                 }
                 uart_tester :: deviceNode {
-                    policy = 1;
+                    policy = 2;
                     priority = 100;
                     preload = 0;
                     permission = 0644;
                     moduleName = "PLATFORM_UART_TEST";
                     serviceName = "UART_TEST";
                     deviceMatchAttr = "UART_TEST";
+                }
+                rtc_tester :: deviceNode {
+                    policy = 2;
+                    priority = 101;
+                    preload = 0;
+                    permission = 0644;
+                    moduleName = "PLATFORM_RTC_TEST";
+                    serviceName = "RTC_TEST";
+                    deviceMatchAttr = "RTC_TEST";
                 }
             }
             device_sensor_test :: device {

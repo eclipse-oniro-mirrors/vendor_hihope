@@ -2,8 +2,14 @@
   "parts": {
     "product_pc_mini_system": {
       "module_list": [
-        "//vendor/hihope/pc_mini_system:pc_mini_system",
-        "//vendor/hihope/pc_mini_system/hdf_config/uhdf:hdf_config"
+        "//vendor/hihope/pc_mini_system/default_app_config:default_app_config",
+        "//vendor/hihope/pc_mini_system/image_conf:custom_image_conf",
+        "//vendor/hihope/pc_mini_system/preinstall-config:preinstall-config",
+        "//vendor/hihope/pc_mini_system/resourceschedule:resourceschedule",
+        "//vendor/hihope/pc_mini_system/etc:product_etc_conf",
+        "//vendor/hihope/pc_mini_system/hals/audio:hdf_audio_config",
+        "//vendor/hihope/pc_mini_system/hals/codec/:hdf_codec_config",
+	"//vendor/hihope/pc_mini_system/hdf_config/uhdf:hdf_config"
       ]
     }
   },

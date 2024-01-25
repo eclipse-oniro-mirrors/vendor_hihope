@@ -15,6 +15,7 @@
 ccflags-$(CONFIG_DRIVERS_HDF_TEST) +=  -I$(srctree)/include/hdf \
     -I$(srctree)/include/hdf/osal \
     -I$(srctree)/include/hdf/utils \
+    -I$(srctree)/drivers/hdf \
     -I$(srctree)/drivers/hdf/inner_api/osal/shared \
     -I$(srctree)/drivers/hdf/inner_api/host/shared \
     -I$(srctree)/drivers/hdf/inner_api/utils \
@@ -59,10 +60,11 @@ CONFIG_GEN_HEX_SRC := $(addprefix $(LOCAL_HCS_ROOT)/, $(HCS_OBJ_SRC))
 CONFIG_HCS_SRC := $(subst _hcs_hex.o,.hcs,$(addprefix $(HCS_DIR)/, $(HCS_OBJ)))
 
 HDF_FRAMWORK_TEST_ROOT = $(abspath $(SOURCE_ROOT)/drivers/hdf_core/framework/test/unittest/utils/hcs_parser/unittest)
+HDF_FRAMWORK_TEST_OUT = $(srctree)/drivers/hdf
 HCS_MACRO_OBJ := hcs_macro_cases.o
 HCS_MACRO_SRC := $(HDF_FRAMWORK_TEST_ROOT)/hcs_macro_cases.c
-HCS_DEP := $(HDF_FRAMWORK_TEST_ROOT)/hdf_macro_test.h
-HCS_MACRO_GEN_FILE := $(HDF_FRAMWORK_TEST_ROOT)/hdf_macro_test
+HCS_DEP := $(HDF_FRAMWORK_TEST_OUT)/hdf_macro_test.h
+HCS_MACRO_GEN_FILE := $(HDF_FRAMWORK_TEST_OUT)/hdf_macro_test
 HCS_FILE := $(HCS_DIR)/hdf.hcs
 
 $(obj)/$(HCS_OBJ): $(CONFIG_GEN_HEX_SRC)
