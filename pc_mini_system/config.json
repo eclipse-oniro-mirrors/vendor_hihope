@@ -1,64 +1,157 @@
 {
-  "product_name": "pc_mini_system",
-  "device_company": "rockchip",
-  "device_build_path": "device/board/hihope/rk3568",
-  "target_cpu": "arm",
-  "type": "standard",
-  "version": "3.0",
-  "board": "rk3568",
-  "enable_ramdisk": true,
-  "enable_absystem": false,
-  "build_selinux": true,
-  "support_jsapi": true,
-  "build_seccomp": true,
-  "build_out_path": "out/rk3568/pc_mini_system",
-  "inherit": [ "productdefine/common/inherit/pc_rk3568.json" ],
-  "subsystems": [
-	{
-      "subsystem": "hiviewdfx",
-      "components": [
-		{ "component": "hichecker" }
-      ]
-    } ,
-	{
-      "subsystem": "developtools",
-      "components": [
-		{ "component": "hiprofiler" }
-      ]
-    } ,
-   
-
- 	
-
-	
-		{
+    "product_name": "pc_mini_system",
+    "device_company": "rockchip",
+    "device_build_path": "device/board/hihope/rk3568",
+    "target_cpu": "arm",
+    "type": "standard",
+    "version": "3.0",
+    "board": "rk3568",
+    "api_version": 8,
+    "enable_ramdisk": true,
+    "enable_absystem": false,
+    "build_selinux": true,
+    "build_seccomp": true,
+    "inherit": [
+      "productdefine/common/inherit/pc.json"
+    ],
+    "subsystems": [
+      {
+        "subsystem": "developtools",
+        "components": [
+          {
+            "component": "bytrace",
+            "features": []
+          }
+        ]
+      },
+      {
+        "subsystem": "applications",
+        "components": [
+          {
+            "component": "prebuilt_hap",
+            "features": []
+          }
+        ]
+      },
+  
+      {
+        "subsystem": "rockchip_products",
+        "components": [
+          {
+            "component": "rockchip_products",
+            "features": []
+          }
+        ]
+      },
+      {
+        "subsystem": "sensors",
+        "components": [
+          {
+            "component": "miscdevice",
+            "features": []
+          }
+        ]
+      },
+      {
+        "subsystem": "sensors",
+        "components": [
+          {
+            "component": "sensor",
+            "features": []
+          }
+        ]
+      },
+      {
         "subsystem": "powermgr",
         "components": [
           {
             "component": "battery_manager",
             "features": []
           }
-		]
-	},
-	
-	  {
-      "subsystem": "sensors",
-      "components": [
-        {
-          "component": "miscdevice",
-          "features": []
-        }
-      ]
-    }   ,
-	
-   {
-      "subsystem": "sensors",
-      "components": [ 
-        {
-          "component": "sensor",
-          "features": []
-        }
-      ]
-    }
-  ]
-}
+        ]
+      },
+  
+  
+      {
+        "subsystem": "telephony",
+        "components": [
+          {
+            "component": "core_service",
+            "features": []
+          }
+        ]
+      },
+      {
+        "subsystem": "telephony",
+        "components": [
+          {
+            "component": "telephony_data",
+            "features": []
+          }
+        ]
+      },
+      {
+        "subsystem": "telephony",
+        "components": [
+          {
+            "component": "state_registry",
+            "features": []
+          }
+        ]
+      },
+      {
+        "subsystem": "telephony",
+        "components": [
+          {
+            "component": "cellular_call",
+            "features": []
+          }
+        ]
+      },
+      {
+        "subsystem": "telephony",
+        "components": [
+          {
+            "component": "cellular_data",
+            "features": []
+          }
+        ]
+      },
+      {
+        "subsystem": "telephony",
+        "components": [
+          {
+            "component": "sms_mms",
+            "features": []
+          }
+        ]
+      },
+      {
+        "subsystem": "telephony",
+        "components": [
+          {
+            "component": "call_manager",
+            "features": []
+          }
+        ]
+      },
+      {
+        "subsystem": "telephony",
+        "components": [
+          {
+            "component": "ril_adapter",
+            "features": []
+          }
+        ]
+      },
+      {
+        "subsystem": "location",
+        "components": [
+          {
+            "component": "location",
+            "features": []
+          }
+        ]
+      }
+    ]
+  }

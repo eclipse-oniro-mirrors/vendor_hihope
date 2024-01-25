@@ -34,6 +34,13 @@
             priority = 50;
             device_gpio :: device {
                 device0 :: deviceNode {
+                    policy = 2;
+                    priority = 10;
+                    permission = 0644;
+                    moduleName = "HDF_PLATFORM_GPIO_MANAGER";
+                    serviceName = "HDF_PLATFORM_GPIO_MANAGER";
+                }
+                device1 :: deviceNode {
                     policy = 0;
                     priority = 10;
                     permission = 0644;
@@ -53,18 +60,17 @@
             }
            device_rtc :: device {
                 device0 :: deviceNode {
-                    policy = 1;
+                    policy = 2;
                     priority = 30;
                     permission = 0644;
                     moduleName = "HDF_PLATFORM_RTC";
                     serviceName = "HDF_PLATFORM_RTC";
-                    deviceMatchAttr = "hisilicon_hi35xx_rtc";
+                    deviceMatchAttr = "rockchip_rk3568_rtc";
                 }
             }
-
             device_uart :: device {
                 device0 :: deviceNode {
-                    policy = 1;
+                    policy = 2;
                     priority = 40;
                     permission = 0644;
                     moduleName = "HDF_PLATFORM_UART";
@@ -78,6 +84,14 @@
                     moduleName = "HDF_PLATFORM_UART";
                     serviceName = "HDF_PLATFORM_UART_1";
                     deviceMatchAttr = "rockchip_rk3568_uart_1";
+                }
+                device2 :: deviceNode {
+                    policy = 2;
+                    permission = 0644;
+                    priority = 40;
+                    moduleName = "HDF_PLATFORM_UART";
+                    serviceName = "HDF_PLATFORM_UART_3";
+                    deviceMatchAttr = "rockchip_rk3568_uart_3";
                 }
             }
             device_i2c :: device {
@@ -95,6 +109,23 @@
                     permission = 0644;
                     moduleName = "linux_i2c_adapter";
                     deviceMatchAttr = "linux_i2c_adapter";
+                }
+            }
+            device_adc :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 60;
+                    permission = 0644;
+                    moduleName = "HDF_PLATFORM_ADC_MANAGER";
+                    serviceName = "HDF_PLATFORM_ADC_MANAGER";
+                    deviceMatchAttr = "hdf_platform_adc_manager";
+                }
+                device1 :: deviceNode {
+                    policy = 0;
+                    priority = 65;
+                    permission = 0644;
+                    moduleName = "linux_adc_adapter";
+                    deviceMatchAttr = "linux_adc_adapter_0";
                 }
             }
             device_spi :: device {
@@ -153,7 +184,7 @@
             }
             device_pwm :: device {
                device0 :: deviceNode {
-                    policy = 1;
+                    policy = 2;
                     priority = 80;
                     permission = 0644;
                     moduleName = "HDF_PLATFORM_PWM";
@@ -161,7 +192,7 @@
                     deviceMatchAttr = "linux_pwm_adapter_0";
                }
                device1 :: deviceNode {
-                    policy = 1;
+                    policy = 2;
                     priority = 80;
                     permission = 0644;
                     moduleName = "HDF_PLATFORM_PWM";
@@ -169,7 +200,7 @@
                     deviceMatchAttr = "linux_pwm_adapter_1";
                }
                device2 :: deviceNode {
-                    policy = 1;
+                    policy = 2;
                     priority = 80;
                     permission = 0644;
                     moduleName = "HDF_PLATFORM_PWM";
@@ -177,7 +208,7 @@
                     deviceMatchAttr = "linux_pwm_adapter_2";
                }
                device3 :: deviceNode {
-                    policy = 1;
+                    policy = 2;
                     priority = 80;
                     permission = 0644;
                     moduleName = "HDF_PLATFORM_PWM";
@@ -185,7 +216,7 @@
                     deviceMatchAttr = "linux_pwm_adapter_3";
                }
                device4 :: deviceNode {
-                    policy = 1;
+                    policy = 2;
                     priority = 80;
                     permission = 0644;
                     moduleName = "HDF_PLATFORM_PWM";
@@ -323,6 +354,17 @@
                     moduleName = "HDF_HID";
                 }
             }
+            device_hdf_infrared :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 200;
+                    preload = 2;
+                    permission = 0660;
+                    moduleName = "HDF_INFRARED";
+                    serviceName = "hdf_input_event2";
+                    deviceMatchAttr = "Infrared_device0";
+                }
+            }
         }
 
         network :: host {
@@ -342,9 +384,33 @@
                 device0 :: deviceNode {
                     policy = 0;
                     preload = 2;
-                    moduleName = "HDF_WLAN_CHIPS";
-                    deviceMatchAttr = "hdf_wlan_chips_hi3881";
-                    serviceName = "hisi";
+                    moduleName = "HDF_WLAN_CHIPS_AP6275S";
+                    deviceMatchAttr = "hdf_wlan_chips_ap6275s";
+                    serviceName = "ap6275s";
+                }
+            }
+        }
+        camera :: host {
+            hostName = "camera_host0";
+            device_camera :: device {
+                camera0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    preload = 0;
+                    permission = 0664;
+                    moduleName = "HDF_CAMERA";
+                    serviceName = "hdfcamera";
+                    deviceMatchAttr = "hdf_camera_driver";
+                }
+            }
+            camera_adapter :: device {
+                camera0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    preload = 0;
+                    permission = 0664;
+                    moduleName = "HDF_CAMERA_ADAPTER";
+                    serviceName = "hdfcamera0";
                 }
             }
         }
@@ -426,6 +492,94 @@
                     deviceMatchAttr = "hdf_sensor_proximity_adps9960_driver";
                 }
             }
+            device_sensor_magnetic :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 110;
+                    preload = 0;
+                    permission = 0664;
+                    moduleName = "HDF_SENSOR_MAGNETIC";
+                    serviceName = "hdf_sensor_magnetic";
+                    deviceMatchAttr = "hdf_sensor_magnetic_driver";
+                }
+            }
+            device_sensor_lsm303 :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 120;
+                    preload = 0;
+                    permission = 0664;
+                    moduleName = "HDF_SENSOR_MAGNETIC_LSM303";
+                    serviceName = "hdf_magnetic_lsm303";
+                    deviceMatchAttr = "hdf_sensor_magnetic_lsm303_driver";
+                }
+            }
+            device_sensor_temperature :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 130;
+                    preload = 0;
+                    permission = 0664;
+                    moduleName = "HDF_SENSOR_TEMPERATURE";
+                    serviceName = "hdf_sensor_temperature";
+                    deviceMatchAttr = "hdf_sensor_temperature_driver";
+                }
+            }
+            device_temperature_aht20 :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 140;
+                    preload = 2;
+                    permission = 0664;
+                    moduleName = "HDF_SENSOR_TEMPERATURE_AHT20";
+                    serviceName = "hdf_temperature_aht20";
+                    deviceMatchAttr = "hdf_sensor_temperature_aht20_driver";
+                }
+            }
+            device_temperature_sht30 :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 150;
+                    preload = 2;
+                    permission = 0664;
+                    moduleName = "HDF_SENSOR_TEMPERATURE_SHT30";
+                    serviceName = "hdf_temperature_sht30";
+                    deviceMatchAttr = "hdf_sensor_temperature_sht30_driver";
+                }
+            }
+            device_sensor_humidity :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 160;
+                    preload = 0;
+                    permission = 0664;
+                    moduleName = "HDF_SENSOR_HUMIDITY";
+                    serviceName = "hdf_sensor_humidity";
+                    deviceMatchAttr = "hdf_sensor_humidity_driver";
+                }
+            }
+            device_humidity_aht20 :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 170;
+                    preload = 2;
+                    permission = 0664;
+                    moduleName = "HDF_SENSOR_HUMIDITY_AHT20";
+                    serviceName = "hdf_humidity_aht20";
+                    deviceMatchAttr = "hdf_sensor_humidity_aht20_driver";
+                }
+            }
+            device_humidity_sht30 :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 180;
+                    preload = 2;
+                    permission = 0664;
+                    moduleName = "HDF_SENSOR_HUMIDITY_SHT30";
+                    serviceName = "hdf_humidity_sht30";
+                    deviceMatchAttr = "hdf_sensor_humidity_sht30_driver";
+                }
+            }
         }
         usb_pnp_linux :: host {
             hostName = "usb_pnp_linux_host";
@@ -444,8 +598,8 @@
         audio :: host {
             hostName = "audio_host";
             priority = 110;
-            device_dai0 :: device {
-                device0 :: deviceNode {
+            device_dai :: device {
+                device_primary :: deviceNode {
                     policy = 1;
                     priority = 50;
                     preload = 0;
@@ -454,27 +608,42 @@
                     serviceName = "dai_service";
                     deviceMatchAttr = "hdf_dai_driver";
                 }
+                device_hdmi :: deviceNode {
+                    policy = 1;
+                    priority = 50;
+                    preload = 0;
+                    permission = 0666;
+                    moduleName = "DAI_RK3568";
+                    serviceName = "hdmi_dai_service";
+                    deviceMatchAttr = "hdf_hdmi_dai_driver";
+                }
             }
             device_codec :: device {
-                device0 :: deviceNode {
+                device_primary :: deviceNode {
                     policy = 1;
                     priority = 50;
                     preload = 0;
                     permission = 0666;
                     moduleName = "CODEC_RK809";
                     serviceName = "codec_service_0";
-                    deviceMatchAttr = "hdf_codec_driver";
+                    deviceMatchAttr = "hdf_codec_driver_0";
                 }
-            }
-            device_codec_ex :: device {
-                device0 :: deviceNode {
+                device_hdmi :: deviceNode {
                     policy = 1;
                     priority = 50;
                     preload = 0;
                     permission = 0666;
-                    moduleName = "CODEC_RK817";
+                    moduleName = "AUDIO_HDMI_CODEC";
                     serviceName = "codec_service_1";
-                    deviceMatchAttr = "hdf_codec_driver_ex";
+                    deviceMatchAttr = "hdf_codec_driver_1";
+                }
+                device_usb :: deviceNode {
+                    policy = 1;
+                    priority = 50;
+                    preload = 2;
+                    permission = 0664;
+                    moduleName = "AUDIO_USB_CODEC";
+                    serviceName = "audio_usb_service_0";
                 }
             }
             device_dsp :: device {
@@ -489,7 +658,7 @@
                 }
             }
             device_dma :: device {
-                device0 :: deviceNode {
+                device_primary :: deviceNode {
                     policy = 1;
                     priority = 50;
                     preload = 0;
@@ -498,9 +667,27 @@
                     serviceName = "dma_service_0";
                     deviceMatchAttr = "hdf_dma_driver";
                 }
+                device_hdmi :: deviceNode {
+                    policy = 1;
+                    priority = 50;
+                    preload = 0;
+                    permission = 0666;
+                    moduleName = "DMA_RK3568";
+                    serviceName = "hdmi_dma_service_0";
+                    deviceMatchAttr = "hdf_hdmi_dma_driver";
+                }
+               device_usb :: deviceNode {
+                    policy = 1;
+                    priority = 50;
+                    preload = 2;
+                    permission = 0666;
+                    moduleName = "AUDIO_USB_DMA";
+                    serviceName = "usb_dma_service_0";
+                }
             }
+
             device_audio :: device {
-                device0 :: deviceNode {
+                device_primary :: deviceNode {
                     policy = 2;
                     priority = 60;
                     preload = 0;
@@ -509,14 +696,23 @@
                     deviceMatchAttr = "hdf_audio_driver_0";
                     serviceName = "hdf_audio_codec_primary_dev0";
                 }
-                device1 :: deviceNode {
+                device_hdmi :: deviceNode {
                     policy = 2;
                     priority = 60;
-                    preload = 0;
+                    preload = 2;
                     permission = 0666;
                     moduleName = "HDF_AUDIO";
                     deviceMatchAttr = "hdf_audio_driver_1";
-                    serviceName = "hdf_audio_codec_primary_dev11";
+                    serviceName = "hdf_audio_codec_hdmi_dev0";
+                }
+                device_usb :: deviceNode {
+                    policy = 2;
+                    priority = 60;
+                    preload = 2;
+                    permission = 0666;
+                    moduleName = "HDF_AUDIO";
+                    deviceMatchAttr = "hdf_audio_driver_2";
+                    serviceName = "hdf_audio_codec_usb_dev0";
                 }
             }
             device_stream :: device {
@@ -581,6 +777,17 @@
                     moduleName = "HDF_LINEAR_VIBRATOR";
                     serviceName = "hdf_misc_linear_vibrator";
                     deviceMatchAttr = "hdf_linear_vibrator_driver";
+                }
+            }
+            device_drv2605l_vibrator :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 105;
+                    preload = 0;
+                    permission = 0664;
+                    moduleName = "HDF_DRV2605L_VIBRATOR";
+                    serviceName = "hdf_misc_drv2605l_vibrator";
+                    deviceMatchAttr = "hdf_drv2605l_linear_vibrator_driver";
                 }
             }
         }
