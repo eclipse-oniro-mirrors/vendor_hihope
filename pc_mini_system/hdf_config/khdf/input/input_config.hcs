@@ -194,5 +194,14 @@ root {
                 }
             }
         }
+        infraredConfig {
+            infrared1 {
+                match_attr = "Infrared_device0";
+                infraredName = "raspberryInfrared";
+                inputType = 1;
+                gpioNum = 29;
+                irqFlag = 1;
+            }
+        }
     }
 }

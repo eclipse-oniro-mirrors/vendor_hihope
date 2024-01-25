@@ -136,10 +136,11 @@ root {
                     "OHOS_CAMERA_AE_ANTIBANDING_MODE_OFF"
                 ];
                 aeAvailableModes = ["OHOS_CAMERA_AE_MODE_OFF"];
-                availableFpsRange = [30, 30];
+                availableFpsRange = [5, 10];
                 cameraPosition = "OHOS_CAMERA_POSITION_FRONT";
                 cameraType = "OHOS_CAMERA_TYPE_WIDE_ANGLE";
                 cameraConnectionType ="OHOS_CAMERA_CONNECTION_TYPE_BUILTIN";
+                cameraMemoryType ="OHOS_CAMERA_MEMORY_USERPTR";
                 faceDetectMaxNum = "10";
                 aeCompensationRange = [0, 0];
                 aeCompensationSteps = [0, 0];
@@ -205,7 +206,21 @@ root {
                 ];
                 mirrorSupported = "OHOS_CAMERA_MIRROR_OFF";
                 basicAvailableConfigurations = [1, 640, 480, 4, 1280, 960];
-
+                extendAvailableConfigurations = [0, 0, 1, 640, 480, 0, -1, 1, 1, 640, 480, 30, -1, 2, 4, 1280, 960, 0, -1, -1];
+                sensorOrientationSupported = "270";
+                videoStabilizationAvailableModes = [
+                    "OHOS_CAMERA_VIDEO_STABILIZATION_OFF"
+                ];
+                flashAvailable = "OHOS_CAMERA_FLASH_FALSE";
+                afAvailable = [
+                    "OHOS_CAMERA_AF_MODE_OFF"
+                ];
+                zoomRatioRange = [
+                    "1.0",
+                    "1.0"
+                ];
+                jpegOrientation= "270";
+                jpegQuality= "2";
             }
         }
     }
