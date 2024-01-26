@@ -595,6 +595,20 @@
                 }
             }
         }
+        usb_net_linux :: host {
+            hostName = "usb_net_linux_host";
+            device_usb_net_linux :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    preload = 2;
+                    permission = 0664;
+                    moduleName = "HDF_USB_NET";
+                    serviceName = "hdf_usb_net_service";
+                    deviceMatchAttr = "hdf_usb_net_config";
+                }
+            }
+        }
         audio :: host {
             hostName = "audio_host";
             priority = 110;
