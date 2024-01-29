@@ -1,0 +1,17 @@
+{
+  "parts": {
+    "product_default": {
+      "module_list": [
+        "//vendor/hihope/default/default_app_config:default_app_config",
+        "//vendor/hihope/default/image_conf:custom_image_conf",
+        "//vendor/hihope/default/preinstall-config:preinstall-config",
+        "//vendor/hihope/default/resourceschedule:resourceschedule",
+        "//vendor/hihope/default/etc:product_etc_conf",
+        "//vendor/hihope/default/hals/audio:hdf_audio_config",
+        "//vendor/hihope/default/hals/codec/:hdf_codec_config",
+	"//vendor/hihope/default/hdf_config/uhdf:hdf_config"
+      ]
+    }
+  },
+  "subsystem": "product_default"
+}
