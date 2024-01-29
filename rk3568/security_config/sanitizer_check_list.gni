@@ -661,6 +661,7 @@ bypass_input = [
   "mmi_rust",  #cfi not configured
   "libmmi-common",  #cfi not configured
   "libmmi-util",  #cfi not configured
+  "libmmi-client",  #cfi not configured
 ]
 
 bypass_device_attest = []
