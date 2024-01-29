@@ -8,6 +8,8 @@ root {
             sensorTypeId = 1; // enum SensorTypeTag
             sensorId = 1; // user define sensor id
             power = 230;
+            minDelay = 5000000; // nanosecond
+            maxDelay = 200000000; // nanosecond
         }
         sensorBusConfig :: sensorBusInfo {
             busType = 0; // 0:i2c 1:spi
