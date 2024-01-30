@@ -224,6 +224,7 @@ bypass_camera_framework = [
   "camera_framework",
   "camera_napi",
   "camera_service",
+  "deferred_processing_service",
 ]
 
 # player_framework : //foundation/multimedia/player_framework
@@ -618,6 +619,9 @@ bypass_common_event_service = [
   "tools_cem_source_set",  #cfi not configured
   "actscesfwk_kits_test",  #cfi not configured
   "cesfwk_kits_test",  #cfi not configured
+  "cesfwk_services",   #cfi not configured
+  "deferred_processing_servic", #cfi not configured
+
 ]
 
 bypass_distributed_notification_service = []
@@ -1064,6 +1068,8 @@ bypass_ability_runtime = [
   "sa_mgr_mock",  #cfi not configured
   "wantagent_napi",  #cfi not configured
   "abilitylifecyclecallback",  #cfi not configured
+  "environmentcallback",  #cfi not configured
+  "applicationstatechangecallback",  #cfi not configured
 ]
 
 # The list contains both part name that need to enable cfi and disable debug mode, and corresponding bypass_xxx list that bypass the cfi check
