@@ -229,6 +229,14 @@
         {
           "component": "graphic_3d",
           "features": []
+        },
+        {
+          "component": "vulkan-loader",
+          "features": []
+        },
+        {
+          "component": "vulkan-headers",
+          "features": []
         }
       ]
     }
