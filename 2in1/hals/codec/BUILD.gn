@@ -27,7 +27,7 @@ ohos_prebuilt_etc("codec_adapter_capabilities.hcb") {
   relative_install_dir = "hdfconfig"
   install_images = [ chipset_base_dir ]
   subsystem_name = "product_hihope"
-  part_name = "product_pc_mini_system"
+  part_name = "product_2in1"
 }
 
 group("hdf_codec_config") {

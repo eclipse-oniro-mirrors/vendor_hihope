@@ -1066,6 +1066,7 @@ bypass_ability_runtime = [
   "sa_mgr_mock",  #cfi not configured
   "wantagent_napi",  #cfi not configured
   "abilitylifecyclecallback",  #cfi not configured
+  "applicationstatechangecallback",
 ]
 
 # The list contains both part name that need to enable cfi and disable debug mode, and corresponding bypass_xxx list that bypass the cfi check
