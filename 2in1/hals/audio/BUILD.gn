@@ -19,7 +19,7 @@ ohos_prebuilt_etc("hdf_alsa_paths_json") {
   relative_install_dir = "hdfconfig"
   install_images = [ chipset_base_dir ]
   subsystem_name = "hdf"
-  part_name = "product_pc_mini_system"
+  part_name = "product_2in1"
 }
 
 ohos_prebuilt_etc("hdf_alsa_adapter_json") {
@@ -28,7 +28,7 @@ ohos_prebuilt_etc("hdf_alsa_adapter_json") {
   relative_install_dir = "hdfconfig"
   install_images = [ chipset_base_dir ]
   subsystem_name = "hdf"
-  part_name = "product_pc_mini_system"
+  part_name = "product_2in1"
 }
 
 ohos_prebuilt_etc("hdf_audio_effect_json") {
@@ -37,7 +37,7 @@ ohos_prebuilt_etc("hdf_audio_effect_json") {
   relative_install_dir = "hdfconfig"
   install_images = [ chipset_base_dir ]
   subsystem_name = "hdf"
-  part_name = "product_pc_mini_system"
+  part_name = "product_2in1"
 }
 
 ohos_prebuilt_etc("hdf_audio_path_json") {
@@ -46,7 +46,7 @@ ohos_prebuilt_etc("hdf_audio_path_json") {
   relative_install_dir = "hdfconfig"
   install_images = [ chipset_base_dir ]
   subsystem_name = "hdf"
-  part_name = "product_pc_mini_system"
+  part_name = "product_2in1"
 }
 
 ohos_prebuilt_etc("hdf_audio_adapter_json") {
@@ -55,7 +55,7 @@ ohos_prebuilt_etc("hdf_audio_adapter_json") {
   relative_install_dir = "hdfconfig"
   install_images = [ chipset_base_dir ]
   subsystem_name = "hdf"
-  part_name = "product_pc_mini_system"
+  part_name = "product_2in1"
 }
 
 ohos_prebuilt_etc("audio_policy_config") {
@@ -67,7 +67,7 @@ ohos_prebuilt_etc("audio_policy_config") {
   subsystem_name = "hdf"
   relative_install_dir = "audio"
   install_images = [ chipset_base_dir ]
-  part_name = "product_pc_mini_system"
+  part_name = "product_2in1"
 }
 
 group("hdf_audio_config") {
