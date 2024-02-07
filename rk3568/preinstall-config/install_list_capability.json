@@ -231,6 +231,11 @@
             "app_signature" : ["8E93863FC32EE238060BF69A9B37E2608FFFB21F93C862DD511CBAC9F30024B5"],
             "allowAppUsePrivilegeExtension": true,
             "allowAppDesktopIconHide": true
+        },
+        {
+            "bundleName": "com.ohos.dhardwareui",
+            "app_signature": ["D8B95864BA867BE8299BEB45CEC85B6905D59FD726D43C3AE60E051E9E658738"],
+            "allowAppDesktopIconHide": true
         }
     ]
 }
