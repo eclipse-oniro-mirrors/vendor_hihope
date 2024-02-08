@@ -316,5 +316,15 @@
                 "userCancellable" : false
             }
         ]
+    },
+    {
+        "bundleName": "com.ohos.dhardwareui",
+        "app_signature" : ["D8B95864BA867BE8299BEB45CEC85B6905D59FD726D43C3AE60E051E9E658738"],
+        "permissions" : [
+            {
+                "name" : "ohos.permission.ACCESS_DISTRIBUTED_HARDWARE",
+                "userCancellable" : false
+            }
+        ]
     }
 ]
