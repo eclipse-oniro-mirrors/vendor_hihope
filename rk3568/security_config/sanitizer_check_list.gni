@@ -438,10 +438,7 @@ bypass_wallpaper_mgr = [
 
 # resource_schedule_service : //foundation/resourceschedule/resource_schedule_service
 bypass_resource_schedule_service = [
-  #"component_sched_plugin",  #cfi not configured
   "device_standby_plugin",  #cfi not configured
-
-  #"resschedsvc",
   "ressched_test",  #cfi not configured
   "process_proup_test",  #cfi not configured
 ]
@@ -459,13 +456,10 @@ bypass_device_auth = [
 ]
 
 # data_share : //foundation/distributeddatamgr/data_share
-bypass_data_share = [
-  #"datashare_provider",  #cfi not configured
-]
+bypass_data_share = []
 
 # time_service : //base/time/time_service
 bypass_time_service = [
-  #"time_system_ability",
   "time_system_ability_static",
 ]
 
@@ -632,27 +626,8 @@ bypass_os_account = [ "accountmgr" ]
 
 # access_token : //base/security/access_token
 bypass_access_token = [
-  #"token_sync_manager_service",
-  #"accesstoken_manager_service",
-  #"privacy_manager_service",
-  #"libaccesstoken_sdk",
-  #"libnativetoken",
-  #"libprivacy_sdk",
-  #"libtoken_callback_sdk",
-  #"libtokenid_sdk",
   "libtoken_setproc",  #cfi not configured
-
-  #"libcodesignature_analysis",
   "atm",  #cfi not configured
-
-  #"libabilityaccessctrl",
-  #"libnapi_common",
-  #"libprivacymanager",
-  #"libtokensync_sdk",
-  #"accesstoken_service_common",
-  #"accesstoken_common_cxx",
-  #"accesstoken_communication_adapter_cxx",
-  #"privacy_communication_adapter_cxx",
 ]
 
 bypass_dupdate_engine = []
@@ -718,9 +693,7 @@ bypass_memmgr = []
 bypass_memmgr_plugin = []
 
 # work_scheduler : //foundation/resourceschedule/work_scheduler
-bypass_work_scheduler = [
-  #"workschedservice_static",
-]
+bypass_work_scheduler = []
 
 # accessibility : //foundation/barrierfree/accessibility
 bypass_accessibility = [
