@@ -459,9 +459,7 @@ bypass_device_auth = [
 bypass_data_share = []
 
 # time_service : //base/time/time_service
-bypass_time_service = [
-  "time_system_ability_static",
-]
+bypass_time_service = [ "time_system_ability_static" ]
 
 bypass_imf = []
 
