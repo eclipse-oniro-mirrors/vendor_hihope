@@ -76,8 +76,8 @@ bypass_audio_framework = [
   "audio_device_manager",
 ]
 
-# histreamer : //foundation/multimedia/histreamer
-bypass_histreamer = [
+# media_foundation : //foundation/multimedia/media_foundation
+bypass_media_foundation = [
   "histreamer_pipeline_base",
   "histreamer_plugin_intf",
   "plugin_base",
@@ -1447,7 +1447,7 @@ enable_cfi_part_and_bypass_list = [
   ],
   [
     "media_foundation",
-    bypass_histreamer,
+    bypass_media_foundation,
   ],
   [
     "av_session",
