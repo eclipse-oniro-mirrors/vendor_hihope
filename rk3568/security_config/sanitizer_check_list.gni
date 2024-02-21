@@ -1112,6 +1112,7 @@ bypass_hiview = [
   "event_store_utility_source",
   "event_store_config_source",
   "eventlogger_adapter_logcatcher",
+  "faultlogger_service_fuzz_src",
 ]
 
 bypass_device_standby = []
