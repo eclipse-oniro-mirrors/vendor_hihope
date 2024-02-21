@@ -660,6 +660,9 @@ bypass_dupdate_engine = []
 bypass_input = [
   "mmi_rust_key_config",  #cfi not configured
   "mmi_rust",  #cfi not configured
+  "libmmi-common",  #cfi not configured
+  "libmmi-client",  #cfi not configured
+  "libmmi-util",  #cfi not configured
 ]
 
 bypass_device_attest = []
