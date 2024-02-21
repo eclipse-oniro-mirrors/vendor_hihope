@@ -1402,6 +1402,8 @@ bypass_graphic_2d = [
   "rs_test_common",
   "socketpair_test_common",
   "fence_test_common",
+  "hdr_capability_utils",
+  "hdr_capability_napi",
 ]
 
 # security_component_manager : //base/security/security_component_manager
