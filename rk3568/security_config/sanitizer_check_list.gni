@@ -76,8 +76,8 @@ bypass_audio_framework = [
   "audio_device_manager",
 ]
 
-# histreamer : //foundation/multimedia/histreamer
-bypass_histreamer = [
+# media_foundation : //foundation/multimedia/media_foundation
+bypass_media_foundation = [
   "histreamer_pipeline_base",
   "histreamer_plugin_intf",
   "plugin_base",
@@ -438,10 +438,7 @@ bypass_wallpaper_mgr = [
 
 # resource_schedule_service : //foundation/resourceschedule/resource_schedule_service
 bypass_resource_schedule_service = [
-  #"component_sched_plugin",  #cfi not configured
   "device_standby_plugin",  #cfi not configured
-
-  #"resschedsvc",
   "ressched_test",  #cfi not configured
   "process_proup_test",  #cfi not configured
 ]
@@ -459,15 +456,10 @@ bypass_device_auth = [
 ]
 
 # data_share : //foundation/distributeddatamgr/data_share
-bypass_data_share = [
-  "datashare_provider",  #cfi not configured
-]
+bypass_data_share = []
 
 # time_service : //base/time/time_service
-bypass_time_service = [
-  "time_system_ability",
-  "time_system_ability_static",
-]
+bypass_time_service = [ "time_system_ability_static" ]
 
 bypass_imf = []
 
@@ -632,25 +624,8 @@ bypass_os_account = [ "accountmgr" ]
 
 # access_token : //base/security/access_token
 bypass_access_token = [
-  "token_sync_manager_service",
-  "accesstoken_manager_service",
-  "privacy_manager_service",
-  "libaccesstoken_sdk",
-  "libnativetoken",
-  "libprivacy_sdk",
-  "libtoken_callback_sdk",
-  "libtokenid_sdk",
   "libtoken_setproc",  #cfi not configured
-  "libcodesignature_analysis",
   "atm",  #cfi not configured
-  "libabilityaccessctrl",
-  "libnapi_common",
-  "libprivacymanager",
-  "libtokensync_sdk",
-  "accesstoken_service_common",
-  "accesstoken_common_cxx",
-  "accesstoken_communication_adapter_cxx",
-  "privacy_communication_adapter_cxx",
 ]
 
 bypass_dupdate_engine = []
@@ -716,7 +691,7 @@ bypass_memmgr = []
 bypass_memmgr_plugin = []
 
 # work_scheduler : //foundation/resourceschedule/work_scheduler
-bypass_work_scheduler = [ "workschedservice_static" ]
+bypass_work_scheduler = []
 
 # accessibility : //foundation/barrierfree/accessibility
 bypass_accessibility = [
@@ -1073,6 +1048,399 @@ bypass_ability_runtime = [
   "environmentcallback",  #cfi not configured
 ]
 
+# hiview : //base/hiviewdfx/hiview
+bypass_hiview = [
+  "faultlogger_napi",
+  "loglibrary_napi",
+  "libucollection_client",
+  "libucollection_utility",
+  "hiview",
+  "libxpower_event",
+  "libxpower_event_js",
+  "logger",
+  "libasan_logger",
+  "faultlogger",
+  "hiview_base",
+  "hiviewbase",
+  "hiviewbase_static_lib_for_tdd",
+  "hiview_service_impl",
+  "hiview_service_impl_for_unified_collection",
+  "hiview_service_impl_for_js",
+  "faultlogger_client_impl",
+  "hiview_utility",
+  "ucollection_client_source",
+  "ucollection_source",
+  "usage_event_report",
+  "sysevent_source",
+  "unified_collector",
+  "sys_event_store",
+  "sys_dispatcher",
+  "hiview_service",
+  "bbox_detector",
+  "hiview_core",
+  "usage_report",
+  "freeze_detector",
+  "eventlogger",
+  "smart_parser",
+  "hiview_reliability_common_utils",
+  "log_analyzer",
+  "faultlogger_common",
+  "faultlogger_service_ohos_common",
+  "faultlogger_service_ability",
+  "faultlogger_service_impl",
+  "faultlogger_service",
+  "hiview_event_publish",
+  "event_threshold_source",
+  "hiview_event_raw_base",
+  "hiview_event_raw_decode",
+  "hiview_event_raw_encode",
+  "eventpool",
+  "hiview_event_report",
+  "event_store_source",
+  "running_status_logger_source",
+  "log_store",
+  "collect_device_client",
+  "hiview_service_adapter",
+  "hiview_param_update",
+  "hiviewplatform_config",
+  "log_catcher",
+  "eventlogger_config",
+  "dynamicloadpluginexample",
+  "bundleplugintest",
+  "bundletest",
+  "faultlogger_test_napi",
+  "event_store_utility_source",
+  "event_store_config_source",
+  "eventlogger_adapter_logcatcher",
+  "faultlogger_service_fuzz_src",
+]
+
+bypass_device_standby = []
+
+bypass_appverify = []
+
+bypass_drm_framework = []
+
+# distributed_audio : //foundation/distributedhardware/distributed_audio
+bypass_distributed_audio = [ "distributed_audio_handler" ]
+
+bypass_memory_utils = [ "purgeable_memory_ndk" ]
+
+# distributed_camera : //foundation/distributedhardware/distributed_camera
+bypass_distributed_camera = [
+  "distributed_camera_source",
+  "distributed_camera_data_process",
+]
+
+# dhcp : //foundation/communication/dhcp
+bypass_dhcp = [
+  "dhcp_client_proxy_impl",
+  "dhcp_server_proxy_impl",
+]
+
+# device_info_manager : //foundation/deviceprofile/device_info_manager
+bypass_device_info_manager = [
+  "distributed_device_profile_svr",
+  "distributed_device_profile_sdk",
+  "distributed_device_profile_common",
+  "deviceprofileradar",
+]
+
+bypass_dfs_service = []
+
+bypass_dlp_permission_service = []
+
+bypass_cellular_data = []
+
+# request : //base/request/request
+bypass_request = [
+  "request_static",
+  "request_common_static",
+]
+
+bypass_datamgr_service = []
+
+bypass_dataclassification = []
+
+bypass_certificate_framework = []
+
+bypass_sharing_framework = []
+
+bypass_distributed_input = []
+
+# av_codec : //foundation/multimedia/av_codec
+bypass_av_codec = [
+  "native_media_avmuxer",
+  "native_media_avdemuxer",
+  "native_media_avsource",
+  "native_media_codecbase",
+  "native_media_acodec",
+  "native_media_adec",
+  "native_media_aenc",
+  "av_codec_client",
+  "native_media_vdec",
+  "native_media_venc",
+  "av_codec_audio_ffmpeg_codec",
+  "video_sample",
+  "av_codec_demo",
+  "video_codec_demo",
+  "av_codec_demo_muxer",
+  "hcodec_demo",
+  "hcodec_test_helper",
+  "media_plugin_HttpSource",
+  "media_plugin_FFmpegAudioDecoders",
+  "media_plugin_G711muAudioDecoder",
+  "media_plugin_FFmpegAudioEncoders",
+  "media_plugin_G711muAudioEncoder",
+  "av_codec_plugin_FFmpegDemuxer",
+  "av_codec_capi_unit_test",
+  "av_codec_inner_unit_test",
+]
+
+# kv_store : //foundation/distributeddatamgr/kv_store
+bypass_kv_store = [
+  "distributeddb",
+  "distributeddata_inner",
+  "src_file",
+  "kvdb_src_file",
+  "src_file",
+  "distributeddatafwk_src_file",
+]
+
+bypass_preferences = []
+
+bypass_distributed_screen = []
+
+# distributed_hardware_fwk : //foundation/distributedhardware/distributed_hardware_fwk
+bypass_distributed_hardware_fwk = [
+  "hardwaremanager",
+  "distributed_av_sender",
+  "distributed_av_receiver",
+  "histreamer_ability_querier",
+  "histreamer_ability_querier_core",
+  "avtrans_input_filter",
+  "avtrans_output_filter",
+  "plugin_AVTransDaudioInput",
+  "plugin_AVTransDsoftbusInputAudio",
+  "plugin_AVTransDsoftbusInput",
+  "plugin_AVTransDscreenInput",
+  "plugin_AVTransDaudioOutput",
+  "plugin_AVTransDsoftbusOutput",
+  "plugin_AVTransDscreenOutput",
+  "plugin_AVTransDsoftbusOutputAudio",
+]
+
+# soc_perf : //foundation/resourceschedule/resource_schedule_service/soc_perf
+bypass_soc_perf = [ "socperf_test" ]
+
+# update_service : //base/update/updateservice
+bypass_update_service = [
+  "update",
+  "updateservice",
+]
+
+# graphic_2d : //foundation/graphic/graphic_2d
+bypass_graphic_2d = [
+  "vulkan_loader",
+  "libnative_vsync",
+  "2d_graphics_source_ohos",
+  "2d_graphics_source_ohos_ng",
+  "2d_graphics",
+  "2d_graphics_new",
+  "2d_graphics_canvaskit0310",
+  "2d_graphics_drawing",
+  "color_picker",
+  "EGL",
+  "GLESv1",
+  "GLESv2",
+  "GLESv3",
+  "opengl_wrapper_native_test",
+  "debug_layer_test1",
+  "debug_layer_test2",
+  "vulkan_swapchain_layer",
+  "libegl_effect",
+  "particle_cxx_rust",
+  "particle_cxx_cppdeps",
+  "render_service_base_src",
+  "libcomposer",
+  "librender_service_base",
+  "librender_service_base_static",
+  "libeffectchain",
+  "skeffectchain",
+  "rosen_text",
+  "libtexgine_source",
+  "rosen_text_inner",
+  "libtexgine",
+  "rosen_text_texgine",
+  "rosen_text_txt",
+  "rosen_text_skia",
+  "render_service_client_src",
+  "render_service_client_src_static",
+  "drawing_napi",
+  "librender_service_client",
+  "drawing_napi_impl",
+  "librender_service_client_static",
+  "libbootanimation_utils",
+  "libnative_image",
+  "surface",
+  "libgraphic_utils",
+  "window_animation",
+  "sync_fence",
+  "color_manager_source",
+  "color_space_object_convertor_source",
+  "color_manager",
+  "color_space_object_convertor",
+  "colorspacemanager_napi_source",
+  "buffer_handle",
+  "colorspacemanager_napi",
+  "render_service_client",
+  "bootanimation",
+  "socketpair",
+  "libfence",
+  "libskia_rs_framework",
+  "render_frame_trace",
+  "libhyper_graphic_manager",
+  "texgine_sample",
+  "texgine_sample_align",
+  "sandbox_utils",
+  "drawing_engine_sample",
+  "texgine_sample_alignment",
+  "impl_eventhandler",
+  "drawing_sample_rs",
+  "texgine_sample_calibrate",
+  "hilog",
+  "texgine_sample_decoration",
+  "mock_image_native",
+  "drawing_sample_canvaskit0310",
+  "mock_ipc_core",
+  "texgine_sample_direction",
+  "mock_utils",
+  "texgine_sample_mix",
+  "libtexgine_drawing",
+  "libvsync",
+  "texgine_sample_shadow",
+  "texgine_sample_bug",
+  "windowanimationmanager_napi",
+  "texgine_sample_dynamic_font",
+  "effectkit",
+  "texgine_sample_emoji",
+  "libhgmnapi",
+  "texgine_sample_font_style",
+  "skia_libtxt_ohos",
+  "texgine_sample_feature",
+  "webgl_src",
+  "texgine_sample_glyph_position",
+  "skia_libtxt_ohos_ng",
+  "libwebglnapi",
+  "texgine_sample_intrinsic_width",
+  "skia_paragraph",
+  "skia_unicode",
+  "texgine_sample_spacing",
+  "libframe_analyzer",
+  "skia_shaper",
+  "rosen_libicu_ohos",
+  "texgine_sample_strut",
+  "texgine_sample_text_color",
+  "rosen_libicu_ohos_ng",
+  "render_service_client_rs_demo",
+  "texgine_sample_weight_style",
+  "scoped_bytrace",
+  "render_service_client_screen_mode_demo",
+  "texgine_sample_word_boundary",
+  "render_service_client_app_demo",
+  "texgine_sample_ellipsis",
+  "texgine_sample_layout",
+  "render_service_client_node_demo",
+  "frame_report",
+  "semaphore",
+  "texgine_sample_dynamic_otf_font",
+  "render_service_client_modifier_demo",
+  "texgine_sample_text_height",
+  "test_header",
+  "option_parser",
+  "texgine_sample_typography_height",
+  "render_service_client_transition_demo",
+  "texgine_sample_ellipsis_modal",
+  "libgslogger",
+  "render_service_client_gesture_interrupt_animation_demo",
+  "raw_parser",
+  "gl_utils",
+  "cpudraw",
+  "render_service_client_gravity_demo",
+  "raw_maker",
+  "render_service_client_ui_capture_demo",
+  "render_service_client_scale_demo",
+  "render_service_client_rs_animation_demo",
+  "surface_capture_demo",
+  "security_layer_demo",
+  "render_service_client_surface_node_demo",
+  "render_service_client_uni_render_demo",
+  "render_service_client_watermark_demo",
+  "rs_uni_render_pixelmap_demo",
+  "render_service_display_mode_demo",
+  "render_service_client_tunnel_handle_demo",
+  "render_service_client_overlay_demo",
+  "snapshot_surface",
+  "screen_info_demo",
+  "render_service_client_pointer_window_demo",
+  "render_service_client_subSurface_demo",
+  "render_service_client_fingerprint_demo",
+  "render_service_client_first_frame_callback_demo",
+  "opengl_wrapper_test_common",
+  "vulkan_loader_test_common",
+  "vulkan_loader_test_common",
+  "rs_test_common",
+  "rs_test_common",
+  "surface_test_common",
+  "rosen_ohos_sources",
+  "color_manager_test_common",
+  "sync_fence_common",
+  "buffer_handle_test_common",
+  "render_context",
+  "vsync_test_common",
+  "rs_client_test_common",
+  "rs_client_test_common",
+  "rs_test_common",
+  "socketpair_test_common",
+  "fence_test_common",
+  "hdr_capability_utils",
+  "hdr_capability_napi",
+]
+
+# security_component_manager : //base/security/security_component_manager
+bypass_security_component_manager = [ "libsecurity_component_sdk" ]
+
+# distributed_bundle_framework : //foundation/bundlemanager/distributed_bundle_framework
+bypass_distributed_bundle_framework = [
+  "distributedbundle",
+  "distributedbundlemanager",
+]
+
+# device_manager : //foundation/distributedhardware/device_manager
+bypass_device_manager = [
+  "devicemanagersdk",
+  "devicemanagerdependency",
+  "devicemanagerradar",
+]
+
+# hdf_core : //drivers/hdf_core
+bypass_hdf_core = [
+  "libhdf_ipc_adapter",
+  "libhdf_host",
+  "hdf_devhost",
+  "libhdi",
+  "libpub_utils",
+  "libhdf_utils",
+  "libhdf_platform",
+  "libsample_driver",
+  "libsample1_driver",
+  "hdf_dbg",
+  "libhdf_test_common",
+  "libvdi_sample1_driver",
+  "libvdi_sample1_symbol",
+  "libvdi_sample2_driver",
+]
+
 # The list contains both part name that need to enable cfi and disable debug mode, and corresponding bypass_xxx list that bypass the cfi check
 enable_cfi_part_and_bypass_list = [
   # enabled in OH4.0
@@ -1082,7 +1450,7 @@ enable_cfi_part_and_bypass_list = [
   ],
   [
     "media_foundation",
-    bypass_histreamer,
+    bypass_media_foundation,
   ],
   [
     "av_session",
@@ -1421,6 +1789,126 @@ enable_cfi_part_and_bypass_list = [
   [
     "ability_runtime",
     bypass_ability_runtime,
+  ],
+  [
+    "hiview",
+    bypass_hiview,
+  ],
+  [
+    "device_standby",
+    bypass_device_standby,
+  ],
+  [
+    "appverify",
+    bypass_appverify,
+  ],
+  [
+    "drm_framework",
+    bypass_drm_framework,
+  ],
+  [
+    "distributed_audio",
+    bypass_distributed_audio,
+  ],
+  [
+    "memory_utils",
+    bypass_memory_utils,
+  ],
+  [
+    "distributed_camera",
+    bypass_distributed_camera,
+  ],
+  [
+    "dhcp",
+    bypass_dhcp,
+  ],
+  [
+    "device_info_manager",
+    bypass_device_info_manager,
+  ],
+  [
+    "dfs_service",
+    bypass_dfs_service,
+  ],
+  [
+    "dlp_permission_service",
+    bypass_dlp_permission_service,
+  ],
+  [
+    "cellular_data",
+    bypass_cellular_data,
+  ],
+  [
+    "request",
+    bypass_request,
+  ],
+  [
+    "datamgr_service",
+    bypass_datamgr_service,
+  ],
+  [
+    "dataclassification",
+    bypass_dataclassification,
+  ],
+  [
+    "certificate_framework",
+    bypass_certificate_framework,
+  ],
+  [
+    "sharing_framework",
+    bypass_sharing_framework,
+  ],
+  [
+    "distributed_input",
+    bypass_distributed_input,
+  ],
+  [
+    "av_codec",
+    bypass_av_codec,
+  ],
+  [
+    "kv_store",
+    bypass_kv_store,
+  ],
+  [
+    "preferences",
+    bypass_preferences,
+  ],
+  [
+    "distributed_screen",
+    bypass_distributed_screen,
+  ],
+  [
+    "distributed_hardware_fwk",
+    bypass_distributed_hardware_fwk,
+  ],
+  [
+    "soc_perf",
+    bypass_soc_perf,
+  ],
+  [
+    "update_service",
+    bypass_update_service,
+  ],
+  [
+    "graphic_2d",
+    bypass_graphic_2d,
+  ],
+  [
+    "security_component_manager",
+    bypass_security_component_manager,
+  ],
+  [
+    "distributed_bundle_framework",
+    bypass_distributed_bundle_framework,
+  ],
+  [
+    "device_manager",
+    bypass_device_manager,
+  ],
+  [
+    "hdf_core",
+    bypass_hdf_core,
   ],
 ]
 
