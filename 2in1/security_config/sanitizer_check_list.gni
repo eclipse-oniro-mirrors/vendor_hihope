@@ -185,6 +185,7 @@ bypass_wpa_supplicant = [
   "wpa_supplicant",
   "hostapd",
   "wpa_client",
+  "wpa_client_vendor",
   "wpa_client_updater",
   "wpa",
   "wpa_sys",
