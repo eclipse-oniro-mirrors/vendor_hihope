@@ -1077,6 +1077,7 @@ bypass_hiview = [
   "sys_dispatcher",
   "hiview_service",
   "bbox_detector",
+  "leak_detector",
   "hiview_core",
   "usage_report",
   "freeze_detector",
