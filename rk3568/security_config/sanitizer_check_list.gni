@@ -1281,6 +1281,8 @@ bypass_graphic_2d = [
   "drawing_napi",
   "librender_service_client",
   "drawing_napi_impl",
+  "text_napi",
+  "text_napi_impl",
   "librender_service_client_static",
   "libbootanimation_utils",
   "libnative_image",
