@@ -1047,6 +1047,7 @@ bypass_ability_runtime = [
   "abilitylifecyclecallback",  #cfi not configured
   "applicationstatechangecallback",  #cfi not configured
   "environmentcallback",  #cfi not configured
+  "process_options",  #cfi not configured
 ]
 
 # hiview : //base/hiviewdfx/hiview
