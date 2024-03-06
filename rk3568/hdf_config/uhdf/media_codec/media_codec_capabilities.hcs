@@ -296,8 +296,8 @@ root {
                 maxHeight = 1088;
                 widthAlignment = 2;
                 heightAlignment = 2;
-                minBlockCount = 99;
-                maxBlockCount = 34560;
+                minBlockCount = 0xFFFFFFFF;
+                maxBlockCount = 0xFFFFFFFF;
                 minBlocksPerSecond = 1;
                 maxBlocksPerSecond = 244800;
                 blockSizeWidth = 16;
@@ -305,8 +305,8 @@ root {
                 supportPixelFmts = [24, 12, 20];
                 measuredFrameRate = [352, 288, 700, 700, 720, 480, 700, 700, 640, 360, 980, 980, 1280, 720, 600, 600, 1920, 1080, 130, 130, 3840, 2160, 130, 130];
                 bitRateMode = [];
-                minFrameRate = 1;
-                maxFrameRate = 60;
+                minFrameRate = 0;
+                maxFrameRate = 0;
             }
             HDF_video_hw_dec_vp9_rk {
                 role = 4;
