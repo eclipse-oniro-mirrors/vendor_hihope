@@ -428,10 +428,7 @@ bypass_user_auth_framework = [
   "iam_test_fuzzer",  #cfi not configured
 ]
 
-bypass_enterprise_device_management = [
-  "edm_commom",  #cfi not configured
-  "edmservice_kits",  #cfi not configured
-]
+bypass_enterprise_device_management = []
 
 # wallpaper_mgr : //base/theme/wallpaper_mgr
 bypass_wallpaper_mgr = [
