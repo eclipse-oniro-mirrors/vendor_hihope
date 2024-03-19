@@ -1377,6 +1377,7 @@ bypass_graphic_2d = [
   "render_service_client_gravity_demo",
   "raw_maker",
   "render_service_client_ui_capture_demo",
+  "render_service_client__alpha_offscreen_demo",
   "render_service_client_scale_demo",
   "render_service_client_rs_animation_demo",
   "surface_capture_demo",
