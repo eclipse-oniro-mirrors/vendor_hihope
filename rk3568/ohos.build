@@ -9,8 +9,7 @@
         "//vendor/hihope/rk3568/etc:product_etc_conf",
         "//vendor/hihope/rk3568/hals/audio:hdf_audio_config",
         "//vendor/hihope/rk3568/hals/codec/:hdf_codec_config",
-        "//vendor/hihope/rk3568/hdf_config/uhdf:hdf_config",
-        "//vendor/hihope/rk3568/window_config:window_config"
+	"//vendor/hihope/rk3568/hdf_config/uhdf:hdf_config"
       ]
     }
   },
