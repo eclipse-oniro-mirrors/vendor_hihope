@@ -119,6 +119,7 @@ bypass_media_foundation = [
 
 # av_session : //foundation/multimedia/av_session
 bypass_av_session = [
+  "avvolumecomponent",
   "avcastpicker",
   "mediacontrolextensionability_napi",
   "avsession_client",
