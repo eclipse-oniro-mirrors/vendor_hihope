@@ -10,7 +10,7 @@
         },
         {
             "name": "param_watcher",
-	    "critical": [1, 4, 240]
+            "critical": [1, 4, 240]
         },
         {
             "name": "appspawn",
