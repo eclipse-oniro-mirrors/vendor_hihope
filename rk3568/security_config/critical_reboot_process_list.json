@@ -18,7 +18,7 @@
         },
         {
             "name": "render_service",
-            "ctitical": [1, 5, 60]
+            "critical": [1, 5, 60]
 	},
         {
             "name": "storage_daemon",
