@@ -3,7 +3,7 @@
     "process": "foundation",
     "systemability": [
         {
-            "name": 401,
+            "name": 8501,
             "libpath": "libsoftbus_server.z.so",
             "run-on-create": true,
             "distributed": false,
