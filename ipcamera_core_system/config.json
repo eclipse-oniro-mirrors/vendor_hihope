@@ -1,0 +1,119 @@
+{
+  "product_name": "ipcamera_core_system",
+  "device_company": "rockchip",
+  "device_build_path": "device/board/hihope/rk3568",
+  "target_cpu": "arm",
+  "type": "standard",
+  "version": "3.0",
+  "board": "rk3568",
+  "enable_ramdisk": true,
+  "enable_absystem": false,
+  "build_selinux": true,
+  "build_seccomp": true,
+  "inherit": [
+    "productdefine/common/inherit/ipcamera.json"
+  ], 
+  "subsystems": [
+    {
+      "subsystem": "rockchip_products",
+      "components": [
+        {
+          "component": "rockchip_products",
+          "features": []
+        }
+      ]
+    },
+    {
+      "subsystem": "communication",
+      "components": [
+        {
+          "component": "dsoftbus",
+          "features": [
+            "dsoftbus_feature_conn_p2p = true",
+            "dsoftbus_feature_trans_udp_stream = true"
+          ]
+        }
+      ]
+    },
+    {
+      "subsystem": "multimedia",
+      "components": [
+        {
+          "component": "player_framework",
+          "features": ["multimedia_player_framework_support_screen_capture = false"]
+        }
+      ]
+    },
+    {
+      "subsystem": "multimodalinput",
+      "components": [
+        {
+          "component": "input",
+          "features": [
+            "input_feature_combination_key = true",
+            "input_feature_pointer_drawing = true",
+            "input_feature_interceptor = true",
+            "input_feature_monitor = true",
+            "input_feature_touchscreen = true",
+            "input_feature_input_device = true"
+          ]
+        }
+      ]
+    },
+    {
+      "subsystem": "hdf",
+      "components": [
+        {
+          "component": "drivers_interface_audio",
+          "features": []
+        },
+        {
+          "component": "drivers_peripheral_audio",
+          "features": [
+            "drivers_peripheral_audio_feature_full_test_suite = true",
+            "drivers_peripheral_audio_feature_alsa_lib = false",
+            "drivers_peripheral_audio_feature_effect = true"
+          ]
+        },
+        {
+          "component": "drivers_peripheral_codec",
+          "features": [
+            "drivers_peripheral_codec_feature_support_omx_extend_test = true",
+            "drivers_peripheral_codec_feature_support_hdi_v1 = true"
+          ]
+        },
+        {
+          "component": "drivers_peripheral_display",
+          "features": [
+            "drivers_peripheral_display_community = true"
+          ]
+        },
+        {
+          "component": "drivers_peripheral_wlan",
+          "features": [
+            "drivers_peripheral_wlan_feature_enable_HDF_NL80211 = true",
+            "drivers_peripheral_wlan_feature_enable_HDF_UT = false"
+          ]
+        },
+        {
+          "component": "hdf_core",
+          "features": [
+            "hdf_core_platform_test_support = true"
+          ]
+        }
+      ]
+    },
+    {
+      "subsystem": "startup",
+      "components": [
+        {
+          "component": "init",
+          "features": [
+            "enable_ohos_startup_init_feature_ab_partition = false",
+            "enable_ohos_startup_init_feature_loader = true"
+          ]
+        }
+      ]
+    }
+  ]
+}

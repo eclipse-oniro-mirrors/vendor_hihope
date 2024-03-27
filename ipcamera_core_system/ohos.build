@@ -1,0 +1,18 @@
+{
+  "parts": {
+    "product_ipcamera_core_system": {
+      "module_list": [
+        "//vendor/hihope/ipcamera_core_system/default_app_config:default_app_config",
+        "//vendor/hihope/ipcamera_core_system/image_conf:custom_image_conf",
+        "//vendor/hihope/ipcamera_core_system/preinstall-config:preinstall-config",
+        "//vendor/hihope/ipcamera_core_system/resourceschedule:resourceschedule",
+        "//vendor/hihope/ipcamera_core_system/etc:product_etc_conf",
+        "//vendor/hihope/ipcamera_core_system/hals/audio:hdf_audio_config",
+        "//vendor/hihope/ipcamera_core_system/hals/codec/:hdf_codec_config",
+        "//vendor/hihope/ipcamera_core_system/hdf_config/uhdf:hdf_config",
+        "//vendor/hihope/ipcamera_core_system/window_config:window_config"
+      ]
+    }
+  },
+  "subsystem": "product_ipcamera_core_system"
+}
