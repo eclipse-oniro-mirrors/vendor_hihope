@@ -1147,6 +1147,7 @@ bypass_device_info_manager = [
   "distributed_device_profile_sdk",
   "distributed_device_profile_common",
   "deviceprofileradar",
+  "device_profile_radar",
 ]
 
 bypass_dfs_service = []
