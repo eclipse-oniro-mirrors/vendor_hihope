@@ -696,7 +696,7 @@ bypass_work_scheduler = []
 
 # accessibility : //foundation/barrierfree/accessibility
 bypass_accessibility = [
-  "accessibility",
+  "accessibility_napi",
   "accessibleability",
   "accessibilityconfig",
   "accessibilityclient",
