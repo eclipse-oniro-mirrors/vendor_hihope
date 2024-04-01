@@ -7,6 +7,22 @@
         {
             "name": "foundation",
             "critical": [1, 4, 240]
-        }
+        },
+        {
+            "name": "param_watcher",
+            "critical": [1, 4, 240]
+        },
+        {
+            "name": "appspawn",
+            "critical":[1, 4, 240]
+        },
+        {
+            "name": "render_service",
+            "critical": [1, 5, 60]
+	},
+        {
+            "name": "storage_daemon",
+            "critical": [1, 4, 240]
+	}
     ]
 }
