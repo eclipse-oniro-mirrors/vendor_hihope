@@ -24,7 +24,6 @@
           }
         ]
       },
-      
       {
         "subsystem": "applications",
         "components": [
@@ -34,13 +33,21 @@
           }
         ]
       },
-  
       {
         "subsystem": "rockchip_products",
         "components": [
           {
             "component": "rockchip_products",
             "features": []
+          }
+        ]
+      },
+      {
+        "subsystem":"hiviewdfx",
+        "components": [
+          {
+            "component": "hiview",
+            "features": [ "enable_leak_detector = true" ]
           }
         ]
       }
