@@ -572,6 +572,7 @@ bypass_window_manager = [
   "demo_freeze_display",  #cfi not configured
   "demo_water_mark_listener",  #cfi not configured
   "demo_session_manager",  #cfi not configured
+  "demo_visible_window_num_listener",  #cfi not configured
   "ws_unittest_common",  #cfi not configured
   "utils_unittest_common",  #cfi not configured
   "window_extension_unittest_common",  #cfi not configured
