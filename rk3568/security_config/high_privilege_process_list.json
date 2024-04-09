@@ -38,6 +38,11 @@
             "gid": "root"
         },
         {
+            "name": "resource_schedule_executor",
+            "uid": "root",
+            "gid": "root"
+        },
+        {
             "name": "storage_daemon",
             "uid": "root",
             "gid": "root"
