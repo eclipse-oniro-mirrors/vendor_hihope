@@ -43,7 +43,6 @@
       "subsystem": "hiviewdfx",
       "components": [
         { "component": "hilog"},
-        { "component": "hiview", "features":["enable_leak_detector=true"] },
         { "component": "hichecker", "features":["hichecker_support_asan=false"] }
       ]
     },
