@@ -1307,6 +1307,8 @@ bypass_graphic_2d = [
   "libfence",
   "libskia_rs_framework",
   "render_frame_trace",
+  "rs_frame_report_ext",  # not required to enable cfi
+  "rs_frame_report_ext_surface",  # not required to enable cfi
   "libhyper_graphic_manager",
   "texgine_sample",
   "texgine_sample_align",
