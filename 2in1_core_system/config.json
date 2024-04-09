@@ -41,15 +41,6 @@
             "features": []
           }
         ]
-      },
-      {
-        "subsystem":"hiviewdfx",
-        "components": [
-          {
-            "component": "hiview",
-            "features": [ "enable_leak_detector = true" ]
-          }
-        ]
       }
     ]
   }
