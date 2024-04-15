@@ -627,6 +627,8 @@ bypass_os_account = [ "accountmgr" ]
 bypass_access_token = [
   "libtoken_setproc",  #cfi not configured
   "atm",  #cfi not configured
+  "libaccesstoken_manager_service_standard_test",  # test target, not required
+                                                   # to enable cfi
 ]
 
 bypass_dupdate_engine = []
