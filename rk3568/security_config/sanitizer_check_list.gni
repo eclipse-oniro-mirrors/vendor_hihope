@@ -691,7 +691,7 @@ bypass_frame_aware_sched = []
 
 bypass_memmgr = []
 
-bypass_memmgr_plugin = []
+bypass_memmgr_override = []
 
 # work_scheduler : //foundation/resourceschedule/work_scheduler
 bypass_work_scheduler = []
@@ -1766,8 +1766,8 @@ enable_cfi_part_and_bypass_list = [
     bypass_memmgr,
   ],
   [
-    "memmgr_plugin",
-    bypass_memmgr_plugin,
+    "memmgr_override",
+    bypass_memmgr_override,
   ],
   [
     "work_scheduler",
