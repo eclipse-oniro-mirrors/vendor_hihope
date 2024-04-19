@@ -441,7 +441,6 @@ bypass_wallpaper_mgr = [
 
 # resource_schedule_service : //foundation/resourceschedule/resource_schedule_service
 bypass_resource_schedule_service = [
-  "device_standby_plugin",  #cfi not configured
   "ressched_test",  #cfi not configured
   "process_proup_test",  #cfi not configured
 ]
