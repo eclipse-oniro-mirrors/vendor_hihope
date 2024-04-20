@@ -417,6 +417,7 @@ bypass_user_auth_framework = [
   "userauth_service_base",
   "userauth_service_context",
   "userauth_services_ipc",
+  "userauth_service_remote_connect",
   "attributes_fuzzer",  #cfi not configured
   "dfx_fuzzer",  #cfi not configured
   "userauth_client_ipc_fuzzer",  #cfi not configured
@@ -425,6 +426,7 @@ bypass_user_auth_framework = [
   "userauth_service_context_fuzzer",  #cfi not configured
   "userauth_service_ipc_fuzzer",  #cfi not configured
   "userauth_services_ipc_fuzzer",  #cfi not configured
+  "userauth_service_remote_connect_fuzzer",  #cfi not configured
   "iam_thread_pool_fuzzer",  #cfi not configured
   "iam_utils_fuzzer",  #cfi not configured
   "iam_test_fuzzer",  #cfi not configured
