@@ -1176,31 +1176,25 @@ bypass_distributed_input = []
 
 # av_codec : //foundation/multimedia/av_codec
 bypass_av_codec = [
-  "native_media_avmuxer",
-  "native_media_avdemuxer",
-  "native_media_avsource",
-  "native_media_codecbase",
-  "native_media_acodec",
-  "native_media_adec",
-  "native_media_aenc",
-  "av_codec_client",
-  "native_media_vdec",
-  "native_media_venc",
-  "av_codec_audio_ffmpeg_codec",
-  "video_sample",
-  "av_codec_demo",
-  "video_codec_demo",
-  "av_codec_demo_muxer",
-  "hcodec_demo",
-  "hcodec_test_helper",
-  "media_plugin_HttpSource",
-  "media_plugin_FFmpegAudioDecoders",
-  "media_plugin_G711muAudioDecoder",
-  "media_plugin_FFmpegAudioEncoders",
-  "media_plugin_G711muAudioEncoder",
-  "av_codec_plugin_FFmpegDemuxer",
-  "av_codec_capi_unit_test",
-  "av_codec_inner_unit_test",
+  "native_media_avmuxer",  # napi target, not required to enable cfi
+  "native_media_avdemuxer",  # napi target, not required to enable cfi
+  "native_media_avsource",  # napi target, not required to enable cfi
+  "native_media_codecbase",  # napi target, not required to enable cfi
+  "native_media_acodec",  # napi target, not required to enable cfi
+  "native_media_adec",  # napi target, not required to enable cfi
+  "native_media_aenc",  # napi target, not required to enable cfi
+  "native_media_vdec",  # napi target, not required to enable cfi
+  "native_media_venc",  # napi target, not required to enable cfi
+  "av_codec_client",  # client target, not required to enable cfi
+  "av_codec_demo",  # test target, not required to enable cfi
+  "av_codec_demo_muxer",  # test target, not required to enable cfi
+  "video_codec_demo",  # test target, not required to enable cfi
+  "video_sample",  # test target, not required to enable cfi
+  "hcodec_demo",  # test target, not required to enable cfi
+  "hcodec_test_helper",  # test target, not required to enable cfi
+  "av_codec_capi_unit_test",  # test target, not required to enable cfi
+  "av_codec_inner_unit_test",  # test target, not required to enable cfi
+  "av_codec_engine_codeclist_mock",  # test target, not required to enable cfi
 ]
 
 # kv_store : //foundation/distributeddatamgr/kv_store
