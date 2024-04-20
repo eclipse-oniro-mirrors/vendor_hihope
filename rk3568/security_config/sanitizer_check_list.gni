@@ -173,11 +173,7 @@ bypass_user_file_service = []
 bypass_contacts_data_hap = [ "contactsdataability" ]
 
 # crypto_framework : //base/security/crypto_framework
-bypass_crypto_framework = [
-  "crypto_plugin_common",
-  "crypto_framework_lib",
-  "cryptoframework_napi",
-]
+bypass_crypto_framework = []
 
 # wpa_supplicant : //third_party/wpa_supplicant
 bypass_wpa_supplicant = [
