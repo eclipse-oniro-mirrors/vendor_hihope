@@ -146,9 +146,7 @@
       "components": [
         {
           "component": "window_manager",
-          "features": [
-            "window_manager_dayu210_resource_config = true"
-         ]
+          "features": []
         }
       ]
     },
