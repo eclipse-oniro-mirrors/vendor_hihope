@@ -426,7 +426,31 @@ bypass_user_auth_framework = [
   "iam_test_fuzzer",  #cfi not configured
 ]
 
-bypass_enterprise_device_management = []
+# enterprise_device_management : //base/customization/enterprise_device_management
+bypass_enterprise_device_management = [
+  "AdminManagerFuzzTest",  # test/napi/client target or rust, not required to
+                           # enable cfi
+  "AdminPoliciesStorageRdbFuzzTest",  # test/napi/client target or rust, not
+                                      # required to enable cfi
+  "AdminServiceInterfaceFuzzTest",  # test/napi/client target or rust, not
+                                    # required to enable cfi
+  "AllowedUsbDevicesPluginFuzzTest",  # test/napi/client target or rust, not
+                                      # required to enable cfi
+  "EdmPluginFuzzTest",  # test/napi/client target or rust, not required to
+                        # enable cfi
+  "EnterpriseDeviceMgrAbilityFuzzTest",  # test/napi/client target or rust, not
+                                         # required to enable cfi
+  "EnterpriseDeviceMgrStubMockFuzzTest",  # test/napi/client target or rust, not
+                                          # required to enable cfi
+  "FireWallRulePluginFuzzTest",  # test/napi/client target or rust, not required
+                                 # to enable cfi
+  "IptablesRulePluginFuzzTest",  # test/napi/client target or rust, not required
+                                 # to enable cfi
+  "ManageAutoStartAppsPluginFuzzTest",  # test/napi/client target or rust, not
+                                        # required to enable cfi
+  "UsbReadOnlyPluginFuzzTest",  # test/napi/client target or rust, not required
+                                # to enable cfi
+]
 
 # wallpaper_mgr : //base/theme/wallpaper_mgr
 bypass_wallpaper_mgr = [
