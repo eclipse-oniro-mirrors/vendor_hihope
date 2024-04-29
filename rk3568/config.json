@@ -216,6 +216,17 @@
       ]
     },
     {
+      "subsystem": "usb",
+      "components": [
+        {
+          "component": "usb_manager",
+          "features": [
+            "usb_manager_feature_pop_up_func_switch_model = false"
+          ]
+        }
+      ]
+    },
+    {
       "subsystem": "graphic",
       "components": [
         {
