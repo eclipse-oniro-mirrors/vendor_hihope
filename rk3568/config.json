@@ -259,7 +259,10 @@
       "components": [
         {
           "component": "hiview",
-          "features": [ "enable_leak_detector = true" ]
+          "features": [
+            "enable_leak_detector = true",
+            "enable_performance_monitor = true"
+          ]
         }
       ]
     }
