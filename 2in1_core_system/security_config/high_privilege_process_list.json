@@ -6,6 +6,11 @@
             "gid": "root"
         },
         {
+            "name": "cjappspawn",
+            "uid": "root",
+            "gid": "root"
+        },
+        {
             "name": "console",
             "uid": "root"
         },
