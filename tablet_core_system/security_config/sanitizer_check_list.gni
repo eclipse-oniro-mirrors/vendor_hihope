@@ -740,10 +740,12 @@ bypass_oaid = [
 bypass_init = [
   "watchdog_service",  #cfi not configured
   "libueventd_ramdisk_static",  #cfi not configured
+  "libueventd_ramdisk_static_real",  #cfi not configured
   "begetctl",  #cfi not configured
   "loopevent",  #cfi not configured
   "libbegetutil",  #cfi not configured
   "libfsmanager_static",  #cfi not configured
+  "libfsmanager_static_real",  #cfi not configured
   "seccomp",  #cfi not configured
   "ueventd",  #cfi not configured
   "reboot",  #cfi not configured
@@ -767,6 +769,7 @@ bypass_init = [
   "udidmodule",  #cfi not configured
   "libudid_static",  #cfi not configured
   "libudidcomm",  #cfi not configured
+  "libudidcomm_static",  #cfi not configured
   "selinuxadp",  #cfi not configured
   "system_filter",  #cfi not configured
   "appspawn_filter",  #cfi not configured
