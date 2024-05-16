@@ -294,7 +294,6 @@ bypass_dsoftbus = [ "softbus_server" ]
 bypass_hilog = [
   "libhilog",
   "libhilog_base",
-  "libhilog_base_static",
   "hilog",
   "hilogd",
   "libhilognapi_src",
@@ -789,7 +788,6 @@ bypass_init = [
   "deviceinfo",  #cfi not configured
   "init_log",  #cfi not configured
   "agent_log",  #cfi not configured
-  "agent_log_static",  #cfi not configured
   "systemparameter",  #cfi not configured
   "bootchart",  #cfi not configured
   "init_context",  #cfi not configured
@@ -817,7 +815,6 @@ bypass_init = [
   "param_init",  #cfi not configured
   "libinit_utils",  #cfi not configured
   "param_client",  #cfi not configured
-  "param_client_static",  #cfi not configured
   "client",  #cfi not configured
   "fd_holder_test",  #cfi not configured
   "libfuzz_utils",  #cfi not configured
