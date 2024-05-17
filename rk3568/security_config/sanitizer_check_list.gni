@@ -828,6 +828,7 @@ bypass_init = [
   "fdholder",  #cfi not configured
   "sh",  #cfi not configured
   "libcrashhandler",  #cfi not configured
+  "parameterbase",  #cfi not configured
 ]
 
 # bundle_framework : //foundation/bundlemanager/bundle_framework
