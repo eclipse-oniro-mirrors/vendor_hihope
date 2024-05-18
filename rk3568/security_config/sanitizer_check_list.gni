@@ -485,7 +485,10 @@ bypass_data_share = []
 # time_service : //base/time/time_service
 bypass_time_service = [ "time_system_ability_static" ]
 
-bypass_imf = []
+# imf : //base/inputmethod/imf
+bypass_imf = [
+  "inputmethod_client",  # client target, not required to enable cfi
+]
 
 # location : //base/location
 bypass_location = [
