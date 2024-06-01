@@ -6,6 +6,11 @@
             "gid": "root"
         },
         {
+            "name": "cjappspawn",
+            "uid": "root",
+            "gid": "root"
+        },
+        {
             "name": "console",
             "uid": "root"
         },
@@ -34,6 +39,11 @@
         },
         {
             "name": "resource_schedule_service",
+            "uid": "root",
+            "gid": "root"
+        },
+        {
+            "name": "resource_schedule_executor",
             "uid": "root",
             "gid": "root"
         },

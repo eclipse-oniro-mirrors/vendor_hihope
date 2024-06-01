@@ -102,7 +102,7 @@
         },
         {
             "bundleName": "com.ohos.amsdialog",
-            "app_signature": ["8E93863FC32EE238060BF69A9B37E2608FFFB21F93C862DD511CBAC9F30024B5"],
+            "app_signature": ["A004990956B96A415E849F6050AE472EE0B85F15E1928AE2CEFB49419BD2D074"],
             "allowAppUsePrivilegeExtension": true,
             "allowAppDesktopIconHide": true
         },
@@ -120,6 +120,12 @@
         {
             "bundleName": "com.ohos.medialibrary.medialibrarydata",
             "app_signature": ["F9431859ED7A3959B5D72EF36FBE8B210A00082B044063E4424F823A01B3B7CA"],
+            "allowAppUsePrivilegeExtension": true,
+            "allowAppDesktopIconHide": true
+        },
+        {
+            "bundleName": "com.ohos.ringtonelibrary.ringtonelibrarydata",
+            "app_signature": ["8C6B95137E594835B00A60DF8DC1350D040D58624F17F4E841246B97B9A7A9FD"],
             "allowAppUsePrivilegeExtension": true,
             "allowAppDesktopIconHide": true
         },

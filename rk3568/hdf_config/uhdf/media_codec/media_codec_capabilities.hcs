@@ -29,8 +29,8 @@ root {
                 maxBitRate = 40000000;
                 minWidth = 176;
                 minHeight = 144;
-                maxWidth = 1920;
-                maxHeight = 1088;
+                maxWidth = 4096;
+                maxHeight = 4096;
                 widthAlignment = 16;
                 heightAlignment = 8;
                 minBlockCount = 99;
@@ -44,6 +44,7 @@ root {
                 bitRateMode = [1, 2];
                 minFrameRate = 1;
                 maxFrameRate = 60;
+                canSwapWidthHeight = true;
             }
             HDF_video_hw_enc_hevc_rk {
                 role = 2;
@@ -58,8 +59,8 @@ root {
                 maxBitRate = 40000000;
                 minWidth = 176;
                 minHeight = 144;
-                maxWidth = 1920;
-                maxHeight = 1088;
+                maxWidth = 4096;
+                maxHeight = 4096;
                 widthAlignment = 16;
                 heightAlignment = 8;
                 minBlockCount = 99;
@@ -73,6 +74,7 @@ root {
                 bitRateMode = [1, 2];
                 minFrameRate = 1;
                 maxFrameRate = 60;
+                canSwapWidthHeight = true;
             }
         }
         VideoHwDecoders {
@@ -90,7 +92,7 @@ root {
                 minWidth = 176;
                 minHeight = 144;
                 maxWidth = 4096;
-                maxHeight = 2160;
+                maxHeight = 4096;
                 widthAlignment = 8;
                 heightAlignment = 8;
                 minBlockCount = 99;
@@ -104,6 +106,7 @@ root {
                 bitRateMode = [];
                 minFrameRate = 1;
                 maxFrameRate = 60;
+                canSwapWidthHeight = true;
             }
             HDF_video_hw_dec_mpeg2_rk {
                 role = 0xFFFFFFFF;
@@ -292,8 +295,8 @@ root {
                 maxBitRate = 160000000;
                 minWidth = 176;
                 minHeight = 144;
-                maxWidth = 1920;
-                maxHeight = 1088;
+                maxWidth = 4096;
+                maxHeight = 4096;
                 widthAlignment = 2;
                 heightAlignment = 2;
                 minBlockCount = 0xFFFFFFFF;
@@ -307,6 +310,7 @@ root {
                 bitRateMode = [];
                 minFrameRate = 0;
                 maxFrameRate = 0;
+                canSwapWidthHeight = true;
             }
             HDF_video_hw_dec_vp9_rk {
                 role = 4;

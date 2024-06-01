@@ -27,6 +27,16 @@
             }
         ]
     },
+	{
+        "bundleName" : "com.ohos.ringtonelibrary.ringtonelibrarydata",
+        "app_signature" : ["8C6B95137E594835B00A60DF8DC1350D040D58624F17F4E841246B97B9A7A9FD"],
+        "permissions" : [
+            {
+                "name" : "ohos.permission.READ_AUDIO",
+                "userCancellable" : false
+            }
+        ]
+    },
     {
         "bundleName" : "com.ohos.callui",
         "app_signature" : ["E64B13B84E6D2167F73B46530C6E02E323DA43C9C2DA251D7C64D20E091B936F"],

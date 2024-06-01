@@ -119,6 +119,7 @@ bypass_media_foundation = [
 
 # av_session : //foundation/multimedia/av_session
 bypass_av_session = [
+  "avvolumepanel",
   "avcastpicker",
   "mediacontrolextensionability_napi",
   "avsession_client",
@@ -172,11 +173,7 @@ bypass_user_file_service = []
 bypass_contacts_data_hap = [ "contactsdataability" ]
 
 # crypto_framework : //base/security/crypto_framework
-bypass_crypto_framework = [
-  "crypto_plugin_common",
-  "crypto_framework_lib",
-  "cryptoframework_napi",
-]
+bypass_crypto_framework = []
 
 # wpa_supplicant : //third_party/wpa_supplicant
 bypass_wpa_supplicant = [
@@ -404,6 +401,7 @@ bypass_user_auth_framework = [
   "user_auth_extension",
   "user_auth_extension_module",
   "userauth",
+  "userauthicon",
   "attributes",
   "dfx",
   "userauth_executors",
@@ -415,6 +413,7 @@ bypass_user_auth_framework = [
   "userauth_service_base",
   "userauth_service_context",
   "userauth_services_ipc",
+  "userauth_service_remote_connect",
   "attributes_fuzzer",  #cfi not configured
   "dfx_fuzzer",  #cfi not configured
   "userauth_client_ipc_fuzzer",  #cfi not configured
@@ -423,12 +422,37 @@ bypass_user_auth_framework = [
   "userauth_service_context_fuzzer",  #cfi not configured
   "userauth_service_ipc_fuzzer",  #cfi not configured
   "userauth_services_ipc_fuzzer",  #cfi not configured
+  "userauth_service_remote_connect_fuzzer",  #cfi not configured
   "iam_thread_pool_fuzzer",  #cfi not configured
   "iam_utils_fuzzer",  #cfi not configured
   "iam_test_fuzzer",  #cfi not configured
 ]
 
-bypass_enterprise_device_management = []
+# enterprise_device_management : //base/customization/enterprise_device_management
+bypass_enterprise_device_management = [
+  "AdminManagerFuzzTest",  # test/napi/client target or rust, not required to
+                           # enable cfi
+  "AdminPoliciesStorageRdbFuzzTest",  # test/napi/client target or rust, not
+                                      # required to enable cfi
+  "AdminServiceInterfaceFuzzTest",  # test/napi/client target or rust, not
+                                    # required to enable cfi
+  "AllowedUsbDevicesPluginFuzzTest",  # test/napi/client target or rust, not
+                                      # required to enable cfi
+  "EdmPluginFuzzTest",  # test/napi/client target or rust, not required to
+                        # enable cfi
+  "EnterpriseDeviceMgrAbilityFuzzTest",  # test/napi/client target or rust, not
+                                         # required to enable cfi
+  "EnterpriseDeviceMgrStubMockFuzzTest",  # test/napi/client target or rust, not
+                                          # required to enable cfi
+  "FireWallRulePluginFuzzTest",  # test/napi/client target or rust, not required
+                                 # to enable cfi
+  "IptablesRulePluginFuzzTest",  # test/napi/client target or rust, not required
+                                 # to enable cfi
+  "ManageAutoStartAppsPluginFuzzTest",  # test/napi/client target or rust, not
+                                        # required to enable cfi
+  "UsbReadOnlyPluginFuzzTest",  # test/napi/client target or rust, not required
+                                # to enable cfi
+]
 
 # wallpaper_mgr : //base/theme/wallpaper_mgr
 bypass_wallpaper_mgr = [
@@ -439,7 +463,6 @@ bypass_wallpaper_mgr = [
 
 # resource_schedule_service : //foundation/resourceschedule/resource_schedule_service
 bypass_resource_schedule_service = [
-  "device_standby_plugin",  #cfi not configured
   "ressched_test",  #cfi not configured
   "process_proup_test",  #cfi not configured
 ]
@@ -571,6 +594,7 @@ bypass_window_manager = [
   "demo_freeze_display",  #cfi not configured
   "demo_water_mark_listener",  #cfi not configured
   "demo_session_manager",  #cfi not configured
+  "demo_visible_window_num_listener",  #cfi not configured
   "ws_unittest_common",  #cfi not configured
   "utils_unittest_common",  #cfi not configured
   "window_extension_unittest_common",  #cfi not configured
@@ -621,12 +645,22 @@ bypass_distributed_notification_service = []
 bypass_eventhandler = [ "libeventhandler" ]
 
 # os_account : //base/account/os_account
-bypass_os_account = [ "accountmgr" ]
+bypass_os_account = [
+  "account_iam_napi",  # napi target, not required to enable cfi
+  "appaccount",  # napi target, not required to enable cfi
+  "account_napi_common",  # napi target, not required to enable cfi
+  "distributedaccount",  # napi target, not required to enable cfi
+  "domain_account_napi",  # napi target, not required to enable cfi
+  "osaccount",  # napi target, not required to enable cfi
+  "libaccountkits",  # client target, not required to enable cfi
+]
 
 # access_token : //base/security/access_token
 bypass_access_token = [
   "libtoken_setproc",  #cfi not configured
   "atm",  #cfi not configured
+  "libaccesstoken_manager_service_standard_test",  # test target, not required
+                                                   # to enable cfi
 ]
 
 bypass_dupdate_engine = []
@@ -689,14 +723,14 @@ bypass_frame_aware_sched = []
 
 bypass_memmgr = []
 
-bypass_memmgr_plugin = []
+bypass_memmgr_override = []
 
 # work_scheduler : //foundation/resourceschedule/work_scheduler
 bypass_work_scheduler = []
 
 # accessibility : //foundation/barrierfree/accessibility
 bypass_accessibility = [
-  "accessibility",
+  "accessibility_napi",
   "accessibleability",
   "accessibilityconfig",
   "accessibilityclient",
@@ -738,10 +772,12 @@ bypass_oaid = [
 bypass_init = [
   "watchdog_service",  #cfi not configured
   "libueventd_ramdisk_static",  #cfi not configured
+  "libueventd_ramdisk_static_real",  #cfi not configured
   "begetctl",  #cfi not configured
   "loopevent",  #cfi not configured
   "libbegetutil",  #cfi not configured
   "libfsmanager_static",  #cfi not configured
+  "libfsmanager_static_real",  #cfi not configured
   "seccomp",  #cfi not configured
   "ueventd",  #cfi not configured
   "reboot",  #cfi not configured
@@ -765,6 +801,7 @@ bypass_init = [
   "udidmodule",  #cfi not configured
   "libudid_static",  #cfi not configured
   "libudidcomm",  #cfi not configured
+  "libudidcomm_static",  #cfi not configured
   "selinuxadp",  #cfi not configured
   "system_filter",  #cfi not configured
   "appspawn_filter",  #cfi not configured
@@ -792,6 +829,8 @@ bypass_init = [
   "fdholder",  #cfi not configured
   "sh",  #cfi not configured
   "libcrashhandler",  #cfi not configured
+  "parameterbase",  #cfi not configured
+  "remount",  #cfi not configured
   "syscap_ts",  #cfi not configured
 ]
 
@@ -1081,6 +1120,7 @@ bypass_hiview = [
   "hiview_service",
   "bbox_detector",
   "leak_detector",
+  "xperf",
   "hiview_core",
   "usage_report",
   "freeze_detector",
@@ -1148,6 +1188,7 @@ bypass_device_info_manager = [
   "distributed_device_profile_sdk",
   "distributed_device_profile_common",
   "deviceprofileradar",
+  "device_profile_radar",
 ]
 
 bypass_dfs_service = []
@@ -1174,31 +1215,25 @@ bypass_distributed_input = []
 
 # av_codec : //foundation/multimedia/av_codec
 bypass_av_codec = [
-  "native_media_avmuxer",
-  "native_media_avdemuxer",
-  "native_media_avsource",
-  "native_media_codecbase",
-  "native_media_acodec",
-  "native_media_adec",
-  "native_media_aenc",
-  "av_codec_client",
-  "native_media_vdec",
-  "native_media_venc",
-  "av_codec_audio_ffmpeg_codec",
-  "video_sample",
-  "av_codec_demo",
-  "video_codec_demo",
-  "av_codec_demo_muxer",
-  "hcodec_demo",
-  "hcodec_test_helper",
-  "media_plugin_HttpSource",
-  "media_plugin_FFmpegAudioDecoders",
-  "media_plugin_G711muAudioDecoder",
-  "media_plugin_FFmpegAudioEncoders",
-  "media_plugin_G711muAudioEncoder",
-  "av_codec_plugin_FFmpegDemuxer",
-  "av_codec_capi_unit_test",
-  "av_codec_inner_unit_test",
+  "native_media_avmuxer",  # napi target, not required to enable cfi
+  "native_media_avdemuxer",  # napi target, not required to enable cfi
+  "native_media_avsource",  # napi target, not required to enable cfi
+  "native_media_codecbase",  # napi target, not required to enable cfi
+  "native_media_acodec",  # napi target, not required to enable cfi
+  "native_media_adec",  # napi target, not required to enable cfi
+  "native_media_aenc",  # napi target, not required to enable cfi
+  "native_media_vdec",  # napi target, not required to enable cfi
+  "native_media_venc",  # napi target, not required to enable cfi
+  "av_codec_client",  # client target, not required to enable cfi
+  "av_codec_demo",  # test target, not required to enable cfi
+  "av_codec_demo_muxer",  # test target, not required to enable cfi
+  "video_codec_demo",  # test target, not required to enable cfi
+  "video_sample",  # test target, not required to enable cfi
+  "hcodec_demo",  # test target, not required to enable cfi
+  "hcodec_test_helper",  # test target, not required to enable cfi
+  "av_codec_capi_unit_test",  # test target, not required to enable cfi
+  "av_codec_inner_unit_test",  # test target, not required to enable cfi
+  "av_codec_engine_codeclist_mock",  # test target, not required to enable cfi
 ]
 
 # kv_store : //foundation/distributeddatamgr/kv_store
@@ -1305,6 +1340,8 @@ bypass_graphic_2d = [
   "libfence",
   "libskia_rs_framework",
   "render_frame_trace",
+  "rs_frame_report_ext",  # not required to enable cfi
+  "rs_frame_report_ext_surface",  # not required to enable cfi
   "libhyper_graphic_manager",
   "texgine_sample",
   "texgine_sample_align",
@@ -1375,6 +1412,7 @@ bypass_graphic_2d = [
   "render_service_client_gravity_demo",
   "raw_maker",
   "render_service_client_ui_capture_demo",
+  "render_service_client__alpha_offscreen_demo",
   "render_service_client_scale_demo",
   "render_service_client_rs_animation_demo",
   "surface_capture_demo",
@@ -1411,6 +1449,7 @@ bypass_graphic_2d = [
   "fence_test_common",
   "hdr_capability_utils",
   "hdr_capability_napi",
+  "libnative_display_soloist",
 ]
 
 # security_component_manager : //base/security/security_component_manager
@@ -1761,8 +1800,8 @@ enable_cfi_part_and_bypass_list = [
     bypass_memmgr,
   ],
   [
-    "memmgr_plugin",
-    bypass_memmgr_plugin,
+    "memmgr_override",
+    bypass_memmgr_override,
   ],
   [
     "work_scheduler",

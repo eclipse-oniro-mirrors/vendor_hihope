@@ -1,0 +1,46 @@
+{
+    "product_name": "2in1_core_system",
+    "device_company": "rockchip",
+    "device_build_path": "device/board/hihope/rk3568",
+    "target_cpu": "arm",
+    "type": "standard",
+    "version": "3.0",
+    "board": "rk3568",
+    "api_version": 8,
+    "enable_ramdisk": true,
+    "enable_absystem": false,
+    "build_selinux": true,
+    "build_seccomp": true,
+    "inherit": [
+      "productdefine/common/inherit/2in1.json"
+    ],
+    "subsystems": [
+      {
+        "subsystem": "developtools",
+        "components": [
+          {
+            "component": "bytrace",
+            "features": []
+          }
+        ]
+      },
+      {
+        "subsystem": "applications",
+        "components": [
+          {
+            "component": "prebuilt_hap",
+            "features": []
+          }
+        ]
+      },
+      {
+        "subsystem": "rockchip_products",
+        "components": [
+          {
+            "component": "rockchip_products",
+            "features": []
+          }
+        ]
+      }
+    ]
+  }
