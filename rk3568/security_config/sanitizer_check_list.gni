@@ -831,6 +831,7 @@ bypass_init = [
   "libcrashhandler",  #cfi not configured
   "parameterbase",  #cfi not configured
   "remount",  #cfi not configured
+  "syscap_ts",  #cfi not configured
 ]
 
 # bundle_framework : //foundation/bundlemanager/bundle_framework
