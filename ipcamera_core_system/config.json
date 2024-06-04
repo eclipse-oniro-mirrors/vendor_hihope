@@ -109,8 +109,8 @@
         {
           "component": "init",
           "features": [
-            "enable_ohos_startup_init_feature_ab_partition = false",
-            "enable_ohos_startup_init_feature_loader = true"
+            "init_feature_ab_partition = false",
+            "init_feature_loader = true"
           ]
         }
       ]
