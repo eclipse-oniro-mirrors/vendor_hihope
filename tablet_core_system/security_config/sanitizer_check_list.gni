@@ -1070,6 +1070,7 @@ bypass_hiview = [
   "hiview_base",
   "hiviewbase",
   "hiviewbase_static_lib_for_tdd",
+  "hiview_core_for_test",
   "hiview_service_impl",
   "hiview_service_impl_for_unified_collection",
   "hiview_service_impl_for_js",
