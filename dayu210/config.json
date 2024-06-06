@@ -193,7 +193,7 @@
         {
           "component": "libuv",
           "features": [
-            "use_ffrt = true"
+            "libuv_use_ffrt = true"
           ]
         },
         {
