@@ -14,6 +14,10 @@
             {
                 "name" : "ohos.permission.WRITE_MEDIA",
                 "userCancellable" : true
+            },
+            {
+                "name" : "ohos.permission.WRITE_IMAGEVIDEO",
+                "userCancellable" : true
             }
         ]
     },
