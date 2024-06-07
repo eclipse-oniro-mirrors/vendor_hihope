@@ -19,10 +19,14 @@
         {
             "name": "render_service",
             "critical": [1, 5, 60]
-	},
+        },
         {
             "name": "storage_daemon",
             "critical": [1, 4, 240]
-	}
+        },
+        {
+            "name": "hdf_devmgr",
+            "critical": [1, 4, 60]
+        }
     ]
 }
