@@ -167,7 +167,7 @@
         },
         {
             "bundleName": "com.ohos.screenshot",
-            "app_signature" : ["4DBA6C79DC701D7ACF3367099ADCE17C6FB9E6062D0481E5481612D3A101EB7A"],
+            "app_signature" : ["com.ohos.screenshot_BPgjq9cj5JyweCCfYME1bzHG1/mf3O8o3TRauZBbLY88KQDsXTsuFVd36R3cnIdxpOosELsi0BKxgowdI7IOBUU="],
             "allowAppUsePrivilegeExtension": true,
             "allowAppDesktopIconHide": true
         },
