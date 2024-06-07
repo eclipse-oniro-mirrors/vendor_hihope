@@ -170,6 +170,14 @@
             {
                 "name" : "ohos.permission.MEDIA_LOCATION",
                 "userCancellable" : false
+            },
+            {
+                "name" : "ohos.permission.READ_AUDIO",
+                "userCancellable" : false
+            },
+            {
+                "name" : "ohos.permission.WRITE_AUDIO",
+                "userCancellable" : false
             }
         ]
     },
