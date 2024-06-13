@@ -1073,6 +1073,7 @@ bypass_hiview = [
   "ucollection_client_source",
   "ucollection_source",
   "usage_event_report",
+  "usage_event_report_for_test",
   "sysevent_source",
   "unified_collector",
   "sys_event_store",
