@@ -191,6 +191,7 @@ bypass_wpa_supplicant = [
 
 # netmanager_base : //foundation/communication/netmanager_base
 bypass_netmanager_base = [
+  "net_bundle_utils",  # contains blocklist but reviewed
   "net_conn_parcel",
   "net_policy_parcel",
   "net_native_parcel",
