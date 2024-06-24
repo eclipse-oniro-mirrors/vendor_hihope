@@ -1291,6 +1291,8 @@ bypass_graphic_2d = [
   "2d_graphics_new",
   "2d_graphics_canvaskit0310",
   "2d_graphics_drawing",
+  "drawing_ndk_source_ohos",
+  "drawing_ndk_source_ohos_ng",
   "color_picker",
   "EGL",
   "GLESv1",
