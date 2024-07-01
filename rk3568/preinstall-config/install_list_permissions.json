@@ -157,7 +157,7 @@
     },
 	{
         "bundleName": "com.ohos.filepicker",
-        "app_signature" : ["C902DDEE3286715B8BA26175A1EF967985D22AEF44BE747702B604D956A76CFA"],
+        "app_signature" : ["8E93863FC32EE238060BF69A9B37E2608FFFB21F93C862DD511CBAC9F30024B5"],
         "permissions" : [
             {
                 "name" : "ohos.permission.READ_MEDIA",
