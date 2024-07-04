@@ -611,8 +611,8 @@ bypass_window_manager = [
 ]
 
 bypass_qos_manager = [
-  "concurrent_task_client", #client target,not required to enable cfi
-  "qos_ndk", #napi target, not required to enable cfi
+  "concurrent_task_client", # client target,not required to enable cfi
+  "qos_ndk", # napi target, not required to enable cfi
   "qos", # client target,not required to enable cfi
 ]
 
@@ -726,13 +726,13 @@ bypass_efficiency_manager = []
 bypass_efficiency_manager_ext = []
 
 bypass_frame_aware_sched = [
-  "policy_source", #client target, not required to enable cfi
-  "collector_source", #client target, not required to enable cfi
-  "frame_ui_utils", #client target, not required to enable cfi
-  "frame_msg_intf", #client target, not required to enable cfi
-  "rtg_interface", #client target, not required to enable cfi
-  "frame_trace_intf", #client target, not required to enable cfi
-  "frame_ui_intf", #client target, not required to enable cfi
+  "policy_source", # client target, not required to enable cfi
+  "collector_source", # client target, not required to enable cfi
+  "frame_ui_utils", # client target, not required to enable cfi
+  "frame_msg_intf", # client target, not required to enable cfi
+  "rtg_interface", # client target, not required to enable cfi
+  "frame_trace_intf", # client target, not required to enable cfi
+  "frame_ui_intf", # client target, not required to enable cfi
 ]
 
 bypass_memmgr = []
