@@ -1471,7 +1471,12 @@ bypass_graphic_2d = [
 ]
 
 # security_component_manager : //base/security/security_component_manager
-bypass_security_component_manager = [ "libsecurity_component_sdk" ]
+bypass_security_component_manager = [
+  "libsecurity_component_sdk",
+  "security_component_no_cfi_enhance_adapter_src_set",
+  "security_component_no_cfi_framework_src_set",
+  "security_component_no_cfi_enhance_sdk_src_set",
+]
 
 # distributed_bundle_framework : //foundation/bundlemanager/distributed_bundle_framework
 bypass_distributed_bundle_framework = [
