@@ -1980,3 +1980,12 @@ enable_intsan_part_list = []
 
 # The list of build target that bypass the intsan check
 bypass_intsan_target_list = []
+
+# The list of part_name that not check debug
+bypass_config_debug_list = [
+  "libc-test",
+  "libc-test-lib",
+  "unittest",
+  "fuzztest",
+  "moduletest",
+]
