@@ -688,6 +688,12 @@ bypass_perferences = []
 bypass_relational_store = [
   "commontype_napi",  #cfi not configured
   "cloudextension",  #cfi not configured
+  "clouddata",  # napi target, not required to enable cfi
+  "dataability",  # napi target, not required to enable cfi
+  "napi_rdb",  # napi target, not required to enable cfi
+  "rdb",  # napi target, not required to enable cfi
+  "relationalstore",  # napi target, not required to enable cfi
+  "sendablerelationalstore",  # napi target, not required to enable cfi
 ]
 
 bypass_miscdevice = []
