@@ -144,7 +144,7 @@
         {
           "component": "device_status",
           "features": [
-            "fusion_interaction_coordination = false"
+            "device_status_interaction_coordination = false"
           ]
         }
       ]
