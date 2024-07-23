@@ -123,8 +123,7 @@
         {
           "component": "init",
           "features": [
-            "init_feature_ab_partition = true",
-            "init_feature_loader = true"
+            "init_feature_ab_partition = true"
           ]
         }
       ]
