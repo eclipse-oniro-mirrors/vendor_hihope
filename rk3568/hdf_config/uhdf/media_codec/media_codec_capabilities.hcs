@@ -34,9 +34,9 @@ root {
                 widthAlignment = 2;
                 heightAlignment = 2;
                 minBlockCount = 99;
-                maxBlockCount = 8160;
+                maxBlockCount = 34560;
                 minBlocksPerSecond = 99;
-                maxBlocksPerSecond = 489600;
+                maxBlocksPerSecond = 2073600;
                 blockSizeWidth = 16;
                 blockSizeHeight = 16;
                 supportPixelFmts = [28, 24, 20, 12];
@@ -64,9 +64,9 @@ root {
                 widthAlignment = 2;
                 heightAlignment = 2;
                 minBlockCount = 99;
-                maxBlockCount = 8160;
+                maxBlockCount = 34560;
                 minBlocksPerSecond = 99;
-                maxBlocksPerSecond = 489600;
+                maxBlocksPerSecond = 2073600;
                 blockSizeWidth = 16;
                 blockSizeHeight = 16;
                 supportPixelFmts = [28, 24, 20, 12];
