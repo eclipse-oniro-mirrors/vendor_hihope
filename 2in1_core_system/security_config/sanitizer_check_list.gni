@@ -588,7 +588,10 @@ bypass_window_manager = [
 
 bypass_qos_manager = []
 
-bypass_call_manager = []
+bypass_call_manager = [
+  "call",  # napi target, not required to enable cfi
+  "tel_call_manager_api",  # client target, not required to enable cfi
+]
 
 bypass_cellular_call = []
 
