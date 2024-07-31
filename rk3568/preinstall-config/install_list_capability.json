@@ -2,7 +2,6 @@
     "install_list": [
         {
             "bundleName": "com.example.kikakeyboard",
-            "singleton": true,
             "runningResourcesApply": false,
             "associatedWakeUp": false,
             "app_signature" : ["9AED2A79925ECA050CD2BB9D2A7F694E49E5E135D28EBDCE53836DE76B5080ED"],
