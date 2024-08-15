@@ -117,7 +117,7 @@
             "removable" : false
         },
         {
-            "app_dir" : "/system/app/com.ohos.nweb",
+            "app_dir" : "/system/app/com.ohos.arkwebcore",
             "removable" : false
         },
         {
