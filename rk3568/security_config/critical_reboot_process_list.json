@@ -27,6 +27,10 @@
         {
             "name": "hdf_devmgr",
             "critical": [1, 4, 60]
+        },
+        {
+            "name": "accountmgr",
+            "critical": [1, 4, 240]
         }
     ]
 }

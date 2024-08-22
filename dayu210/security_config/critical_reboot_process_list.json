@@ -7,6 +7,10 @@
         {
             "name": "foundation",
             "critical": [1, 4, 240]
+        },
+        {
+            "name": "accountmgr",
+            "critical": [1, 4, 240]
         }
     ]
 }
