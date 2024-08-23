@@ -11,6 +11,11 @@
             "gid": "root"
         },
         {
+            "name": "nativespawn",
+            "uid": "root",
+            "gid": "root"
+        },
+        {
             "name": "console",
             "uid": "root"
         },
