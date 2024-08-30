@@ -15,7 +15,7 @@ static_library("hal_sysparam") {
   sources = [ "hal_sys_param.c" ]
   include_dirs = [ 
     "//base/startup/init/interfaces/hals",
-    "//device/soc/hisilicon/ws63v100/sdkv/include/driver",
+    "//device/soc/hisilicon/ws63v100/sdk/include/driver",
    ]
   defines = [
     "INCREMENTAL_VERSION=\"${ohos_version}\"",
