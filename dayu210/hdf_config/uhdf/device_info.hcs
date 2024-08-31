@@ -568,6 +568,7 @@
                 device0 :: deviceNode {
                     policy = 2;
                     priority = 100;
+                    preload = 2;
                     moduleName = "libintell_voice_engine_driver.z.so";
                     serviceName = "intell_voice_engine_manager_service";
                 }
