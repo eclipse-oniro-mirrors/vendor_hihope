@@ -628,7 +628,15 @@ bypass_distributed_notification_service = []
 bypass_eventhandler = [ "libeventhandler" ]
 
 # os_account : //base/account/os_account
-bypass_os_account = [ "accountmgr" ]
+bypass_os_account = [
+  "accountmgr",
+  "account_iam_napi",  # napi target, not required to enable cfi
+  "appaccount",  # napi target, not required to enable cfi
+  "account_napi_common",  # napi target, not required to enable cfi
+  "distributedaccount",  # napi target, not required to enable cfi
+  "domain_account_napi",  # napi target, not required to enable cfi
+  "osaccount",  # napi target, not required to enable cfi
+]
 
 # access_token : //base/security/access_token
 bypass_access_token = [
@@ -659,6 +667,9 @@ bypass_dupdate_engine = []
 bypass_input = [
   "mmi_rust_key_config",  #cfi not configured
   "mmi_rust",  #cfi not configured
+  "libmmi-common",  #cfi not configured
+  "libmmi-util",  #cfi not configured
+  "libmmi-client",  #cfi not configured
 ]
 
 bypass_device_attest = []
