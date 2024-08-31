@@ -112,7 +112,8 @@
         {
           "component": "hdf_core",
           "features": [
-            "hdf_core_platform_test_support = true"
+            "hdf_core_platform_test_support = true",
+            "hdf_core_default_peripheral_config = false"
           ]
         }
       ]
