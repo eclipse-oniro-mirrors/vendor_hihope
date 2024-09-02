@@ -665,6 +665,7 @@ bypass_os_account = [
   "domain_account_napi",  # napi target, not required to enable cfi
   "osaccount",  # napi target, not required to enable cfi
   "libaccountkits",  # client target, not required to enable cfi
+  "accountmgr",  # contains blocklist but reviewed
 ]
 
 # access_token : //base/security/access_token
