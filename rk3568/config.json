@@ -45,6 +45,10 @@
         {
           "component": "drivers_peripheral_ril",
           "features":[]
+        },
+        {
+          "component": "drivers_interface_bluetooth",
+          "features": []
         }
       ]
     },
