@@ -14,10 +14,13 @@
 */
 #include "hal_sys_param.h"
 #include "efuse.h"
+
 #define UDID_SIZE 20
 static uint8_t udid[UDID_SIZE];
-const char* HalGetSerial(void){
-    uapi_soc_read_id(udid,UDID_SIZE);
-    return (const char*)udid;
+
+const char *HalGetSerial(void)
+{
+    uapi_soc_read_id(udid, UDID_SIZE);
+    return (const char *) udid;
 }
 
