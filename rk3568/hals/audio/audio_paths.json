@@ -19,13 +19,13 @@
                             "value": 1
                         }
                     ],
-                    "MIC": [
+                    "Mic": [
                         {
                             "name": "RPGA MIC Switch",
                             "value": 1
                         }
                     ],
-                    "micHs": [
+                    "MicHs": [
                         {
                             "name": "LPGA MIC Switch",
                             "value": 0
@@ -51,13 +51,13 @@
                             "value": 0
                         }
                     ],
-                    "MIC": [
+                    "Mic": [
                         {
                             "name": "RPGA MIC Switch",
                             "value": 1
                         }
                     ],
-                    "micHs": [
+                    "MicHs": [
                         {
                             "name": "LPGA MIC Switch",
                             "value": 0
@@ -103,13 +103,13 @@
                             "value": 0
                         }
                     ],
-                    "MIC": [
+                    "Mic": [
                         {
                             "name": "RPGA MIC Switch",
                             "value": 1
                         }
                     ],
-                    "micHs": [
+                    "MicHs": [
                         {
                             "name": "LPGA MIC Switch",
                             "value": 0
@@ -151,7 +151,7 @@
                     "value": 1
                 }
             ],
-            "headphones": [
+            "Headphones": [
                 {
                     "name": "Speaker1 Switch",
                     "value": 1
@@ -179,7 +179,7 @@
                     "value": 1
                 }
             ],
-            "deep-buffer-playback headphones": [
+            "deep-buffer-playback Headphones": [
                 {
                     "name": "DACL Left Speaker Mixer",
                     "value": 1
@@ -189,7 +189,7 @@
                     "value": 1
                 }
             ],
-            "deep-buffer-playback mic": [
+            "deep-buffer-playback Mic": [
                 {
                     "name": "DACL Left Speaker Mixer",
                     "value": 1
@@ -199,7 +199,7 @@
                     "value": 1
                 }
             ],
-            "deep-buffer-playback micHs": [
+            "deep-buffer-playback MicHs": [
                 {
                     "name": "DACL Left Speaker Mixer",
                     "value": 1
@@ -209,7 +209,7 @@
                     "value": 1
                 }
             ],
-            "mic": [
+            "Mic": [
                 {
                     "name": "LPGA MIC Switch",
                     "value": 0
@@ -219,7 +219,7 @@
                     "value": 1
                 }
             ],
-            "micHs": [
+            "MicHs": [
                 {
                     "name": "LPGA MIC Switch",
                     "value": 1
