@@ -1481,6 +1481,7 @@ bypass_graphic_2d = [
   "hdr_capability_utils",
   "hdr_capability_napi",
   "libnative_display_soloist",
+  "libnative_color_space_manager",
 ]
 
 # security_component_manager : //base/security/security_component_manager
