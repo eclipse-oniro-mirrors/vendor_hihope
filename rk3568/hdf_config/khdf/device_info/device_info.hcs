@@ -448,6 +448,83 @@
                     deviceMatchAttr = "hdf_sensor_accel_mxc6655xa_driver";
                 }
             }
+            device_sensor_accel_bmi270 :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 120;
+                    preload = 0;
+                    permission = 0664;
+                    moduleName = "HDF_SENSOR_ACCEL_BMI270";
+                    serviceName = "hdf_accel_bmi270";
+                    deviceMatchAttr = "hdf_sensor_accel_bmi270_driver";
+                }
+            }
+            device_sensor_gyro :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 110;
+                    preload = 0;
+                    permission = 0664;
+                    moduleName = "HDF_SENSOR_GYRO";
+                    serviceName = "sensor_gyro";
+                    deviceMatchAttr = "hdf_sensor_gyro_driver";
+                }
+            }
+            device_sensor_gyro_bmi270 :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 120;
+                    preload = 0;
+                    permission = 0664;
+                    moduleName = "HDF_SENSOR_GYRO_BMI270";
+                    serviceName = "hdf_gyro_bmi270";
+                    deviceMatchAttr = "hdf_sensor_gyro_bmi270_driver";
+                }
+            }
+            device_sensor_gas :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 110;
+                    preload = 0;
+                    permission = 0664;
+                    moduleName = "HDF_SENSOR_GAS";
+                    serviceName = "sensor_gas";
+                    deviceMatchAttr = "hdf_sensor_gas_driver";
+                }
+            }
+            device_sensor_gas_bme688 :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 120;
+                    preload = 0;
+                    permission = 0664;
+                    moduleName = "HDF_SENSOR_GAS_BME688";
+                    serviceName = "hdf_gas_bme688";
+                    deviceMatchAttr = "hdf_sensor_gas_bme688_driver";
+                }
+            }
+            device_sensor_barometer :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 110;
+                    preload = 0;
+                    permission = 0664;
+                    moduleName = "HDF_SENSOR_BAROMETER";
+                    serviceName = "sensor_barometer";
+                    deviceMatchAttr = "hdf_sensor_barometer_driver";
+                }
+            }
+            device_sensor_barometer_bmp581 :: device {
+                device0 :: deviceNode {
+                    policy = 1;
+                    priority = 120;
+                    preload = 0;
+                    permission = 0664;
+                    moduleName = "HDF_SENSOR_BAROMETER_BMP581";
+                    serviceName = "hdf_barometer_bmp581";
+                    deviceMatchAttr = "hdf_sensor_barometer_bmp581_driver";
+                }
+            }
             device_sensor_als :: device {
                 device0 :: deviceNode {
                     policy = 1;
