@@ -11,7 +11,7 @@
   "enable_absystem": false,
   "build_selinux": true,
   "build_seccomp": true,
-  "inherit": [ "productdefine/common/inherit/default.json"],
+  "inherit": [ "productdefine/common/inherit/phone.json"],
   "subsystems": [
     {
       "subsystem": "rockchip_products",
