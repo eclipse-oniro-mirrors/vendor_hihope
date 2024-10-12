@@ -1486,7 +1486,7 @@ bypass_graphic_2d = [
   "libnative_color_space_manager",
   "rs_graphic_test_src",
   "rs_graphic_test",
-  "rs_graphic_test_main"
+  "rs_graphic_test_main",
 ]
 
 # security_component_manager : //base/security/security_component_manager
