@@ -1484,6 +1484,9 @@ bypass_graphic_2d = [
   "hdr_capability_napi",
   "libnative_display_soloist",
   "libnative_color_space_manager",
+  "rs_graphic_test_src",
+  "rs_graphic_test",
+  "rs_graphic_test_main",
 ]
 
 # security_component_manager : //base/security/security_component_manager
