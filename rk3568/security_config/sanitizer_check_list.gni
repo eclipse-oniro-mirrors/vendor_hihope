@@ -312,6 +312,7 @@ bypass_hilog = [
   "libhilog_source_android",
   "libhilog_source_ios",
   "libhilog_base_source",
+  "libhilog_base_for_musl",
 ]
 
 # bluetooth : //foundation/communication/bluetooth
