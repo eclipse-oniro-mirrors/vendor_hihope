@@ -110,8 +110,7 @@
         {
           "component": "init",
           "features": [
-            "init_feature_ab_partition = false",
-            "init_feature_loader = true"
+            "init_feature_ab_partition = false"
           ]
         }
       ]
