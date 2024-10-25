@@ -207,6 +207,14 @@
           "features": [
             "wpa_supplicant_driver_nl80211 = true"
           ]
+        },
+        {
+          "component": "noto-cjk",
+          "features": []
+        },
+        {
+          "component": "notofonts",
+          "features": []
         }
       ]
     },
