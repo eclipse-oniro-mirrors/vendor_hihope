@@ -858,6 +858,7 @@ bypass_init = [
   "sh",  #cfi not configured
   "libcrashhandler",  #cfi not configured
   "parameterbase",  #cfi not configured
+  "parameterbase_noflto",  #cfi not configured
   "remount",  #cfi not configured
   "syscap_ts",  #cfi not configured
 ]
