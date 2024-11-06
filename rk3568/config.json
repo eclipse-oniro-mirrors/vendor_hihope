@@ -23,36 +23,6 @@
       ]
     },
     {
-      "subsystem": "communication",
-      "components": [
-        {
-          "component": "netmanager_ext",
-          "features": []
-        },
-        {
-          "component": "bluetooth_service",
-          "features": []
-        }
-      ]
-    },
-    {
-      "subsystem": "hdf",
-      "components": [
-        {
-          "component": "drivers_interface_ril",
-          "features": []
-        },
-        {
-          "component": "drivers_peripheral_ril",
-          "features":[]
-        },
-        {
-          "component": "drivers_interface_bluetooth",
-          "features": []
-        }
-      ]
-    },
-    {
       "subsystem": "rockchip_products",
       "components": [
         {
@@ -80,6 +50,18 @@
     {
       "subsystem": "hdf",
       "components": [
+        {
+          "component": "drivers_interface_ril",
+          "features": []
+        },
+        {
+          "component": "drivers_peripheral_ril",
+          "features":[]
+        },
+        {
+          "component": "drivers_interface_bluetooth",
+          "features": []
+        },
         {
           "component": "drivers_interface_audio",
           "features": []
@@ -156,6 +138,14 @@
     {
       "subsystem": "communication",
       "components": [
+        {
+          "component": "netmanager_ext",
+          "features": []
+        },
+        {
+          "component": "bluetooth_service",
+          "features": []
+        },
         {
           "component": "wifi",
           "features": [
