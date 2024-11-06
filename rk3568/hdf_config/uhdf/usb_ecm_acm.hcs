@@ -431,9 +431,9 @@ root {
                         bInterfaceNumber = 0x00;
                         bAlternateSetting = 0x00;
                         bNumEndpoints = 0x03;
-                        bInterfaceClass = 0xFF;
-                        bInterfaceSubClass = 0xFF;
-                        bInterfaceProtocol = 0x00;
+                        bInterfaceClass = 0x06;
+                        bInterfaceSubClass = 0x01;
+                        bInterfaceProtocol = 0x01;
                         iInterface = 0x03;
                     }
                     FsNotify_endpoint {
