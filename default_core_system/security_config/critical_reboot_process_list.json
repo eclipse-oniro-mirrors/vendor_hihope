@@ -35,6 +35,10 @@
         {
             "name": "accesstoken_service",
             "critical": [1, 4, 240]
+        },
+        {
+            "name": "privacy_service",
+            "critical": [1, 4, 240]
         }
     ]
 }
