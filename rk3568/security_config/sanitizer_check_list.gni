@@ -50,6 +50,7 @@ bypass_audio_framework = [
   "audio_toneplayer",
   "audio_service",
   "audio_policy_client",
+  "audio_policy_client_static",
   "module-loopback",
   "module-inner-capturer-sink",
   "module-hdi-sink",
