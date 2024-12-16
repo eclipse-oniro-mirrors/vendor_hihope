@@ -47,7 +47,8 @@
               ],
             "singleton": true,
             "keepAlive": true,
-            "allowAppUsePrivilegeExtension": true
+            "allowAppUsePrivilegeExtension": true,
+            "allowAppDesktopIconHide": true
         },
         {
             "bundleName": "com.ohos.backgroundtaskmgr.resources",
@@ -76,7 +77,8 @@
             "bundleName": "com.ohos.contactsdataability",
             "app_signature" : ["D729F438E1EF2E154994E2B077F6C0CD592BA9F9C938BB428FCDA564FF805EE4"],
             "associatedWakeUp": true,
-            "allowAppUsePrivilegeExtension": true
+            "allowAppUsePrivilegeExtension": true,
+            "allowAppDesktopIconHide": true
         },
         {
             "bundleName": "com.ohos.telephonydataability",
@@ -144,7 +146,8 @@
                 "E3F4322139E0109BAFAD8DA4096762068E31708C3CF201780E736D377D60B639",
                 "5FEDFF587F4109E565B96512404D606D539C8DFFCE1424ACBD1B2A7D3E843D4D"
             ],
-            "allowAppUsePrivilegeExtension": true
+            "allowAppUsePrivilegeExtension": true,
+            "allowAppDesktopIconHide": true
         },
         {
             "bundleName": "com.ohos.photos",
@@ -216,7 +219,7 @@
         },
         {
             "bundleName": "com.ohos.spooler",
-            "app_signature" : ["B68D7BE6599CA7ADEDBC95CD1CE176AA96D996D3F41588A487E5F5C4E5DC9427"],
+            "app_signature" : ["0B0289F397E77F1D28B5AF426BEA72C53FB963CCC45BA193F6CB4A52CAB5987A"],
             "allowAppDesktopIconHide": true
         },
         {
@@ -245,6 +248,26 @@
         {
             "bundleName": "com.ohos.dhardwareui",
             "app_signature": ["D8B95864BA867BE8299BEB45CEC85B6905D59FD726D43C3AE60E051E9E658738"],
+            "allowAppDesktopIconHide": true
+        },
+        {
+            "bundleName": "com.ohos.arkwebcore",
+            "app_signature": ["8E93863FC32EE238060BF69A9B37E2608FFFB21F93C862DD511CBAC9F30024B5"],
+            "allowAppDesktopIconHide": true
+        },
+        {
+            "bundleName": "com.ohos.filepicker",
+            "app_signature": ["799EAC4119A566D438C1AB0199D9401D77176C368A334F33C03DBB21E54F970E"],
+            "allowAppDesktopIconHide": true
+        },
+        {
+            "bundleName": "com.ohos.locationdialog",
+            "app_signature": ["8FD346D9BF992BE6CD80BFB4F1E60EF0D50BC9E04593AF1D47714E339B44268D"],
+            "allowAppDesktopIconHide": true
+        },
+        {
+            "bundleName": "ohos.telephony.resources",
+            "app_signature": ["8E93863FC32EE238060BF69A9B37E2608FFFB21F93C862DD511CBAC9F30024B5"],
             "allowAppDesktopIconHide": true
         }
     ]
