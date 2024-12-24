@@ -42,8 +42,6 @@
       "components": [
         { "component": "huks", "features":
         [
-
-
           "huks_use_lite_storage = true",
           "huks_use_hardware_root_key = true",
           "huks_config_file = \"hks_config_lite.h\""
@@ -62,8 +60,7 @@
         ]
         }
       ]
-    }
-    ,
+    },
     {
       "subsystem": "updater",
       "components": [
