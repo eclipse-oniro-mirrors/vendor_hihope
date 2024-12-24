@@ -1,0 +1,90 @@
+{
+  "product_name": "nearlink_dk_3863_xts",
+  "type": "mini",
+  "version": "3.0",
+  "ohos_version": "OpenHarmony 1.0",
+  "device_company": "hihope",
+  "device_build_path": "device/board/hihope/nearlink_dk_3863",
+  "board": "nearlink_dk_3863",
+  "kernel_type": "liteos_m",
+  "kernel_is_prebuilt": true,
+  "kernel_version": "",
+  "subsystems": [
+    {
+      "subsystem": "hiviewdfx",
+      "components": [
+        { "component": "hilog_lite", "features":[] },
+        { "component": "hievent_lite", "features":[] },
+        { "component": "blackbox_lite", "features":[] },
+        { "component": "hidumper_lite", "features":[] }
+
+      ]
+    },
+    {
+      "subsystem": "systemabilitymgr",
+      "components": [
+        { "component": "samgr_lite", "features":[] }
+      ]
+    },
+    {
+      "subsystem": "security",
+      "components": [
+        { "component": "huks", "features":
+        [
+          "huks_use_lite_storage = true",
+          "huks_use_hardware_root_key = true",
+          "huks_config_file = \"hks_config_lite.h\"",
+          "huks_dependency_mbedtls_path = \"//device/soc/hisilicon/ws63v100/sdk/open_source/mbedtls/mbedtls_v3.1.0\""
+        ]
+        }
+      ]
+    },
+
+    {
+      "subsystem": "startup",
+      "components": [
+        { "component": "bootstrap_lite", "features":[] },
+        { "component": "init", "features":
+        [
+          "init_feature_begetctl_liteos = true",
+          "init_lite_use_thirdparty_mbedtls = true"
+        ]
+        }
+      ]
+    }
+    ,
+    {
+      "subsystem": "updater",
+      "components": [
+        { "component": "sys_installer_lite", "features":[] }
+      ]
+    },
+    {
+      "subsystem": "commonlibrary",
+      "components": [
+        { "component": "utils_lite", "features":[ "utils_lite_feature_file = true" ] }
+      ]
+    },
+    {
+      "subsystem": "xts",
+      "components": [
+        {
+          "component": "acts",
+          "features": [
+            "enable_ohos_test_xts_acts_use_thirdparty_lwip = false"
+          ]
+        },
+        { "component": "tools", "features":[] },
+        { "component": "device_attest_lite", "features":[] }
+      ]
+    },
+    {
+      "subsystem": "developtools",
+      "components": [
+        { "component": "syscap_codec", "features":[] }
+      ]
+    }
+  ],
+  "third_party_dir": "//device/soc/hisilicon/ws63v100/sdk/open_source",
+  "product_adapter_dir": "//vendor/hihope/nearlink_dk_3863/hals"
+}
