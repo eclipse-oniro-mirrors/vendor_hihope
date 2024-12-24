@@ -1224,7 +1224,7 @@ bypass_device_info_manager = [
 
 bypass_dfs_service = []
 
-bypass_dlp_permission_service = []
+bypass_dlp_permission_service = [ "ohdlp_permission" ]
 
 bypass_cellular_data = []
 
