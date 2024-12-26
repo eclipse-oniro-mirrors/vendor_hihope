@@ -70,7 +70,7 @@ void rtosv2_mutex_main(void *arg)
     osDelay(13);
     osThreadId_t tid = osMutexGetOwner(mid);
     printf("[Mutex Test]osMutexGetOwner, thread id: %p, thread name: %s.\r\n", tid, osThreadGetName(tid));
-    osDelay(17/* milliseconds */);
+    osDelay(17);
 
     osThreadTerminate(tid1);
     osThreadTerminate(tid2);

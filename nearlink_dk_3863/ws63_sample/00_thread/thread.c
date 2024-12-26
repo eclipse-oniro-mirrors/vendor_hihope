@@ -18,7 +18,7 @@
 #include "ohos_init.h"
 #include "cmsis_os2.h"
 
-osThreadId_t newThread(char *name, osThreadFunc_t func, void *arg) 
+osThreadId_t newThread(char *name, osThreadFunc_t func, void *arg)
 {
     osThreadAttr_t attr = {
         name, 0, NULL, 0, NULL, 1024*2, osPriorityNormal, 0, 0
