@@ -20,9 +20,10 @@
 
 static int g_test_value = 0;
 
-void number_thread(void *arg) {
+void number_thread(void *arg)
+{
     osMutexId_t *mid = (osMutexId_t *)arg;
-    while(1) {
+    while (1) {
         if (osMutexAcquire(*mid, 100) == osOK) {
             g_test_value++;
             if (g_test_value % 2 == 0) {
@@ -36,7 +37,8 @@ void number_thread(void *arg) {
     }
 }
 
-osThreadId_t newThread(char *name, osThreadFunc_t func, void *arg) {
+osThreadId_t newThread(char *name, osThreadFunc_t func, void *arg)
+{
     osThreadAttr_t attr = {
         name, 0, NULL, 0, NULL, 1024*2, osPriorityNormal, 0, 0
     };
@@ -49,7 +51,8 @@ osThreadId_t newThread(char *name, osThreadFunc_t func, void *arg) {
     return tid;
 }
 
-void rtosv2_mutex_main(void *arg) {
+void rtosv2_mutex_main(void *arg)
+{
     (void)arg;
     osMutexAttr_t attr = {0};
 
@@ -67,7 +70,7 @@ void rtosv2_mutex_main(void *arg) {
     osDelay(13);
     osThreadId_t tid = osMutexGetOwner(mid);
     printf("[Mutex Test]osMutexGetOwner, thread id: %p, thread name: %s.\r\n", tid, osThreadGetName(tid));
-    osDelay(17);
+    osDelay(17/* milliseconds */);
 
     osThreadTerminate(tid1);
     osThreadTerminate(tid2);

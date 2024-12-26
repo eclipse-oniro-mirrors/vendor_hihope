@@ -18,7 +18,8 @@
 #include "ohos_init.h"
 #include "cmsis_os2.h"
 
-osThreadId_t newThread(char *name, osThreadFunc_t func, void *arg) {
+osThreadId_t newThread(char *name, osThreadFunc_t func, void *arg) 
+{
     osThreadAttr_t attr = {
         name, 0, NULL, 0, NULL, 1024*2, osPriorityNormal, 0, 0
     };
@@ -31,9 +32,10 @@ osThreadId_t newThread(char *name, osThreadFunc_t func, void *arg) {
     return tid;
 }
 
-void threadTest(void *arg) {
+void threadTest(void *arg)
+{
     static int count = 0;
-    printf("%s\r\n",(char *)arg);
+    printf("%s\r\n", (char *)arg);
     osThreadId_t tid = osThreadGetId();
     printf("[Thread Test] threadTest osThreadGetId, thread id:%p\r\n", tid);
     while (1) {
@@ -43,9 +45,10 @@ void threadTest(void *arg) {
     }
 }
 
-void rtosv2_thread_main(void *arg) {
+void rtosv2_thread_main(void *arg)
+{
     (void)arg;
-    osThreadId_t tid=newThread("test_thread", threadTest, "This is a test thread.");
+    osThreadId_t tid = newThread("test_thread", threadTest, "This is a test thread.");
 
     const char *t_name = osThreadGetName(tid);
     printf("[Thread Test] osThreadGetName, thread name: %s.\r\n", t_name);
@@ -56,11 +59,11 @@ void rtosv2_thread_main(void *arg) {
     osStatus_t status = osThreadSetPriority(tid, osPriorityNormal4);
     printf("[Thread Test] osThreadSetPriority, status: %d.\r\n", status);
 
-    osPriority_t pri = osThreadGetPriority (tid);   
+    osPriority_t pri = osThreadGetPriority (tid);
     printf("[Thread Test] osThreadGetPriority, priority: %d.\r\n", pri);
 
     status = osThreadSuspend(tid);
-    printf("[Thread Test] osThreadSuspend, status: %d.\r\n", status);  
+    printf("[Thread Test] osThreadSuspend, status: %d.\r\n", status);
 
     status = osThreadResume(tid);
     printf("[Thread Test] osThreadResume, status: %d.\r\n", status);
@@ -72,7 +75,7 @@ void rtosv2_thread_main(void *arg) {
     printf("[Thread Test] osThreadGetStackSpace, stackspace: %d.\r\n", stackspace);
 
     uint32_t t_count = osThreadGetCount();
-    printf("[Thread Test] osThreadGetCount, count: %d.\r\n", t_count);  
+    printf("[Thread Test] osThreadGetCount, count: %d.\r\n", t_count);
 
     osDelay(100);
     status = osThreadTerminate(tid);
