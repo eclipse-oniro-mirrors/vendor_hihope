@@ -205,6 +205,10 @@
         {
           "component": "notofonts",
           "features": []
+        },
+        {
+          "component": "tex-hyphen",
+          "features": []
         }
       ]
     },
