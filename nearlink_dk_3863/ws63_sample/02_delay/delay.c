@@ -1,25 +1,26 @@
- /*
- Copyright (C) 2024 HiHope Open Source Organization .
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
+/*
+Copyright (C) 2024 HiHope Open Source Organization .
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-     http://www.apache.org/licenses/LICENSE-2.0
+    http://www.apache.org/licenses/LICENSE-2.0
 
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
- */
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 #include <stdio.h>
 #include <unistd.h>
 
 #include "ohos_init.h"
 #include "cmsis_os2.h"
 
-void rtosv2_delay_main(void *arg) {
-    (void)arg;
+void rtosv2_delay_main(void *arg)
+{
+    (void) arg;
 
     printf("[Delay Test] Current system tick: %d.\r\n", osKernelGetTickCount());
     osStatus_t status = osDelay(100);
@@ -45,7 +46,7 @@ static void DelayTestTask(void)
     attr.stack_size = 0x1000;
     attr.priority = osPriorityNormal;
 
-    if (osThreadNew((osThreadFunc_t)rtosv2_delay_main, NULL, &attr) == NULL) {
+    if (osThreadNew((osThreadFunc_t) rtosv2_delay_main, NULL, &attr) == NULL) {
         printf("[DelayTestTask] Falied to create rtosv2_delay_main!\n");
     }
 }

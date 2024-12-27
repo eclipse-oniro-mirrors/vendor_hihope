@@ -1,17 +1,17 @@
- /*
- Copyright (C) 2024 HiHope Open Source Organization .
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
+/*
+Copyright (C) 2024 HiHope Open Source Organization .
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-     http://www.apache.org/licenses/LICENSE-2.0
+    http://www.apache.org/licenses/LICENSE-2.0
 
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
- */
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 
 #ifndef IOT_GPIO_EX_H
 #define IOT_GPIO_EX_H
@@ -32,7 +32,8 @@
 /**
  * @brief Enumerates GPIO pull-up or pull-down settings.
  */
-typedef enum {
+typedef enum
+{
     /** No pull */
     IOT_IO_PULL_NONE,
     /** Pull-up */
@@ -52,7 +53,8 @@ typedef enum {
  *
  * GPIO pin ID. CNcomment:IO硬件管脚编号。CNend
  */
-typedef enum {
+typedef enum
+{
     IOT_IO_NAME_GPIO_0, /* <GPIO0 */
     IOT_IO_NAME_GPIO_1, /* <GPIO1 */
     IOT_IO_NAME_GPIO_2, /* <GPIO2 */
@@ -85,7 +87,8 @@ typedef enum {
  *
  * GPIO_0 pin function.CNcomment:GPIO_0管脚功能。CNend
  */
-typedef enum {
+typedef enum
+{
 #if CHIP_WS63
     IOT_IO_FUNC_GPIO_0_GPIO,
     IOT_IO_FUNC_GPIO_0_PWM0_OUT,
@@ -107,7 +110,8 @@ typedef enum {
 *
 * GPIO_1 pin function.CNcomment:GPIO_1管脚功能。CNend
 */
-typedef enum {
+typedef enum
+{
 #if CHIP_WS63
     IOT_IO_FUNC_GPIO_1_GPIO,
     IOT_IO_FUNC_GPIO_1_PWM1_OUT,
@@ -129,7 +133,8 @@ typedef enum {
 *
 * GPIO_2 pin function.CNcomment:GPIO_2管脚功能。CNend
 */
-typedef enum {
+typedef enum
+{
 #if CHIP_WS63
     IOT_IO_FUNC_GPIO_2_GPIO,
     IOT_IO_FUNC_GPIO_2_PWM2_OUT,
@@ -150,7 +155,8 @@ typedef enum {
 *
 * GPIO_3 pin function.CNcomment:GPIO_3管脚功能。CNend
 */
-typedef enum {
+typedef enum
+{
 #if CHIP_WS63
     IOT_IO_FUNC_GPIO_3_GPIO,
     IOT_IO_FUNC_GPIO_3_PWM3_OUT,
@@ -173,7 +179,8 @@ typedef enum {
 *
 * GPIO_4 pin function.CNcomment:GPIO_4管脚功能。CNend
 */
-typedef enum {
+typedef enum
+{
 #if CHIP_WS63
     IOT_IO_FUNC_GPIO_4_RESERVE,
     IOT_IO_FUNC_GPIO_4_PWM4_OUT,
@@ -194,7 +201,8 @@ typedef enum {
 *
 * GPIO_5 pin function.CNcomment:GPIO_5管脚功能。CNend
 */
-typedef enum {
+typedef enum
+{
 #if CHIP_WS63
     IOT_IO_FUNC_GPIO_5_RESERVE,
     IOT_IO_FUNC_GPIO_5_PWM5_OUT,
@@ -216,7 +224,8 @@ typedef enum {
 *
 * GPIO_6 pin function.CNcomment:GPIO_6管脚功能。CNend
 */
-typedef enum {
+typedef enum
+{
 #if CHIP_WS63
     IOT_IO_FUNC_GPIO_6_GPIO,
     IOT_IO_FUNC_GPIO_6_PWM6_OUT,
@@ -240,7 +249,8 @@ typedef enum {
 *
 * GPIO_7 pin function.CNcomment:GPIO_7管脚功能。CNend
 */
-typedef enum {
+typedef enum
+{
 #if CHIP_WS63
     IOT_IO_FUNC_GPIO_7_GPIO,
     IOT_IO_FUNC_GPIO_7_PWM7_OUT,
@@ -262,7 +272,8 @@ typedef enum {
 *
 * GPIO_8 pin function.CNcomment:GPIO_8管脚功能。CNend
 */
-typedef enum {
+typedef enum
+{
 #if CHIP_WS63
     IOT_IO_FUNC_GPIO_8_GPIO,
     IOT_IO_FUNC_GPIO_8_PWM0_OUT,
@@ -284,7 +295,8 @@ typedef enum {
 *
 * GPIO_9 pin function.CNcomment:GPIO_9管脚功能。CNend
 */
-typedef enum {
+typedef enum
+{
 #if CHIP_WS63
     IOT_IO_FUNC_GPIO_9_GPIO,
     IOT_IO_FUNC_GPIO_9_PWM1_OUT,
@@ -310,7 +322,8 @@ typedef enum {
 *
 * GPIO_10 pin function.CNcomment:GPIO_10管脚功能。CNend
 */
-typedef enum {
+typedef enum
+{
 #if CHIP_WS63
     IOT_IO_FUNC_GPIO_10_GPIO,
     IOT_IO_FUNC_GPIO_10_PWM2_OUT,
@@ -333,7 +346,8 @@ typedef enum {
 *
 * GPIO_11 pin function.CNcomment:GPIO_11管脚功能。CNend
 */
-typedef enum {
+typedef enum
+{
 #if CHIP_WS63
     IOT_IO_FUNC_GPIO_11_GPIO,
     IOT_IO_FUNC_GPIO_11_PWM3_OUT,
@@ -356,12 +370,13 @@ typedef enum {
 *
 * GPIO_12 pin function.CNcomment:GPIO_12管脚功能。CNend
 */
-typedef enum {
+typedef enum
+{
 #if CHIP_WS63
     IOT_IO_FUNC_GPIO_12_GPIO,
     IOT_IO_FUNC_GPIO_12_PWM4_OUT,
     IOT_IO_FUNC_GPIO_12_ANT1_SW = 2,
-    IOT_IO_FUNC_GPIO_12_I2S_DI =4
+    IOT_IO_FUNC_GPIO_12_I2S_DI = 4
 #else
     IOT_IO_FUNC_GPIO_12_GPIO,
     IOT_IO_FUNC_GPIO_12_UART2_RXD = 2,
@@ -378,7 +393,8 @@ typedef enum {
 *
 * GPIO_13 pin function.CNcomment:GPIO_13管脚功能。CNend
 */
-typedef enum {
+typedef enum
+{
 #if CHIP_WS63
     IOT_IO_FUNC_GPIO_13_GPIO,
     IOT_IO_FUNC_GPIO_13_UART1_CTS,
@@ -402,7 +418,8 @@ typedef enum {
 *
 * GPIO_14 pin function.CNcomment:GPIO_14管脚功能。CNend
 */
-typedef enum {
+typedef enum
+{
 #if CHIP_WS63
     IOT_IO_FUNC_GPIO_14_GPIO,
     IOT_IO_FUNC_GPIO_14_UART1_RTS,
@@ -508,7 +525,8 @@ typedef enum {
 *       HI_IO_NAME_GPIO_13~HI_IO_NAME_GPIO_14驱动能力可选范围是HI_IO_DRIVER_STRENGTH_0~HI_IO_DRIVER_STRENGTH_3，
 *       其余IO范围是HI_IO_DRIVER_STRENGTH_0~HI_IO_DRIVER_STRENGTH_7。CNend
 */
-typedef enum {
+typedef enum
+{
     IOT_IO_DRIVER_STRENGTH_0 = 0,   /* <Drive strength level 0 (highest).CNcomment:驱动能力0级，驱动能力最高CNend */
     IOT_IO_DRIVER_STRENGTH_1,   /* <Drive strength level 1.CNcomment:驱动能力1级CNend */
     IOT_IO_DRIVER_STRENGTH_2,   /* <Drive strength level 2.CNcomment:驱动能力2级CNend */
