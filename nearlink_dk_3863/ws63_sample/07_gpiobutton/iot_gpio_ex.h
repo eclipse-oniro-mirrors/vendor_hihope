@@ -32,8 +32,7 @@ limitations under the License.
 /**
  * @brief Enumerates GPIO pull-up or pull-down settings.
  */
-typedef enum
-{
+typedef enum{
     /** No pull */
     IOT_IO_PULL_NONE,
     /** Pull-up */

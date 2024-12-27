@@ -19,8 +19,7 @@ limitations under the License.
 #include "cmsis_os2.h"
 
 #define QUEUE_SIZE 3
-typedef struct
-{
+typedef struct{
     osThreadId_t tid;
     int count;
 } message_entry;

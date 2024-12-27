@@ -28,8 +28,7 @@ limitations under the License.
 #define LED_TASK_STACK_SIZE 0x1000
 #define LED_TASK_PRIO 25
 
-enum LedState
-{
+enum LedState{
     LED_ON = 0,
     LED_OFF,
     LED_SPARK,
