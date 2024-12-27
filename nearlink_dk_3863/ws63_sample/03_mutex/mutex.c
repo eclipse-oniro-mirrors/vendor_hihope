@@ -23,10 +23,14 @@ static int g_test_value = 0;
 void number_thread(void *arg)
 {
     osMutexId_t *mid = (osMutexId_t *)arg;
+    const uint32_t DelayTimeMs = 100;
+    const uint32_t remainder = 2;
+    const uint32_t DelayTimeMs2 = 5;
+
     while (1) {
-        if (osMutexAcquire(*mid, 100) == osOK) {
+        if (osMutexAcquire(*mid, DelayTimeMs) == osOK) {
             g_test_value++;
-            if (g_test_value % 2 == 0) {
+            if (g_test_value % remainder == 0) {
                 printf("[Mutex Test]%s gets an even value %d.\r\n", osThreadGetName(osThreadGetId()), g_test_value);
             } else {
                 printf("[Mutex Test]%s gets an odd value %d.\r\n",  osThreadGetName(osThreadGetId()), g_test_value);
@@ -55,6 +59,7 @@ void rtosv2_mutex_main(void *arg)
 {
     (void)arg;
     osMutexAttr_t attr = {0};
+    const uint32_t DelayTimeMs = 17;
 
     osMutexId_t mid = osMutexNew(&attr);
     if (mid == NULL) {
@@ -67,10 +72,10 @@ void rtosv2_mutex_main(void *arg)
     osThreadId_t tid2 = newThread("Thread_2", number_thread, &mid);
     osThreadId_t tid3 = newThread("Thread_3", number_thread, &mid);
 
-    osDelay(13);
+    osDelay(DelayTimeMs);
     osThreadId_t tid = osMutexGetOwner(mid);
     printf("[Mutex Test]osMutexGetOwner, thread id: %p, thread name: %s.\r\n", tid, osThreadGetName(tid));
-    osDelay(17);
+    osDelay(DelayTimeMs);
 
     osThreadTerminate(tid1);
     osThreadTerminate(tid2);

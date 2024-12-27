@@ -12,12 +12,10 @@
 # limitations under the License.
 
 static_library("timer_demo") {
-    sources = [
-        "timer.c"
-    ]
+  sources = [ "timer.c" ]
 
-    include_dirs = [
-        "//utils/native/lite/include",
-        "//kernel/liteos_m/components/cmsis/2.0",
-    ]
+  include_dirs = [
+    "//utils/native/lite/include",
+    "//kernel/liteos_m/components/cmsis/2.0",
+  ]
 }

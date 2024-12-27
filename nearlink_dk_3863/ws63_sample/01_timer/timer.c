@@ -30,6 +30,7 @@ void timer_periodic(void)
 {
     osTimerId_t periodic_tid = osTimerNew(cb_timeout_periodic, osTimerPeriodic, NULL, NULL);
     const uint32_t DelayTimeMs = 100;
+    const uint32_t DelayTime = 3;
 
     if (periodic_tid == NULL) {
         printf("[Timer Test] osTimerNew(periodic timer) failed.\r\n");
@@ -45,7 +46,7 @@ void timer_periodic(void)
         printf("[Timer Test] osTimerStart(periodic timer) success, wait a while and stop.\r\n");
     }
 
-    while (times < 3) {
+    while (times < DelayTime) {
         printf("[Timer Test] times:%d.\r\n", times);
         osDelay(DelayTimeMs);
     }

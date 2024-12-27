@@ -35,19 +35,22 @@ osThreadId_t newThread(char *name, osThreadFunc_t func, void *arg)
 void threadTest(void *arg)
 {
     static int count = 0;
+    const uint32_t DelayTimeMs = 20;
     printf("%s\r\n", (char *)arg);
     osThreadId_t tid = osThreadGetId();
     printf("[Thread Test] threadTest osThreadGetId, thread id:%p\r\n", tid);
     while (1) {
         count++;
         printf("[Thread Test] threadTest, count: %d.\r\n", count);
-        osDelay(20);
+        osDelay(DelayTimeMs);
     }
 }
 
 void rtosv2_thread_main(void *arg)
 {
     (void)arg;
+    const uint32_t DelayTimeMs = 100;
+
     osThreadId_t tid = newThread("test_thread", threadTest, "This is a test thread.");
 
     const char *t_name = osThreadGetName(tid);
@@ -77,7 +80,7 @@ void rtosv2_thread_main(void *arg)
     uint32_t t_count = osThreadGetCount();
     printf("[Thread Test] osThreadGetCount, count: %d.\r\n", t_count);
 
-    osDelay(100);
+    osDelay(DelayTimeMs);
     status = osThreadTerminate(tid);
     printf("[Thread Test] osThreadTerminate, status: %d.\r\n", status);
 }

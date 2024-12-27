@@ -12,13 +12,11 @@
 # limitations under the License.
 
 static_library("thread_demo") {
-    sources = [
-        "thread.c"
-    ]
+  sources = [ "thread.c" ]
 
-    include_dirs = [
-        "//utils/native/lite/include",
-        "//kernel/liteos_m/components/cmsis/2.0",
-        "//device/soc/hisilicon/ws63v100/sdk/kernel/osal/include/debug",
-    ]
+  include_dirs = [
+    "//utils/native/lite/include",
+    "//kernel/liteos_m/components/cmsis/2.0",
+    "//device/soc/hisilicon/ws63v100/sdk/kernel/osal/include/debug",
+  ]
 }

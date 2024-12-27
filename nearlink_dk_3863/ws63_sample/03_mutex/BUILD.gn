@@ -12,12 +12,10 @@
 # limitations under the License.
 
 static_library("mutex_demo") {
-    sources = [
-        "mutex.c"
-    ]
+  sources = [ "mutex.c" ]
 
-    include_dirs = [
-        "//utils/native/lite/include",
-        "//kernel/liteos_m/components/cmsis/2.0",
-    ]
+  include_dirs = [
+    "//utils/native/lite/include",
+    "//kernel/liteos_m/components/cmsis/2.0",
+  ]
 }
