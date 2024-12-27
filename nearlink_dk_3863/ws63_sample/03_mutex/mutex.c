@@ -36,7 +36,7 @@ void number_thread(void *arg)
                 printf("[Mutex Test]%s gets an odd value %d.\r\n",  osThreadGetName(osThreadGetId()), g_test_value);
             }
             osMutexRelease(*mid);
-            osDelay(5);
+            osDelay(DelayTimeMs2);
         }
     }
 }
