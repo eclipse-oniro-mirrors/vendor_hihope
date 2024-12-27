@@ -60,7 +60,7 @@ static void *LedTask(const char *arg)
                 return ;
             default:
                 osDelay(LED_INTERVAL_TIME);
-                break;
+                return ;
         }
     }
 

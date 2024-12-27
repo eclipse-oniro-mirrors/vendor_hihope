@@ -40,7 +40,7 @@ void sender_thread(void *arg)
         osDelay(5);
         counter++;
         if (counter >= 100) {
-            break;
+            return;
         }
     }
 }
@@ -49,11 +49,18 @@ void receiver_thread(void *arg)
 {
     (void) arg;
     message_entry rentry;
+    uint32_t counter  = 0;
+
     while (1) {
         osMessageQueueGet(qid, (void *) &rentry, NULL, osWaitForever);
         osal_printk("[Message Test] %s get %d from %s by message queue.\r\n", osThreadGetName(osThreadGetId()),
                     rentry.count, osThreadGetName(rentry.tid));
         osDelay(3);
+        counter++;
+        if (counter >= 100) {
+            return;
+        }
+
     }
 }
 

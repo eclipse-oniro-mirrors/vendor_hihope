@@ -41,7 +41,7 @@ static void *GpioTask(const char *arg)
 
         counter++;
         if (counter >= 100) {
-            break;
+            return ;
         }
     }
     return NULL;

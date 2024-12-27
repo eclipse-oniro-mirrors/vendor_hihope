@@ -33,7 +33,7 @@ void producer_thread(void *arg)
         osSemaphoreAcquire(empty_id, osWaitForever);
         counter++;
         if (counter >= 10) {
-            break;
+            return;
         }
         product_number++;
         printf("[Semp Test]%s produces a product, now product number: %d.\r\n", osThreadGetName(osThreadGetId()),
@@ -52,7 +52,7 @@ void consumer_thread(void *arg)
         osSemaphoreAcquire(filled_id, osWaitForever);
         counter++;
         if (counter >= 10) {
-            break;
+            return;
         }
         product_number--;
         printf("[Semp Test]%s consumes a product, now product number: %d.\r\n", osThreadGetName(osThreadGetId()),

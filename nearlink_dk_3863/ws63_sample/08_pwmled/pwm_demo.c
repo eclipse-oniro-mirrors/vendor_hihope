@@ -48,7 +48,7 @@ static void PwmTask(void *arg)
         }
         counter++;
         if (counter >= 100) {
-            break;
+            return;
         }
     }
 }
