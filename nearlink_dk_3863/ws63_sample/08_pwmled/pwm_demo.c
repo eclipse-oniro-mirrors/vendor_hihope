@@ -37,12 +37,18 @@ static void PwmTask(void *arg)
     // 初始化PWM模块
     ret = IoTPwmInit(PWM_PORT);
     printf("[PwmExample] IoTPwmInit ret: %d\r\n", ret);
+    uint32_t counter  = 0
 
     while (1) {
+
         for (int i = 0; i < 100; i++) {
             IoTPwmStart(PWM_PORT, i, Frequency);
             osDelay(5);
             uapi_pwm_clear_group(PWM_PORT);
+        }
+        counter++;
+        if (counter >= 100) {
+            break;
         }
     }
 }

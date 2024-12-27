@@ -32,6 +32,7 @@ enum LedState{
     LED_ON = 0,
     LED_OFF,
     LED_SPARK,
+    LED_EXIT,
 };
 
 enum LedState g_ledState = LED_SPARK;
@@ -55,6 +56,8 @@ static void *LedTask(const char *arg)
                 IoTGpioSetOutputVal(LED_TASK_GPIO, 1);
                 osDelay(LED_INTERVAL_TIME);
                 break;
+            case LED_EXIT:
+                return ;
             default:
                 osDelay(LED_INTERVAL_TIME);
                 break;

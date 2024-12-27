@@ -30,6 +30,7 @@ void sender_thread(void *arg)
     static int count = 0;
     message_entry sentry;
     (void) arg;
+    uint32_t counter  = 0;
     while (1) {
         sentry.tid = osThreadGetId();
         sentry.count = count;
@@ -37,6 +38,10 @@ void sender_thread(void *arg)
         osMessageQueuePut(qid, (const void *) &sentry, 0, osWaitForever);
         count++;
         osDelay(5);
+        counter++;
+        if (counter >= 100) {
+            break;
+        }
     }
 }
 
