@@ -32,7 +32,8 @@ static void *GpioTask(const char *arg)
     IoTGpioInit(LED_TASK_GPIO);
     IoTGpioSetDir(LED_TASK_GPIO, IOT_GPIO_DIR_OUT);
     uint32_t counter  = 0;
-    while (1) {
+    uint32_t running = 1;
+    while (running) {
         printf(" LED_SPARK! \n");
         IoTGpioSetOutputVal(LED_TASK_GPIO, 0);
         osDelay(50);
@@ -41,7 +42,7 @@ static void *GpioTask(const char *arg)
 
         counter++;
         if (counter >= 100) {
-            return ;
+            running = 0;
         }
     }
     return NULL;

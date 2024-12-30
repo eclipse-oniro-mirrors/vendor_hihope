@@ -40,7 +40,8 @@ enum LedState g_ledState = LED_SPARK;
 static void *LedTask(const char *arg)
 {
     (void) arg;
-    while (1) {
+    uint32_t running = 1;
+    while (running) {
         switch (g_ledState) {
             case LED_ON:
                 IoTGpioSetOutputVal(LED_TASK_GPIO, 0);
@@ -57,7 +58,8 @@ static void *LedTask(const char *arg)
                 osDelay(LED_INTERVAL_TIME);
                 break;
             case LED_EXIT:
-                return ;
+                running = 0;
+                break;
             default:
                 osDelay(LED_INTERVAL_TIME);
                 return ;

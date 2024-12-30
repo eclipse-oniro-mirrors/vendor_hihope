@@ -49,18 +49,18 @@ void receiver_thread(void *arg)
 {
     (void) arg;
     message_entry rentry;
-    uint32_t counter  = 0;
+    uint32_t counter = 0;
+    uint32_t running = 1;
 
-    while (1) {
+    while (running) {
         osMessageQueueGet(qid, (void *) &rentry, NULL, osWaitForever);
         osal_printk("[Message Test] %s get %d from %s by message queue.\r\n", osThreadGetName(osThreadGetId()),
                     rentry.count, osThreadGetName(rentry.tid));
         osDelay(3);
         counter++;
         if (counter >= 100) {
-            return;
+            running = 0;
         }
-
     }
 }
 
