@@ -28,12 +28,13 @@ void producer_thread(void *arg)
     (void) arg;
     empty_id = osSemaphoreNew(BUFFER_SIZE, BUFFER_SIZE, NULL);
     filled_id = osSemaphoreNew(BUFFER_SIZE, 0U, NULL);
-    uint32_t counter  = 0;
-    while (1) {
+    uint32_t counter = 0;
+    uint32_t running = 1;
+    while (running) {
         osSemaphoreAcquire(empty_id, osWaitForever);
         counter++;
         if (counter >= 10) {
-            return;
+            running = 0;
         }
         product_number++;
         printf("[Semp Test]%s produces a product, now product number: %d.\r\n", osThreadGetName(osThreadGetId()),
@@ -47,12 +48,12 @@ void consumer_thread(void *arg)
 {
     (void) arg;
     uint32_t counter  = 0;
-
-    while (1) {
+    uint32_t running = 1;
+    while (running) {
         osSemaphoreAcquire(filled_id, osWaitForever);
         counter++;
         if (counter >= 10) {
-            return;
+            running = 0;
         }
         product_number--;
         printf("[Semp Test]%s consumes a product, now product number: %d.\r\n", osThreadGetName(osThreadGetId()),
