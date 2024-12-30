@@ -31,7 +31,8 @@ void sender_thread(void *arg)
     message_entry sentry;
     (void) arg;
     uint32_t counter  = 0;
-    while (1) {
+    uint32_t running = 1;
+    while (running) {
         sentry.tid = osThreadGetId();
         sentry.count = count;
         osal_printk("[Message Test] %s send %d to message queue.\r\n", osThreadGetName(osThreadGetId()), count);
@@ -40,7 +41,7 @@ void sender_thread(void *arg)
         osDelay(5);
         counter++;
         if (counter >= 100) {
-            return;
+            running = 0;
         }
     }
 }
