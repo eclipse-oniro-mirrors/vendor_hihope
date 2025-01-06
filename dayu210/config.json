@@ -200,6 +200,12 @@
           "features": [
             "wpa_supplicant_driver_nl80211 = true"
           ]
+        },
+        {
+          "component": "qrcodegen",
+          "features": [
+            "qrcodegen_feature_ace_engine_qrcode_able = true"
+          ]
         }
       ]
     },
