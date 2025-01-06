@@ -14,15 +14,6 @@
   "inherit": [ "productdefine/common/inherit/tablet.json" ],
   "subsystems": [
     {
-        "subsystem": "developtools",
-        "components": [
-            {
-                "component": "bytrace",
-                "features": []
-            }
-        ]
-    },
-    {
         "subsystem": "location",
         "components": [
             {
