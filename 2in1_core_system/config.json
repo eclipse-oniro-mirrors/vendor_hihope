@@ -16,15 +16,6 @@
     ],
     "subsystems": [
       {
-        "subsystem": "developtools",
-        "components": [
-          {
-            "component": "bytrace",
-            "features": []
-          }
-        ]
-      },
-      {
         "subsystem": "applications",
         "components": [
           {
