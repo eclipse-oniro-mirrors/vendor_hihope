@@ -33,12 +33,18 @@ static void *adc_task(const char *arg)
     uapi_adc_init(ADC_CLOCK_NONE);
     uint8_t adc_channel = 1;
     uint16_t voltage = 0;
-    while (1) {
+    uint32_t counter = 0;
+    uint32_t running = 1;
+    while (running) {
+
         adc_port_read(adc_channel, &voltage);
         if (voltage > 550 && voltage < 650) {
             printf("button1,voltage: %d mv\r\n", voltage);
         } else if (voltage > 950 && voltage < 1050) {
             printf("button2,voltage: %d mv\r\n", voltage);
+        }
+        if (counter >= 100) {
+            running = 0;
         }
 
         osal_msleep(100);
