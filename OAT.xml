@@ -56,6 +56,7 @@
                 <policyitem type="copyright" name="Huawei Device Co., Ltd." path=".*" rule="may" group="defaultGroup" filefilter="copyrightPolicyFilter" desc="Developed by Huawei Device"/>
                 <policyitem type="copyright" name="HiHope Open Source Organization ." path=".*" rule="may" group="defaultGroup" filefilter="copyrightPolicyFilter" desc="Developed By Hihope"/>
                 <policyitem type="copyright" name="Copyright (C) 2009-2012 Broadcom Corporation" path=".*" rule="may" group="defaultGroup" filefilter="copyrightPolicyFilter" desc=""/>
+                <policyitem type="copyright" name="HiSilicon (Shanghai) Technologies CO., LIMITED." path=".*" desc="HiSilicon copyright"/>
                 <policyitem type="copyright" name="Copyright 2015 Broadcom Corporation" path=".*" rule="may" group="defaultGroup" filefilter="copyrightPolicyFilter" desc=""/>
                 <policyitem type="copyright" name="Copyright 2009-2012 Broadcom Corporation" path=".*" rule="may" group="defaultGroup" filefilter="copyrightPolicyFilter" desc=""/>
                 <policyitem type="copyright" name="Copyright (C) 1999-2012 Broadcom Corporation" path=".*" rule="may" group="defaultGroup" filefilter="copyrightPolicyFilter" desc=""/>
