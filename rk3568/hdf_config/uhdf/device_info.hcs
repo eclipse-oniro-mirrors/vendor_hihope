@@ -181,6 +181,14 @@
                     serviceName = "wlan_interface_service";
                 }
             }
+            wifi_chip_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libchip_hdi_driver.z.so";
+                    serviceName = "chip_interface_service";
+                }
+            }
         }
         wpa :: host {
             hostName = "wpa_host";
