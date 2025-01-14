@@ -11,21 +11,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
 static_library("adc_human_demo") {
-    sources = [
-        "adc_human_demo.c", 
-        
-    ]
+  sources = [ "adc_human_demo.c" ]
 
-    include_dirs = [
-        "//commonlibrary/utils_lite/include",
-        "//kernel/liteos_m/kal",
-        "//base/iothardware/peripheral/interfaces/inner_api",
-        "//device/soc/hisilicon/ws63v100/sdk/include/driver",
-        "//device/soc/hisilicon/ws63v100/sdk/drivers/chips/ws63/rom/drivers/chips/ws63/porting/pinctrl",
-        "//device/soc/hisilicon/ws63v100/sdk/kernel/osal/include",
-        "//device/soc/hisilicon/ws63v100/sdk/drivers/chips/ws63/porting/adc",
-        "//device/soc/hisilicon/ws63v100/sdk/kernel/osal/include/interrupt",
-    ]
+  include_dirs = [
+    "//commonlibrary/utils_lite/include",
+    "//kernel/liteos_m/kal",
+    "//base/iothardware/peripheral/interfaces/inner_api",
+    "//device/soc/hisilicon/ws63v100/sdk/include/driver",
+    "//device/soc/hisilicon/ws63v100/sdk/drivers/chips/ws63/rom/drivers/chips/ws63/porting/pinctrl",
+    "//device/soc/hisilicon/ws63v100/sdk/kernel/osal/include",
+    "//device/soc/hisilicon/ws63v100/sdk/drivers/chips/ws63/porting/adc",
+    "//device/soc/hisilicon/ws63v100/sdk/kernel/osal/include/interrupt",
+  ]
 }

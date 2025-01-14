@@ -41,7 +41,6 @@ static void *adc_task(const char *arg)
     }
     /* 当前测量的电压值和实际值可能有较大差别，请确认是否有分压电阻，如果有分压电阻，则差别符合预期 */
     uapi_adc_deinit();
-
     return NULL;
 }
 
