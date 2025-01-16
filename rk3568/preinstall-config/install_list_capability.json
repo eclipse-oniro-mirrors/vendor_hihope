@@ -46,7 +46,6 @@
                 "usual.event.USER_REMOVED"
               ],
             "singleton": true,
-            "keepAlive": true,
             "allowAppUsePrivilegeExtension": true
         },
         {
