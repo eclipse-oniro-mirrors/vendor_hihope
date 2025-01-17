@@ -33,7 +33,8 @@ static void *adc_task(const char *arg)
     uapi_adc_init(ADC_CLOCK_NONE);
     uint8_t adc_channel = 2;
     uint16_t voltage = 0;
-    while (1) {
+    int c = 100000;
+    while (c) {
         adc_port_read(adc_channel, &voltage);
         printf("voltage: %d mv\r\n", voltage); 
         osal_msleep(100);
