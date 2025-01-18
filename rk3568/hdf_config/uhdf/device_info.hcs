@@ -127,6 +127,20 @@
                     serviceName = "usb_interface_service";
                     deviceMatchAttr = "usb_device_interface_driver";
                 }
+                device1 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libusb_device_driver.z.so";
+                    serviceName = "usb_device_interface_service";
+                    deviceMatchAttr = "usb_device_interface_driver";
+                }
+                device2 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libusb_port_driver.z.so";
+                    serviceName = "usb_port_interface_service";
+                    deviceMatchAttr = "usb_device_interface_driver";
+                }
             }
             ddk_device :: device {
                 device0 :: deviceNode {
