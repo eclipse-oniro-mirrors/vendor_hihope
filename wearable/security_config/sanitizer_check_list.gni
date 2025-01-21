@@ -415,6 +415,7 @@ bypass_user_auth_framework = [
   "userauth_service_base",
   "userauth_service_context",
   "userauth_services_ipc",
+  "userauth_service_load_mode",
   "attributes_fuzzer",  #cfi not configured
   "dfx_fuzzer",  #cfi not configured
   "userauth_client_ipc_fuzzer",  #cfi not configured
