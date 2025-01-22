@@ -26,7 +26,7 @@ static char request[] = "send_data";
 static char response[100] = "";
 // OLED显示的数据
 static char display_data[11] = "";
-
+int c = 1;
 
 /* @brief UDP客户端测试函数
    @param1 host UDP服务端IP地址
@@ -86,7 +86,7 @@ void UdpClientTest(const char *host, unsigned short port)
     socklen_t fromLen = sizeof(fromAddr);
 
 
-    while (1)
+    while (c)
     {
         memset(display_data,0,strlen(display_data));
         memset(response,0,strlen(response));    

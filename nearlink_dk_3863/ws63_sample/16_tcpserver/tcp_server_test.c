@@ -30,7 +30,7 @@ static char display_data[11] = "";
 void TcpServerTest(unsigned short port)
 {
     ssize_t ret = 0;
-
+    int c = 100000;
     // 最大等待队列长度
     int backlog = 1;
 
