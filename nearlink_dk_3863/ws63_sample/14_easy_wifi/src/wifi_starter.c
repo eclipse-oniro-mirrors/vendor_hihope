@@ -26,6 +26,8 @@
 #include "td_base.h"
 #include "td_type.h"
 
+#define NUM1 255
+
 errcode_t StartHotspot(char *ssid, char *key, wifi_security_enum security_type, uint8_t channel_num)
 {
     //WiFi SoftAP 网络设备名
@@ -40,7 +42,7 @@ errcode_t StartHotspot(char *ssid, char *key, wifi_security_enum security_type, 
     struct netif *netif_p = TD_NULL;
     
     IP4_ADDR(&st_ipaddr, 192, 168, 43, 1); /* IP地址设置：192.168.43.1 */
-    IP4_ADDR(&st_netmask, 255, 255, 255, 0); /* 子网掩码设置：255.255.255.0 */
+    IP4_ADDR(&st_netmask, NUM1, NUM1, NUM1, 0); /* 子网掩码设置：255.255.255.0 */
     IP4_ADDR(&st_gw, 192, 168, 43, 2); /* 网关地址设置：192.168.43.2 */
 
     /* 配置SoftAp基本参数 */
