@@ -31,7 +31,7 @@ static char display_data[11];
 void TcpClientTest(const char *host, unsigned short port)
 {
     ssize_t ret = 0;
-
+    int c = 1;
     // 创建一个TCP Socket
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -83,7 +83,7 @@ void TcpClientTest(const char *host, unsigned short port)
     // 发送成功
      printf("send request{%s} %ld to tcp server !\r\n", request, ret);
 
-    while (1)
+    while (c)
     {
     memset(display_data,0,strlen(display_data));
     memset(response,0,strlen(response));
