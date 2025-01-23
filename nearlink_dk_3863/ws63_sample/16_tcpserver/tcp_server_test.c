@@ -30,7 +30,7 @@ static char display_data[11] = "";
 void TcpServerTest(unsigned short port)
 {
     ssize_t ret = 0;
-    int c = 100000;
+    int c = 1;
     // 最大等待队列长度
     int backlog = 1;
 
@@ -126,7 +126,7 @@ void TcpServerTest(unsigned short port)
 
     // 发送成功，输出日志，OLED显示发送的数据
     printf("send response{%s} to client done!\r\n", send_data);
-    while (1)
+    while (c)
     {
         memset(display_data,0,strlen(display_data));
         memset(recv_data,0,strlen(recv_data));
