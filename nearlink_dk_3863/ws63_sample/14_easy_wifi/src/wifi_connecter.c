@@ -40,7 +40,7 @@
 #define DHCP_BOUND_STATUS_MAX_GET_TIMES 10 /* 获取绑定状态最大尝试次数 */
 #define WIFI_STA_IP_MAX_GET_TIMES 10        /* 获取IP最大尝试次数 */
 #define WIFI_STA_SAMPLE_LOG              "[WIFI_STA_SAMPLE]"
-
+int a = 1;
 enum {
     WIFI_STA_SAMPLE_INIT = 0,       /* 0:初始态 */
     WIFI_STA_SAMPLE_SCANING,        /* 1:扫描中 */
@@ -186,7 +186,7 @@ errcode_t ConnectToHotspot(char *ssid, char *key)
         osal_msleep(100);
     }
 
-    while (1)
+    while (a)
     {
         /* start scan*/
         osal_msleep(1000);
