@@ -150,6 +150,14 @@
                     serviceName = "usb_ddk_service";
                 }
             }
+            usb_serial_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libusb_serial_ddk_driver.z.so";
+                    serviceName = "usb_serial_ddk_service";
+                }
+            }
         }
         power :: host {
             hostName = "power_host";
