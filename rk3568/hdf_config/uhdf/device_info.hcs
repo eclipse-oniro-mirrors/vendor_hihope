@@ -158,6 +158,14 @@
                     serviceName = "usb_serial_ddk_service";
                 }
             }
+            scsi_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libscsi_ddk_driver.z.so";
+                    serviceName = "scsi_peripheral_ddk_service";
+                }
+            }
         }
         power :: host {
             hostName = "power_host";
