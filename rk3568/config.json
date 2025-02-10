@@ -275,6 +275,7 @@
         {
           "component": "hiview",
           "features": [
+            "hiview_feature_bbox_userspace = true",
             "hiview_enable_leak_detector = true",
             "hiview_enable_performance_monitor = true"
           ]
