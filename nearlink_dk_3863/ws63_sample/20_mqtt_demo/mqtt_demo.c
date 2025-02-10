@@ -97,7 +97,7 @@ static void mqttDemoTask(void *arg)
     unsigned short port = atoi(MQTT_SERVER_PORT);                      // MQTT服务器端口
     const char *clientId = "client_test";                              // MQTT客户端ID
     const char *username = NULL;                                        // MQTT服务器用户名
-    const char *password = NULL;                                        // MQTT服务器密码
+    const char *pass = NULL;                                        // MQTT服务器密码
 
     // 初始化MQTT连接信息
     MQTTPacket_connectData connectData = MQTTPacket_connectData_initializer;
@@ -110,10 +110,10 @@ static void mqttDemoTask(void *arg)
     }
 
     // 设置用户名和密码
-    if (username != NULL && password != NULL)
+    if (username != NULL && pass != NULL)
     {
         connectData.username.cstring = (char *)username;
-        connectData.password.cstring = (char *)password;
+        connectData.password.cstring = (char *)pass;
     }
 
     /* 设置MQTT版本*/
