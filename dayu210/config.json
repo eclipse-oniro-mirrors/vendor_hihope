@@ -98,7 +98,9 @@
           "component": "drivers_peripheral_wlan",
           "features": [
             "drivers_peripheral_wlan_feature_enable_HDF_NL80211 = true",
-            "drivers_peripheral_wlan_feature_enable_HDF_UT = false"
+            "drivers_peripheral_wlan_feature_enable_HDF_UT = false",
+            "drivers_peripheral_wlan_feature_vendor = default",
+            "drivers_peripheral_wlan_p2p_name = p2p-dev-wlan0"
           ]
         },
         {
@@ -167,8 +169,7 @@
           "component": "wifi",
           "features": [
             "wifi_feature_non_seperate_p2p = true",
-            "wifi_feature_non_hdf_driver = true",
-            "wifi_feature_with_hdi_chip_supported = false"
+            "wifi_feature_non_hdf_drivers = true"
          ]
         }
       ]
