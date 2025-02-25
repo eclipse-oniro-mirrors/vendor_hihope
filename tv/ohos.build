@@ -1,0 +1,18 @@
+{
+  "parts": {
+    "product_tv": {
+      "module_list": [
+        "//vendor/hihope/tv/default_app_config:default_app_config",
+        "//vendor/hihope/tv/image_conf:custom_image_conf",
+        "//vendor/hihope/tv/preinstall-config:preinstall-config",
+        "//vendor/hihope/tv/resourceschedule:resourceschedule",
+        "//vendor/hihope/tv/etc:product_etc_conf",
+        "//vendor/hihope/tv/hals/audio:hdf_audio_config",
+        "//vendor/hihope/tv/hals/codec/:hdf_codec_config",
+        "//vendor/hihope/tv/hdf_config/uhdf:hdf_config",
+        "//vendor/hihope/tv/window_config:window_config"
+      ]
+    }
+  },
+  "subsystem": "product_tv"
+}
