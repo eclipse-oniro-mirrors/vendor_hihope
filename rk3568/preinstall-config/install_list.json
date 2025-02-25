@@ -211,6 +211,10 @@
         {
             "app_dir" : "/system/app/com.ohos.dhardwareui",
             "removable" : true
+        },
+        {
+            "app_dir": "/system/app/com.ohos.security.privacycenter",
+            "removable": true
         }
     ]
 }
