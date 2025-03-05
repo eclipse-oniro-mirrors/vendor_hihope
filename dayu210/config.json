@@ -282,6 +282,15 @@
           ]
         }
       ]
+    },
+    {
+      "subsystem": "ability",
+      "components": [
+        {
+          "component": "idl_tool",
+          "features": []
+        }
+      ]
     }
   ]
 }
