@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-static_library("mqtt_demo") {
+static_library("mqtt_sensor") {
   # 设置编译选项，指定以下编译警告不当做错误处理
   cflags = [
     "-Wno-sign-compare",  # 有符号数和无符号数对比
@@ -27,7 +27,9 @@ static_library("mqtt_demo") {
 
   # 指定要编译的程序文件
   sources = [
-    "mqtt_demo.c",  # 主程序文件
+    "aht20.c",
+    "hal_iot_gpio_ex.c",
+    "mqtt_sensor_demo.c",  # 主程序文件
   ]
 
   # 设置头文件路径
@@ -35,6 +37,7 @@ static_library("mqtt_demo") {
     "//commonlibrary/utils_lite/include",
     "//kernel/liteos_m/kal/cmsis",
     "//base/iothardware/peripheral/interfaces/inner_api",
+    "//device/soc/hisilicon/ws63v100/sdk/drivers/chips/ws63/rom/drivers/chips/ws63/porting/pinctrl",
     "//applications/sample/wifi-iot/app/paho_mqtt/MQTTPacket/src",  # MQTTPacket模块接口
     "//applications/sample/wifi-iot/app/paho_mqtt/MQTTClient-C/src",  # MQTTClient-C模块接口
     "//applications/sample/wifi-iot/app/paho_mqtt/MQTTClient-C/src/ohos",  # MQTTClient-C模块OHOS适配接口

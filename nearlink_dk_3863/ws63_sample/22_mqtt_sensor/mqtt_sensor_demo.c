@@ -18,22 +18,32 @@
 #include <string.h>    
 #include "ohos_init.h" 
 #include "cmsis_os2.h" 
+#include "unistd.h" 
 
 #include "MQTTClient.h"     // MQTTClient-C库接口文件
 #include "mqtt_ohos.h"      // OHOS适配接口文件
 
+#include "iot_gpio.h"   
+#include "iot_gpio_ex.h"
+#include "iot_errno.h" 
+
+#include "aht20.h"     
+
+#define AHT20_BAUDRATE 400000
+
+#define AHT20_I2C_IDX 1
 
 //要连接热点的名称，根据实际情况修改
-#define SSID "HUAWEI_Gao"
+#define SSID "WIFI-0A02"
 
 //要连接热点的密码，根据实际情况修改
-#define PSK "gao51920"
+#define PSK "1234567890"
 
 // MQTT服务器IP地址（默认是电脑的地址）,请根据实际情况修改
-#define MQTT_SERVER_IP "192.168.8.31"
+#define MQTT_SERVER_IP "192.168.100.198"
 
 // MQTT服务器端口,请根据实际情况修改
-#define MQTT_SERVER_PORT "1888"
+#define MQTT_SERVER_PORT "1888"   
 
 // MQTT客户端
 static MQTTClient client = {0};
@@ -47,36 +57,62 @@ static unsigned char sendbuf[100], readbuf[100];
 //MQTT消息
 MQTTMessage message;
 
-// 接收订阅消息的回调函数
-static void OnMessageArrived(MessageData *data)
+//温湿度数据
+float temperature;
+float humidity;
+//有效数据
+char payload[100] = {0};                             
+//初始化传感器
+static void InitTempHumiSensor()
 {
 
-    printf("Message form \r\n%s\r\n",
-    data->topicName->lenstring.data);
+    // 初始化GPIO
+    IoTGpioInit(1); 
 
-}
+    // 设置GPIO-15引脚功能为I2C1_SDA
+    IoSetFunc(IOT_IO_NAME_GPIO_15, IOT_IO_FUNC_GPIO_15_I2C1_SDA);
+    // 设置GPIO-16引脚功能为I2C1_SCL
+    IoSetFunc(IOT_IO_NAME_GPIO_16, IOT_IO_FUNC_GPIO_16_I2C1_SCL);
 
-static void MqttTask(void *arg)
-{
-    MQTTClient *c = (MQTTClient *)arg;
-    while (c)
+    // 初始化I2C1
+    IoTI2cInit(AHT20_I2C_IDX, AHT20_BAUDRATE);
+
+
+    // 校准AHT20,需要等待一段时间
+    while (IOT_SUCCESS != AHT20_Calibrate())
     {
-        mqttMutexLock(&c->mutex);
-        if (c->isconnected)
-        {
-            //接收订阅的数据
-            MQTTYield(c, 1);
-        }
-        mqttMutexUnlock(&c->mutex);
-
-        osDelay(100);
+        printf("AHT20 sensor init failed!\r\n");  
     }
+}
+//获取温湿度
+static uint16_t GetTempHumi(float *temperature, float *humidity){
+    char tempData[15] = {0};
+    char humiData[15] = {0};
+    // 启动测量
+    if (AHT20_StartMeasure() != IOT_SUCCESS)
+    {
+        printf("measure failed!\r\n");
+        return IOT_FAILURE;
+    }
+    //获取测量结果
+    if (AHT20_GetMeasureResult(temperature, humidity) != IOT_SUCCESS)
+    {
+        printf("get data failed!\r\n");
+        return IOT_FAILURE;
+    }
+    //打印温湿度数据
+    sprintf(tempData, "%.2f", *temperature);
+    sprintf(humiData, "%.2f", *humidity);
+    printf("temperature: %s, humidity: %s\r\n", tempData, humiData);
+
+    return IOT_SUCCESS;
 }
 
 static void mqttDemoTask(void *arg)
 {
     (void)arg;
 
+    InitTempHumiSensor();
     // 连接到热点
     if (ConnectToHotspot(SSID, PSK) != 0)
     {
@@ -97,7 +133,7 @@ static void mqttDemoTask(void *arg)
     unsigned short port = atoi(MQTT_SERVER_PORT);                      // MQTT服务器端口
     const char *clientId = "client_test";                              // MQTT客户端ID
     const char *username = NULL;                                        // MQTT服务器用户名
-    const char *pass = NULL;                                        // MQTT服务器密码
+    const char *password = NULL;                                        // MQTT服务器密码
 
     // 初始化MQTT连接信息
     MQTTPacket_connectData connectData = MQTTPacket_connectData_initializer;
@@ -110,10 +146,10 @@ static void mqttDemoTask(void *arg)
     }
 
     // 设置用户名和密码
-    if (username != NULL && pass != NULL)
+    if (username != NULL && password != NULL)
     {
         connectData.username.cstring = (char *)username;
-        connectData.password.cstring = (char *)pass;
+        connectData.password.cstring = (char *)password;
     }
 
     /* 设置MQTT版本*/
@@ -135,51 +171,32 @@ static void mqttDemoTask(void *arg)
         printf("MQTT Connected!\r\n");
     }
 
-    char *topic = "test_topic/a";            // 订阅主题:test_topic/a
-
-    if ((ret = MQTTSubscribe(&client, topic, QOS2, OnMessageArrived)) != 0)
+    //发布的主题
+    char *topic = "device_sensor_data";         
+ 
+    while (1)
     {
-        // 订阅失败
-        printf("MQTTSubscribe failed: %d\r\n", ret);
-        return;
-    }else{
-        // 输出订阅成功信息
-        printf("MQTT Subscribe OK\r\n");
+      uint16_t ret = GetTempHumi(&temperature, &humidity);
+      if(ret == 0){
+            sprintf(payload,
+            "{\"device_name\":\"test_decice_01\", \"temp\":%.2f, \"humi\":%.2f}",
+            temperature, humidity);         
+            message.qos = QOS0;
+            message.retained = 0;   
+            message.payload = payload;
+            message.payloadlen = strlen(payload);
+            // 发布消息    
+            ret = MQTTPublish(&client, topic, &message);         
+            if (ret != 0)                                    
+                printf("MQTT Publish failed!\r\n");
+            else
+                printf("MQTT Publish OK\r\n");
+        }    
+       
+        osDelay(100);                                       
     }
     
-    char *stopic = "test_topic/b"; // 主题:test_topic/b
-    char *payload = "Hello!"; // 消息内容
-
-    //消息质量为QOS2,只会收到一条消息
-    message.qos = QOS2;
-
     
-    /*
-    message.retained = 1,MQTT服务器收到这样的MQTTMessage数据包以后，将保存这个消息，
-     当有一个新的订阅者订阅相应主题的时候，MQTT服务器会马上将这个消息发送给订阅.
-     message.retained = 0，订阅者连接到MQTT服务器时，不会接收该主题的最新消息.
-     */
-    message.retained = 0;
-
-    // 设置消息的内容
-    message.payload = payload;
-
-    // 设置消息的长度
-    message.payloadlen = strlen(payload);
-
-    // 发布消息
-    if ((ret = MQTTPublish(&client, stopic, &message)) != 0)
-    {
-        // 发布消息失败
-        printf("MQTTPublish failed: %d\r\n", ret);
-        return ;
-    }else{
-        // 发布成功
-        printf("MQTT Publish OK\r\n"); 
-    }
-
-    // 创建MQTT任务线程,接收订阅主题的消息
-     ret = ThreadStart(&client.thread, MqttTask, &client);
 }
 
 // 入口函数
