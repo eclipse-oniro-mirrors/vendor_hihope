@@ -107,7 +107,3 @@ hihope
 * [device/board/hihope](https://gitee.com/openharmony/device_board_hihope)
 * [device/soc/winnermicro](https://gitee.com/openharmony/device_soc_winnermicro)
 * [device/soc/rockchip](https://gitee.com/openharmony/device_soc_rockchip)
-
-------------------------------------
-rk3568/security_config/sanitizer_check_list.gni：
-搜索cellular_data，新增"tel_cellular_data_static", # test target, not required to enable cfi
