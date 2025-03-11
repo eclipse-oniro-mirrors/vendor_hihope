@@ -1236,7 +1236,7 @@ bypass_dfs_service = []
 bypass_dlp_permission_service = [ "ohdlp_permission" ]
 
 bypass_cellular_data = [
-  "tel_cellular_data_static", # test target, not required to enable cfi
+  "tel_cellular_data_static",  # test target, not required to enable cfi
 ]
 
 # request : //base/request/request
