@@ -1,7 +1,7 @@
 [
     {
         "bundleName" : "com.ohos.screenshot",
-        "app_signature" : ["8E93863FC32EE238060BF69A9B37E2608FFFB21F93C862DD511CBAC9F30024B5"],
+        "app_signature" : ["com.ohos.screenshot_BPgjq9cj5JyweCCfYME1bzHG1/mf3O8o3TRauZBbLY88KQDsXTsuFVd36R3cnIdxpOosELsi0BKxgowdI7IOBUU="],
         "permissions" : [
             {
                 "name" : "ohos.permission.MEDIA_LOCATION",
@@ -14,6 +14,10 @@
             {
                 "name" : "ohos.permission.WRITE_MEDIA",
                 "userCancellable" : true
+            },
+            {
+                "name" : "ohos.permission.WRITE_IMAGEVIDEO",
+                "userCancellable" : true
             }
         ]
     },
@@ -23,6 +27,20 @@
         "permissions" : [
             {
                 "name" : "ohos.permission.DISTRIBUTED_DATASYNC",
+                "userCancellable" : false
+            },
+            {
+                "name" : "ohos.permission.READ_IMAGEVIDEO",
+                "userCancellable" : false
+            }
+        ]
+    },
+	{
+        "bundleName" : "com.ohos.ringtonelibrary.ringtonelibrarydata",
+        "app_signature" : ["8C6B95137E594835B00A60DF8DC1350D040D58624F17F4E841246B97B9A7A9FD"],
+        "permissions" : [
+            {
+                "name" : "ohos.permission.READ_AUDIO",
                 "userCancellable" : false
             }
         ]
@@ -143,7 +161,7 @@
     },
 	{
         "bundleName": "com.ohos.filepicker",
-        "app_signature" : ["C902DDEE3286715B8BA26175A1EF967985D22AEF44BE747702B604D956A76CFA"],
+        "app_signature" : ["799EAC4119A566D438C1AB0199D9401D77176C368A334F33C03DBB21E54F970E"],
         "permissions" : [
             {
                 "name" : "ohos.permission.READ_MEDIA",
@@ -155,6 +173,14 @@
             },
             {
                 "name" : "ohos.permission.MEDIA_LOCATION",
+                "userCancellable" : false
+            },
+            {
+                "name" : "ohos.permission.READ_AUDIO",
+                "userCancellable" : false
+            },
+            {
+                "name" : "ohos.permission.WRITE_AUDIO",
                 "userCancellable" : false
             }
         ]
@@ -202,8 +228,8 @@
         ]
     },
     {
-        "bundleName": "cn.openharmony.inputmethodchoosedialog",
-        "app_signature" : ["8E93863FC32EE238060BF69A9B37E2608FFFB21F93C862DD511CBAC9F30024B5"],
+        "bundleName": "com.ohos.inputmethodchoosedialog",
+        "app_signature" : ["CE4D01EF424B829E13652BB1743E18B8E4542DD5A7BBA7D7D472F727FA6F8A9D"],
         "permissions" : [
             {
                 "name" : "ohos.permission.CONNECT_IME_ABILITY",
@@ -309,10 +335,20 @@
     },
     {
         "bundleName": "com.ohos.settings",
-        "app_signature" : ["8E93863FC32EE238060BF69A9B37E2608FFFB21F93C862DD511CBAC9F30024B5"],
+        "app_signature" : ["EB5DBE52EE8DD7206DDE612E7484E88CE264E74958704D0712BFA774C87F4DA1"],
         "permissions" : [
             {
                 "name" : "ohos.permission.GET_INSTALLED_BUNDLE_LIST",
+                "userCancellable" : false
+            }
+        ]
+    },
+    {
+        "bundleName": "com.ohos.dhardwareui",
+        "app_signature" : ["D8B95864BA867BE8299BEB45CEC85B6905D59FD726D43C3AE60E051E9E658738"],
+        "permissions" : [
+            {
+                "name" : "ohos.permission.ACCESS_DISTRIBUTED_HARDWARE",
                 "userCancellable" : false
             }
         ]
