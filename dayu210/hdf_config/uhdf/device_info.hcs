@@ -127,6 +127,20 @@
                     serviceName = "usb_interface_service";
                     deviceMatchAttr = "usb_device_interface_driver";
                 }
+                device1 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libusb_device_driver.z.so";
+                    serviceName = "usb_device_interface_service";
+                    deviceMatchAttr = "usb_device_interface_driver";
+                }
+                device2 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libusb_port_driver.z.so";
+                    serviceName = "usb_port_interface_service";
+                    deviceMatchAttr = "usb_device_interface_driver";
+                }
             }
             ddk_device :: device {
                 device0 :: deviceNode {
@@ -134,6 +148,22 @@
                     priority = 100;
                     moduleName = "libusb_ddk_driver.z.so";
                     serviceName = "usb_ddk_service";
+                }
+            }
+            usb_serial_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libusb_serial_ddk_driver.z.so";
+                    serviceName = "usb_serial_ddk_service";
+                }
+            }
+            scsi_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libscsi_ddk_driver.z.so";
+                    serviceName = "scsi_peripheral_ddk_service";
                 }
             }
         }
@@ -307,10 +337,25 @@
                 }
             }
         }
+	clearplay :: host {
+            hostName = "clearplay_host";
+            priority = 50;
+            uid = "clearplay_host";
+            gid = ["clearplay_host"];
+            clearplay_device :: device {
+                 device0 :: deviceNode {
+                     policy = 2;
+                     priority = 100;
+                     preload = 2;
+                     moduleName = "libclearplay_driver.z.so";
+                     serviceName = "clearplay_service";
+                 }
+            }
+        }
         input_hal :: host {
             hostName = "input_user_host";
             priority = 50;
-            gid = ["input_user_host", "uhdf_driver"];
+            gid = ["input_user_host", "uhdf_driver", "uhid"];
             input_device :: device {
                 device0 :: deviceNode {
                     policy = 2;
@@ -325,6 +370,14 @@
                     priority = 100;
                     moduleName = "libinput_driver.z.so";
                     serviceName = "input_interfaces_service";
+                }
+            }
+            hid_ddk_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    moduleName = "libhid_ddk_driver.z.so";
+                    serviceName = "hid_ddk_service";
                 }
             }
         }

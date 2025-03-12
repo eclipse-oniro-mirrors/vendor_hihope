@@ -11,6 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import("//build/ohos.gni")
 import("//drivers/hdf_core/adapter/uhdf2/hcs/hcs.gni")
 
 hdf_hcb("hdf_default.hcb") {
@@ -25,9 +26,18 @@ hdf_cfg("hdf_devhost.cfg") {
   subsystem_name = "product_hihope"
 }
 
+ohos_prebuilt_etc("hdf_peripheral.cfg") {
+  source = "hdf_peripheral.cfg"
+  relative_install_dir = "init"
+  install_images = [ chipset_base_dir ]
+  subsystem_name = "product_hihope"
+  part_name = "product_dayu210"
+}
+
 group("hdf_config") {
   deps = [
     ":hdf_default.hcb",
     ":hdf_devhost.cfg",
+    ":hdf_peripheral.cfg",
   ]
 }

@@ -7,7 +7,8 @@ root {
             idTableList = [
                 "host_acm_table",
                 "host_acm_rawapi_table",
-                "host_ecm_table"
+                "host_ecm_table",
+                "host_rndis_table"
             ];
             host_acm_table {
                 moduleName = "usbhost_acm";
@@ -63,6 +64,24 @@ root {
                 interfaceProtocol = [0, 6];
                 interfaceNumber = [0, 1];
             }
+            host_rndis_table {
+               moduleName = "usbhost_rndis_rawapi";
+               serviceName = "usbhost_rndis_rawapi_service";
+               deviceMatchAttr = "usbhost_rndis_rawapi_matchAttr";
+               length = 18;
+               matchFlag = 0x0383;
+               vendorId = 0x2c7c;
+               productId = 0x0125;
+               bcdDeviceLow = 0x0318;
+               bcdDeviceHigh = 0x0318;
+               deviceClass = 0xef;
+               deviceSubClass = 0x02;
+               deviceProtocol = 0x01;
+               interfaceClass = [224];
+               interfaceSubClass = [1];
+               interfaceProtocol = [3];
+               interfaceNumber = [0];
+           }
         }
     }
 }

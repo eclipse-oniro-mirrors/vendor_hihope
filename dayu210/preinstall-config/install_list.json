@@ -73,6 +73,10 @@
             "removable" : false
         },
         {
+            "app_dir" : "/system/app/com.ohos.ringtonelibrary.RingtoneLibraryData",
+            "removable" : false
+        },
+        {
             "app_dir" : "/system/app/com.ohos.callui",
             "removable" : false
         },
@@ -137,7 +141,7 @@
             "removable" : false
         },
         {
-            "app_dir" : "/system/app/ohos.backgroundtaskmgr.resources",
+            "app_dir" : "/system/app/com.ohos.backgroundtaskmgr.resources",
             "removable" : false
         },
         {
@@ -149,7 +153,7 @@
             "removable" : true
         },
         {
-            "app_dir" : "/system/app/cn.openharmony.inputmethodchoosedialog",
+            "app_dir" : "/system/app/com.ohos.inputmethodchoosedialog",
             "removable" : false
         },
         {
@@ -195,6 +199,22 @@
         {
             "app_dir": "/system/app/com.ohos.calendardata",
             "removable": false
+        },
+        {
+            "app_dir": "/system/app/com.usb.function",
+            "removable": true
+        },
+        {
+            "app_dir": "/system/app/VpnDialog",
+            "removable": false
+        },
+        {
+            "app_dir" : "/system/app/com.ohos.dhardwareui",
+            "removable" : true
+        },
+        {
+            "app_dir": "/system/app/com.ohos.security.privacycenter",
+            "removable": true
         }
     ]
 }
