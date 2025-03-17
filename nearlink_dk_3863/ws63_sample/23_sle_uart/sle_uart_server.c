@@ -39,6 +39,7 @@
 #define OCTET_BIT_LEN 8
 #define UUID_LEN_2 2
 #define UUID_INDEX 14
+#define BT_INDEX_5     5
 #define BT_INDEX_4     4
 #define BT_INDEX_0     0
 #define UART_BUFF_LENGTH    520
@@ -48,7 +49,8 @@
 /* sle server app uuid for test */
 static char g_sle_uuid_app_uuid[UUID_LEN_2] = { 0x12, 0x34 };
 /* server notify property uuid for test */
-static char g_sle_property_value[OCTET_BIT_LEN] = { 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 };
+static char
+g_sle_property_value[OCTET_BIT_LEN] = { 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 };
 /* sle connect acb handle */
 static uint16_t g_sle_conn_hdl = 0;
 /* sle server handle */
@@ -67,6 +69,10 @@ uint8_t receive_buf[UART_BUFF_LENGTH] = { 0 }; /* max receive length. */
 #define SLE_UART_SERVER_LOG "[sle uart server]"
 #define SLE_SERVER_INIT_DELAY_MS    1000
 #define SLE_UART_TRANSFER_SIZE              256
+#define DELAY_100MS 100
+#define TASK_SIZE 2048
+#define PRIO 25
+#define USLEEP_1000000 1000000
 
 static uint8_t g_sle_uart_base[] = { 0x37, 0xBE, 0xA8, 0x80, 0xFC, 0x70, 0x11, 0xEA, 
     0xB7, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
@@ -80,17 +86,16 @@ static uart_buffer_config_t g_app_uart_buffer_config = {
     .rx_buffer_size = SLE_UART_TRANSFER_SIZE
 };
 
-static void server_uart_rx_callback(const void *buffer, uint16_t length, bool error)
+static void server_uart_rx_callback( const void *buffer, uint16_t length, bool error)
 {
     errcode_t ret;
-    
     if(length > 0){
-        ret = uart_sle_send_data((uint8_t *)buffer,(uint8_t)length);
-        if(ret != 0){
-        printf("\r\nsle_server_send_data_fail:%d\r\n", ret);
-   }
-}
-
+        ret = uart_sle_send_data((uint8_t *)buffer,
+        (uint8_t)length);
+            if(ret != 0){
+            printf("\r\n sle_server_send_data_fail: %d\r\n", ret);
+        }
+    }
 }
 
 static void uart_init_config(void)
@@ -109,16 +114,15 @@ static void uart_init_config(void)
         .rts_pin = PIN_NONE
     };
     uapi_uart_deinit(0);
-    uapi_uart_init(0, &pin_config, &attr, NULL, &g_app_uart_buffer_config);
+    uapi_uart_init( 0, &pin_config, &attr, NULL, &g_app_uart_buffer_config);
       //UART_RX_CONDITION_FULL_OR_IDLE作为UART在数据接收的时候触发回调的条件，串口接收的字节数不能为16的整数倍，否则需要再发送一个字节的数据才能触发串口接收回调
-      (void)uapi_uart_register_rx_callback(0, UART_RX_CONDITION_FULL_OR_IDLE,
-                                         1, server_uart_rx_callback);
+      (void)uapi_uart_register_rx_callback( 0,
+        UART_RX_CONDITION_FULL_OR_IDLE,
+        1,
+        server_uart_rx_callback);
 }
 
-
-
-
-static void encode2byte_little(uint8_t *_ptr, uint16_t data)
+static void encode2byte_little( uint8_t *_ptr, uint16_t data)
 {
     *(uint8_t *)((_ptr) + 1) = (uint8_t)((data) >> 0x8);
     *(uint8_t *)(_ptr) = (uint8_t)(data);
@@ -153,13 +157,13 @@ static void sle_uart_uuid_print(SleUuid *uuid)
             uuid->uuid[14], uuid->uuid[15]); /* 14 15: uuid index */
     } else if (uuid->len == UUID_128BIT_LEN) {
         printf("%s uuid: \n", SLE_UART_SERVER_LOG); /* 14 15: uuid index */
-        printf("%s 0x%02x 0x%02x 0x%02x \n", SLE_UART_SERVER_LOG, uuid->uuid[0], uuid->uuid[1],
+        printf("%s 0x%02x 0x%02x 0x%02x 0x%02x\n", SLE_UART_SERVER_LOG, uuid->uuid[0], uuid->uuid[1],
             uuid->uuid[2], uuid->uuid[3]);
-        printf("%s 0x%02x 0x%02x 0x%02x \n", SLE_UART_SERVER_LOG, uuid->uuid[4], uuid->uuid[5],
+        printf("%s 0x%02x 0x%02x 0x%02x 0x%02x\n", SLE_UART_SERVER_LOG, uuid->uuid[4], uuid->uuid[5],
             uuid->uuid[6], uuid->uuid[7]);
-        printf("%s 0x%02x 0x%02x 0x%02x \n", SLE_UART_SERVER_LOG, uuid->uuid[8], uuid->uuid[9],
+        printf("%s 0x%02x 0x%02x 0x%02x 0x%02x\n", SLE_UART_SERVER_LOG, uuid->uuid[8], uuid->uuid[9],
             uuid->uuid[10], uuid->uuid[11]);
-        printf("%s 0x%02x 0x%02x 0x%02x \n", SLE_UART_SERVER_LOG, uuid->uuid[12], uuid->uuid[13],
+        printf("%s 0x%02x 0x%02x 0x%02x 0x%02x\n", SLE_UART_SERVER_LOG, uuid->uuid[12], uuid->uuid[13],
             uuid->uuid[14], uuid->uuid[15]);
     }
 }
@@ -336,14 +340,14 @@ errcode_t sle_uart_server_send_report_by_handle(const uint8_t *data, uint8_t len
     return  SsapsNotifyIndicate(g_server_id, g_sle_conn_hdl, &param);
 }
 
-static void sle_connect_state_changed_cbk(uint16_t conn_id, const SleAddr *addr,
+static void sle_connect_state_changed_cbk( uint16_t conn_id, const SleAddr *addr,
     SleAcbStateType conn_state, SlePairStateType pair_state, SleDiscReasonType disc_reason)
 {
     uint8_t sle_connect_state[] = "sle_dis_connect";
     printf("%s connect state changed callback conn_id:0x%02x, conn_state:0x%x, pair_state:0x%x, \
         disc_reason:0x%x\r\n", SLE_UART_SERVER_LOG,conn_id, conn_state, pair_state, disc_reason);
     printf("%s connect state changed callback addr:%02x:**:**:**:%02x:%02x\r\n", SLE_UART_SERVER_LOG,
-        addr->addr[BT_INDEX_0], addr->addr[BT_INDEX_4]);
+        addr->addr[BT_INDEX_0], addr->addr[BT_INDEX_4],addr->addr[BT_INDEX_5]);
     if (conn_state == OH_SLE_ACB_STATE_CONNECTED) {
         g_sle_conn_hdl = conn_id;
         ssap_exchange_info_t parameter = { 0 };
@@ -384,23 +388,21 @@ static errcode_t sle_conn_register_cbks(void)
 
 
 
-void ssaps_read_request_callbacks(uint8_t server_id, uint16_t conn_id, ssaps_req_read_cb_t *read_cb_para,
+void ssaps_read_request_callbacks( uint8_t server_id, uint16_t conn_id, ssaps_req_read_cb_t *read_cb_para,
     errcode_t status){
         (void)server_id;
         (void)conn_id;
         (void)read_cb_para;
         (void)status;
-
     }
 
-void ssaps_write_request_callbacks(uint8_t server_id, uint16_t conn_id, ssaps_req_write_cb_t *write_cb_para,
-    errcode_t status){
-      (void)server_id;
+void ssaps_write_request_callbacks( uint8_t server_id, uint16_t conn_id,
+    ssaps_req_write_cb_t *write_cb_para,errcode_t status){
+        (void)server_id;
         (void)conn_id;
         (void)status;
-         write_cb_para->value[write_cb_para->length-1] = '\0';
-   printf("client_send_data: %s\r\n",write_cb_para->value);
-
+        write_cb_para->value[write_cb_para->length-1] = '\0';
+        printf(" client_send_data: %s\r\n", write_cb_para->value);
     }
 
 
@@ -449,14 +451,10 @@ errcode_t sle_enable_server_cbk(void)
     return ERRCODE_SLE_SUCCESS;
 }
 
-
-
-
-
 int uart_sle_send_data(uint8_t *data,uint8_t length){
     int ret;
-    osal_mdelay(100);
-    ret = sle_uart_server_send_report_by_handle(data,length);
+    osal_mdelay(DELAY_100MS);
+    ret = sle_uart_server_send_report_by_handle( data, length);
     return ret ;
 }
 
@@ -464,7 +462,7 @@ int uart_sle_send_data(uint8_t *data,uint8_t length){
 static void SleTask( char* arg)
 {
     (void)arg;
-    usleep(1000000);
+    usleep(USLEEP_1000000);
     uart_init_config();
     sle_uart_server_init();
     return NULL;
@@ -479,12 +477,14 @@ static void SleServerExample(void)
     attr.cb_mem = NULL;
     attr.cb_size = 0U;
     attr.stack_mem = NULL;
-    attr.stack_size = 2048;
-    attr.priority = 25;
+    attr.stack_size = TASK_SIZE ;
+    attr.priority = PRIO;
 
     if (osThreadNew(SleTask, NULL, &attr) == NULL) {
-          printf("[SleExample] Falied to create SleTask!\n");
-    }else printf("[SleExample]  create SleTask successfully !\n");
+        printf(" Falied to create SleTask!\n");
+    }else {
+        printf(" create SleTask successfully !\n");
+    }
 }
 
-SYS_RUN(SleServerExample); // if test add it
+SYS_RUN( SleServerExample); // if test add it
