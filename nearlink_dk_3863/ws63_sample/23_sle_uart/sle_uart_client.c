@@ -47,6 +47,10 @@
 #endif
 #define SLE_UART_CLIENT_LOG  "[sle uart client]"
 #define UUID_LEN_2     2
+#define DELAY_100MS 100
+#define TASK_SIZE 2048
+#define PRIO 25
+#define USLEEP_1000000 1000000
 static char g_sle_uuid_app_uuid[] = { 0x39, 0xBE, 0xA8, 0x80, 0xFC, 0x70, 0x11, 0xEA, 
     0xB7, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 static unsigned char uartReadBuff[100];
@@ -77,19 +81,16 @@ ssapc_write_param_t *get_g_sle_uart_send_param(void)
     return &g_sle_uart_send_param;
 }
 
-static void uart_rx_callback(const void *buffer, uint16_t length, bool error)
+static void uart_rx_callback( const void *buffer, uint16_t length, bool error)
 {
     errcode_t ret;
-   
-
     if(length > 0){
-       
-        ret = uart_sle_client_send_data((uint8_t *)buffer,(uint8_t)length);
+        ret = uart_sle_client_send_data((uint8_t *)buffer,
+        (uint8_t)length);
         if(ret != 0){
         printf("\r\nsle_client_send_data_fail:%d\r\n", ret);
-   }
-}
-
+        }
+    }
 }
 
 static void uart_init_config(void)
@@ -109,8 +110,8 @@ static void uart_init_config(void)
     };
     uapi_uart_deinit(0);
     uapi_uart_init(0, &pin_config, &attr, NULL, &g_app_uart_buffer_config);
-      //UART_RX_CONDITION_FULL_OR_IDLE作为UART在数据接收的时候触发回调的条件，串口接收的字节数不能为16的整数倍，否则需要再发送一个字节的数据才能触发串口接收回调
-      (void)uapi_uart_register_rx_callback(0, UART_RX_CONDITION_FULL_OR_IDLE,
+    //UART_RX_CONDITION_FULL_OR_IDLE作为UART在数据接收的时候触发回调的条件，串口接收的字节数不能为16的整数倍，否则需要再发送一个字节的数据才能触发串口接收回调
+    (void)uapi_uart_register_rx_callback( 0, UART_RX_CONDITION_FULL_OR_IDLE,
                                          1, uart_rx_callback);
 }
 
@@ -163,7 +164,7 @@ static void sle_uart_client_sample_seek_disable_cbk(errcode_t status)
     if (status != 0) {
         printf("%s sle_uart_client_sample_seek_disable_cbk,status error = %x\r\n", SLE_UART_CLIENT_LOG, status);
     } else {
-       SleConnectRemoteDevice(&g_sle_uart_remote_addr);
+       SleConnectRemoteDevice( &g_sle_uart_remote_addr);
     }
 }
 
@@ -196,9 +197,9 @@ static void sle_uart_client_sample_connect_state_changed_cbk(uint16_t conn_id, c
         printf("%s SLE_ACB_STATE_DISCONNECTED\r\n", SLE_UART_CLIENT_LOG);
         SleRemovePairedRemoteDevice(addr);
         sle_uart_start_scan();
-        
     } else {
-        printf("%s status error\r\n", SLE_UART_CLIENT_LOG);
+        printf("%s status error\r\n", 
+        SLE_UART_CLIENT_LOG);
     }
    
     
@@ -214,7 +215,8 @@ static void sle_uart_client_sample_exchange_info_cbk(uint8_t client_id, uint16_t
                                                      errcode_t status)
 {
     printf("%s exchange_info_cbk,pair complete client id:%d status:%d\r\n",
-                SLE_UART_CLIENT_LOG, client_id, status);
+                SLE_UART_CLIENT_LOG , 
+                client_id, status);
     printf("%s exchange mtu, mtu size: %d, version: %d.\r\n", SLE_UART_CLIENT_LOG,
                 param->mtu_size, param->version);
     ssapc_find_structure_param_t find_param = { 0 };
@@ -222,8 +224,7 @@ static void sle_uart_client_sample_exchange_info_cbk(uint8_t client_id, uint16_t
     find_param.start_hdl = 1;
     find_param.end_hdl = 0xFFFF;
     int ret =  ssapc_find_structure(client_id, conn_id, &find_param);
-
-   printf("ssapc_find_structure_errcode:%d\r\n",ret);
+    printf(" ssapc_find_structure_errcode: %d\r\n",ret);
 }
 
 static void sle_uart_client_sample_find_structure_cbk(uint8_t client_id, uint16_t conn_id,
@@ -232,8 +233,9 @@ static void sle_uart_client_sample_find_structure_cbk(uint8_t client_id, uint16_
 {
     printf("%s find structure cbk client: %d conn_id:%d status: %d \r\n", SLE_UART_CLIENT_LOG,
                 client_id, conn_id, status);
-    printf("%s find structure start_hdl:[0x%02x], end_hdl:[0x%02x], uuid len:%d\r\n", SLE_UART_CLIENT_LOG,
-                service->start_hdl, service->end_hdl, service->uuid.len);
+    printf("%s find structure start_hdl:[0x %02x], end_hdl:[0x %02x], uuid len:%d\r\n", SLE_UART_CLIENT_LOG,
+                service->start_hdl, service->end_hdl,
+                service->uuid.len);
     g_sle_uart_find_service_result.start_hdl = service->start_hdl;
     g_sle_uart_find_service_result.end_hdl = service->end_hdl;
     memcpy_s(&g_sle_uart_find_service_result.uuid, sizeof(sle_uuid_t), &service->uuid, sizeof(sle_uuid_t));
@@ -246,7 +248,9 @@ static void sle_uart_client_sample_find_property_cbk(uint8_t client_id, uint16_t
 {
     printf("%s sle_uart_client_sample_find_property_cbk, client id: %d, conn id: %d, operate ind: %d, "
                 "descriptors count: %d status:%d property->handle %d\r\n", SLE_UART_CLIENT_LOG,
-                client_id, conn_id, property->operate_indication,
+                client_id, 
+                conn_id, 
+                property->operate_indication,
                 property->descriptors_count, status, property->handle);
     g_sle_uart_send_param.handle = property->handle;
     g_sle_uart_send_param.type = SSAP_PROPERTY_TYPE_VALUE;
@@ -259,15 +263,15 @@ static void sle_uart_client_sample_find_structure_cmp_cbk(uint8_t client_id, uin
     unused(conn_id);
 
 
-    printf("%s sle_uart_client_sample_find_structure_cmp_cbk,client id:%d status:%d type:%d uuid len:%d \r\n",
-                SLE_UART_CLIENT_LOG, client_id, status, structure_result->type, structure_result->uuid.len);
+    printf("%s sle_uart_client_sample_find_structure_cmp_cbk,client id: %d status: %d type: %d uuid len: %d \r\n",
+                SLE_UART_CLIENT_LOG ,  client_id,  status,  structure_result->type,  structure_result->uuid.len);
 }
 
 static void sle_uart_client_sample_write_cfm_cb(uint8_t client_id, uint16_t conn_id,
                                                 ssapc_write_result_t *write_result, errcode_t status)
 {
     printf("%s sle_uart_client_sample_write_cfm_cb, conn_id:%d client id:%d status:%d handle:%02x type:%02x\r\n",
-                SLE_UART_CLIENT_LOG, conn_id, client_id, status, write_result->handle, write_result->type);
+                SLE_UART_CLIENT_LOG , conn_id, client_id, status, write_result->handle, write_result->type);
 }
 
 static void sle_uart_client_sample_ssapc_cbk_register(ssapc_notification_callback notification_cb,
@@ -314,34 +318,37 @@ errcode_t sle_uart_client_send_report_by_handle(const uint8_t *data, uint8_t len
         return ERRCODE_SLE_FAIL;
     }
    
-    int ret =SsapWriteReq(g_client_id,g_sle_uart_conn_id, &param);
+    int ret =SsapWriteReq( g_client_id,
+    g_sle_uart_conn_id, &param);
     return ret;
 }
 
 
-int uart_sle_client_send_data(uint8_t *data,uint8_t length){
+int uart_sle_client_send_data( uint8_t *data, uint8_t length){
     int ret;
-    osal_mdelay(100);
-    ret = sle_uart_client_send_report_by_handle(data,length);
+    osal_mdelay(DELAY_100MS);
+    ret = sle_uart_client_send_report_by_handle( data, length);
     return ret ;
 }
 
-void ssapc_notification_callbacks(uint8_t client_id, uint16_t conn_id, ssapc_handle_value_t *data,
+void ssapc_notification_callbacks( uint8_t client_id, 
+uint16_t conn_id, ssapc_handle_value_t *data,
     errcode_t status){
-        (void)client_id;
-        (void)conn_id;
-        (void)status;
-        data->data[data->data_len -1] = '\0';
-        printf("server_send_data: %s\r\n",data->data);     
-    }
+    (void)client_id;
+    (void)conn_id;
+    (void)status;
+    data->data[data->data_len -1] = '\0';
+    printf("server_send_data: %s\r\n",
+    data->data);     
+}
 
-void ssapc_indication_callbacks(uint8_t client_id, uint16_t conn_id, ssapc_handle_value_t *data,
+void ssapc_indication_callbacks( uint8_t client_id, uint16_t conn_id, ssapc_handle_value_t *data,
     errcode_t status){
         (void)client_id;
         (void)conn_id;
         (void)data;
         (void)status;
-    }
+}
 
 
 void sle_uart_client_init()
@@ -355,17 +362,14 @@ void sle_uart_client_init()
     sle_uart_client_sample_connect_cbk_register();
     sle_uart_client_sample_ssapc_cbk_register(ssapc_notification_callbacks, ssapc_indication_callbacks);
     EnableSle();
-	SleSetLocalAddr(&local_address);
-    
+	SleSetLocalAddr( &local_address);
 }
-
-
 
 
 static void SleTask( char* arg)
 {
    (void)arg;
-    usleep(1000000);
+    usleep(USLEEP_1000000);
     uart_init_config();
     sle_uart_client_init();
     return NULL;
@@ -379,12 +383,14 @@ static void SleClientExample(void)
     attr.cb_mem = NULL;
     attr.cb_size = 0U;
     attr.stack_mem = NULL;
-    attr.stack_size = 2048;
-    attr.priority = 25;
+    attr.stack_size = TASK_SIZE;
+    attr.priority = PRIO;
 
     if (osThreadNew(SleTask, NULL, &attr) == NULL) {
-          printf("[SleExample] Falied to create SleTask!\n");
-    }else printf("[SleExample]  create SleTask successfully !\n");
+          printf(" Falied to create SleTask!\n");
+    }else {
+        printf(" create SleTask successfully !\n");
+    }
 }
 
-SYS_RUN(SleClientExample); 
+SYS_RUN( SleClientExample); 
