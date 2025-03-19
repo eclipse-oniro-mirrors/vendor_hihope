@@ -88,8 +88,7 @@ static uart_buffer_config_t g_app_uart_buffer_config = {
 static void server_uart_rx_callback(const void *buffer, uint16_t length, bool error)
 {
     errcode_t ret = 0;
-    if (length > 0)
-    {
+    if (length > 0){
         ret = uart_sle_send_data((uint8_t *)buffer, (uint8_t)length);
         if (ret != 0){
             printf("\r\n sle_server_send_data_fail: %d \r\n", ret);
