@@ -85,12 +85,13 @@ static uart_buffer_config_t g_app_uart_buffer_config = {
     .rx_buffer = g_app_uart_rx_buff,
     .rx_buffer_size = SLE_UART_TRANSFER_SIZE};
 
-static void server_uart_rx_callback(const void *buffer, uint16_t length, bool error){
+static void server_uart_rx_callback( const void *buffer, uint16_t length, bool error)
+{
     errcode_t ret = 0;
     if (length > 0) {
         ret = uart_sle_send_data( (uint8_t *)buffer, (uint8_t)length);
         if (ret != 0) {
-            printf("\r\n sle_server_send_data_fail: %d \r\n",ret);
+            printf("\r\n sle_server_send_data_fail: %d\r\n",ret);
         }
     }
 }
@@ -128,8 +129,7 @@ static void sle_uuid_set_base(SleUuid *out)
 {
     errcode_t ret;
     ret = memcpy_s(out->uuid, SLE_UUID_LEN, g_sle_uart_base, SLE_UUID_LEN);
-    if (ret != EOK)
-    {
+    if (ret != EOK) {
         printf("%s sle_uuid_set_base memcpy fail\n", SLE_UART_SERVER_LOG);
         out->len = 0;
         return;
@@ -150,13 +150,11 @@ static void sle_uart_uuid_print(SleUuid *uuid)
         printf("%s uuid_print,uuid is null\r\n", SLE_UART_SERVER_LOG);
         return;
     }
-    if (uuid->len == UUID_16BIT_LEN)
-    {
+    if (uuid->len == UUID_16BIT_LEN) {
         printf("%s uuid: %02x %02x.\n", SLE_UART_SERVER_LOG,
                uuid->uuid[14], uuid->uuid[15]); /* 14 15: uuid index */
     }
-    else if (uuid->len == UUID_128BIT_LEN)
-    {
+    else if (uuid->len == UUID_128BIT_LEN) {
         printf("%s uuid: \n", SLE_UART_SERVER_LOG); /* 14 15: uuid index */
         printf("%s 0x%02x 0x%02x 0x%02x 0x%02x\n", SLE_UART_SERVER_LOG, uuid->uuid[0], uuid->uuid[1],
                uuid->uuid[2], uuid->uuid[3]);
@@ -174,8 +172,7 @@ static void ssaps_mtu_changed_cbk(uint8_t server_id, uint16_t conn_id, SsapcExch
 {
     printf("%s ssaps ssaps_mtu_changed_cbk callback server_id:%x, conn_id:%x, mtu_size:%x, status:%x\r\n",
            SLE_UART_SERVER_LOG, server_id, conn_id, mtu_size->mtuSize, status);
-    if (g_sle_pair_hdl == 0)
-    {
+    if (g_sle_pair_hdl == 0) {
         g_sle_pair_hdl = conn_id + 1;
     }
 }
@@ -225,8 +222,7 @@ static errcode_t sle_ssaps_register_cbks(SsapsReadRequestCallback ssaps_read_cal
     ssaps_cbk.readRequestCb = ssaps_read_callback;
     ssaps_cbk.writeRequestCb = ssaps_write_callback;
     ret = SsapsRegisterCallbacks(&ssaps_cbk);
-    if (ret != ERRCODE_SLE_SUCCESS)
-    {
+    if (ret != ERRCODE_SLE_SUCCESS) {
         printf("%s sle_ssaps_register_cbks,ssaps_register_callbacks fail :%x\r\n", SLE_UART_SERVER_LOG,
                ret);
         return ret;
@@ -240,8 +236,7 @@ static errcode_t sle_uuid_server_service_add(void)
     SleUuid service_uuid = {0};
     sle_uuid_setu2(SLE_UUID_SERVER_SERVICE, &service_uuid);
     ret = SsapsAddServiceSync(g_server_id, &service_uuid, 1, &g_service_handle);
-    if (ret != ERRCODE_SLE_SUCCESS)
-    {
+    if (ret != ERRCODE_SLE_SUCCESS) {
         printf("%s sle uuid add service fail, ret:%x\r\n", SLE_UART_SERVER_LOG, ret);
         return ERRCODE_SLE_FAIL;
     }
@@ -249,7 +244,7 @@ static errcode_t sle_uuid_server_service_add(void)
 }
 
 
-static SsapsPropertyInfo* add_property_sync(){
+static errcode_t add_property_sync(void){
     errcode_t ret;
     SsapsPropertyInfo property = {0};
     property.permissions = SLE_UUID_TEST_PROPERTIES;
@@ -269,69 +264,41 @@ static SsapsPropertyInfo* add_property_sync(){
         return ERRCODE_SLE_FAIL;
     }
     ret = SsapsAddPropertySync(g_server_id, g_service_handle, &property, &g_property_handle);
-    if (ret != ERRCODE_SLE_SUCCESS)
-    {
+    if (ret != ERRCODE_SLE_SUCCESS) {
         printf("%s sle uart add property fail, ret:%x\r\n", SLE_UART_SERVER_LOG, ret);
         osal_vfree(property.value);
         return ERRCODE_SLE_FAIL;
     }
 
     osal_vfree(property.value);
-
+    return ERRCODE_SLE_SUCCESS;
 }
 
 static errcode_t sle_uuid_server_property_add(void)
 {
     errcode_t ret;
-    //SsapsPropertyInfo property = {0};
     SsapsDescInfo descriptor = {0};
     uint8_t ntf_value[] = {0x01, 0x02};
-    // property.permissions = SLE_UUID_TEST_PROPERTIES;
-    // property.operateIndication = SLE_UUID_TEST_OPERATION_INDICATION;
-    // sle_uuid_setu2(SLE_UUID_SERVER_NTF_REPORT, &property.uuid);
-    // property.valueLen = OCTET_BIT_LEN;
-    // property.value = (uint8_t *)osal_vmalloc(sizeof(g_sle_property_value));
-    // if (property.value == NULL)
-    // {
-    //     return ERRCODE_SLE_FAIL;
-    // }
-    // if (memcpy_s(property.value, sizeof(g_sle_property_value), g_sle_property_value,
-    //              sizeof(g_sle_property_value)) != EOK)
-    // {
-    //     osal_vfree(property.value);
-    //     return ERRCODE_SLE_FAIL;
-    // }
-    // ret = SsapsAddPropertySync(g_server_id, g_service_handle, &property, &g_property_handle);
-    // if (ret != ERRCODE_SLE_SUCCESS)
-    // {
-    //     printf("%s sle uart add property fail, ret:%x\r\n", SLE_UART_SERVER_LOG, ret);
-    //     osal_vfree(property.value);
-    //     return ERRCODE_SLE_FAIL;
-    // }
+    add_property_sync();
     descriptor.permissions = SLE_UUID_TEST_DESCRIPTOR;
     descriptor.type = SSAP_DESCRIPTOR_CLIENT_CONFIGURATION;
     descriptor.operateIndication = SLE_UUID_TEST_OPERATION_INDICATION;
     descriptor.value = (uint8_t *)osal_vmalloc(sizeof(ntf_value));
     if (descriptor.value == NULL)
     {
-        //osal_vfree(property.value);
         return ERRCODE_SLE_FAIL;
     }
     if (memcpy_s(descriptor.value, sizeof(ntf_value), ntf_value, sizeof(ntf_value)) != EOK)
     {
-        //osal_vfree(property.value);
         osal_vfree(descriptor.value);
         return ERRCODE_SLE_FAIL;
     }
     ret = SsapsAddDescriptorSync(g_server_id, g_service_handle, g_property_handle, &descriptor);
-    if (ret != ERRCODE_SLE_SUCCESS)
-    {
+    if (ret != ERRCODE_SLE_SUCCESS) {
         printf("%s sle uart add descriptor fail, ret:%x\r\n", SLE_UART_SERVER_LOG, ret);
-        //osal_vfree(property.value);
         osal_vfree(descriptor.value);
         return ERRCODE_SLE_FAIL;
     }
-    //osal_vfree(property.value);
     osal_vfree(descriptor.value);
     return ERRCODE_SLE_SUCCESS;
 }
@@ -361,8 +328,7 @@ static errcode_t sle_uart_server_add(void)
     printf("%s sle uart add service, server_id:%x, service_handle:%x, property_handle:%x\r\n",
            SLE_UART_SERVER_LOG, g_server_id, g_service_handle, g_property_handle);
     ret = SsapsStartService(g_server_id, g_service_handle);
-    if (ret != ERRCODE_SLE_SUCCESS)
-    {
+    if (ret != ERRCODE_SLE_SUCCESS) {
         printf("%s sle uart add service fail, ret:%x\r\n", SLE_UART_SERVER_LOG, ret);
         return ERRCODE_SLE_FAIL;
     }
@@ -379,15 +345,16 @@ errcode_t sle_uart_server_send_report_by_handle(const uint8_t *data, uint8_t len
     param.type = SSAP_PROPERTY_TYPE_VALUE;
     param.value = receive_buf;
     param.valueLen = len + 1;
-    if (memcpy_s(param.value, param.valueLen, data, len) != EOK)
-    {
+    if (memcpy_s(param.value, param.valueLen, data, len) != EOK) {
         return ERRCODE_SLE_FAIL;
     }
     return SsapsNotifyIndicate(g_server_id, g_sle_conn_hdl, &param);
 }
 
 static void sle_connect_state_changed_cbk(uint16_t conn_id, const SleAddr *addr,
-                                          SleAcbStateType conn_state, SlePairStateType pair_state, SleDiscReasonType disc_reason)
+                                        SleAcbStateType conn_state,
+                                        SlePairStateType pair_state, 
+                                        SleDiscReasonType disc_reason)
 {
     uint8_t sle_connect_state[] = "sle_dis_connect";
     printf("%s connect state changed callback conn_id:0x%02x, conn_state:0x%x, pair_state:0x%x, \
@@ -395,16 +362,13 @@ static void sle_connect_state_changed_cbk(uint16_t conn_id, const SleAddr *addr,
            SLE_UART_SERVER_LOG, conn_id, conn_state, pair_state, disc_reason);
     printf("%s connect state changed callback addr:%02x:**:**:**:%02x:%02x\r\n", SLE_UART_SERVER_LOG,
            addr->addr[BT_INDEX_0], addr->addr[BT_INDEX_4], addr->addr[BT_INDEX_5]);
-    if (conn_state == OH_SLE_ACB_STATE_CONNECTED)
-    {
+    if (conn_state == OH_SLE_ACB_STATE_CONNECTED) {
         g_sle_conn_hdl = conn_id;
         ssap_exchange_info_t parameter = {0};
         parameter.mtu_size = SLE_MTU_SIZE_DEFAULT;
         parameter.version = 1;
         ssaps_set_info(g_server_id, &parameter);
-    }
-    else if (conn_state == OH_SLE_ACB_STATE_DISCONNECTED)
-    {
+    } else if (conn_state == OH_SLE_ACB_STATE_DISCONNECTED) {
         g_sle_conn_hdl = 0;
         g_sle_pair_hdl = 0;
         SleStartAnnounce(SLE_ADV_HANDLE_DEFAULT);
@@ -427,8 +391,7 @@ static errcode_t sle_conn_register_cbks(void)
     conn_cbks.connectStateChangedCb = sle_connect_state_changed_cbk;
     conn_cbks.pairCompleteCb = sle_pair_complete_cbk;
     ret = SleConnectionRegisterCallbacks(&conn_cbks);
-    if (ret != ERRCODE_SLE_SUCCESS)
-    {
+    if (ret != ERRCODE_SLE_SUCCESS) {
         printf("%s sle_conn_register_cbks,sle_connection_register_callbacks fail :%x\r\n",
                SLE_UART_SERVER_LOG, ret);
         return ret;
@@ -479,8 +442,7 @@ errcode_t sle_uart_server_init()
         return ret;
     }
     ret = EnableSle();
-    if (ret != ERRCODE_SLE_SUCCESS)
-    {
+    if (ret != ERRCODE_SLE_SUCCESS) {
         printf("%s sle_uart_server_init,enable_sle fail :%x\r\n", SLE_UART_SERVER_LOG, ret);
         return ret;
     }
@@ -498,8 +460,7 @@ errcode_t sle_enable_server_cbk(void)
         return ret;
     }
     ret = sle_uart_server_adv_init();
-    if (ret != ERRCODE_SLE_SUCCESS)
-    {
+    if (ret != ERRCODE_SLE_SUCCESS) {
         printf("%s sle_uart_server_init,sle_uart_server_adv_init fail :%x\r\n", SLE_UART_SERVER_LOG, ret);
         return ret;
     }
@@ -534,11 +495,9 @@ static void SleServerExample(void)
     attr.stack_mem = NULL;
     attr.stack_size = TASK_SIZE;
     attr.priority = PRIO;
-    if (osThreadNew( SleTask, NULL, &attr) == NULL)
-    {
+    if (osThreadNew( SleTask, NULL, &attr) == NULL) {
         printf(" Falied to create SleTask!\n");
-    }else
-    {
+    } else {
         printf(" create SleTask successfully !\n");
     }
 }

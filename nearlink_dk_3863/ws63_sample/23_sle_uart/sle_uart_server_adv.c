@@ -63,7 +63,7 @@ static uint16_t sle_set_adv_local_name(uint8_t *adv_data, uint16_t max_len)
     uint8_t index = 0;
 
     uint8_t *local_name = sle_local_name;
-    uint8_t local_name_len=sizeof(sle_local_name) - 1;
+    uint8_t local_name_len = sizeof(sle_local_name) - 1;
     printf("%s local_name_len = %d\r\n", SLE_UART_SERVER_LOG, local_name_len);
     printf("%s local_name: ", SLE_UART_SERVER_LOG);
     for (uint8_t i = 0; i < local_name_len; i++) {
@@ -115,7 +115,7 @@ static uint16_t sle_set_adv_data(uint8_t *adv_data)
     return idx;
 }
 
-static uint16_t sle_set_scan_response_data( uint8_t *scan_rsp_data )
+static uint16_t sle_set_scan_response_data(uint8_t *scan_rsp_data)
 {
     uint16_t idx = 0;
     errno_t ret;
@@ -142,7 +142,6 @@ static int sle_set_default_announce_param(void)
 {
     errno_t ret;
     SleAnnounceParam param = {0};
-   
     uint8_t index;
     unsigned char local_addr[SLE_ADDR_LEN] = { 0x78, 0x70, 0x60, 0x88, 0x96, 0x45 };
     param.announceMode = SLE_ANNOUNCE_MODE_CONNECTABLE_SCANABLE;
@@ -158,7 +157,6 @@ static int sle_set_default_announce_param(void)
     param.connSupervisionTimeout = SLE_CONN_SUPERVISION_TIMEOUT_DEFAULT;
     param.ownAddr.type = 0;
     ret = memcpy_s(param.ownAddr.addr, SLE_ADDR_LEN, local_addr, SLE_ADDR_LEN);
-
     if (ret != EOK) {
         printf("%s sle_set_default_announce_param data memcpy fail\r\n", SLE_UART_SERVER_LOG);
         return 0;
@@ -260,8 +258,7 @@ errcode_t sle_uart_server_adv_init(void)
     SleAddr addr;
     unsigned char local_addr[SLE_ADDR_LEN] = { 0x78, 0x70, 0x60, 0x88, 0x96, 0x46};
     addr.type = 0;
-    memcpy_s( &addr, 
-    SLE_ADDR_LEN, local_addr, SLE_ADDR_LEN);
+    memcpy_s( &addr, SLE_ADDR_LEN, local_addr, SLE_ADDR_LEN);
     SleSetLocalAddr(&addr);
     sle_set_default_announce_param();
     sle_set_default_announce_data();

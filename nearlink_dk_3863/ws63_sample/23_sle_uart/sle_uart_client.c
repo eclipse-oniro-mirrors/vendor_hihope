@@ -83,10 +83,9 @@ ssapc_write_param_t *get_g_sle_uart_send_param(void)
 static void uart_rx_callback(const void *buffer, uint16_t length, bool error)
 {
     errcode_t ret;
-    if (length > 0)
-    {
+    if (length > 0) {
         ret = uart_sle_client_send_data((uint8_t *)buffer, (uint8_t)length);
-        if (ret != 0){
+        if (ret != 0) {
             printf("\r\n send_data_fail:%d\r\n", ret);
         }
     }
@@ -128,21 +127,17 @@ void sle_uart_start_scan(void)
 
 static void sle_uart_client_sample_sle_enable_cbk(errcode_t status)
 {
-    if (status != 0)
-    {
+    if (status != 0) {
         printf("%s sle_uart_client_sample_sle_enable_cbk,status error\r\n", SLE_UART_CLIENT_LOG);
-    }
-    else
-    {
+    }else {
         osal_msleep(SLE_UART_TASK_DELAY_MS);
         sle_uart_start_scan();
     }
 }
 
 static void sle_uart_client_sample_seek_enable_cbk(errcode_t status)
-{
-    if (status != 0)
-    {
+{    
+    if (status != 0) {
         printf("%s sle_uart_client_sample_seek_enable_cbk,status error\r\n", SLE_UART_CLIENT_LOG);
     }
 }
@@ -150,12 +145,9 @@ static void sle_uart_client_sample_seek_enable_cbk(errcode_t status)
 static void sle_uart_client_sample_seek_result_info_cbk(SleSeekResultInfo *seek_result_data)
 {
     printf("%s sle uart scan data :%s\r\n", SLE_UART_CLIENT_LOG, seek_result_data->data);
-    if (seek_result_data == NULL)
-    {
+    if (seek_result_data == NULL) {
         printf("status error\r\n");
-    }
-    else if (strstr((const char *)seek_result_data->data, SLE_UART_SERVER_NAME) != NULL)
-    {
+    } else if (strstr((const char *)seek_result_data->data, SLE_UART_SERVER_NAME) != NULL) {
         memcpy_s(&g_sle_uart_remote_addr, sizeof(sle_addr_t), &seek_result_data->addr, sizeof(sle_addr_t));
         SleStopSeek();
     }
@@ -163,12 +155,9 @@ static void sle_uart_client_sample_seek_result_info_cbk(SleSeekResultInfo *seek_
 
 static void sle_uart_client_sample_seek_disable_cbk(errcode_t status)
 {
-    if (status != 0)
-    {
+    if (status != 0) {
         printf("%s sle_uart_client_sample_seek_disable_cbk,status error = %x\r\n", SLE_UART_CLIENT_LOG, status);
-    }
-    else
-    {
+    } else {
         SleConnectRemoteDevice(&g_sle_uart_remote_addr);
     }
 }
@@ -183,33 +172,27 @@ static void sle_uart_client_sample_seek_cbk_register(void)
 }
 
 static void sle_uart_client_sample_connect_state_changed_cbk(uint16_t conn_id, const SleAddr *addr,
-                                                             SleAcbStateType conn_state, SlePairStateType pair_state, SleDiscReasonType disc_reason)
+                                                            SleAcbStateType conn_state, SlePairStateType pair_state,
+                                                            SleDiscReasonType disc_reason)
 {
     unused(addr);
     unused(pair_state);
     printf("%s conn state changed disc_reason:0x%x\r\n", SLE_UART_CLIENT_LOG, disc_reason);
     g_sle_uart_conn_id = conn_id;
-    if (conn_state == SLE_ACB_STATE_CONNECTED)
-    {
+    if (conn_state == SLE_ACB_STATE_CONNECTED) {
         printf("%s SLE_ACB_STATE_CONNECTED\r\n", SLE_UART_CLIENT_LOG);
         SsapcExchangeInfo info = {0};
         info.mtuSize = SLE_MTU_SIZE_DEFAULT;
         info.version = 1;
         SsapcExchangeInfoReq(0, conn_id, &info);
         SlePairRemoteDevice(addr);
-    }
-    else if (conn_state == SLE_ACB_STATE_NONE)
-    {
+    } else if (conn_state == SLE_ACB_STATE_NONE) {
         printf("%s SLE_ACB_STATE_NONE\r\n", SLE_UART_CLIENT_LOG);
-    }
-    else if (conn_state == SLE_ACB_STATE_DISCONNECTED)
-    {
+    } else if (conn_state == SLE_ACB_STATE_DISCONNECTED) {
         printf("%s SLE_ACB_STATE_DISCONNECTED\r\n", SLE_UART_CLIENT_LOG);
         SleRemovePairedRemoteDevice(addr);
         sle_uart_start_scan();
-    }
-    else
-    {
+    } else {
         printf("%s status error \r\n", SLE_UART_CLIENT_LOG);
     }
 }
@@ -301,8 +284,7 @@ static errcode_t sle_uuid_client_register(void)
 
     printf("[uuid client] ssapc_register_client \r\n");
     app_uuid.len = sizeof(g_sle_uuid_app_uuid);
-    if (memcpy_s(app_uuid.uuid, app_uuid.len, g_sle_uuid_app_uuid, sizeof(g_sle_uuid_app_uuid)) != EOK)
-    {
+    if (memcpy_s(app_uuid.uuid, app_uuid.len, g_sle_uuid_app_uuid, sizeof(g_sle_uuid_app_uuid)) != EOK) {
         return ERRCODE_SLE_FAIL;
     }
     ret = SsapcRegisterClient(&app_uuid, &g_client_id);
@@ -319,8 +301,7 @@ errcode_t sle_uart_client_send_report_by_handle(const uint8_t *data, uint8_t len
     param.type = 0;
     param.data = receive_buf;
     param.data_len = len + 1;
-    if (memcpy_s(param.data, param.data_len, data, len) != EOK)
-    {
+    if (memcpy_s(param.data, param.data_len, data, len) != EOK) {
         return ERRCODE_SLE_FAIL;
     }
 
@@ -393,12 +374,9 @@ static void SleClientExample(void)
     attr.stack_size = TASK_SIZE;
     attr.priority = PRIO;
 
-    if (osThreadNew(SleTask, NULL, &attr) == NULL)
-    {
+    if (osThreadNew(SleTask, NULL, &attr) == NULL) {
         printf(" Falied to create SleTask!\n");
-    }
-    else
-    {
+    } else {
         printf(" create SleTask successfully !\n");
     }
 }
