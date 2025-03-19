@@ -26,5 +26,5 @@ uint16_t get_g_sle_uart_conn_id(void);
 ssapc_write_param_t *get_g_sle_uart_send_param(void);
 
 
-int uart_sle_client_send_data( uint8_t *data, uint8_t length);
+int uart_sle_client_send_data(uint8_t *data, uint8_t length);
 #endif

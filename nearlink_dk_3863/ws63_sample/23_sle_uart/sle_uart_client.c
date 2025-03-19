@@ -129,7 +129,7 @@ static void sle_uart_client_sample_sle_enable_cbk(errcode_t status)
 {
     if (status != 0) {
         printf("%s sle_uart_client_sample_sle_enable_cbk,status error\r\n", SLE_UART_CLIENT_LOG);
-    }else {
+    } else {
         osal_msleep(SLE_UART_TASK_DELAY_MS);
         sle_uart_start_scan();
     }
@@ -138,7 +138,7 @@ static void sle_uart_client_sample_sle_enable_cbk(errcode_t status)
 static void sle_uart_client_sample_seek_enable_cbk(errcode_t status)
 {    
     if (status != 0) {
-        printf("%s sle_uart_client_sample_seek_enable_cbk,status error\r\n", SLE_UART_CLIENT_LOG);
+        printf("%ssle_uart_client_sample_seek_enable_cbk,status error\r\n", SLE_UART_CLIENT_LOG);
     }
 }
 
@@ -172,8 +172,8 @@ static void sle_uart_client_sample_seek_cbk_register(void)
 }
 
 static void sle_uart_client_sample_connect_state_changed_cbk(uint16_t conn_id, const SleAddr *addr,
-                                                            SleAcbStateType conn_state, SlePairStateType pair_state,
-                                                            SleDiscReasonType disc_reason)
+                                                             SleAcbStateType conn_state, SlePairStateType pair_state,
+                                                             SleDiscReasonType disc_reason)
 {
     unused(addr);
     unused(pair_state);
