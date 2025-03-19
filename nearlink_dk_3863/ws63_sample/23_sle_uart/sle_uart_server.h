@@ -51,12 +51,11 @@ uint16_t sle_uart_client_is_connected(void);
 
 typedef void (*sle_uart_server_msg_queue)(uint8_t *buffer_addr, uint16_t buffer_size);
 
-void sle_uart_server_register_msg( sle_uart_server_msg_queue sle_uart_server_msg);
+void sle_uart_server_register_msg(sle_uart_server_msg_queue sle_uart_server_msg );
 
 errcode_t sle_enable_server_cbk(void);
 
-int uart_sle_send_data(uint8_t *data,
-uint8_t length);
+uint32_t uart_sle_send_data( uint8_t *data , uint8_t length);
 
 #ifdef __cplusplus
 #if __cplusplus
