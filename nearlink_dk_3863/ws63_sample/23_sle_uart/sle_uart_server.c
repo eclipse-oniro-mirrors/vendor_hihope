@@ -91,7 +91,7 @@ static void server_uart_rx_callback(const void *buffer, uint16_t length, bool er
     if (length > 0) {
         ret = uart_sle_send_data((uint8_t *)buffer, (uint8_t)length);
         if (ret != 0) {
-            printf("\r\n sle_server_send_data_fail:%d\r\n",ret);
+            printf("\r\nsle_server_send_data_fail:%d\r\n",ret);
         }
     }
 }
@@ -148,12 +148,10 @@ static void sle_uart_uuid_print(SleUuid *uuid)
     if (uuid == NULL) {
         printf("%s uuid_print,uuid is null\r\n", SLE_UART_SERVER_LOG);
         return;
-    }
-    if (uuid->len == UUID_16BIT_LEN) {
+    } if (uuid->len == UUID_16BIT_LEN) {
         printf("%s uuid: %02x %02x.\n", SLE_UART_SERVER_LOG,
                uuid->uuid[14], uuid->uuid[15]); /* 14 15: uuid index */
-    }
-    else if (uuid->len == UUID_128BIT_LEN) {
+    } else if (uuid->len == UUID_128BIT_LEN) {
         printf("%s uuid: \n", SLE_UART_SERVER_LOG); /* 14 15: uuid index */
         printf("%s 0x%02x 0x%02x 0x%02x 0x%02x\n", SLE_UART_SERVER_LOG, uuid->uuid[0], uuid->uuid[1],
                uuid->uuid[2], uuid->uuid[3]);
@@ -281,8 +279,7 @@ static errcode_t sle_uuid_server_property_add(void)
     descriptor.type = SSAP_DESCRIPTOR_CLIENT_CONFIGURATION;
     descriptor.operateIndication = SLE_UUID_TEST_OPERATION_INDICATION;
     descriptor.value = (uint8_t *)osal_vmalloc(sizeof(ntf_value));
-    if (descriptor.value == NULL)
-    {
+    if (descriptor.value == NULL) {
         return ERRCODE_SLE_FAIL;
     }
     if (memcpy_s(descriptor.value, sizeof(ntf_value), ntf_value, sizeof(ntf_value)) != EOK) {
@@ -305,14 +302,11 @@ static errcode_t sle_uart_server_add(void)
     SleUuid app_uuid = {0};
     printf("%s sle uart add service in\r\n", SLE_UART_SERVER_LOG);
     app_uuid.len = sizeof(g_sle_uuid_app_uuid);
-    if (memcpy_s(app_uuid.uuid, app_uuid.len, g_sle_uuid_app_uuid, sizeof(g_sle_uuid_app_uuid)) != EOK)
-    {
+    if (memcpy_s(app_uuid.uuid, app_uuid.len, g_sle_uuid_app_uuid, sizeof(g_sle_uuid_app_uuid)) != EOK) {
         return ERRCODE_SLE_FAIL;
     }
     SsapsRegisterServer(&app_uuid, &g_server_id);
-
-    if (sle_uuid_server_service_add() != ERRCODE_SLE_SUCCESS)
-    {
+    if (sle_uuid_server_service_add() != ERRCODE_SLE_SUCCESS) {
         SsapsUnregisterServer(g_server_id);
         return ERRCODE_SLE_FAIL;
     }
@@ -346,10 +340,8 @@ errcode_t sle_uart_server_send_report_by_handle(const uint8_t *data, uint8_t len
     return SsapsNotifyIndicate(g_server_id, g_sle_conn_hdl, &param);
 }
 
-static void sle_connect_state_changed_cbk(uint16_t conn_id, const SleAddr *addr,
-                                          SleAcbStateType conn_state,
-                                          SlePairStateType pair_state, 
-                                          SleDiscReasonType disc_reason)
+static void sle_connect_state_changed_cbk(uint16_t conn_id,const SleAddr *addr,SleAcbStateType conn_state,
+                                          SlePairStateType pair_state,SleDiscReasonType disc_reason)
 {
     uint8_t sle_connect_state[] = "sle_dis_connect";
     printf("%s connect state changed callback conn_id:0x%02x, conn_state:0x%x, pair_state:0x%x, \
