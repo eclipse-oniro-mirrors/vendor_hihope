@@ -146,7 +146,7 @@ static void sle_uuid_setu2(uint16_t u2, SleUuid *out)
 static void sle_uart_uuid_print(SleUuid *uuid)
 {
     if (uuid == NULL) {
-        printf("%s uuid_print,uuid is null\r\n", SLE_UART_SERVER_LOG);
+        printf("%suuid_print, uuid is null\r\n", SLE_UART_SERVER_LOG);
         return;
     } 
     if (uuid->len == UUID_16BIT_LEN) {
@@ -341,7 +341,8 @@ errcode_t sle_uart_server_send_report_by_handle(const uint8_t *data, uint8_t len
     return SsapsNotifyIndicate(g_server_id, g_sle_conn_hdl, &param);
 }
 
-static void sle_connect_state_changed_cbk(uint16_t conn_id, const SleAddr *addr, SleAcbStateType conn_state, SlePairStateType pair_state, SleDiscReasonType disc_reason)
+static void sle_connect_state_changed_cbk(uint16_t conn_id, const SleAddr *addr, SleAcbStateType conn_state,
+SlePairStateType pair_state, SleDiscReasonType disc_reason)
 {
     uint8_t sle_connect_state[] = "sle_dis_connect";
     printf("%s connect state changed callback conn_id:0x%02x, conn_state:0x%x, pair_state:0x%x, \
