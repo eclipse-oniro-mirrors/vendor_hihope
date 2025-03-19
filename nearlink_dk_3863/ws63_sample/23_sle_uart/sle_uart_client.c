@@ -86,8 +86,7 @@ static void uart_rx_callback(const void *buffer, uint16_t length, bool error)
     if (length > 0)
     {
         ret = uart_sle_client_send_data((uint8_t *)buffer, (uint8_t)length);
-        if (ret != 0)
-        {
+        if (ret != 0){
             printf("\r\n send_data_fail:%d\r\n", ret);
         }
     }
