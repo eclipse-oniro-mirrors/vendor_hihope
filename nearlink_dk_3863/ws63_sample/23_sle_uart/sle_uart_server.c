@@ -91,7 +91,7 @@ static void server_uart_rx_callback(const void *buffer, uint16_t length, bool er
     if (length > 0) {
         ret = uart_sle_send_data((uint8_t *)buffer, (uint8_t)length);
         if (ret != 0) {
-            printf("\r\nsle_server_send_data_fail:%d\r\n",ret);
+            printf("\r\nsle_server_send_data_fail:%d\r\n", ret);
         }
     }
 }
@@ -148,7 +148,9 @@ static void sle_uart_uuid_print(SleUuid *uuid)
     if (uuid == NULL) {
         printf("%s uuid_print,uuid is null\r\n", SLE_UART_SERVER_LOG);
         return;
-    } if (uuid->len == UUID_16BIT_LEN) {
+    } 
+    
+    if (uuid->len == UUID_16BIT_LEN) {
         printf("%s uuid: %02x %02x.\n", SLE_UART_SERVER_LOG,
                uuid->uuid[14], uuid->uuid[15]); /* 14 15: uuid index */
     } else if (uuid->len == UUID_128BIT_LEN) {
@@ -340,8 +342,8 @@ errcode_t sle_uart_server_send_report_by_handle(const uint8_t *data, uint8_t len
     return SsapsNotifyIndicate(g_server_id, g_sle_conn_hdl, &param);
 }
 
-static void sle_connect_state_changed_cbk(uint16_t conn_id,const SleAddr *addr,SleAcbStateType conn_state,
-                                          SlePairStateType pair_state,SleDiscReasonType disc_reason)
+static void sle_connect_state_changed_cbk(uint16_t conn_id, const SleAddr *addr, SleAcbStateType conn_state, 
+                                          SlePairStateType pair_state, SleDiscReasonType disc_reason)
 {
     uint8_t sle_connect_state[] = "sle_dis_connect";
     printf("%s connect state changed callback conn_id:0x%02x, conn_state:0x%x, pair_state:0x%x, \
