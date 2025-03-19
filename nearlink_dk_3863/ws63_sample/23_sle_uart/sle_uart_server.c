@@ -91,8 +91,7 @@ static void server_uart_rx_callback(const void *buffer, uint16_t length, bool er
     if (length > 0)
     {
         ret = uart_sle_send_data((uint8_t *)buffer, (uint8_t)length);
-        if (ret != 0)
-        {
+        if (ret != 0){
             printf("\r\n sle_server_send_data_fail: %d \r\n", ret);
         }
     }
@@ -251,21 +250,18 @@ static errcode_t sle_uuid_server_service_add(void)
     return ERRCODE_SLE_SUCCESS;
 }
 
-static errcode_t sle_uuid_server_property_add(void)
-{
+
+static SsapsPropertyInfo* add_property_sync(){
     errcode_t ret;
     SsapsPropertyInfo property = {0};
-    SsapsDescInfo descriptor = {0};
-    uint8_t ntf_value[] = {0x01, 0x02};
-
     property.permissions = SLE_UUID_TEST_PROPERTIES;
     property.operateIndication = SLE_UUID_TEST_OPERATION_INDICATION;
     sle_uuid_setu2(SLE_UUID_SERVER_NTF_REPORT, &property.uuid);
     property.valueLen = OCTET_BIT_LEN;
     property.value = (uint8_t *)osal_vmalloc(sizeof(g_sle_property_value));
-
     if (property.value == NULL)
     {
+        osal_vfree(property.value);
         return ERRCODE_SLE_FAIL;
     }
     if (memcpy_s(property.value, sizeof(g_sle_property_value), g_sle_property_value,
@@ -281,18 +277,51 @@ static errcode_t sle_uuid_server_property_add(void)
         osal_vfree(property.value);
         return ERRCODE_SLE_FAIL;
     }
+
+    osal_vfree(property.value);
+
+}
+
+static errcode_t sle_uuid_server_property_add(void)
+{
+    errcode_t ret;
+    //SsapsPropertyInfo property = {0};
+    SsapsDescInfo descriptor = {0};
+    uint8_t ntf_value[] = {0x01, 0x02};
+    // property.permissions = SLE_UUID_TEST_PROPERTIES;
+    // property.operateIndication = SLE_UUID_TEST_OPERATION_INDICATION;
+    // sle_uuid_setu2(SLE_UUID_SERVER_NTF_REPORT, &property.uuid);
+    // property.valueLen = OCTET_BIT_LEN;
+    // property.value = (uint8_t *)osal_vmalloc(sizeof(g_sle_property_value));
+    // if (property.value == NULL)
+    // {
+    //     return ERRCODE_SLE_FAIL;
+    // }
+    // if (memcpy_s(property.value, sizeof(g_sle_property_value), g_sle_property_value,
+    //              sizeof(g_sle_property_value)) != EOK)
+    // {
+    //     osal_vfree(property.value);
+    //     return ERRCODE_SLE_FAIL;
+    // }
+    // ret = SsapsAddPropertySync(g_server_id, g_service_handle, &property, &g_property_handle);
+    // if (ret != ERRCODE_SLE_SUCCESS)
+    // {
+    //     printf("%s sle uart add property fail, ret:%x\r\n", SLE_UART_SERVER_LOG, ret);
+    //     osal_vfree(property.value);
+    //     return ERRCODE_SLE_FAIL;
+    // }
     descriptor.permissions = SLE_UUID_TEST_DESCRIPTOR;
     descriptor.type = SSAP_DESCRIPTOR_CLIENT_CONFIGURATION;
     descriptor.operateIndication = SLE_UUID_TEST_OPERATION_INDICATION;
     descriptor.value = (uint8_t *)osal_vmalloc(sizeof(ntf_value));
     if (descriptor.value == NULL)
     {
-        osal_vfree(property.value);
+        //osal_vfree(property.value);
         return ERRCODE_SLE_FAIL;
     }
     if (memcpy_s(descriptor.value, sizeof(ntf_value), ntf_value, sizeof(ntf_value)) != EOK)
     {
-        osal_vfree(property.value);
+        //osal_vfree(property.value);
         osal_vfree(descriptor.value);
         return ERRCODE_SLE_FAIL;
     }
@@ -300,11 +329,11 @@ static errcode_t sle_uuid_server_property_add(void)
     if (ret != ERRCODE_SLE_SUCCESS)
     {
         printf("%s sle uart add descriptor fail, ret:%x\r\n", SLE_UART_SERVER_LOG, ret);
-        osal_vfree(property.value);
+        //osal_vfree(property.value);
         osal_vfree(descriptor.value);
         return ERRCODE_SLE_FAIL;
     }
-    osal_vfree(property.value);
+    //osal_vfree(property.value);
     osal_vfree(descriptor.value);
     return ERRCODE_SLE_SUCCESS;
 }
@@ -507,12 +536,10 @@ static void SleServerExample(void)
     attr.stack_mem = NULL;
     attr.stack_size = TASK_SIZE;
     attr.priority = PRIO;
-
-    if (osThreadNew(SleTask, NULL, &attr) == NULL)
+    if (osThreadNew( SleTask, NULL, &attr) == NULL)
     {
         printf(" Falied to create SleTask!\n");
-    }
-    else
+    }else
     {
         printf(" create SleTask successfully !\n");
     }
