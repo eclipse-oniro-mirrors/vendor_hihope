@@ -55,7 +55,7 @@ void sle_uart_server_register_msg(sle_uart_server_msg_queue sle_uart_server_msg)
 
 errcode_t sle_enable_server_cbk(void);
 
-uint32_t uart_sle_send_data(uint8_t *data , uint8_t length);
+uint32_t uart_sle_send_data(uint8_t *data,uint8_t length);
 
 #ifdef __cplusplus
 #if __cplusplus

@@ -138,7 +138,7 @@ static void sle_uart_client_sample_sle_enable_cbk(errcode_t status)
 static void sle_uart_client_sample_seek_enable_cbk(errcode_t status)
 {    
     if (status != 0) {
-        printf("%ssle_uart_client_sample_seek_enable_cbk,status error\r\n", SLE_UART_CLIENT_LOG);
+    printf("%ssle_uart_client_sample_seek_enable_cbk,status error\r\n", SLE_UART_CLIENT_LOG);
     }
 }
 
