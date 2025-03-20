@@ -51,9 +51,9 @@
 #define TASK_SIZE 2048
 #define PRIO 25
 #define USLEEP_1000000 1000000
-static char g_sle_uuid_app_uuid[] = {0x39, 0xBE, 0xA8, 0x80, 0xFC, 0x70, 0x11, 0xEA,
+static char g_sleUuidAppUuid[] = {0x39, 0xBE, 0xA8, 0x80, 0xFC, 0x70, 0x11, 0xEA,
                                      0xB7, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-static unsigned char uartReadBuff[100];
+static unsigned char g_uartReadBuff[100];
 static ssapc_find_service_result_t g_sle_uart_find_service_result = {0};
 static sle_announce_seek_callbacks_t g_sle_uart_seek_cbk = {0};
 static SleConnectionCallbacks g_sle_uart_connect_cbk = {0};
@@ -91,7 +91,7 @@ static void uart_rx_callback(const void *buffer, uint16_t length, bool error)
     }
 }
 
-static void uart_init_config(void)
+static void UartInitConfig(void)
 {
     uart_attr_t attr = {
         .baud_rate = 115200,
@@ -111,7 +111,7 @@ static void uart_init_config(void)
                                          1, uart_rx_callback);
 }
 
-void sle_uart_start_scan(void)
+void SleUartStartScan(void)
 {
     SleSeekParam param = {0};
     param.ownaddrtype = 0;
@@ -162,7 +162,7 @@ static void sle_uart_client_sample_seek_disable_cbk(errcode_t status)
     }
 }
 
-static void sle_uart_client_sample_seek_cbk_register(void)
+static void SleUartClientSampleSeekCbkRegister(void)
 {
     g_sle_uart_seek_cbk.sle_enable_cb = sle_uart_client_sample_sle_enable_cbk;
     g_sle_uart_seek_cbk.seek_enable_cb = sle_uart_client_sample_seek_enable_cbk;
@@ -197,7 +197,7 @@ static void sle_uart_client_sample_connect_state_changed_cbk(uint16_t conn_id, c
     }
 }
 
-static void sle_uart_client_sample_connect_cbk_register(void)
+static void SleUartClientSampleConnectCbkRegister(void)
 {
     g_sle_uart_connect_cbk.connectStateChangedCb = sle_uart_client_sample_connect_state_changed_cbk;
     SleConnectionRegisterCallbacks(&g_sle_uart_connect_cbk);
@@ -340,15 +340,15 @@ void ssapc_indication_callbacks(
     (void)status;
 }
 
-void sle_uart_client_init()
+void SleUartClientInit()
 {
     uint8_t local_addr[SLE_ADDR_LEN] = {0x13, 0x67, 0x5c, 0x07, 0x00, 0x51};
     SleAddr local_address;
     local_address.type = 0;
     (void)memcpy_s(local_address.addr, SLE_ADDR_LEN, local_addr, SLE_ADDR_LEN);
     sle_uuid_client_register();
-    sle_uart_client_sample_seek_cbk_register();
-    sle_uart_client_sample_connect_cbk_register();
+    SleUartClientSampleSeekCbkRegister();
+    SleUartClientSampleConnectCbkRegister();
     sle_uart_client_sample_ssapc_cbk_register(ssapc_notification_callbacks, ssapc_indication_callbacks);
     EnableSle();
     SleSetLocalAddr(&local_address);
@@ -358,8 +358,8 @@ static void SleTask(char *arg)
 {
     (void)arg;
     usleep(USLEEP_1000000);
-    uart_init_config();
-    sle_uart_client_init();
+    UartInitConfig();
+    SleUartClientInit();
     return NULL;
 }
 
