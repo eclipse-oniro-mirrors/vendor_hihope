@@ -131,7 +131,7 @@ static void sle_uart_client_sample_sle_enable_cbk(errcode_t status)
         printf("%s sle_uart_client_sample_sle_enable_cbk,status error\r\n", SLE_UART_CLIENT_LOG);
     } else {
         osal_msleep(SLE_UART_TASK_DELAY_MS);
-        sle_uart_start_scan();
+        SleUartStartScan();
     }
 }
 
@@ -191,7 +191,7 @@ static void sle_uart_client_sample_connect_state_changed_cbk(uint16_t conn_id, c
     } else if (conn_state == SLE_ACB_STATE_DISCONNECTED) {
         printf("%s SLE_ACB_STATE_DISCONNECTED\r\n", SLE_UART_CLIENT_LOG);
         SleRemovePairedRemoteDevice(addr);
-        sle_uart_start_scan();
+        SleUartStartScan();
     } else {
         printf("%s status error \r\n", SLE_UART_CLIENT_LOG);
     }
@@ -283,8 +283,8 @@ static errcode_t sle_uuid_client_register(void)
     SleUuid app_uuid = {0};
 
     printf("[uuid client] ssapc_register_client \r\n");
-    app_uuid.len = sizeof(g_sle_uuid_app_uuid);
-    if (memcpy_s(app_uuid.uuid, app_uuid.len, g_sle_uuid_app_uuid, sizeof(g_sle_uuid_app_uuid)) != EOK) {
+    app_uuid.len = sizeof(g_sleUuidAppUuid);
+    if (memcpy_s(app_uuid.uuid, app_uuid.len, g_sleUuidAppUuid, sizeof(g_sleUuidAppUuid)) != EOK) {
         return ERRCODE_SLE_FAIL;
     }
     ret = SsapcRegisterClient(&app_uuid, &g_client_id);
