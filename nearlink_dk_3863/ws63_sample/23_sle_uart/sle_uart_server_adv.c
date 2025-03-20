@@ -57,7 +57,7 @@ static uint8_t g_sleLocalName[NAME_MAX_LENGTH] = "sle_uart_server";
 #define printf(fmt, args...) osal_printk(fmt, ##args)
 #define SLE_UART_SERVER_LOG "[sle uart server]"
 
-static uint16_t sle_set_adv_local_name(uint8_t *advData, uint16_t maxLen)
+static uint16_t SleSetAdvLocalName(uint8_t *advData, uint16_t maxLen)
 {
     errno_t ret;
     uint8_t index = 0;
@@ -134,7 +134,7 @@ static uint16_t SleSetScanResponseData(uint8_t *scanRspData)
     idx += scanRspDataLen;
 
     /* set local name */
-    idx += sle_set_adv_local_name(&scanRspData[idx], SLE_ADV_DATA_LEN_MAX - idx);
+    idx += SleSetAdvLocalName(&scanRspData[idx], SLE_ADV_DATA_LEN_MAX - idx);
     return idx;
 }
 
