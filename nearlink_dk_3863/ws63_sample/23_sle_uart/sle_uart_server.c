@@ -148,7 +148,8 @@ static void sle_uart_uuid_print(SleUuid *uuid)
     if (uuid == NULL) {
         printf("%suuid_print, uuid is null\r\n", SLE_UART_SERVER_LOG);
         return;
-    } 
+    }
+    
     if (uuid->len == UUID_16BIT_LEN) {
         printf("%s uuid: %02x %02x.\n", SLE_UART_SERVER_LOG,
                uuid->uuid[14], uuid->uuid[15]); /* 14 15: uuid index */
@@ -342,7 +343,7 @@ errcode_t sle_uart_server_send_report_by_handle(const uint8_t *data, uint8_t len
 }
 
 static void sle_connect_state_changed_cbk(uint16_t conn_id, const SleAddr *addr, SleAcbStateType conn_state,
-SlePairStateType pair_state, SleDiscReasonType disc_reason)
+                                                SlePairStateType pair_state, SleDiscReasonType disc_reason)
 {
     uint8_t sle_connect_state[] = "sle_dis_connect";
     printf("%s connect state changed callback conn_id:0x%02x, conn_state:0x%x, pair_state:0x%x, \
