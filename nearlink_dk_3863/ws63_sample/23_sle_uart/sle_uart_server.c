@@ -75,7 +75,7 @@ uint8_t g_receiveBuf[UART_BUFF_LENGTH] = {0}; /* max receive length. */
 #define USLEEP_1000000 1000000
 
 static uint8_t g_sleUartBase[] = {0x37, 0xBE, 0xA8, 0x80, 0xFC, 0x70, 0x11, 0xEA,
-                                    0xB7, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+                                  0xB7, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 static uint8_t g_atPreChar = 0;
 static uint32_t g_atUartRecvCnt = 0;
 
@@ -166,11 +166,11 @@ static void sle_uart_uuid_print(SleUuid *uuid)
     }
 }
 
-static void ssaps_mtu_changed_cbk(uint8_t server_id, uint16_t connId, SsapcExchangeInfo *mtu_size,
+static void ssaps_mtu_changed_cbk(uint8_t serverId, uint16_t connId, SsapcExchangeInfo *mtu_size,
                                   errcode_t status)
 {
     printf("%s ssaps ssaps_mtu_changed_cbk callback server_id:%x, conn_id:%x, mtu_size:%x, status:%x\r\n",
-           SLE_UART_SERVER_LOG, server_id, connId, mtu_size->mtuSize, status);
+           SLE_UART_SERVER_LOG, serverId, connId, mtu_size->mtuSize, status);
     if (g_slePairHdl == 0) {
         g_slePairHdl = connId + 1;
     }
@@ -194,12 +194,12 @@ static void ssaps_add_property_cbk(uint8_t serverId, SleUuid *uuid, uint16_t ser
            SLE_UART_SERVER_LOG, serverId, serviceHandle, handle, status);
     sle_uart_uuid_print(uuid);
 }
-static void ssaps_add_descriptor_cbk(uint8_t server_id, SleUuid *uuid, uint16_t serviceHandle,
+static void ssaps_add_descriptor_cbk(uint8_t serverId, SleUuid *uuid, uint16_t serviceHandle,
                                      uint16_t propertyHandle, errcode_t status)
 {
     printf("%s add descriptor cbk callback server_id:%x, service_handle:%x, property_handle:%x, \
         status:%x\r\n",
-           SLE_UART_SERVER_LOG, server_id, serviceHandle, propertyHandle, status);
+           SLE_UART_SERVER_LOG, serverId, serviceHandle, propertyHandle, status);
     sle_uart_uuid_print(uuid);
 }
 static void ssaps_delete_all_service_cbk(uint8_t serverId, errcode_t status)
@@ -343,7 +343,7 @@ errcode_t sle_uart_server_send_report_by_handle(const uint8_t *data, uint8_t len
 }
 
 static void sle_connect_state_changed_cbk(uint16_t connId, const SleAddr *addr, SleAcbStateType conn_state,
-                                    SlePairStateType pair_state, SleDiscReasonType disc_reason)
+                                          SlePairStateType pair_state, SleDiscReasonType disc_reason)
 {
     uint8_t sleConnectState[] = "sle_dis_connect";
     printf("%s connect state changed callback conn_id:0x%02x, conn_state:0x%x, pair_state:0x%x, \
@@ -397,10 +397,10 @@ void ssaps_read_request_callbacks(uint8_t serverId,
     (void)status;
 }
 
-void ssaps_write_request_callbacks(uint8_t server_id, uint16_t connId,
+void ssaps_write_request_callbacks(uint8_t serverId, uint16_t connId,
                                    ssaps_req_write_cb_t *write_cb_para, errcode_t status)
 {
-    (void)server_id;
+    (void)serverId;
     (void)connId;
     (void)status;
     write_cb_para->value[write_cb_para->length - 1] = '\0';

@@ -57,7 +57,7 @@ static uint8_t g_sleLocalName[NAME_MAX_LENGTH] = "sle_uart_server";
 #define printf(fmt, args...) osal_printk(fmt, ##args)
 #define SLE_UART_SERVER_LOG "[sle uart server]"
 
-static uint16_t sle_set_adv_local_name(uint8_t *adv_data, uint16_t maxLen)
+static uint16_t sle_set_adv_local_name(uint8_t *advData, uint16_t maxLen)
 {
     errno_t ret;
     uint8_t index = 0;
@@ -70,9 +70,9 @@ static uint16_t sle_set_adv_local_name(uint8_t *adv_data, uint16_t maxLen)
         printf("0x%02x ", localName[i]);
     }
     printf("\r\n");
-    adv_data[index++] = localNameLen + 1;
-    adv_data[index++] = SLE_ADV_DATA_TYPE_COMPLETE_LOCAL_NAME;
-    ret = memcpy_s(&adv_data[index], maxLen - index, localName, localNameLen);
+    advData[index++] = localNameLen + 1;
+    advData[index++] = SLE_ADV_DATA_TYPE_COMPLETE_LOCAL_NAME;
+    ret = memcpy_s(&advData[index], maxLen - index, localName, localNameLen);
     if (ret != EOK) {
         printf("%s memcpy fail\r\n", SLE_UART_SERVER_LOG);
         return 0;
@@ -80,7 +80,7 @@ static uint16_t sle_set_adv_local_name(uint8_t *adv_data, uint16_t maxLen)
     return (uint16_t)index + localNameLen;
 }
 
-static uint16_t sle_set_adv_data(uint8_t *advData)
+static uint16_t SleSetAdvData(uint8_t *advData)
 {
     size_t len = 0;
     uint16_t idx = 0;
@@ -115,7 +115,7 @@ static uint16_t sle_set_adv_data(uint8_t *advData)
     return idx;
 }
 
-static uint16_t sle_set_scan_response_data(uint8_t *scanRspData)
+static uint16_t SleSetScanResponseData(uint8_t *scanRspData)
 {
     uint16_t idx = 0;
     errno_t ret;
@@ -180,7 +180,7 @@ static int SleSetDefaultAnnounceData(void)
     uint8_t seekRspData[SLE_ADV_DATA_LEN_MAX] = {0};
     uint8_t dataIndex = 0;
 
-    announceDataLen = sle_set_adv_data(announceData);
+    announceDataLen = SleSetAdvData(announceData);
     data.announceData = announceData;
     data.announceDataLen = announceDataLen;
 
@@ -191,7 +191,7 @@ static int SleSetDefaultAnnounceData(void)
     }
     printf("\r\n");
 
-    seekDataLen = sle_set_scan_response_data(seekRspData);
+    seekDataLen = SleSetScanResponseData(seekRspData);
     data.seekRspData = seekRspData;
     data.seekRspDataLen = seekDataLen;
 

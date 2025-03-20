@@ -52,7 +52,7 @@
 #define PRIO 25
 #define USLEEP_1000000 1000000
 static char g_sleUuidAppUuid[] = {0x39, 0xBE, 0xA8, 0x80, 0xFC, 0x70, 0x11, 0xEA,
-                                     0xB7, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+                                  0xB7, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 static unsigned char g_uartReadBuff[100];
 static ssapc_find_service_result_t g_sle_uart_find_service_result = {0};
 static sle_announce_seek_callbacks_t g_sle_uart_seek_cbk = {0};
