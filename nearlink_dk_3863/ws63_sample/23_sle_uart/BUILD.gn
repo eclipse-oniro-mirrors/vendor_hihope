@@ -13,9 +13,9 @@
 
 static_library("sle_uart") {
   sources = [
-    #"sle_uart_client.c",
-    "sle_uart_server.c",
-    "sle_uart_server_adv.c",
+    "sle_uart_client.c",
+    #"sle_uart_server.c",
+    #"sle_uart_server_adv.c",
   ]
 
   defines = [

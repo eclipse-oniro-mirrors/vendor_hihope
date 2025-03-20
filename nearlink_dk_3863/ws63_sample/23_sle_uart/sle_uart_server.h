@@ -51,7 +51,7 @@ uint16_t SleUartClientIsConnected(void);
 
 typedef void (*SleUartServerMsgQueue)(uint8_t *bufferAddr, uint16_t bufferSize);
 
-void SleUartServerRegisterMsg(sle_uart_server_msg_queue sleUartServerMsg);
+void SleUartServerRegisterMsg(SleUartServerMsgQueue sleUartServerMsg);
 
 errcode_t sle_enable_server_cbk(void);
 
