@@ -223,7 +223,7 @@ static void sle_announce_disable_cbk(uint32_t announceId, errcode_t status)
         status);
 }
 
-static void sle_announce_terminal_cbk(uint32_t announceId)
+static void SleAnnounceTerminalCbk(uint32_t announceId)
 {
     printf("%s sle announce terminal callback id:%02x\r\n", SLE_UART_SERVER_LOG, announceId);
 }
@@ -241,7 +241,7 @@ errcode_t sle_uart_announce_register_cbks(void)
     SleAnnounceSeekCallbacks seek_cbks = {0};
     seek_cbks.sleAnnounceEnableCb = sle_announce_enable_cbk;
     seek_cbks.sleAnnounceDisableCb = sle_announce_disable_cbk;
-    seek_cbks.sleAnnounceTerminalCb = sle_announce_terminal_cbk;
+    seek_cbks.sleAnnounceTerminalCb = SleAnnounceTerminalCbk;
     seek_cbks.sleEnableCb = sle_enable_cbk;
     ret = SleAnnounceSeekRegisterCallbacks(&seek_cbks);
     if (ret != ERRCODE_SLE_SUCCESS) {

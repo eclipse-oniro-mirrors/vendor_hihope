@@ -187,11 +187,11 @@ static void ssaps_add_service_cbk(uint8_t serverId, SleUuid *uuid, uint16_t hand
            serverId, handle, status);
     sle_uart_uuid_print(uuid);
 }
-static void ssaps_add_property_cbk(uint8_t server_id, SleUuid *uuid, uint16_t serviceHandle,
+static void ssaps_add_property_cbk(uint8_t serverId, SleUuid *uuid, uint16_t serviceHandle,
                                    uint16_t handle, errcode_t status)
 {
     printf("%s add property cbk callback server_id:%x, service_handle:%x,handle:%x, status:%x\r\n",
-           SLE_UART_SERVER_LOG, server_id, serviceHandle, handle, status);
+           SLE_UART_SERVER_LOG, serverId, serviceHandle, handle, status);
     sle_uart_uuid_print(uuid);
 }
 static void ssaps_add_descriptor_cbk(uint8_t server_id, SleUuid *uuid, uint16_t serviceHandle,

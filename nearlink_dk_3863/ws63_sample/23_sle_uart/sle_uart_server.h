@@ -49,9 +49,9 @@ errcode_t sle_uart_server_send_report_by_handle(const uint8_t *data, uint8_t len
 
 uint16_t SleUartClientIsConnected(void);
 
-typedef void (*sle_uart_server_msg_queue)(uint8_t *buffer_addr, uint16_t bufferSize);
+typedef void (*sle_uart_server_msg_queue)(uint8_t *bufferAddr, uint16_t bufferSize);
 
-void sle_uart_server_register_msg(sle_uart_server_msg_queue sleUartServerMsg);
+void SleUartServerRegisterMsg(sle_uart_server_msg_queue sleUartServerMsg);
 
 errcode_t sle_enable_server_cbk(void);
 
