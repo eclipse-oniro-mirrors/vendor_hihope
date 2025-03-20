@@ -52,60 +52,60 @@
 /* 最大广播数据长度 */
 #define SLE_ADV_DATA_LEN_MAX                      251
 /* 广播名称 */
-static uint8_t sle_local_name[NAME_MAX_LENGTH] = "sle_uart_server";
+static uint8_t g_sleLocalName[NAME_MAX_LENGTH] = "sle_uart_server";
 #define SLE_SERVER_INIT_DELAY_MS    1000
 #define printf(fmt, args...) osal_printk(fmt, ##args)
 #define SLE_UART_SERVER_LOG "[sle uart server]"
 
-static uint16_t sle_set_adv_local_name(uint8_t *adv_data, uint16_t max_len)
+static uint16_t sle_set_adv_local_name(uint8_t *adv_data, uint16_t maxLen)
 {
     errno_t ret;
     uint8_t index = 0;
 
-    uint8_t *local_name = sle_local_name;
-    uint8_t local_name_len = sizeof(sle_local_name) - 1;
-    printf("%s local_name_len = %d\r\n", SLE_UART_SERVER_LOG, local_name_len);
+    uint8_t *localName = g_sleLocalName;
+    uint8_t localNameLen = sizeof(g_sleLocalName) - 1;
+    printf("%s localNameLen = %d\r\n", SLE_UART_SERVER_LOG, localNameLen);
     printf("%s local_name: ", SLE_UART_SERVER_LOG);
-    for (uint8_t i = 0; i < local_name_len; i++) {
-        printf("0x%02x ", local_name[i]);
+    for (uint8_t i = 0; i < localNameLen; i++) {
+        printf("0x%02x ", localName[i]);
     }
     printf("\r\n");
-    adv_data[index++] = local_name_len + 1;
+    adv_data[index++] = localNameLen + 1;
     adv_data[index++] = SLE_ADV_DATA_TYPE_COMPLETE_LOCAL_NAME;
-    ret = memcpy_s(&adv_data[index], max_len - index, local_name, local_name_len);
+    ret = memcpy_s(&adv_data[index], maxLen - index, localName, localNameLen);
     if (ret != EOK) {
         printf("%s memcpy fail\r\n", SLE_UART_SERVER_LOG);
         return 0;
     }
-    return (uint16_t)index + local_name_len;
+    return (uint16_t)index + localNameLen;
 }
 
-static uint16_t sle_set_adv_data(uint8_t *adv_data)
+static uint16_t sle_set_adv_data(uint8_t *advData)
 {
     size_t len = 0;
     uint16_t idx = 0;
     errno_t  ret = 0;
 
-    len = sizeof(struct sle_adv_common_value);
-    struct sle_adv_common_value adv_disc_level = {
+    len = sizeof(struct SleAdvCommonValue);
+    struct SleAdvCommonValue advDiscLevel = {
         .length = len - 1,
         .type = SLE_ADV_DATA_TYPE_DISCOVERY_LEVEL,
         .value = SLE_ANNOUNCE_LEVEL_NORMAL,
     };
-    ret = memcpy_s(&adv_data[idx], SLE_ADV_DATA_LEN_MAX - idx, &adv_disc_level, len);
+    ret = memcpy_s(&advData[idx], SLE_ADV_DATA_LEN_MAX - idx, &advDiscLevel, len);
     if (ret != EOK) {
         printf("%s adv_disc_level memcpy fail\r\n", SLE_UART_SERVER_LOG);
         return 0;
     }
     idx += len;
 
-    len = sizeof(struct sle_adv_common_value);
-    struct sle_adv_common_value adv_access_mode = {
+    len = sizeof(struct SleAdvCommonValue);
+    struct SleAdvCommonValue advAccessMode = {
         .length = len - 1,
         .type = SLE_ADV_DATA_TYPE_ACCESS_MODE,
         .value = 0,
     };
-    ret = memcpy_s(&adv_data[idx], SLE_ADV_DATA_LEN_MAX - idx, &adv_access_mode, len);
+    ret = memcpy_s(&advData[idx], SLE_ADV_DATA_LEN_MAX - idx, &advAccessMode, len);
     if (ret != EOK) {
         printf("%s adv_access_mode memcpy fail\r\n", SLE_UART_SERVER_LOG);
         return 0;
@@ -115,30 +115,30 @@ static uint16_t sle_set_adv_data(uint8_t *adv_data)
     return idx;
 }
 
-static uint16_t sle_set_scan_response_data(uint8_t *scan_rsp_data)
+static uint16_t sle_set_scan_response_data(uint8_t *scanRspData)
 {
     uint16_t idx = 0;
     errno_t ret;
-    size_t scan_rsp_data_len = sizeof(struct sle_adv_common_value);
+    size_t scanRspDataLen = sizeof(struct SleAdvCommonValue);
 
-    struct sle_adv_common_value tx_power_level = {
-        .length = scan_rsp_data_len - 1,
+    struct SleAdvCommonValue txPowerLevel = {
+        .length = scanRspDataLen - 1,
         .type = SLE_ADV_DATA_TYPE_TX_POWER_LEVEL,
         .value = SLE_ADV_TX_POWER,
     };
-    ret = memcpy_s(scan_rsp_data, SLE_ADV_DATA_LEN_MAX, &tx_power_level, scan_rsp_data_len);
+    ret = memcpy_s(scanRspData, SLE_ADV_DATA_LEN_MAX, &txPowerLevel, scanRspDataLen);
     if (ret != EOK) {
         printf("%s sle scan response data memcpy fail\r\n", SLE_UART_SERVER_LOG);
         return 0;
     }
-    idx += scan_rsp_data_len;
+    idx += scanRspDataLen;
 
     /* set local name */
-    idx += sle_set_adv_local_name(&scan_rsp_data[idx], SLE_ADV_DATA_LEN_MAX - idx);
+    idx += sle_set_adv_local_name(&scanRspData[idx], SLE_ADV_DATA_LEN_MAX - idx);
     return idx;
 }
 
-static int sle_set_default_announce_param(void)
+static int SleSetDefaultAnnounceParam(void)
 {
     errno_t ret;
     SleAnnounceParam param = {0};
@@ -158,7 +158,7 @@ static int sle_set_default_announce_param(void)
     param.ownAddr.type = 0;
     ret = memcpy_s(param.ownAddr.addr, SLE_ADDR_LEN, local_addr, SLE_ADDR_LEN);
     if (ret != EOK) {
-        printf("%s sle_set_default_announce_param data memcpy fail\r\n", SLE_UART_SERVER_LOG);
+        printf("%s SleSetDefaultAnnounceParam data memcpy fail\r\n", SLE_UART_SERVER_LOG);
         return 0;
     }
     printf("%s sle_uart_local addr: ", SLE_UART_SERVER_LOG);
@@ -169,40 +169,40 @@ static int sle_set_default_announce_param(void)
     return SleSetAnnounceParam(param.announceHandle, &param);
 }
 
-static int sle_set_default_announce_data(void)
+static int SleSetDefaultAnnounceData(void)
 {
     errcode_t ret;
-    uint8_t announce_data_len = 0;
-    uint8_t seek_data_len = 0;
+    uint8_t announceDataLen = 0;
+    uint8_t seekDataLen = 0;
     SleAnnounceData data = {0};
-    uint8_t adv_handle = SLE_ADV_HANDLE_DEFAULT;
-    uint8_t announce_data[SLE_ADV_DATA_LEN_MAX] = {0};
-    uint8_t seek_rsp_data[SLE_ADV_DATA_LEN_MAX] = {0};
-    uint8_t data_index = 0;
+    uint8_t advHandle = SLE_ADV_HANDLE_DEFAULT;
+    uint8_t announceData[SLE_ADV_DATA_LEN_MAX] = {0};
+    uint8_t seekRspData[SLE_ADV_DATA_LEN_MAX] = {0};
+    uint8_t dataIndex = 0;
 
-    announce_data_len = sle_set_adv_data(announce_data);
-    data.announceData = announce_data;
-    data.announceDataLen = announce_data_len;
+    announceDataLen = sle_set_adv_data(announceData);
+    data.announceData = announceData;
+    data.announceDataLen = announceDataLen;
 
     printf("%s data.announce_data_len = %d\r\n", SLE_UART_SERVER_LOG, data.announceDataLen);
     printf("%s data.announce_data: ", SLE_UART_SERVER_LOG);
-    for (data_index = 0; data_index<data.announceDataLen; data_index++) {
-        printf("0x%02x ", data.announceData[data_index]);
+    for (dataIndex = 0; dataIndex<data.announceDataLen; dataIndex++) {
+        printf("0x%02x ", data.announceData[dataIndex]);
     }
     printf("\r\n");
 
-    seek_data_len = sle_set_scan_response_data(seek_rsp_data);
-    data.seekRspData = seek_rsp_data;
-    data.seekRspDataLen = seek_data_len;
+    seekDataLen = sle_set_scan_response_data(seekRspData);
+    data.seekRspData = seekRspData;
+    data.seekRspDataLen = seekDataLen;
 
     printf("%s data.seek_rsp_data_len = %d\r\n", SLE_UART_SERVER_LOG, data.seekRspDataLen);
     printf("%s data.seek_rsp_data: ", SLE_UART_SERVER_LOG);
-    for (data_index = 0; data_index<data.seekRspDataLen; data_index++) {
-        printf("0x%02x ", data.seekRspData[data_index]);
+    for (dataIndex = 0; dataIndex<data.seekRspDataLen; dataIndex++) {
+        printf("0x%02x ", data.seekRspData[dataIndex]);
     }
     printf("\r\n");
 
-    ret = SleSetAnnounceData(adv_handle, &data);
+    ret = SleSetAnnounceData(advHandle, &data);
     if (ret == ERRCODE_SLE_SUCCESS) {
         printf("%s set announce data success.\r\n", SLE_UART_SERVER_LOG);
     } else {
@@ -211,21 +211,21 @@ static int sle_set_default_announce_data(void)
     return ERRCODE_SLE_SUCCESS;
 }
 
-static void sle_announce_enable_cbk(uint32_t announce_id, errcode_t status)
+static void sle_announce_enable_cbk(uint32_t announceId, errcode_t status)
 {
-    printf("%s sle announce enable callback id:%02x, state:%x\r\n", SLE_UART_SERVER_LOG, announce_id,
+    printf("%s sle announce enable callback id:%02x, state:%x\r\n", SLE_UART_SERVER_LOG, announceId,
         status);
 }
 
-static void sle_announce_disable_cbk(uint32_t announce_id, errcode_t status)
+static void sle_announce_disable_cbk(uint32_t announceId, errcode_t status)
 {
-    printf("%s sle announce disable callback id:%02x, state:%x\r\n", SLE_UART_SERVER_LOG, announce_id,
+    printf("%s sle announce disable callback id:%02x, state:%x\r\n", SLE_UART_SERVER_LOG, announceId,
         status);
 }
 
-static void sle_announce_terminal_cbk(uint32_t announce_id)
+static void sle_announce_terminal_cbk(uint32_t announceId)
 {
-    printf("%s sle announce terminal callback id:%02x\r\n", SLE_UART_SERVER_LOG, announce_id);
+    printf("%s sle announce terminal callback id:%02x\r\n", SLE_UART_SERVER_LOG, announceId);
 }
 
 static void sle_enable_cbk(errcode_t status)
@@ -260,8 +260,8 @@ errcode_t sle_uart_server_adv_init(void)
     addr.type = 0;
     memcpy_s(&addr, SLE_ADDR_LEN, local_addr, SLE_ADDR_LEN);
     SleSetLocalAddr(&addr);
-    sle_set_default_announce_param();
-    sle_set_default_announce_data();
+    SleSetDefaultAnnounceParam();
+    SleSetDefaultAnnounceData();
     ret = SleStartAnnounce(SLE_ADV_HANDLE_DEFAULT);
     if (ret != ERRCODE_SLE_SUCCESS) {
         printf("%s sle_uart_server_adv_init,sle_start_announce fail :%x\r\n", SLE_UART_SERVER_LOG, ret);

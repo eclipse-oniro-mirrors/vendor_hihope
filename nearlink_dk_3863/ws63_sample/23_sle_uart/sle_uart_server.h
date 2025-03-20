@@ -47,15 +47,15 @@ errcode_t sle_uart_server_send_report_by_uuid(const uint8_t *data, uint8_t len);
 
 errcode_t sle_uart_server_send_report_by_handle(const uint8_t *data, uint8_t len);
 
-uint16_t sle_uart_client_is_connected(void);
+uint16_t SleUartClientIsConnected(void);
 
-typedef void (*sle_uart_server_msg_queue)(uint8_t *buffer_addr, uint16_t buffer_size);
+typedef void (*sle_uart_server_msg_queue)(uint8_t *buffer_addr, uint16_t bufferSize);
 
-void sle_uart_server_register_msg(sle_uart_server_msg_queue sle_uart_server_msg);
+void sle_uart_server_register_msg(sle_uart_server_msg_queue sleUartServerMsg);
 
 errcode_t sle_enable_server_cbk(void);
 
-uint32_t uart_sle_send_data(uint8_t *data, uint8_t length);
+uint32_t UartSleSendData(uint8_t *data, uint8_t length);
 
 #ifdef __cplusplus
 #if __cplusplus

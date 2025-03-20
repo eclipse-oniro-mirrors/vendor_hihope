@@ -17,9 +17,9 @@
 
 #include "sle_ssap_client.h"
 
-void sle_uart_client_init(void);
+void SleUartClientInit(void);
 
-void sle_uart_start_scan(void);
+void SleUartStartScan(void);
 
 uint16_t get_g_sle_uart_conn_id(void);
 

@@ -16,20 +16,20 @@
 #ifndef SLE_SERVER_ADV_H
 #define SLE_SERVER_ADV_H
 
-typedef struct sle_adv_common_value {
+typedef struct SleAdvCommonValue {
     uint8_t type;
     uint8_t length;
     uint8_t value;
-} le_adv_common_t;
+} SleAdvCommonT;
 
-typedef enum sle_adv_channel {
+typedef enum SleAdvChannel {
     SLE_ADV_CHANNEL_MAP_77                 = 0x01,
     SLE_ADV_CHANNEL_MAP_78                 = 0x02,
     SLE_ADV_CHANNEL_MAP_79                 = 0x04,
     SLE_ADV_CHANNEL_MAP_DEFAULT            = 0x07
-} sle_adv_channel_map_t;
+} SleAdvChannelMapT;
 
-typedef enum sle_adv_data {
+typedef enum SleAdvData {
     SLE_ADV_DATA_TYPE_DISCOVERY_LEVEL                              = 0x01,   /* 发现等级 */
     SLE_ADV_DATA_TYPE_ACCESS_MODE                                  = 0x02,   /* 接入层能力 */
     SLE_ADV_DATA_TYPE_SERVICE_DATA_16BIT_UUID                      = 0x03,   /* 标准服务数据信息 */
@@ -46,7 +46,7 @@ typedef enum sle_adv_data {
     SLE_ADV_DATA_TYPE_SLB_MEDIA_ACCESS_LAYER_ID                    = 0x0E,   /* SLB媒体接入层标识 */
     SLE_ADV_DATA_TYPE_EXTENDED                                     = 0xFE,   /* 数据类型扩展 */
     SLE_ADV_DATA_TYPE_MANUFACTURER_SPECIFIC_DATA                   = 0xFF    /* 厂商自定义信息 */
-} sle_adv_data_type;
+} SleAdvDataType;
 
 errcode_t sle_uart_server_adv_init(void);
 
