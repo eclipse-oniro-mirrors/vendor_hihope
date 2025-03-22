@@ -400,6 +400,7 @@ bypass_user_auth_framework = [
   "iam_thread_pool",
   "iam_utils",
   "iam_test",
+  "iam_inner_api",
   "userauthextensionability_napi",
   "user_auth_extension",
   "user_auth_extension_module",
