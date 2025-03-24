@@ -481,7 +481,7 @@ static void SleTask( char* arg)
     usleep(1000000);
     InitTempHumiSensor();
     sle_uart_server_init();
-    int c = 0;
+    int c = 1;
     while (c)
     {
         
