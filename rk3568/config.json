@@ -259,10 +259,6 @@
           ]
         },
         {
-          "component": "graphics_effect",
-          "features": []
-        },
-        {
           "component": "graphic_surface",
           "features": []
         },
