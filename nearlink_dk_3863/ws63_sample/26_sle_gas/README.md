@@ -102,17 +102,11 @@
 ## 四、运行结果
 ws63服务端会每隔100ms给ws63客户端发送一条燃气传感器数据，波特率默认为115200，可以通过串口工具查看客户端接收的数据，当ws63服务端读取MQ-2可燃气体传感器的adc电压值大于1000，蜂鸣器会发出警报，低于1000，警报停止。
 
-
-
-
 ### 【套件支持】
 
 ##### 1. 套件购买  https://item.taobao.com/item.htm?abbucket=16&id=816685710481&ns=1&priceTId=214783b117346662457694855ed644&skuId=5533042544092&spm=a21n57.sem.item.49.46a639031zWytE&utparam=%7B%22aplus_abtest%22%3A%22b28048df8f009463834be6bdac2a3713%22%7D&xxc=taobaoSearch
-
 ##### 2. 技术资料
-
 - Gitee码云网站（使用说明书、规格说明书、OpenHarmony开发案例等） **https://gitee.com/hihopeorg_group/near-link**
 - fbb_ws63代码仓（SDK包、技术文档下载）**https://gitee.com/HiSpark/fbb_ws63**
-
 ##### 3. 互动交流
 - 海思社区星闪专区-论坛 **https://developer.hisilicon.com/forum/0133146886267870001**
