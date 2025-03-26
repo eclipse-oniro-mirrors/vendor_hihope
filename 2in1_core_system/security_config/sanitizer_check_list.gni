@@ -1253,6 +1253,7 @@ bypass_soc_perf = [ "socperf_test" ]
 bypass_update_service = [
   "update",
   "updateservice",
+  "update_session",
 ]
 
 # graphic_2d : //foundation/graphic/graphic_2d
