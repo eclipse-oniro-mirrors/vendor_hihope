@@ -20,7 +20,6 @@
 | `SleSetSeekParam`                                            | 设置扫描参数 |
 | `SleStartSeek`                                               | 开始扫描 |
 | `SleStopSeek`                                                | 停止扫描 |
-| `SleAnnounceSeekRegisterCallbacks`                           | 注册设备公开和设备发现回调函数 |
 
 ### Connection Manager OH接口
 
