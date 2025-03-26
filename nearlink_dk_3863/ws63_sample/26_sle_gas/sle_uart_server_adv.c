@@ -160,7 +160,7 @@ static int sle_set_default_announce_param(void)
     ret = memcpy_s(param.ownAddr.addr, SLE_ADDR_LEN, local_addr, SLE_ADDR_LEN);
 
     if (ret != EOK) {
-        printf("%s sle_set_default_announce_param data memcpy fail\r\n", SLE_UART_SERVER_LOG);
+        printf("%s sle_set_default_announce data memcpy fail\r\n", SLE_UART_SERVER_LOG);
         return 0;
     }
     printf("%s sle_uart_local addr: ", SLE_UART_SERVER_LOG);
