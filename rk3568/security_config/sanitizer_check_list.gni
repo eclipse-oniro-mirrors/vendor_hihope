@@ -1508,6 +1508,7 @@ bypass_security_component_manager = [
   "security_component_no_cfi_enhance_adapter_src_set",
   "security_component_no_cfi_framework_src_set",
   "security_component_no_cfi_enhance_sdk_src_set",
+  "sec_comp_service_stub_no_cfi",
 ]
 
 # distributed_bundle_framework : //foundation/bundlemanager/distributed_bundle_framework
