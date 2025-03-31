@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# SPDX-License-Identifier: Apache-2.0
 set -e
 
 rm -rf build.paho
