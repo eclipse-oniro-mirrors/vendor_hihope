@@ -1,5 +1,10 @@
 #!/bin/bash
-# SPDX-License-Identifier: Apache-2.0
+#/*
+# * Copyright (c) 2023 YourCompany
+# * All rights reserved.
+# * Unauthorized copying of this file, via any medium strictly prohibited.
+# * Proprietary and confidential.
+# */
 if [ "$TRAVIS_OS_NAME" == "linux" ]; then
 	pwd
 	sudo service mosquitto stop

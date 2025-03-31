@@ -13,7 +13,7 @@
 #  Contributors:
 #     Xiang Rong - 442039 Add makefile to Embedded C client
 #*******************************************************************************/
-# SPDX-License-Identifier: Apache-2.0
+
 # Note: on OS X you should install XCode and the associated command-line tools
 
 SHELL = /bin/sh
