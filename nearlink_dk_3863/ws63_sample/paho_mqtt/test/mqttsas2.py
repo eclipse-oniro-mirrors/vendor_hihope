@@ -13,8 +13,10 @@
 
   Contributors:
      Ian Craggs - initial implementation and/or documentation
+     // SPDX-License-Identifier: Apache-2.0
 *******************************************************************
 """
+
 from __future__ import print_function
 
 # Trace MQTT traffic

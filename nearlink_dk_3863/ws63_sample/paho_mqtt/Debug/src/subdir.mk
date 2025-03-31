@@ -1,7 +1,12 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
 ################################################################################
-# SPDX-License-Identifier: Apache-2.0
+#/*
+# * Copyright (c) 2023 YourCompany
+# * All rights reserved.
+# * Unauthorized copying of this file, via any medium strictly prohibited.
+# * Proprietary and confidential.
+# */
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../src/MQTTConnectClient.c \
