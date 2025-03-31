@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# SPDX-License-Identifier: Apache-2.0
 if [ "$TRAVIS_OS_NAME" == "linux" ]; then
 	pwd
 	sudo service mosquitto stop

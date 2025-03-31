@@ -13,7 +13,7 @@
 #  Contributors:
 #     Ian Craggs - initial version
 #*******************************************************************************/
-
+# SPDX-License-Identifier: Apache-2.0
 cmake_minimum_required(VERSION 2.8)
 project (embedded-mqtt)
 set(CMAKE_BUILD_TYPE Debug)
