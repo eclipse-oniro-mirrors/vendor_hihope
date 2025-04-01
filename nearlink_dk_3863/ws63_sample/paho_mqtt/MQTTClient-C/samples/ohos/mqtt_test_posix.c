@@ -53,6 +53,5 @@ int main(int argc, char* argv[])
 
     MqttTestDisconnect();
     MqttTestDeinit();
-    rc = 0;
     return 0;
 }
