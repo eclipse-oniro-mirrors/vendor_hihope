@@ -24,7 +24,7 @@
 int main(int argc, char* argv[])
 {
     if (argc < 2) {
-        printf("Usage %s host [port] [clientId] [username] [password]\n", argv[0]);
+        printf("Usage %s host [port] [clientId] [username] [passwords]\n", argv[0]);
         return 1;
     }
     const char* host = argv[1];
@@ -33,14 +33,14 @@ int main(int argc, char* argv[])
 
     char* clientId = argc > 3 ? argv[3] : "EchoClient";
     char* username = argc > 4 ? argv[4] : NULL;
-    char* password = argc > 5 ? argv[5] : NULL;
+    char* passwords = argc > 5 ? argv[5] : NULL;
     printf("clientId = %s\n", clientId);
     printf("username = %s\n", username);
-    printf("password = %s\n", password);
+    printf("passwords = %s\n", passwords);
 
     MqttTestInit();
 
-    if (MqttTestConnect(host, port, clientId, username, password) != 0) {
+    if (MqttTestConnect(host, port, clientId, username, passwords) != 0) {
         printf("MqttTestConnect failed!\n");
         return 1;
     }

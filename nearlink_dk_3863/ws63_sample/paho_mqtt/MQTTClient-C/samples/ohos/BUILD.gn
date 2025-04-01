@@ -11,64 +11,58 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ohos_sources = [
-   "mqtt_test.c",
-]
+ohos_sources = [ "mqtt_test.c" ]
 
 ohos_includes = [
-    "../../src",
-    "../../src/ohos",
-    "../../../MQTTPacket/src",
+  "../../src",
+  "../../src/ohos",
+  "../../../MQTTPacket/src",
 ]
 
 ohos_cflags = [
-    "-Wno-sign-compare",
-    "-Wno-unused-parameter",
+  "-Wno-sign-compare",
+  "-Wno-unused-parameter",
 ]
 
 ohos_defines = [
-    "MQTT_TASK",
-    "MQTTCLIENT_PLATFORM_HEADER=mqtt_ohos.h"
+  "MQTT_TASK",
+  "MQTTCLIENT_PLATFORM_HEADER=mqtt_ohos.h",
 ]
 
 if (ohos_kernel_type == "liteos_riscv" || ohos_kernel_type == "liteos_m") {
-    ohos_sources += [
-        "mqtt_test_cmsis.c",
-        "wifiiot_at.c",         # AT接口（1.0+被去掉了，补回来）
-        "hal_wifiiot_at.c",     # AT接口（1.0+被去掉了，补回来）
-    ]
+  ohos_sources += [
+    "hal_wifiiot_at.c",  # AT接口（1.0+被去掉了，补回来）
+    "mqtt_test_cmsis.c",
+    "wifiiot_at.c",  # AT接口（1.0+被去掉了，补回来）
+  ]
 
-    ohos_includes += [
-        "//commonlibrary/utils_lite/include",
-        "//kernel/liteos_m/kal",
-        "//base/iothardware/peripheral/interfaces/inner_api",
-        "//foundation/communication/wifi_lite/interfaces/wifiservice",
-    ]
+  ohos_includes += [
+    "//commonlibrary/utils_lite/include",
+    "//kernel/liteos_m/kal",
+    "//base/iothardware/peripheral/interfaces/inner_api",
+    "//foundation/communication/wifi_lite/interfaces/wifiservice",
+  ]
 
-    ohos_defines += [
-        "CMSIS"
-    ]
+  ohos_defines += [ "CMSIS" ]
 
-    static_library("mqtt_test") {
-        cflags = ohos_cflags
-        defines = ohos_defines
-        sources = ohos_sources
-        include_dirs = ohos_includes
-    }
+  static_library("mqtt_test") {
+    cflags = ohos_cflags
+    defines = ohos_defines
+    sources = ohos_sources
+    include_dirs = ohos_includes
+  }
 } else {
-    ohos_sources += [
-        "mqtt_test_posix.c"
-    ]
+  ohos_sources += [ "mqtt_test_posix.c" ]
 
-    deps = [
-        "../../src:paho-embed-mqtt3cc",
-        "../../../MQTTPacket/src:paho-embed-mqtt3c",
-    ]
+  deps = [
+    "../../../MQTTPacket/src:paho-embed-mqtt3c",
+    "../../src:paho-embed-mqtt3cc",
+  ]
 
-    executable("mqtt_test") {
-        cflags = ohos_cflags
-        defines = ohos_defines
-        sources = ohos_sources
-        include_dirs = ohos_includes
-    }
+  executable("mqtt_test") {
+    cflags = ohos_cflags
+    defines = ohos_defines
+    sources = ohos_sources
+    include_dirs = ohos_includes
+  }
 }
