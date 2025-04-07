@@ -1,22 +1,20 @@
-/*******************************************************************************
- * Copyright (c) 2009, 2022 IBM Corp. and Ian Craggs
+/**
+ * Copyright (c) 2020 IBM Corp, LIMITED.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v2.0
- * and Eclipse Distribution License v1.0 which accompany this distribution.
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * The Eclipse Public License is available at
- *    https://www.eclipse.org/legal/epl-2.0/
- * and the Eclipse Distribution License is available at
- *   http://www.eclipse.org/org/documents/edl-v10.php.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.  *
  *
- * Contributors:
- *    Ian Craggs - initial API and implementation and/or initial documentation
- *    Ian Craggs, Allan Stockdill-Mander - SSL updates
- *    Ian Craggs - MQTT 3.1.1 support
- *    Ian Craggs - fix for issue 453
- *    Ian Craggs - MQTT 5.0 support
- *******************************************************************************/
+ * History: \n
+ * 2022-09-16， Create file. \n
+ */
 
 #if !defined(MQTT_CLIENT_H)
 #define MQTT_CLIENT_H
