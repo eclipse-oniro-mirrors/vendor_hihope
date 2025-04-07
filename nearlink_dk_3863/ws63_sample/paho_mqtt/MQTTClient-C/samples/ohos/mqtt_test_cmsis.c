@@ -62,12 +62,12 @@ static unsigned int MqttConnCmd(int argc, const char **argv)
 
     const char* clientId = argc > 2 ? argv[2] : "EchoClient";
     const char* username = argc > 3 ? argv[3] : NULL;
-    const char* password = argc > 4 ? argv[4] : NULL;
+    const char* passwords = argc > 4 ? argv[4] : NULL;
     printf("clientId = %s\r\n", clientId);
     printf("username = %s\r\n", username);
-    printf("password = %s\r\n", password);
+    printf("password = %s\r\n", passwords);
 
-    if (MqttTestConnect(host, port, clientId, username, password) != 0) {
+    if (MqttTestConnect(host, port, clientId, username, passwords) != 0) {
         printf("MqttTestConnect failed!\r\n");
         return 1;
     }
