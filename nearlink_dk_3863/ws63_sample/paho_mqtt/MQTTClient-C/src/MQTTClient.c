@@ -370,8 +370,8 @@ void MQTTRun(void* parm)
 	MQTTClient* c = (MQTTClient*)parm;
 
 	TimerInit(&timer);
-
-	while (1)
+    int y = 1;
+	while (y)
     {
 #if defined(MQTT_TASK)
 		mqttMutexLock(&c->mutex);
