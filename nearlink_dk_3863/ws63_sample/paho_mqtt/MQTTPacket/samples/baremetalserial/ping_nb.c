@@ -110,6 +110,7 @@ int main(int argc, char *argv[])
 	rc = transport_sendPacketBuffer(mysock, buf, len);
 
 	printf("Sent MQTT connect\n");
+	int c = 1;
 	/* wait for connack */
 	do {
 		int frc;
@@ -123,7 +124,7 @@ int main(int argc, char *argv[])
 		}
 		else if (frc == -1)
 			goto exit;
-	} while (1); /* handle timeouts here */
+	} while (c); /* handle timeouts here */
 
 	printf("MQTT connected\n");
 	start_ping_timer();

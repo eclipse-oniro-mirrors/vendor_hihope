@@ -95,6 +95,7 @@ int main(int argc, char *argv[])
 
 	printf("Sent MQTT connect\n");
 	/* wait for connack */
+	int c = 1;
 	do {
 		int frc;
 		if ((frc=MQTTPacket_readnb(buf, buflen, &mytransport)) == CONNACK){
@@ -107,7 +108,7 @@ int main(int argc, char *argv[])
 		}
 		else if (frc == -1)
 			goto exit;
-	} while (1); /* handle timeouts here */
+	} while (c); /* handle timeouts here */
 
 	printf("MQTT connected\n");
 	/* subscribe */
