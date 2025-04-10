@@ -118,7 +118,11 @@ int main(int argc, char *argv[])
 	/* This is equivalent to the one above, but using the non-blocking functions. You will probably not want this in real life,
 	in such a case replace this call by a scheme similar to the one you'll see in the main loop */
 	transport_sendPacketBuffernb_start(mysock, buf, len);
-	while((rc=transport_sendPacketBuffernb(mysock)) != TRANSPORT_DONE);
+	while((rc=transport_sendPacketBuffernb(mysock)) != TRANSPORT_DONE){
+		if (c == 0) { // 添加退出条件
+            break;
+        }
+	}
 	while(c) {
 		int frc;
 		if ((frc=MQTTPacket_readnb(buf, buflen, &mytransport)) == SUBACK){ /* wait for suback */
