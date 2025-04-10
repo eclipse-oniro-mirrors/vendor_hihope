@@ -70,10 +70,13 @@ int len;
 int transport_sendPacketBuffer(int sock, unsigned char* buf, int buflen)
 {
 int rc;
-
+int c = 1;
 	transport_sendPacketBuffernb_start(sock, buf, buflen);
 	while((rc=transport_sendPacketBuffernb(sock)) == TRANSPORT_AGAIN){
 		/* this is unlikely to loop forever unless there is a hardware problem */
+		if (c == 0) { // 添加退出条件
+            break;
+        }
 	}
 	if(rc == TRANSPORT_DONE){
 		return buflen;
