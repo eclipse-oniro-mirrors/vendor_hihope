@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
 	printf("Sent MQTT connect\n");
 	/* wait for connack */
 	int c = 1;
-	do {
+	while(c) {
 		int frc;
 		if ((frc=MQTTPacket_readnb(buf, buflen, &mytransport)) == CONNACK){
 			unsigned char sessionPresent, connack_rc;
@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
 		}
 		else if (frc == -1)
 			goto exit;
-	} while (c); /* handle timeouts here */
+	} ; /* handle timeouts here */
 
 	printf("MQTT connected\n");
 	/* subscribe */
@@ -119,7 +119,7 @@ int main(int argc, char *argv[])
 	in such a case replace this call by a scheme similar to the one you'll see in the main loop */
 	transport_sendPacketBuffernb_start(mysock, buf, len);
 	while((rc=transport_sendPacketBuffernb(mysock)) != TRANSPORT_DONE);
-	do {
+	while(c) {
 		int frc;
 		if ((frc=MQTTPacket_readnb(buf, buflen, &mytransport)) == SUBACK){ /* wait for suback */
 			unsigned short submsgid;
@@ -135,7 +135,7 @@ int main(int argc, char *argv[])
 		}
 		else if (frc == -1)
 			goto exit;
-	} while (1); /* handle timeouts here */
+	}; /* handle timeouts here */
 	printf("Subscribed\n");
 
 	/* loop getting msgs on subscribed topic */
