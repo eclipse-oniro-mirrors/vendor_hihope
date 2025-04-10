@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
 	printf("Sent MQTT connect\n");
 	int c = 1;
 	/* wait for connack */
-	while(1) {
+	while(c) {
 		int frc;
 		if ((frc=MQTTPacket_readnb(buf, buflen, &mytransport)) == CONNACK){
 			unsigned char sessionPresent, connack_rc;
