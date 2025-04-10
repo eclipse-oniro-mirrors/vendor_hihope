@@ -105,7 +105,8 @@ int main(int argc, char *argv[])
 	len = MQTTSerialize_subscribe(buf, buflen, 0, msgid, 1, &topicString, &req_qos);
 
 	rc = transport_sendPacketBuffer(mysock, buf, len);
-	do {
+	int c = 1;
+	while(c){
 		int frc;
 		if ((frc=MQTTPacket_readnb(buf, buflen, &mytransport)) == SUBACK) /* wait for suback */
 		{
@@ -123,7 +124,7 @@ int main(int argc, char *argv[])
 		}
 		else if (frc == -1)
 			goto exit;
-	} while (1); /* handle timeouts here */
+	}; /* handle timeouts here */
 	/* loop getting msgs on subscribed topic */
 	topicString.cstring = "pubtopic";
 	while (!toStop)
