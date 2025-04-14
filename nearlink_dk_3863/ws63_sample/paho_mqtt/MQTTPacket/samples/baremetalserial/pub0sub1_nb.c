@@ -119,7 +119,7 @@ int main(int argc, char *argv[])
 	in such a case replace this call by a scheme similar to the one you'll see in the main loop */
 	transport_sendPacketBuffernb_start(mysock, buf, len);
 	while((rc=transport_sendPacketBuffernb(mysock)) != TRANSPORT_DONE){
-		if (c == 0) { // 添加退出条件
+		if (rc == TRANSPORT_DONE) { // 添加退出条件
             break;
         }
 	}
