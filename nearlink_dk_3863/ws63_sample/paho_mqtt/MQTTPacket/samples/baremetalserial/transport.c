@@ -74,7 +74,7 @@ int c = 1;
 	transport_sendPacketBuffernb_start(sock, buf, buflen);
 	while((rc=transport_sendPacketBuffernb(sock)) == TRANSPORT_AGAIN){
 		/* this is unlikely to loop forever unless there is a hardware problem */
-		if (c == 0) { // 添加退出条件
+		if (rc != TRANSPORT_AGAIN) { // 添加退出条件
             break;
         }
 	}
