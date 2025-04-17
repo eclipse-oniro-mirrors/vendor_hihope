@@ -56,7 +56,10 @@ unsigned int IoTPwmStart(unsigned int port, unsigned short duty, unsigned int fr
     }
 
     uint32_t clk_freq = uapi_pwm_get_frequency(0);
-    uint32_t period = (uint32_t)(2*clk_freq/freq);
+    uint32_t period = 0;
+    if(freq != 0){
+        period = (uint32_t)(2*clk_freq/freq);
+    }
     uint32_t high_time  = (uint32_t)(period*duty/100);
     uint32_t low_time = (uint32_t)(period- high_time); 
     uint8_t group_id = 0;
