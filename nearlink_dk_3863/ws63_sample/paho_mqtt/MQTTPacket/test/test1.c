@@ -16,7 +16,6 @@
  * 2022-09-16， Create file. \n
  */
 
-
 #include "MQTTPacket.h"
 #include <string.h>
 #include <stdlib.h>
