@@ -102,6 +102,9 @@
 ## 四、运行结果
 ws63服务端会每隔100ms给ws63客户端发送一条燃气传感器数据，波特率默认为115200，可以通过串口工具查看客户端接收的数据，当ws63服务端读取MQ-2可燃气体传感器的adc电压值大于1000，蜂鸣器会发出警报，低于1000，警报停止。
 
+如果调用OH的PWM接口，出现PWM通道不能正常输出的情况，可以用vendor_hihope/nearlink_dk_3863/ws63_sample/08_pwmled/pwm_patch/hal_iot_pwm.c替换
+device/soc/hisilicon/ws63v100/adapter/hals/iot_hardware/wifiiot_lite/hal_iot_pwm.c，重新编译烧录再测试
+
 ### 【套件支持】
 
 ##### 1. 套件购买  https://item.taobao.com/item.htm?abbucket=16&id=816685710481&ns=1&priceTId=214783b117346662457694855ed644&skuId=5533042544092&spm=a21n57.sem.item.49.46a639031zWytE&utparam=%7B%22aplus_abtest%22%3A%22b28048df8f009463834be6bdac2a3713%22%7D&xxc=taobaoSearch
