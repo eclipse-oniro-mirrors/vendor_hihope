@@ -103,14 +103,6 @@
             "hdf_core_platform_test_support = false",
             "hdf_core_default_peripheral_config = false"
           ]
-        },
-        {
-          "component": "drivers_peripheral_usb",
-          "features": [
-            "drivers_peripheral_usb_feature_hiviewdfx_hisysevent = true",
-            "drivers_peripheral_usb_feature_systemabilitymgr_samgr = true",
-            "drivers_peripheral_usb_feature_commonlibrary_c_utils = true"
-          ]
         }
       ]
     },
