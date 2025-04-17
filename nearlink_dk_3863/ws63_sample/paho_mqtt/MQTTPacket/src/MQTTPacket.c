@@ -61,9 +61,21 @@ int MQTTPacket_decode(int (*getcharfn)(unsigned char*, int), int* value)
 
 	FUNC_ENTRY;
 	*value = 0;
+	int rc = MQTTPACKET_READ_ERROR;
+
+		if (++len > MAX_NO_OF_REMAINING_LENGTH_BYTES)
+		{
+			rc = MQTTPACKET_READ_ERROR;	/* bad data */
+			goto exit;
+		}
+		rc = (*getcharfn)(&c, 1);
+		if (rc != 1)
+			goto exit;
+		*value += (c & 127) * multiplier;
+		multiplier *= 128;
 	while ((c & 128) != 0)
 	{
-		int rc = MQTTPACKET_READ_ERROR;
+		rc = MQTTPACKET_READ_ERROR;
 
 		if (++len > MAX_NO_OF_REMAINING_LENGTH_BYTES)
 		{
