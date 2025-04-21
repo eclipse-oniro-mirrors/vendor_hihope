@@ -61,9 +61,21 @@ int MQTTPacket_decode(int (*getcharfn)(unsigned char*, int), int* value)
 
 	FUNC_ENTRY;
 	*value = 0;
+	int rc = MQTTPACKET_READ_ERROR;
+
+		if (++len > MAX_NO_OF_REMAINING_LENGTH_BYTES)
+		{
+			rc = MQTTPACKET_READ_ERROR;	/* bad data */
+			goto exit;
+		}
+		rc = (*getcharfn)(&c, 1);
+		if (rc != 1)
+			goto exit;
+		*value += (c & 127) * multiplier;
+		multiplier *= 128;
 	while ((c & 128) != 0)
 	{
-		int rc = MQTTPACKET_READ_ERROR;
+		rc = MQTTPACKET_READ_ERROR;
 
 		if (++len > MAX_NO_OF_REMAINING_LENGTH_BYTES)
 		{
@@ -332,8 +344,19 @@ static int MQTTPacket_decodenb(MQTTTransport *trp)
 		trp->multiplier = 1;
 		trp->rem_len = 0;
 	}
+	int frc;
+		if (trp->len >= MAX_NO_OF_REMAINING_LENGTH_BYTES)
+			goto exit;
+		if ((frc=(*trp->getfn)(trp->sck, &c, 1)) == -1)
+			goto exit;
+		if (frc == 0){
+			rc = 0;
+			goto exit;
+		}
+		++(trp->len);
+		trp->rem_len += (c & 127) * trp->multiplier;
+		trp->multiplier *= 128;
 	while ((c & 128) != 0){
-		int frc;
 		if (trp->len >= MAX_NO_OF_REMAINING_LENGTH_BYTES)
 			goto exit;
 		if ((frc=(*trp->getfn)(trp->sck, &c, 1)) == -1)

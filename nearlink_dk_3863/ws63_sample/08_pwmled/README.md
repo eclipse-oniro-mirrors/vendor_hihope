@@ -44,6 +44,8 @@
 
 烧录文件后，按下reset按键，程序开始运行，红绿灯板会亮黄色灯（对应核心板gpio10），并且亮度会逐渐变化：暗--亮
 
+如果调用OH的PWM接口，出现PWM通道不能正常输出的情况，可以用vendor_hihope/nearlink_dk_3863/ws63_sample/08_pwmled/pwm_patch/hal_iot_pwm.c替换
+device/soc/hisilicon/ws63v100/adapter/hals/iot_hardware/wifiiot_lite/hal_iot_pwm.c，重新编译烧录再测试
 
 
 
