@@ -305,6 +305,17 @@
           "features": []
         }
       ]
+    },
+    {
+      "subsystem": "telephony",
+      "components": [
+        {
+          "component": "core_service",
+          "syscap": [
+            "SystemCapability.Telephony.CoreService.Esim = false"
+          ]
+        }
+      ]
     }
   ]
 }
