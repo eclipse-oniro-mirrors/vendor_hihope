@@ -316,6 +316,17 @@
           ]
         }
       ]
-    }
+    },
+    {
+      "subsystem": "location",
+      "components": [
+        {
+          "component": "location",
+          "syscap": [
+              "SystemCapability.Location.Location.GeoFence = false"
+          ]
+        }
+      ]
+    },
   ]
 }
