@@ -309,7 +309,7 @@
         {
           "component": "location",
           "syscap": [
-              "SystemCapability.Location.Location.GeoFence = false"
+              "SystemCapability.Location.Location.Geofence = false"
           ]
         }
       ]
