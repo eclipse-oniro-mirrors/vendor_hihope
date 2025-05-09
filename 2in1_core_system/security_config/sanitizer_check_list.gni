@@ -1429,6 +1429,7 @@ bypass_graphic_2d = [
   "rs_graphic_test_src",
   "rs_graphic_test",
   "rs_graphic_test_main",
+  "font_asset",
 ]
 
 # security_component_manager : //base/security/security_component_manager
