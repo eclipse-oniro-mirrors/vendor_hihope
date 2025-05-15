@@ -226,6 +226,10 @@
           "features": [
             "alsa_lib_feature_config_enable = true"
           ]
+        },
+        {
+          "component": "libusb",
+          "features": []
         }
       ]
     },
