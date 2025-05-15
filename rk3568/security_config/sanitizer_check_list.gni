@@ -500,6 +500,9 @@ bypass_time_service = [ "time_system_ability_static" ]
 # imf : //base/inputmethod/imf
 bypass_imf = [
   "inputmethod_client",  # client target, not required to enable cfi
+  "inputmethod_client_fuzz_static",  # test target, not required to enable cfi
+  "inputmethod_ability_fuzz_static",  # test target, not required to enable cfi
+  "inputmethod_fuzztest_common",  # test target, not required to enable cfi
 ]
 
 # location : //base/location
