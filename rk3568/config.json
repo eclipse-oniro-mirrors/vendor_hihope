@@ -228,6 +228,10 @@
           ]
         },
         {
+          "component": "protobuf",
+          "features": []
+        },
+        {
           "component": "libusb",
           "features": []
         }
