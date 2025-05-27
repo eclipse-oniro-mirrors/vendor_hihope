@@ -192,6 +192,10 @@
       "subsystem": "thirdparty",
       "components": [
         {
+          "component": "rust_libc",
+          "features": []
+        },
+        {
           "component": "libuv",
           "features": [
             "libuv_use_ffrt = true"
