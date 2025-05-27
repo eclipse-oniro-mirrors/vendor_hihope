@@ -208,6 +208,10 @@
           ]
         },
         {
+          "component": "pcre2",
+          "features": []
+        },
+        {
           "component": "noto-cjk",
           "features": []
         },
