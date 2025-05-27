@@ -219,6 +219,7 @@ bypass_netmanager_base = [
   "socket_permission",
   "netconn_ndk",
   "netsys_controller_static",
+  "net_conn_manager_static",
 ]
 
 # camera_framework : //foundation/multimedia/camera_framework
