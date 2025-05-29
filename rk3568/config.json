@@ -297,6 +297,15 @@
           "features": []
         }
       ]
+    },
+    {
+      "subsystem": "sdk",
+      "components": [
+        {
+          "component": "sdk",
+          "features": []
+        }
+      ]
     }
   ]
 }
