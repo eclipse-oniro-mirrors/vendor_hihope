@@ -240,6 +240,10 @@
           "features": []
         },
         {
+          "component": "abseil-cpp",
+          "features": []
+        },
+        {
           "component": "libusb",
           "features": []
         }
