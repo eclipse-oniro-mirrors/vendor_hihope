@@ -1002,6 +1002,7 @@ bypass_ability_runtime = [
   "callee_napi",  #cfi not configured
   "actionextensionability_napi",  #cfi not configured
   "extensioncontext_napi",  #cfi not configured
+  "insightintentdecorator_napi",  #cfi not configured
   "insightintentdriver_napi",  #cfi not configured
   "abilityconstant",  #cfi not configured
   "missionmanager",  #cfi not configured
