@@ -1011,7 +1011,6 @@ bypass_ability_runtime = [
   "tools_aa_source_set",  #cfi not configured
   "form_extension",  #cfi not configured
   "extension_manager",  #cfi not configured
-  "mission_manager",  #cfi not configured
   "auto_fill_manager",  #cfi not configured
   "app_context",  #cfi not configured
   "dataobs_manager",  #cfi not configured
