@@ -142,7 +142,10 @@
       "components": [
         {
           "component": "netmanager_ext",
-          "features": []
+          "features": [],
+          "syscap": [
+            "SystemCapability.Communication.NetManager.NetFirewall = false"
+          ]
         },
         {
           "component": "bluetooth_service",
