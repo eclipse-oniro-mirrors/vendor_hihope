@@ -138,7 +138,7 @@ int NetworkConnect(Network* n, char* addr, int port)
 			res = res->ai_next;
 		}
 
-		if (result->ai_family == AF_INET)
+		if (result && result->ai_family == AF_INET)
 		{
 			address.sin_port = htons(port);
 			address.sin_family = family = AF_INET;

@@ -145,7 +145,7 @@ int* sock = &mysock;
 		}
 
 #if defined(AF_INET6)
-		if (result->ai_family == AF_INET6)
+		if (result && result->ai_family == AF_INET)
 		{
 			address6.sin6_port = htons(port);
 			address6.sin6_family = family = AF_INET6;
