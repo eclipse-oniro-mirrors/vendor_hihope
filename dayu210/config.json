@@ -38,7 +38,8 @@
           "component": "ace_engine",
           "features": [
             "ace_engine_feature_enable_accessibility = true",
-            "ace_engine_feature_enable_web = true"
+            "ace_engine_feature_enable_web = true",
+            "ace_engine_feature_enable_upgrade_skia = true"
           ]
         },
         {
@@ -172,6 +173,12 @@
         {
           "component": "video_processing_engine",
           "features": []
+        },
+        {
+          "component": "image_framework",
+          "features": [
+            "image_framework_feature_upgrade_skia = true"
+          ]
         }
       ]
     },
@@ -220,6 +227,12 @@
           "features": [
             "qrcodegen_feature_ace_engine_qrcode_able = true"
           ]
+        },
+        {
+          "component": "skia",
+          "features": [
+            "skia_feature_upgrade = true"
+          ]
         }
       ]
     },
@@ -253,7 +266,8 @@
           "component": "graphic_2d",
           "features": [
             "graphic_2d_feature_rs_enable_eglimage = true",
-            "graphic_2d_feature_use_texgine = true"
+            "graphic_2d_feature_use_texgine = true",
+            "graphic_2d_feature_upgrade_skia = true"
           ]
         },
         {
