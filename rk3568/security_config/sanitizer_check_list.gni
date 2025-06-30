@@ -220,6 +220,7 @@ bypass_netmanager_base = [
   "netconn_ndk",
   "netsys_controller_static",
   "net_conn_manager_static",
+  "net_policy_manager_static_no_cfi",
 ]
 
 # camera_framework : //foundation/multimedia/camera_framework
