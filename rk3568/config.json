@@ -52,6 +52,10 @@
       "subsystem": "hdf",
       "components": [
         {
+          "component": "drivers_interface_lpplayer",
+          "features":[]
+        },
+        {
           "component": "drivers_interface_ril",
           "features": []
         },
