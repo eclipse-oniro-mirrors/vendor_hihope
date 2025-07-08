@@ -316,6 +316,10 @@
           "features": []
         },
         {
+          "component": "graphic_utils_lite",
+          "features": []
+        },
+        {
           "component": "vulkan-loader",
           "features": []
         },
