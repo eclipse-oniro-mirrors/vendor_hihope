@@ -49,6 +49,17 @@
       ]
     },
     {
+      "subsystem": "developtools",
+      "components": [
+        {
+          "component": "smartperf_host",
+          "features": [
+            "smartperf_host_device = true"
+          ]
+        }
+      ]
+    },
+    {
       "subsystem": "hdf",
       "components": [
         {
