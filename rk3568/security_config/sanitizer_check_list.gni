@@ -636,6 +636,7 @@ bypass_qos_manager = [
 bypass_call_manager = [
   "call",  # napi target, not required to enable cfi
   "tel_call_manager_api",  # client target, not required to enable cfi
+  "telephony_call_taihe_native", # taihe target, not required to enable cif
 ]
 
 bypass_cellular_call = []
@@ -648,9 +649,13 @@ bypass_core_service = [
 
 bypass_rill_adapter = []
 
-bypass_sms_mms = []
+bypass_sms_mms = [
+  "telephony_sms_taihe_native", # taihe target, not required to enable cfi
+]
 
-bypass_state_registry = []
+bypass_state_registry = [
+  "telephony_observer_taihe_native", # taihe target, not required to enable cif
+]
 
 bypass_telephony_data = []
 
