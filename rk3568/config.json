@@ -374,6 +374,15 @@
           "features": []
         }
       ]
+    },
+    {
+      "subsystem": "global",
+      "components": [
+        {
+          "component": "font_manager",
+          "features": []
+        }
+      ]
     }
   ]
 }
