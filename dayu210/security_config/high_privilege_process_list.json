@@ -16,6 +16,11 @@
             "gid": "root"
         },
         {
+            "name": "hybridspawn",
+            "uid": "root",
+            "gid": "root"
+        },
+        {
             "name": "console",
             "uid": "root"
         },
