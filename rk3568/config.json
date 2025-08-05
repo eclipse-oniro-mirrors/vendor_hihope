@@ -270,6 +270,10 @@
         {
           "component": "optimized_routines",
           "features": []
+        },
+        {
+          "component": "typescript",
+          "features": []
         }
       ]
     },
@@ -380,6 +384,15 @@
       "components": [
         {
           "component": "font_manager",
+          "features": []
+        }
+      ]
+    },
+    {
+      "subsystem": "developtools",
+      "components": [
+        {
+          "component": "ace_ets2bundle",
           "features": []
         }
       ]
