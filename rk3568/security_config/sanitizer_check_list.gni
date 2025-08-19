@@ -647,6 +647,8 @@ bypass_cellular_call = []
 bypass_core_service = [
   "vcard",  #cfi not configured
   "libtel_vcard",  #cfi not configured
+  "ffrt_mocked", #test target, not required to enable cfi
+  "core_service_test_base", #test target, not required to enable cfi
 ]
 
 bypass_rill_adapter = []
