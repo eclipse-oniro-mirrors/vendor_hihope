@@ -249,6 +249,10 @@
         {
           "component": "libusb",
           "features": []
+        },
+        {
+          "component": "typescript",
+          "features": []
         }
       ]
     },
@@ -345,6 +349,15 @@
       "components": [
         {
           "component": "sdk",
+          "features": []
+        }
+      ]
+    },
+    {
+      "subsystem": "developtools",
+      "components": [
+        {
+          "component": "ace_ets2bundle",
           "features": []
         }
       ]
