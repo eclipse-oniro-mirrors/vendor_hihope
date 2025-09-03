@@ -639,9 +639,13 @@ bypass_qos_manager = [
 bypass_call_manager = [
   "call",  # napi target, not required to enable cfi
   "tel_call_manager_api",  # client target, not required to enable cfi
+  "call_manager_test_base",  # client target, not required to enable cfi
+
 ]
 
-bypass_cellular_call = []
+bypass_cellular_call = [
+    "cellular_call_test_base",  # client target, not required to enable cfi
+]
 
 # core_service : //base/telephony/core_service
 bypass_core_service = [
