@@ -1200,6 +1200,7 @@ bypass_hiview = [
   "event_store_config_source",
   "eventlogger_adapter_logcatcher",
   "faultlogger_service_fuzz_src",
+  "faultlog_ext_zidl_proxy_for_test",
 ]
 
 bypass_device_standby = []
