@@ -1457,6 +1457,7 @@ bypass_hdf_core = [
   "libhdf_host",
   "hdf_devhost",
   "libhdi",
+  "libhdi_base",
   "libpub_utils",
   "libhdf_utils",
   "libhdf_platform",
