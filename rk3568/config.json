@@ -286,6 +286,10 @@
         {
           "component": "typescript",
           "features": []
+        },
+        {
+          "component": "libtiff",
+          "features": []
         }
       ]
     },
