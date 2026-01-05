@@ -12,8 +12,7 @@
 # limitations under the License.
 
 import("//build/ohos.gni")
-import("//drivers/hdf_core/adapter/uhdf2/uhdf.gni")
-import("$hdf_framework_path/tools/hc-gen/hc_gen.gni")
+import("//build/config/components/hc_gen/hc_gen.gni")
 
 hc_gen("build_codec_adapter_capabilities") {
   sources = [ rebase_path(
