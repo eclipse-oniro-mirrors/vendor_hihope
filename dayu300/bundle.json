@@ -1,0 +1,28 @@
+{
+  "name": "@ohos/phytium_dayu300",
+  "version": "5.1",
+  "license": "Apache License 2.0",
+  "private": false,
+  "scripts": {},
+  "dirs": [""],
+  "component": {
+    "name": "product_dayu300",
+    "subsystem": "product_dayu300",
+    "syscap": [],
+    "features": [],
+    "deps": {
+      "components": [],
+      "third_party": []
+    },
+    "build": {
+      "sub_component": [
+        "//vendor/hihope/dayu300/resourceschedule:resourceschedule",
+        "//vendor/hihope/dayu300/preinstall-config:preinstall-config",
+        "//vendor/hihope/dayu300/hdf_config/uhdf:hdf_config",
+        "//vendor/hihope/dayu300/etc:product_etc_conf",
+        "//vendor/hihope/dayu300/hals/audio:hdf_audio_config",
+        "//vendor/hihope/dayu300/window_config:window_config"
+      ]
+    }
+  }
+}
