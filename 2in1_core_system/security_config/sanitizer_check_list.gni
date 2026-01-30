@@ -1455,7 +1455,6 @@ bypass_device_manager = [
 bypass_hdf_core = [
   "libhdf_ipc_adapter",
   "libhdf_host",
-  "hdf_devhost",
   "libhdi",
   "libhdi_base",
   "libpub_utils",
@@ -1468,6 +1467,11 @@ bypass_hdf_core = [
   "libvdi_sample1_driver",
   "libvdi_sample1_symbol",
   "libvdi_sample2_driver",
+]
+
+# drivers_adapter : //drivers/peripheral/adapter
+bypass_drivers_adapter = [
+  "hdf_devhost",
 ]
 
 # The list contains both part name that need to enable cfi and disable debug mode, and corresponding bypass_xxx list that bypass the cfi check
@@ -1938,6 +1942,10 @@ enable_cfi_part_and_bypass_list = [
   [
     "hdf_core",
     bypass_hdf_core,
+  ],
+  [
+    "drivers_adapter",
+    bypass_drivers_adapter,
   ],
 ]
 

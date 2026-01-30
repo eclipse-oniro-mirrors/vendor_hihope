@@ -103,6 +103,14 @@
           "features": [
             "hdf_core_platform_test_support = true"
           ]
+        },
+        {
+          "component": "drivers_tools",
+          "features": []
+        },
+        {
+          "component": "drivers_adapter",
+          "features": []
         }
       ]
     },
