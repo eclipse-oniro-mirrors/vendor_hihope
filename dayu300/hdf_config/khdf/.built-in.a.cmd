@@ -1,1 +1,0 @@
-savedcmd_drivers/hdf/khdf/../../../../../vendor/hihope/dayu300/hdf_config/khdf/built-in.a := rm -f drivers/hdf/khdf/../../../../../vendor/hihope/dayu300/hdf_config/khdf/built-in.a;  printf "drivers/hdf/khdf/../../../../../vendor/hihope/dayu300/hdf_config/khdf/%s " hdf_hcs_hex.o | xargs ar cDPrST drivers/hdf/khdf/../../../../../vendor/hihope/dayu300/hdf_config/khdf/built-in.a

@@ -61,6 +61,7 @@
                 <policyitem type="copyright" name="Copyright 2009-2012 Broadcom Corporation" path=".*" rule="may" group="defaultGroup" filefilter="copyrightPolicyFilter" desc=""/>
                 <policyitem type="copyright" name="Copyright (C) 1999-2012 Broadcom Corporation" path=".*" rule="may" group="defaultGroup" filefilter="copyrightPolicyFilter" desc=""/>
                 <policyitem type="copyright" name="WinnerMicro Co., Ltd." path=".*" rule="may" group="defaultGroup" filefilter="copyrightPolicyFilter" desc="Developed By Hihope"/>
+                <policyitem type="copyright" name="Phytium Technology Co., Ltd." path=".*" rule="may" group="defaultGroup" filefilter="copyrightPolicyFilter" desc="Developed By Phytium Technology"/>
 	    </policy>
         </policylist>
 
@@ -73,6 +74,8 @@
                  <filteritem type="filepath" name="ipcamera/bluetooth/BCM4362A2.hcd" desc="AP6257S bluetooth firmware"/>
                  <filteritem type="filepath" name="dayu210/bluetooth/BCM4362A2.hcd" desc="AP6257S bluetooth firmware"/>
                 <filteritem type="filepath" name="dayu210/bluetooth/NOTICE" desc="NOTICE file"/>
+                <filteritem type="filepath" name="dayu300/bluetooth/BCM4362A2.hcd" desc="AP6257S bluetooth firmware"/>
+                <filteritem type="filepath" name="dayu300/bluetooth/NOTICE" desc="NOTICE file"/>
             </filefilter>
             <filefilter name="defaultPolicyFilter" desc="Filters for compatibility，license header policies">
 		    <filteritem type="filename" name="BUILD.gn" desc="Compilation scripts do not declare license"/>
@@ -82,6 +85,7 @@
 		    <!-- <filteritem type="filename" name="fstab" desc="This type configuration file can not declare copyright"/> -->
                 <filteritem type="filepath" name="rk3568/bluetooth/BUILD.gn" desc="Describe the reason for filtering scan results"/>
                 <filteritem type="filepath" name="dayu210/bluetooth/BUILD.gn" desc="Describe the reason for filtering scan results"/>
+                <filteritem type="filepath" name="dayu300/bluetooth/BUILD.gn" desc="Describe the reason for filtering scan results"/>
 		<filteritem type="filepath" name="neptune_iotlink_demo/ble/BUILD.gn" desc="InvalidCopyright"/> 
 	    </filefilter>
             <filefilter name="licenseFileNamePolicyFilter" desc="Filters for LICENSE file policies">
