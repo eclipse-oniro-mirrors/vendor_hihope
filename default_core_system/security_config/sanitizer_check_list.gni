@@ -1467,8 +1467,8 @@ bypass_hdf_core = [
   "libvdi_sample2_driver",
 ]
 
-# drivers_adapter : //drivers/peripheral/adapter
-bypass_drivers_adapter = [
+# drivers_devhost : //drivers/peripheral/devhost
+bypass_drivers_devhost = [
   "hdf_devhost",
 ]
 
@@ -1942,8 +1942,8 @@ enable_cfi_part_and_bypass_list = [
     bypass_hdf_core,
   ],
   [
-    "drivers_adapter",
-    bypass_drivers_adapter,
+    "drivers_devhost",
+    bypass_drivers_devhost,
   ],
 ]
 
