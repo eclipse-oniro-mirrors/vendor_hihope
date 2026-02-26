@@ -112,7 +112,7 @@
           "features": []
         },
         {
-          "component": "drivers_adapter",
+          "component": "drivers_devhost",
           "features": []
         }
       ]
