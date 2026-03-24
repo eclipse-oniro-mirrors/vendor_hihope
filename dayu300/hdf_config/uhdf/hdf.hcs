@@ -1,0 +1,6 @@
+#include "device_info.hcs"
+#include "media_codec_capabilities_ftv310.hcs"
+
+root {
+    module = "default";
+}
