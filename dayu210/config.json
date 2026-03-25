@@ -243,6 +243,10 @@
           "features": [
             "skia_feature_upgrade = true"
           ]
+        },
+        {
+          "component": "vma",
+          "features": []
         }
       ]
     },
