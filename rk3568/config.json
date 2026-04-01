@@ -397,18 +397,6 @@
       ]
     },
     {
-      "subsystem": "filemanagement",
-      "components": [
-        {
-          "component": "dfs_service",
-          "syscap": [
-            "SystemCapability.FileManagement.DistributedFileService.CloudSync.Core = false",
-            "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager = false"
-          ]
-        }
-      ]
-    },
-    {
       "subsystem": "sdk",
       "components": [
         {
