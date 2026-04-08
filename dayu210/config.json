@@ -323,6 +323,15 @@
           "features": []
         }
       ]
+    },
+    {
+      "subsystem": "officeservice",
+      "components": [
+        {
+          "component": "object_editor",
+          "features": []
+        }
+      ]
     }
   ]
 }
