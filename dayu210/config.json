@@ -245,6 +245,10 @@
           ]
         },
         {
+          "component": "expat",
+          "features": []
+        },
+        {
           "component": "vma",
           "features": []
         }
