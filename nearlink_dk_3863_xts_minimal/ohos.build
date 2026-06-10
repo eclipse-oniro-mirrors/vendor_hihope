@@ -1,0 +1,10 @@
+{
+  "parts": {
+    "product_nearlink_dk_3863_xts_minimal": {
+      "module_list": [
+        "//vendor/hihope/nearlink_dk_3863_xts_minimal:nearlink_dk_3863_xts_minimal"
+      ]
+    }
+  },
+  "subsystem": "product_nearlink_dk_3863_xts_minimal"
+}
