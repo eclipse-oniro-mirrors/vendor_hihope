@@ -1,0 +1,208 @@
+From 0ca2f8e85e9afb47888890071c07f640ca55405e Mon Sep 17 00:00:00 2001
+From: zhouge941 <zhouge7@huawei.com>
+Date: Fri, 26 Jun 2026 09:54:04 +0800
+Subject: [PATCH 1/1] minimal_3863_sdk_build
+
+Change-Id: I0f8f6c53247bed5de630c0ef737e3de17260b61a
+---
+ ws63v100/sdk/BUILD.gn                         | 12 ++++++++---
+ .../ws63/ws63_liteos_application/main.c       | 21 +++++++++++++++++--
+ ws63v100/sdk/build/cmake/build_elf_info.cmake |  4 ++++
+ .../build/config/target_config/ws63/config.py | 12 +++++++++++
+ .../sdk/kernel/osal/src/liteos/osal_debug.c   |  6 ++++++
+ ws63v100/sdk/libs_url/ws63/cmake/ohos.cmake   |  4 ++--
+ ws63v100/sdk/middleware/utils/dfx/log/log.c   |  6 ++++++
+ 7 files changed, 58 insertions(+), 7 deletions(-)
+
+diff --git a/ws63v100/sdk/BUILD.gn b/ws63v100/sdk/BUILD.gn
+index 19e83355..44490696 100644
+--- a/ws63v100/sdk/BUILD.gn
++++ b/ws63v100/sdk/BUILD.gn
+@@ -16,8 +16,12 @@ import("//build/lite/config/component/lite_component.gni")
+ declare_args() {
+   build_ws63_sdk_open = false
+   enable_hos_vendor_wifiiot_xts = false
++  enable_oh_device_lite_auth = true
++  build_ws63_mode = "normal"    # normal/minimal/full
++  enable_product_config_patch = false
+ }
+ 
++build_env="BUILD_MODE=${build_ws63_mode} ENABLE_PRODUCT_CONFIG_PATCH=${enable_product_config_patch}"
+ group("nearllink_sdk") {
+   deps = [ ":sdk" ]
+ }
+@@ -25,7 +29,7 @@ group("nearllink_sdk") {
+ build_ext_component("run_sdk_build") {
+   exec_path = rebase_path(".", root_build_dir)
+   outdir = rebase_path(root_out_dir)
+-  command = "bash hm_build.sh $outdir $build_ws63_sdk_open"
++  command ="env $build_env bash hm_build.sh $outdir $build_ws63_sdk_open"
+ 
+   #  command = "python3 build.py -c ws63-liteos-app"
+   #  if (host_os == "win") {
+@@ -35,9 +39,11 @@ build_ext_component("run_sdk_build") {
+   #  }
+   deps = [
+     ":sdk",
+-    "//base/security/device_auth/frameworks/deviceauth_lite:hichainsdk",
+-    "//build/lite:ohos",
++    "//build/lite:ohos"
+   ]
++  if (enable_oh_device_lite_auth) {
++    deps += ["//base/security/device_auth/frameworks/deviceauth_lite:hichainsdk"]
++  }
+   if (enable_hos_vendor_wifiiot_xts) {
+     deps += [ "//build/lite/config/subsystem/xts:xts" ]
+   }
+diff --git a/ws63v100/sdk/application/ws63/ws63_liteos_application/main.c b/ws63v100/sdk/application/ws63/ws63_liteos_application/main.c
+index 7707d41d..bacfb379 100755
+--- a/ws63v100/sdk/application/ws63/ws63_liteos_application/main.c
++++ b/ws63v100/sdk/application/ws63/ws63_liteos_application/main.c
+@@ -131,6 +131,20 @@
+ #define TASK_PRIORITY_BTH_RECV  10
+ #define TASK_PRIORITY_SRV       12
+ 
++#ifdef TASK_STACK_MINIMAL
++#define STACK_SIZE_BASELINE     0x200
++#define FS_EXTEND_STACK         (STACK_SIZE_BASELINE * 3)
++#define APP_STACK_SIZE          0x800
++#define TESTSUITE_STACK_SIZE    0x1000
++#define HSO_STACK_SIZE          0x400
++#define BT_STACK_SIZE           (0x800)
++#define BT_SDK_STACK_SIZE       0x400
++#define BTH_SDK_STACK_SIZE      0x400
++#define BTH_RECV_STACK_SIZE     0x400
++#define BTH_SERVICE_STACK_SIZE (0x800)
++#define AT_STACK_SIZE           0x800
++#define WIFI_STACK_SIZE         0x2000
++#else
+ #define STACK_SIZE_BASELINE     0x200
+ #define FS_EXTEND_STACK         (STACK_SIZE_BASELINE * 3)
+ #define APP_STACK_SIZE          0x800
+@@ -143,7 +157,7 @@
+ #define BTH_SERVICE_STACK_SIZE (STACK_SIZE_BASELINE * 8)
+ #define AT_STACK_SIZE           0x2000
+ #define WIFI_STACK_SIZE         0x2000
+-
++#endif
+ #ifdef CONFIG_RADAR_SERVICE
+ #define TASK_PRIORITY_RD_D        23
+ #define TASK_PRIORITY_RD_F        24
+@@ -254,6 +268,9 @@ static void patch_init(void)
+ 
+ static uint32_t g_at_uart_recv_cnt = 0;
+ #ifndef CHIP_EDA
++#define log_get_missed_messages_count() 0
++#define log_get_all_messages_count() 0
++#define panic(...)
+ static void app_main(const void *unused)
+ {
+     LOS_MEM_POOL_STATUS status;
+@@ -766,7 +783,7 @@ __attribute__((section(".text.runtime.init"))) void runtime_init(void)
+     dyn_mem_cfg();
+ #ifndef CHIP_EDA
+     do_relocation();
+-#endif
++    #endif
+     /* Jump to main */
+     main();
+ }
+diff --git a/ws63v100/sdk/build/cmake/build_elf_info.cmake b/ws63v100/sdk/build/cmake/build_elf_info.cmake
+index 063f5032..e68f9786 100755
+--- a/ws63v100/sdk/build/cmake/build_elf_info.cmake
++++ b/ws63v100/sdk/build/cmake/build_elf_info.cmake
+@@ -154,11 +154,15 @@ else()
+ 
+ if(((DEFINED ROM_COMPONENT AND ${PATCH}) AND NOT ${ROM_CHECK}) OR DEFINED ROM_SYM_PATH)
+     set(PATCH_CONFIG ${ROOT_DIR}/build/config/target_config/${CHIP}/patch_config)
++if (DEFINED SKIP_ROM_PATCH)
++# skip patch
++else()
+     add_custom_target(GENERAT_ROM_PATCH ALL
+         COMMAND ${Python3_EXECUTABLE} ${GEN_PATCH} ${BIN_NAME}.bin ${BIN_NAME}_rom.bin ${BIN_NAME}.nm ${PATCH_CONFIG} ${CORE} ${TARGET_COMMAND} ${PROJECT_BINARY_DIR}
+         WORKING_DIRECTORY ${PROJECT_BINARY_DIR}
+ 		DEPENDS GENERAT_BIN GENERAT_NM
+     )
+ endif()
++endif()
+ 
+ endif()
+diff --git a/ws63v100/sdk/build/config/target_config/ws63/config.py b/ws63v100/sdk/build/config/target_config/ws63/config.py
+index 0bfd66b5..ea18a133 100755
+--- a/ws63v100/sdk/build/config/target_config/ws63/config.py
++++ b/ws63v100/sdk/build/config/target_config/ws63/config.py
+@@ -275,3 +275,15 @@ target_copy = {
+ target_group = {
+ 
+ }
++
++import sys
++import os
++if (os.getenv('ENABLE_PRODUCT_CONFIG_PATCH') == 'true'):
++    # ========== 导入的产品配置补丁 ==========
++    try:
++        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
++        import config_patch_nearlink
++        config_patch_nearlink.patch_target(target)
++        print("\n[INFO] Applied nearlink_dk_3863_xts_minimal configuration patch")
++    except ImportError:
++        print("\n[WARN] config_patch_nearlink not found, skip nearlink product patch")
+diff --git a/ws63v100/sdk/kernel/osal/src/liteos/osal_debug.c b/ws63v100/sdk/kernel/osal/src/liteos/osal_debug.c
+index ac5d7d08..15c63c15 100755
+--- a/ws63v100/sdk/kernel/osal/src/liteos/osal_debug.c
++++ b/ws63v100/sdk/kernel/osal/src/liteos/osal_debug.c
+@@ -44,6 +44,12 @@ void osal_printk(const char *fmt, ...)
+         return;
+     }
+ 
++#ifndef LOG_SUPPORT
++    va_start(args, fmt);
++    UartVprintf(fmt, args);  // 直接输出到 UART，不经过缓冲区
++    va_end(args);
++    return;
++#endif
+     va_start(args, fmt);
+ #ifdef HW_LITEOS_OPEN_VERSION_NUM
+     ConsoleVprintf(fmt, args);
+diff --git a/ws63v100/sdk/libs_url/ws63/cmake/ohos.cmake b/ws63v100/sdk/libs_url/ws63/cmake/ohos.cmake
+index 87341d3a..004d5a53 100755
+--- a/ws63v100/sdk/libs_url/ws63/cmake/ohos.cmake
++++ b/ws63v100/sdk/libs_url/ws63/cmake/ohos.cmake
+@@ -8,7 +8,7 @@ if(${TARGET_COMMAND} MATCHES "ws63-liteos-xts")
+             "broadcast" "hal_file_static" "hctest" "hiview_lite_static" "init_log" "module_ActsDfxFuncTest" "native_file" "udidcomm"
+             "cjson_static" "hal_sys_param" "hichainsdk" "hota" "init_utils" "module_ActsHieventLiteTest" "param_client_lite"
+             "devattest_core" "hal_sysparam" "hievent_lite_static" "huks_3.0_sdk"  "module_ActsHuksHalFunctionTest" "samgr"
+-            "blackbox_lite"  "hidumper_mini")
++            "blackbox_lite"  "hidumper_mini" "product")
+ elseif(${TARGET_COMMAND} MATCHES "ws63-liteos-app")
+ set(COMPONENT_LIST
+ 
+@@ -16,7 +16,7 @@ set(COMPONENT_LIST
+         "broadcast" "hal_file_static"   "init_log"  "native_file" "udidcomm"
+         "cjson_static" "hal_sys_param" "hichainsdk" "hota" "init_utils"  "param_client_lite"
+         "hiview_lite_static" "hal_sysparam" "hievent_lite_static" "huks_3.0_sdk"   "samgr" "blackbox_lite" "hal_iothardware" "wifiservice"
+-        "hidumper_mini" "ble_lite"  "sle_lite")
++        "hidumper_mini" "ble_lite"  "sle_lite" "product")
+ endif()
+ 
+ 
+diff --git a/ws63v100/sdk/middleware/utils/dfx/log/log.c b/ws63v100/sdk/middleware/utils/dfx/log/log.c
+index 9fb42747..912e6856 100755
+--- a/ws63v100/sdk/middleware/utils/dfx/log/log.c
++++ b/ws63v100/sdk/middleware/utils/dfx/log/log.c
+@@ -213,6 +213,12 @@ static void log_event_trigger(void)
+ #endif
+ void log_event(const uint8_t *buffer, uint16_t length)
+ {
++#ifndef LOG_SUPPORT
++    UNUSED(buffer);
++    UNUSED(length);
++    return;
++#endif
++
+ #if (USE_COMPRESS_LOG_INSTEAD_OF_SDT_LOG == NO)
+     log_ret_t lret;
+     uint32_t lb_available = 0;
+-- 
+2.43.0
+

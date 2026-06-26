@@ -12,4 +12,38 @@
 # limitations under the License.
 
 group("nearlink_dk_3863_xts_minimal") {
+    deps = [
+        ":apply_patches",
+        "wraps:product",
+        ":copy_config_to_sdk"
+    ]
+}
+
+# 构建前应用 patch 到 SOC 仓（最先执行）
+action("apply_patches") {
+    script = "apply_patches.py"
+    
+    # 输入：只需要脚本本身（patch 文件由脚本自动扫描）
+    inputs = [
+        "apply_patches.py",
+    ]
+    
+    # 输出：虚拟文件（GN 要求 action 必须有 outputs）
+    outputs = [
+        "$root_out_dir/.patches_applied",
+    ]
+    
+    # 将输出文件路径作为参数传递给脚本
+    args = [
+        rebase_path(outputs[0]),
+    ]
+}
+
+
+# 构建时拷贝 config_patch.py 到 SDK 目录
+copy("copy_config_to_sdk") {
+    sources = [ "config_patch.py" ]
+    outputs = [ 
+        "$root_build_dir/../../../device/soc/hisilicon/ws63v100/sdk/build/config/target_config/ws63/config_patch_nearlink.py"
+    ]
 }
