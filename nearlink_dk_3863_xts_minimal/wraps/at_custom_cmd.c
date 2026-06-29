@@ -1,7 +1,16 @@
-/**
- * Copyright (c) 2024 HiHope
- * 
- * nearlink_dk_3863_xts_minimal 产品自定义 AT 命令实现
+/*
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #include "at.h"
@@ -15,16 +24,20 @@ extern void OsDbgTskInfoGet(uint32_t task_mask);
 typedef struct {
     unsigned int uwTotalUsedSize;
     unsigned int uwTotalFreeSize;
+    unsigned int uwMaxFreeNodeSize;
+    unsigned int uwUsedNodeNum;
+    unsigned int uwFreeNodeNum;
+    unsigned int uwUsageWaterLine;
 } LOS_MEM_POOL_STATUS;
 
 extern unsigned int LOS_MemInfoGet(void *pool, LOS_MEM_POOL_STATUS *status);
-extern unsigned char m_aucSysMem0[];
+extern unsigned char *m_aucSysMem0;
 
 // PRINT 宏定义
 #define PRINT osal_printk
 
 // 内存使用打印函数
-static void print_mem_usage(const char *tag)
+void print_mem_usage(const char *tag)
 {
     LOS_MEM_POOL_STATUS status;
     LOS_MemInfoGet(m_aucSysMem0, &status);
@@ -43,7 +56,7 @@ static at_ret_t at_sys_info(void)
 // AT命令表
 static const at_cmd_entry_t at_custom_cmd_table[] = {
     {
-        "SYSINFO",
+        "SYSINFO2",
         100,
         0,
         NULL,
@@ -54,8 +67,7 @@ static const at_cmd_entry_t at_custom_cmd_table[] = {
     },
 };
 
-// AT命令注册函数（弱引用，供 main.c 调用）
-__attribute__((weak)) void at_custom_cmd_register(void)
+void at_custom_cmd_register(void)
 {
     // 注册自定义AT命令
     uapi_at_cmd_table_register(at_custom_cmd_table, 

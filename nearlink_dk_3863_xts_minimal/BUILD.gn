@@ -1,4 +1,4 @@
-# Copyright (C) 2026 HiHope Open Source Organization .
+# Copyright (C) 2026 Huawei Device Co., Ltd.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -13,31 +13,12 @@
 
 group("nearlink_dk_3863_xts_minimal") {
     deps = [
-        ":apply_patches",
         "wraps:product",
         ":copy_config_to_sdk"
     ]
 }
 
-# 构建前应用 patch 到 SOC 仓（最先执行）
-action("apply_patches") {
-    script = "apply_patches.py"
-    
-    # 输入：只需要脚本本身（patch 文件由脚本自动扫描）
-    inputs = [
-        "apply_patches.py",
-    ]
-    
-    # 输出：虚拟文件（GN 要求 action 必须有 outputs）
-    outputs = [
-        "$root_out_dir/.patches_applied",
-    ]
-    
-    # 将输出文件路径作为参数传递给脚本
-    args = [
-        rebase_path(outputs[0]),
-    ]
-}
+
 
 
 # 构建时拷贝 config_patch.py 到 SDK 目录

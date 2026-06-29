@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
-# encoding=utf-8
-# ============================================================================
-# @brief    Target Definitions File
-# Copyright (c) 2020 HiSilicon (Shanghai) Technologies CO., LIMITED.
+# Copyright (c) 2026 Huawei Device Co., Ltd.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -14,7 +11,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# ============================================================================
 import os
 
 # ========== Kconfig 配置文件动态修改功能 ==========
@@ -157,6 +153,8 @@ def patch_target(target):
         "MBEDTLS_HARDEN_OPEN",
         'CONFIG_UART_SUPPORT_LPM',
         "_PRE_RADAR_CCA_SW_OPT",
+        "BUILD_WS63_MINIMAL",
+        "AT_STACK_SIZE=0x700"
     ]
  
     target["ws63-liteos-xts"]["ram_component"] = [
@@ -249,21 +247,24 @@ def patch_target(target):
     ]
     ram_component_ohos_xts = [
         "module_ActsDfxFuncTest",
-        "module_ActsBootstrapTest",
-        "module_ActsSamgrTest", 
         "module_ActsHieventLiteTest",
+        "module_ActsBootstrapTest",
+        "module_ActsParameterTest",
+        "module_ActsSamgrTest", 
         "hctest", 
     ]
-    target["ws63-liteos-xts"]["ram_component"] += ram_component_sdk_bt_base if 0 else []
-    target["ws63-liteos-xts"]["ram_component"] += ram_component_ohos_base if 1 else []
-    target["ws63-liteos-xts"]["ram_component"] += ram_component_ohos_xts if 1 else []
 
     # ========== 根据环境变量动态调整配置 ==========
     BUILD_MODE = os.environ.get('BUILD_MODE', 'normal')
+    BUILD_XTS = os.environ.get('BUILD_XTS', False)
     print("\n" + "="*60)
     print("WS63 Dynamic Configuration Applied:")
     print(f"  Build Mode:        {BUILD_MODE}")
+    print(f"  Build XTS:         {BUILD_XTS}")
 
+    target["ws63-liteos-xts"]["ram_component"] += ram_component_sdk_bt_base if 0 else []
+    target["ws63-liteos-xts"]["ram_component"] += ram_component_ohos_base if 1 else []
+    target["ws63-liteos-xts"]["ram_component"] += ram_component_ohos_xts if BUILD_XTS else []
 
     # 根据环境变量修改 Kconfig 配置
     kconfig_xts = os.path.join(os.path.dirname(__file__), 'menuconfig', 'acore', 'ws63_liteos_xts.config')
