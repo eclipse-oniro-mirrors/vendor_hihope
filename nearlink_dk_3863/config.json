@@ -52,9 +52,7 @@
     {
       "subsystem": "startup",
       "components": [
-        { "component": "bootstrap_lite", "features":[
-          "bootstrap_lite_enable_bootstrap_service = false"
-        ] },
+        { "component": "bootstrap_lite", "features":[] },
         { "component": "init", "features":
         [
           "init_feature_begetctl_liteos = true",
