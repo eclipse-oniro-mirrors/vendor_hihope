@@ -11,20 +11,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-group("nearlink_dk_3863_xts_minimal") {
-    deps = [
-        "wraps:product",
-        ":copy_config_to_sdk"
+static_library("product") {
+    sources = [
+        "stub_impl.c",
+        "at_custom_cmd.c",
     ]
-}
 
-
-
-
-# 构建时拷贝 config_patch.py 到 SDK 目录
-copy("copy_config_to_sdk") {
-    sources = [ "config_patch.py" ]
-    outputs = [ 
-        "$root_build_dir/../../../device/soc/hisilicon/ws63v100/sdk/build/config/target_config/ws63/config_patch_nearlink.py"
+    include_dirs = [
+        "./",
+        "//device/soc/hisilicon/ws63v100/sdk/include/middleware/utils",
+        "//device/soc/hisilicon/ws63v100/sdk/middleware/chips/ws63/dfx/include",
+        "//device/soc/hisilicon/ws63v100/sdk/kernel/osal/include",
+        "//device/soc/hisilicon/ws63v100/sdk/kernel/osal/include/debug",
     ]
 }

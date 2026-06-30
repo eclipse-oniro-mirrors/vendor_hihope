@@ -10,6 +10,18 @@
   "kernel_is_prebuilt": true,
   "kernel_version": "",
   "subsystems": [
+      {
+        "subsystem": "product_nearlink_dk_3863_xts_minimal",
+        "components": [
+          {
+            "component": "product_nearlink_dk_3863_xts_minimal",
+            "features": [
+              "enable_oh_device_lite_auth=false",
+              "enable_product_config_patch=true"
+            ]
+          }
+        ]
+    },
     {
       "subsystem": "hiviewdfx",
       "components": [
@@ -21,19 +33,6 @@
       "subsystem": "systemabilitymgr",
       "components": [
         { "component": "samgr_lite", "features":[] }
-      ]
-    },
-    {
-      "subsystem": "security",
-      "components": [
-        { "component": "huks", "features":
-        [
-          "huks_use_lite_storage = true",
-          "huks_use_hardware_root_key = true",
-          "huks_config_file = \"hks_config_lite.h\"",
-          "huks_dependency_mbedtls_path = \"//device/soc/hisilicon/ws63v100/sdk/open_source/mbedtls/mbedtls_v3.1.0\""
-        ]
-        }
       ]
     },
     {
@@ -63,8 +62,7 @@
     {
       "subsystem": "xts",
       "components": [
-        { "component": "acts", "features": [] },
-        { "component": "device_attest_lite", "features":[] }
+        { "component": "acts", "features": [] }
       ]
     }
   ],
