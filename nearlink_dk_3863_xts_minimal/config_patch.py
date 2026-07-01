@@ -240,7 +240,7 @@ def patch_target(target):
         "samgr_source",
         "samgr_adapter",
         "samgr",
-        "broadcast",
+        # "broadcast",
 
         "native_file",           
         "cjson_static",  
