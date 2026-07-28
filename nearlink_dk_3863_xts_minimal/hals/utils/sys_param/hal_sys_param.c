@@ -42,7 +42,8 @@ const char *HalGetSerial(void)
         uapi_soc_read_id(udid, UDID_SIZE);
         int j = 0;
         for (int i = 0; i < UDID_SIZE; i++) {
-            uint8_t lowFour, highFour;
+            uint8_t lowFour;
+            uint8_t highFour;
             highFour = (udid[i] & 0xF0) >> half_char;
             serialNumber[j] = Hex2Char(highFour);
             j++;
