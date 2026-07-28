@@ -23,6 +23,12 @@
       ]
     },
     {
+      "subsystem": "communication",
+      "components": [
+        { "component": "iot_connect", "features":[] }
+      ]
+    },
+    {
       "subsystem": "hiviewdfx",
       "components": [
         { "component": "hilog_lite", "features":[] },
