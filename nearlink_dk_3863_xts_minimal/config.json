@@ -95,5 +95,5 @@
     }
   ],
   "third_party_dir": "//device/soc/hisilicon/ws63v100/sdk/open_source",
-  "product_adapter_dir": "//vendor/hihope/nearlink_dk_3863/hals"
+  "product_adapter_dir": "//vendor/hihope/nearlink_dk_3863_xts_minimal/hals"
 }
