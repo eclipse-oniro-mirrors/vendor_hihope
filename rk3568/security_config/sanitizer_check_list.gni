@@ -425,6 +425,7 @@ bypass_user_auth_framework = [
   "userauthservice",
   "userauthservice_static",
   "userauthservice_test_common",
+  "userauthservice_unittest_common",  #cfi blocklist present, test-only, mirror userauthservice_static
   "attributes_fuzzer",  #cfi not configured
   "dfx_fuzzer",  #cfi not configured
   "userauth_client_ipc_fuzzer",  #cfi not configured
@@ -437,6 +438,7 @@ bypass_user_auth_framework = [
   "iam_thread_pool_fuzzer",  #cfi not configured
   "iam_utils_fuzzer",  #cfi not configured
   "iam_test_fuzzer",  #cfi not configured
+  "userauthservice_fuzzer_common",  #cfi not configured, test-only fuzz common lib
 ]
 
 # enterprise_device_management : //base/customization/enterprise_device_management
