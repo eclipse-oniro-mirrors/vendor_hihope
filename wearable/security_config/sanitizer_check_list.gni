@@ -405,6 +405,7 @@ bypass_user_auth_framework = [
   "user_auth_extension",
   "user_auth_extension_module",
   "userauth",
+  "userauthicon",
   "attributes",
   "dfx",
   "userauth_executors",
@@ -412,11 +413,8 @@ bypass_user_auth_framework = [
   "userauth_client_ipc",
   "userauth_service_ipc",
   "userauthservice",
-  "userauth_service_core",
-  "userauth_service_base",
-  "userauth_service_context",
-  "userauth_services_ipc",
-  "userauth_service_load_mode",
+  "userauthservice_unittest_common",
+  "userauthservice_static",
   "attributes_fuzzer",  #cfi not configured
   "dfx_fuzzer",  #cfi not configured
   "userauth_client_ipc_fuzzer",  #cfi not configured
@@ -425,9 +423,11 @@ bypass_user_auth_framework = [
   "userauth_service_context_fuzzer",  #cfi not configured
   "userauth_service_ipc_fuzzer",  #cfi not configured
   "userauth_services_ipc_fuzzer",  #cfi not configured
+  "userauth_service_remote_connect_fuzzer",  #cfi not configured
   "iam_thread_pool_fuzzer",  #cfi not configured
   "iam_utils_fuzzer",  #cfi not configured
   "iam_test_fuzzer",  #cfi not configured
+  "userauthservice_fuzzer_common",
 ]
 
 bypass_enterprise_device_management = []
