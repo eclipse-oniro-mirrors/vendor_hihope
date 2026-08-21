@@ -42,7 +42,7 @@
         { "component": "samgr_lite", "features":[
             "enable_ohos_systemabilitymgr_samgr_lite_broadcast = false",
             "enable_ohos_systemabilitymgr_samgr_lite_system_capability = false",
-            "config_ohos_systemabilitymgr_samgr_lite_shared_task_size = 1024",
+            "config_ohos_systemabilitymgr_samgr_lite_shared_task_size = 2048",
             "enable_ohos_systemabilitymgr_samgr_lite_specified_task = false",
             "enable_ohos_systemabilitymgr_samgr_lite_no_task = false"
         ] }
