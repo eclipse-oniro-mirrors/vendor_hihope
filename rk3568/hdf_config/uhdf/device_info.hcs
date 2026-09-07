@@ -167,6 +167,22 @@
                 }
             }
         }
+        pcie_host :: host {
+            hostName = "pcie_host";
+            priority = 50;
+            caps = ["SYS_MODULE"];
+            gid = ["pcie_host", "uhdf_driver"];
+            pcie_host_device :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 100;
+                    preload = 0;
+                    moduleName = "libpcie_driver_host_driver.z.so";
+                    serviceName = "pcie_interface_service";
+                    deviceMatchAttr = "pcie_hdf_driver";
+                }
+            }
+        }
         power :: host {
             hostName = "power_host";
             priority = 50;
