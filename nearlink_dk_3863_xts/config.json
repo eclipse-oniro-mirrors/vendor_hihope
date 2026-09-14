@@ -23,13 +23,7 @@
     {
       "subsystem": "systemabilitymgr",
       "components": [
-        { "component": "samgr_lite", "features":[
-            "enable_ohos_systemabilitymgr_samgr_lite_broadcast = false",
-            "enable_ohos_systemabilitymgr_samgr_lite_system_capability = false",
-            "config_ohos_systemabilitymgr_samgr_lite_shared_task_size = 1024",
-            "enable_ohos_systemabilitymgr_samgr_lite_specified_task = false",
-            "enable_ohos_systemabilitymgr_samgr_lite_no_task = false"
-        ] }
+        { "component": "samgr_lite", "features":[] }
       ]
     },
     {
@@ -72,16 +66,18 @@
       ]
     },
     {
+      "subsystem": "iothardware",
+      "components": [
+        { "component": "peripheral", "features":[] }
+      ]
+    },
+    {
       "subsystem": "xts",
       "components": [
         {
           "component": "acts",
           "features": [
-            "enable_ohos_test_xts_acts_use_thirdparty_lwip = false",
-            "enable_ohos_test_xts_acts_use_samgr_lite_broadcast = false",
-            "enable_ohos_test_xts_acts_use_samgr_lite_debug = false",
-            "enable_ohos_test_xts_acts_use_samgr_lite_taskpool_notask = false",
-            "enable_ohos_test_xts_acts_use_samgr_lite_taskpool_specifiedtask = false"
+            "enable_ohos_test_xts_acts_use_thirdparty_lwip = false"
           ]
         },
         { "component": "tools", "features":[] },
@@ -96,5 +92,5 @@
     }
   ],
   "third_party_dir": "//device/soc/hisilicon/ws63v100/sdk/open_source",
-  "product_adapter_dir": "//vendor/hihope/nearlink_dk_3863/hals"
+  "product_adapter_dir": "//vendor/hihope/nearlink_dk_3863_xts/hals"
 }
