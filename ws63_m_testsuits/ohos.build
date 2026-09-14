@@ -1,0 +1,10 @@
+{
+  "parts": {
+    "product_ws63_m_testsuits": {
+      "module_list": [
+        "//vendor/hihope/ws63_m_testsuits:ws63_m_testsuits"
+      ]
+    }
+  },
+  "subsystem": "product_ws63_m_testsuits"
+}

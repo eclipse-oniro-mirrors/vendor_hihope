@@ -1,0 +1,23 @@
+{
+  "product_name": "ws63_m",
+  "type": "mini",
+  "version": "3.0",
+  "ohos_version": "OpenHarmony 1.0",
+  "device_company": "hihope",
+  "device_build_path": "device/board/hihope/ws63_m",
+  "board": "ws63_m",
+  "kernel_type": "liteos_m",
+  "kernel_version": "3.0.0",
+  "subsystems": [
+     {
+       "subsystem": "kernel",
+       "components": [
+         { 
+           "component": "liteos_m", "features":[]
+         }
+       ]
+    }
+  ],
+  "third_party_dir": "//device/soc/hisilicon/ws63_m/sdk/open_source",
+  "product_adapter_dir": "//vendor/hihope/ws63_m/hals"
+}
