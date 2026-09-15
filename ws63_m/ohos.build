@@ -1,0 +1,10 @@
+{
+  "parts": {
+    "product_ws63_m": {
+      "module_list": [
+        "//vendor/hihope/ws63_m:ws63_m"
+      ]
+    }
+  },
+  "subsystem": "product_ws63_m"
+}
