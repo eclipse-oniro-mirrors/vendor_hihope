@@ -113,8 +113,8 @@ def patch_target(target):
     target["ws63-liteos-xts"]["hso_enable_bt"] = False
     target["ws63-liteos-xts"]["hso_enable"] = False
     target["ws63-liteos-xts"]["ram_component_set"] = [
-        'i2c', 'uart', 'hso_log', 
-        '-:security_unified',  # Removed: security driver not needed
+        'i2c', 'uart', 'hso_log',
+        'security_unified',  # Restored: needed for mbedtls hash harden (SHA256 for GetDevUdid)
         'dfx_set', 'sio_v151', 'i2s'
     ]
     target["ws63-liteos-xts"]['rom_component']= [
