@@ -1,0 +1,10 @@
+{
+  "parts": {
+    "product_ipcamera_hi3516": {
+      "module_list": [
+        "//vendor/hihope/hi3516:hi3516"
+      ]
+    }
+  },
+  "subsystem": "product_ipcamera_hi3516"
+}
