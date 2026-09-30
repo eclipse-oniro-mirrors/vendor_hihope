@@ -188,6 +188,10 @@
             "wifi_feature_non_hdf_driver = true",
             "wifi_feature_p2p_random_mac_addr = true"
          ]
+        },
+        {
+          "component": "dsoftbus",
+          "features": ["dsoftbus_feature_disc_coap_custdata = true"]
         }
       ]
     },
