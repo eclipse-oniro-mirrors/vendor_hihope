@@ -187,7 +187,10 @@
         },
         {
           "component": "dsoftbus",
-          "features": ["dsoftbus_feature_disc_coap_custdata = true"]
+          "features": [
+            "dsoftbus_feature_disc_coap_custdata = true",
+            "dsoftbus_feature_trans_udp_stream = true"
+          ]
         }
       ]
     },
