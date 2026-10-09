@@ -1,0 +1,22 @@
+{
+    "product_name": "ipcamera_hi3516",
+    "version": "3.0",
+    "type": "mini",
+    "ohos_version": "OpenHarmony 1.0",
+    "device_company": "hihope",
+    "device_build_path": "device/board/hihope/hi3516",
+    "board": "hi3516",
+    "api_version": 8,
+    "kernel_type": "liteos_m",
+    "kernel_version": "3.0.0",
+    "subsystems": [
+      {
+        "subsystem": "kernel",
+        "components": [
+          { "component": "liteos_m", "features":[] }
+        ]
+      }
+    ],
+    "third_party_dir": "//third_party",
+    "product_adapter_dir": ""
+  }
