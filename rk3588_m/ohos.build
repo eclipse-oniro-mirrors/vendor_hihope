@@ -1,0 +1,10 @@
+{
+  "parts": {
+    "product_rk3588_m": {
+      "module_list": [
+        "//vendor/hihope/rk3588_m:rk3588_m"
+      ]
+    }
+  },
+  "subsystem": "product_rk3588_m"
+}
