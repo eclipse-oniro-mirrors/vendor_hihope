@@ -1,0 +1,10 @@
+{
+  "parts": {
+    "product_rk3568_m_testsuits": {
+      "module_list": [
+        "//vendor/hihope/rk3568_m_testsuits:rk3568_m_testsuits"
+      ]
+    }
+  },
+  "subsystem": "product_rk3568_m_testsuits"
+}
