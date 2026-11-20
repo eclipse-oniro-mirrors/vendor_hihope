@@ -11,7 +11,10 @@
   "enable_absystem": false,
   "build_selinux": true,
   "build_seccomp": true,
-  "inherit": [ "productdefine/common/inherit/rich.json", "productdefine/common/inherit/chipset_common.json" ],
+  "inherit": [
+    "productdefine/common/inherit/rich.json",
+    "productdefine/common/inherit/chipset_common.json"
+  ],
   "subsystems": [
     {
       "subsystem": "security",
@@ -57,15 +60,19 @@
       "components": [
         {
           "component": "drivers_interface_lpplayer",
-          "features":[]
+          "features": []
         },
         {
           "component": "drivers_interface_ril",
           "features": []
         },
         {
+          "component": "drivers_interface_pcie",
+          "features": []
+        },
+        {
           "component": "drivers_peripheral_ril",
-          "features":[]
+          "features": []
         },
         {
           "component": "drivers_interface_bluetooth",
@@ -109,6 +116,16 @@
           ]
         },
         {
+          "component": "drivers_peripheral_pcie",
+          "features": []
+        },
+        {
+          "component": "external_device_manager",
+          "features": [
+            "external_device_manager_enable_pcie = true"
+          ]
+        },
+        {
           "component": "hdf_core",
           "features": [
             "hdf_core_platform_test_support = false",
@@ -137,8 +154,8 @@
       ]
     },
     {
-    "subsystem": "ai",
-    "components": [
+      "subsystem": "ai",
+      "components": [
         {
           "component": "mindspore",
           "features": []
@@ -176,7 +193,7 @@
             "wifi_feature_non_seperate_p2p = true",
             "wifi_feature_non_hdf_driver = true",
             "wifi_feature_p2p_random_mac_addr = true"
-         ]
+          ]
         }
       ]
     },
@@ -306,6 +323,10 @@
         {
           "component": "xmp_toolkit_sdk",
           "features": []
+        },
+        {
+          "component": "selinux",
+          "features": []
         }
       ]
     },
@@ -370,7 +391,7 @@
       ]
     },
     {
-      "subsystem":"hiviewdfx",
+      "subsystem": "hiviewdfx",
       "components": [
         {
           "component": "hiview",
